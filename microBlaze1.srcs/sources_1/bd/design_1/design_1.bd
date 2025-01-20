@@ -7,8 +7,7 @@
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2",
-      "validated": "true"
+      "tool_version": "2022.2"
     },
     "design_tree": {
       "microblaze_0": "",
@@ -41,7 +40,8 @@
       "axi_uartlite_1": "",
       "axi_gpio_0": "",
       "axi_bram_ctrl_0": "",
-      "hw0_0": ""
+      "hw0_0": "",
+      "axi_uart16550_0": ""
     },
     "interface_ports": {
       "clkSys": {
@@ -74,10 +74,6 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
           "POLARITY": {
             "value": "ACTIVE_LOW"
           }
@@ -119,6 +115,14 @@
         "direction": "O",
         "left": "3",
         "right": "0"
+      },
+      "uartTx2": {
+        "type": "data",
+        "direction": "O"
+      },
+      "uartRx2": {
+        "type": "data",
+        "direction": "I"
       }
     },
     "components": {
@@ -1468,6 +1472,12 @@
             "right": "0"
           }
         }
+      },
+      "axi_uart16550_0": {
+        "vlnv": "xilinx.com:ip:axi_uart16550:2.0",
+        "xci_name": "design_1_axi_uart16550_0_1",
+        "xci_path": "ip\\design_1_axi_uart16550_0_1\\design_1_axi_uart16550_0_1.xci",
+        "inst_hier_path": "axi_uart16550_0"
       }
     },
     "interface_nets": {
@@ -1517,6 +1527,12 @@
         "interface_ports": [
           "microblaze_0_axi_periph/M05_AXI",
           "axi_uartlite_1/S_AXI"
+        ]
+      },
+      "microblaze_0_axi_periph_M06_AXI": {
+        "interface_ports": [
+          "microblaze_0_axi_periph/M06_AXI",
+          "axi_uart16550_0/S_AXI"
         ]
       },
       "microblaze_0_debug": {
@@ -1579,6 +1595,12 @@
         "ports": [
           "axi_gpio_0/gpio_io_o",
           "gpoutA"
+        ]
+      },
+      "axi_uart16550_0_sout": {
+        "ports": [
+          "axi_uart16550_0/sout",
+          "uartTx2"
         ]
       },
       "axi_uartlite_0_tx": {
@@ -1662,7 +1684,8 @@
           "microblaze_0_axi_periph/M06_ACLK",
           "axi_gpio_0/s_axi_aclk",
           "axi_bram_ctrl_0/s_axi_aclk",
-          "hw0_0/sys_clk"
+          "hw0_0/sys_clk",
+          "axi_uart16550_0/s_axi_aclk"
         ]
       },
       "reset_rtl_0_1": {
@@ -1701,7 +1724,8 @@
           "microblaze_0_axi_periph/M06_ARESETN",
           "axi_gpio_0/s_axi_aresetn",
           "axi_bram_ctrl_0/s_axi_aresetn",
-          "hw0_0/rst_n"
+          "hw0_0/rst_n",
+          "axi_uart16550_0/s_axi_aresetn"
         ]
       },
       "rx_1_1": {
@@ -1714,6 +1738,12 @@
         "ports": [
           "uartRx0",
           "axi_uartlite_0/rx"
+        ]
+      },
+      "uartRx2_1": {
+        "ports": [
+          "uartRx2",
+          "axi_uart16550_0/sin"
         ]
       }
     },
