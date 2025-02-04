@@ -37,7 +37,18 @@ module hw0
         input   wire                sys_clk     ,//System clock 200m
         input   wire                clk160m     ,//System clock 160m
         input   wire                rst_n       ,//system reset
-        input   wire    [0:0]       inA         ,          
+        //==================================
+        input   wire    [31:0]       inA
+        /*
+                  0: spFreqCh0, 1: spFreqCh1,  2: spFreqCh2, 3: spFreqCh3, 4: spFreqCh4, 5: spFreqCh5
+                  6: spPreTrig   ,7 spTrig, 8 spInhib
+                  //   
+                  10: fibRx0, 11:fibRx2, 12: fibRx4, 13:fibRx6, rfRx0, rfRx1
+                  
+                  
+                       
+                */
+                  
         output  [3:0]       outA        ,   		
         output  [3:0]       outB           		
    		
