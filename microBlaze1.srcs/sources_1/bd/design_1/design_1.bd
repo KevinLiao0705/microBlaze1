@@ -114,6 +114,9 @@
         "direction": "O",
         "left": "3",
         "right": "0"
+      },
+      "uartTx2": {
+        "direction": "O"
       }
     },
     "components": {
