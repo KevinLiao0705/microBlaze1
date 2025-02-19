@@ -36,21 +36,83 @@ module hw0
    		//
         input   wire                sys_clk     ,//System clock 200m
         input   wire                clk160m     ,//System clock 160m
-        input   wire                rst_n       ,//system reset
-        //==================================
-        input   wire    [31:0]       inA,
+
+
+    input wire sysClk50m,
+    input wire resetN,
+    
+    output  ledV1,         //output io
+    output  ledV3,         //output io
+    output  ledV4,         //output io
+
+
+
+        /* 
+                0: rs485De
+                1: ledR
+                2: ledG
+                3:ledB  
+            */
+        output [1:0] gpOutA,
+        /* 
+                0: sw1_0
+                1: sw1_1
+                2:slotSw0
+                3:slotSw1
+                4:slotSw2
+                5:slotSw3
+            */
+        input   wire    [3:0]       gpInA,
+        
+        
+
+        input wire aRfmaCko,
+        output wire aRfmaDio2,
+        input wire aRfmaDio1,
+        input wire aRfmaD0,
+        input wire aRfmbCko,
+        output wire aRfmbDio2,
+        input wire aRfmbDio1,
+        input wire aRfmbD0,
+        
+        output [7:0] fibTxA,    		
+        input   wire [7:0] fibRxA,
+
+        
+        
+        input wire bRfmaCko,
+        output wire bRfmaDio2,
+        input wire bRfmaDio1,
+        input wire bRfmaD0,
+        input wire bRfmbCko,
+        output wire bRfmbDio2,
+        input wire bRfmbDio1,
+        input wire bRfmbD0,
+
+        input wire uartIpcTx2,
+        output uartIpxRx2,
+        input wire uartIpcTxH,
+        output uartIpxRxH,
+
+        
+        //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
+        input   wire    [13:0]       hdfiA,
+        output [7:0]        hdfoA,    		
+        output [7:0]        laCh,
+        //==================================================    		
         /*
-                  0: spFreqCh0, 1: spFreqCh1,  2: spFreqCh2, 3: spFreqCh3, 4: spFreqCh4, 5: spFreqCh5
-                  6: spPreTrig   ,7 spTrig, 8 spInhib
+                    0:. aSndRx, 1:bSndRx
+                    2: spFreqCh0, 3: spFreqCh1,  4: spFreqCh2, 5: spFreqCh3, 6: spFreqCh4, 7: spFreqCh5
+                    8: spzInhib, 9: spPreTrig   ,10: spGate,
+                    [11:15]: spPulseWidthCh[0:4]
                   //   
-                  10: fibRx0, 11:fibRx2, 12: fibRx4, 13:fibRx6, rfRx0, rfRx1
-                  
-                  
-                       
                 */
-                  
-        output  [3:0]       outA        ,   		
-        output  [3:0]       outB           		
+        input [15:0]    dfInP,
+        input [15:0]    dfInN,
+        // diff output
+        // 0:wg_clk, 1:wg_data, 2:wg_trig, 3:wg_rfout, 4:a_snd_clk, 5:a_snd_tx, 6:b_snd_clk, 7:b_snd_tx           
+        output  [7:0]       dfOutP    ,   //+   		
+        output  [7:0]       dfOutN        //-
    		
     );
   
@@ -60,13 +122,19 @@ module hw0
     reg[RamDataWidth-1:0]             mem[RamDepth-1:0];
     reg[3:0] clk160m_cnt;
   
-  
+    //================================
     reg[23:0] wg_data;
-    reg wg_data_o;
-    reg wg_clk_o;
-    reg wg_trig_o;
-    reg wg_rfout_o;
+    reg wgData;
+    reg wgClk;
+    reg wgTrig;
+    reg wgRfout;
     
+    reg[5:0]spFreqCh;
+    reg spInhib;
+    reg spPreTrig;
+    reg spGate;
+    reg[4:0]spPulseWidthCh;
+    //==============================
     reg[31:0] wg_timeClk;
     reg[31:0] trigStartTime;
     reg[31:0] rfoutStartTime;
@@ -77,14 +145,11 @@ module hw0
     reg[15:0] maxPulseWidth;
     reg[15:0] maxDuty;
     reg[31:0] ibuf[15:0];
-    
     reg[7:0] repeatCnt;
     reg[7:0] sampleCnt;
-    
     reg[31:0] wg_flag;
     reg[31:0] wg_set;
-    reg[31:0] wg_datas[30*2-1:0];
-    
+    reg[31:0] pusleGenDatas[32*2-1:0];
     reg[7:0] wg_sampleEnd;
     reg[7:0] wg_repeatEnd;
     reg[7:0] wg_repeat;
@@ -122,7 +187,7 @@ module hw0
         
         mem[0]=32'h0000_0000;//systemFlag
        
-        //set after trig time:trig pre rfout time:trig after rfout time(unit 25ns)(16:8:8)
+        //set after trig time:trig pre rfout time:trig after rfout time(unit 100ns)(16:8:8)
         mem[1]=10*2*65536+10*256+10;
         //[7:0]sampleEnd
         mem[2]=2;
@@ -134,18 +199,25 @@ module hw0
         
         mem[8'h20]=(1*256+10)*65536+10*6;//repeatEnd:rffreq:pulsewidth(8:8:16) freq 0:2.90GHz 1:2.91GHz......60:3.50GHz,pulseWidth unit =25ns
         mem[8'h21]=0*65536+80;          //wg_pulseFlag:duty(16:16) duty unit = 0.1%
+        
         mem[8'h22]=(2*256+11)*65536+10*10;
         mem[8'h23]=0*65536+90;
+        
         mem[8'h24]=(3*256+12)*65536+10*20;
         mem[8'h25]=0*65536+200;
+        
         mem[8'h26]=10*65536+10*6;
         mem[8'h27]=1*65536+200;
+        
         mem[8'h28]=10*65536+10*6;
         mem[8'h29]=1*65536+200;
+        
         mem[8'h2a]=10*65536+10*6;
         mem[8'h2b]=1*65536+200;
+        
         mem[8'h2c]=10*65536+10*6;
         mem[8'h2d]=1*65536+200;
+        
         mem[8'h2e]=10*65536+10*6;
         mem[8'h2f]=1*65536+200;
         //
@@ -199,15 +271,15 @@ module hw0
         mem[8'h5d]=1*65536+200;
         mem[8'h5e]=10*65536+10*6;
         mem[8'h5f]=1*65536+200;
-            
+        //===========================================    
         
         maxPulseWidth=10*2000;
         maxDuty=400;
         
-        wg_clk_o=0;
-        wg_data_o=0;
-        wg_trig_o=1;
-        wg_rfout_o=0;
+        wgClk=0;
+        wgData=0;
+        wgTrig=1;
+        wgRfout=0;
         
         wg_timeClk=10*1000;
         cycleEndTime=10*1000;
@@ -226,10 +298,10 @@ module hw0
             4'b0000:begin
                 if((wg_timeClk>=cycleEndTime))begin
                     wg_timeClk<=0;
-                    wg_clk_o<=0;
-                    wg_data_o<=0;
-                    wg_trig_o<=1;
-                    wg_rfout_o<=0;
+                    wgClk<=0;
+                    wgData<=0;
+                    wgTrig<=1;
+                    wgRfout<=0;
                     if(mem[15]!=memLoadValue)begin
                         memLoadValue<=mem[15];
                         wg_flag<=mem[0];
@@ -237,15 +309,8 @@ module hw0
                         wg_sampleEnd<=mem[2][7:0];
                         repeatCnt<=255;
                         sampleCnt<=0;
-                        //wg_datas[0]<=mem[32];
-                        //wg_datas[1]<=mem[33];
-                        //wg_datas[2]<=mem[34];
-                        //wg_datas[3]<=mem[35];
-                        //wg_datas[4]<=mem[36];
-                        //wg_datas[5]<=mem[37];
-                        
                         for(i=0;i<60;i=i+1)begin
-                            wg_datas[i]<=mem[32+i];
+                            pusleGenDatas[i]<=mem[32+i];
                             end
                         end
                     end
@@ -266,8 +331,8 @@ module hw0
                             end
                         end
                     if(wg_timeClk==1)begin
-                        ibuf[0]<=wg_datas[sampleCnt*2];
-                        ibuf[1]<=wg_datas[sampleCnt*2+1];
+                        ibuf[0]<=pusleGenDatas[sampleCnt*2];
+                        ibuf[1]<=pusleGenDatas[sampleCnt*2+1];
                         end
                     if(wg_timeClk==2)begin
                         wg_repeatEnd<=ibuf[0][31:24];
@@ -297,37 +362,37 @@ module hw0
                         end
                     if(wg_timeClk>=8 && wg_timeClk<32)begin
                         if(wg_flag[5:5])begin
-                            wg_clk_o <= 1;
+                            wgClk <= 1;
                             if(wg_data&(24'h80_0000>>(wg_timeClk-8)))begin
-                                wg_data_o <= 1;
+                                wgData <= 1;
                                 end
                             else begin
-                                wg_data_o <= 0;
+                                wgData <= 0;
                                 end
                             end 
                         end
                     
                     if(wg_timeClk==32)begin
-                        wg_data_o <= 0;
+                        wgData <= 0;
                         end
                                                     
                     if((wg_timeClk==trigStartTime))begin
-                        if(wg_flag[5:5])begin
-                            wg_trig_o <= 0;
+                        if(wg_flag[5:5])begin//local pulse start flag
+                            wgTrig <= 0;
                             end
                         end
                     
                     if((wg_timeClk==rfoutStartTime))begin
                         if(wg_flag[5:5])begin
-                            wg_rfout_o <= 1;
+                            wgRfout <= 1;
                             end
                         end
                     if((wg_timeClk==rfoutEndTime))begin
-                        wg_rfout_o <= 0;
+                        wgRfout <= 0;
                         end
                     
                     if((wg_timeClk==trigEndTime))begin
-                        wg_trig_o <= 1;
+                        wgTrig <= 1;
                         end
                     end                    
                 end
@@ -335,7 +400,7 @@ module hw0
             4'b0100:begin
                 end
             4'b1000:begin
-                wg_clk_o<=0;
+                wgClk=0;
                 end
             4'b1100:begin
                 end
@@ -343,55 +408,106 @@ module hw0
         end
   
     
-    /*
-    assign outA[0]=wg_clk_o;
-    assign outA[1]=wg_data_o;
-    assign outA[2]=wg_trig_o;
-    assign outA[3]=wg_rfout_o;
-    
-    assign outB[0]=!wg_clk_o;
-    assign outB[1]=!wg_data_o;
-    assign outB[2]=!wg_trig_o;
-    assign outB[3]=!wg_rfout_o;
-    */
     
     
     OBUFDS #(
-      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
-      .SLEW("SLOW")           // Specify the output slew rate
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
     ) OBUFDS_inst0 (
-      .O(outA[0]),        // Diff_p output (connect directly to top-level port)
-      .OB(outB[0]),       // Diff_n output (connect directly to top-level port)
-      .I(wg_clk_o)          // Buffer input
+      .O(dfOutP[0]),        
+      .OB(dfOutN[0]),       
+      .I(wgClk)        
     );
   
     OBUFDS #(
-      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
-      .SLEW("SLOW")           // Specify the output slew rate
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
     ) OBUFDS_inst1 (
-      .O(outA[1]),        // Diff_p output (connect directly to top-level port)
-      .OB(outB[1]),       // Diff_n output (connect directly to top-level port)
-      .I(wg_data_o)          // Buffer input
+      .O(dfOutP[1]),        
+      .OB(dfOutN[1]),       
+      .I(wgData)       
     );
   
     OBUFDS #(
-      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
-      .SLEW("SLOW")           // Specify the output slew rate
+      .IOSTANDARD("DEFAULT"),
+      .SLEW("SLOW")       
     ) OBUFDS_inst2 (
-      .O(outA[2]),        // Diff_p output (connect directly to top-level port)
-      .OB(outB[2]),       // Diff_n output (connect directly to top-level port)
-      .I(wg_trig_o)          // Buffer input
+      .O(dfOutP[2]),  
+      .OB(dfOutN[2]), 
+      .I(wgTrig) 
     );
   
     OBUFDS #(
-      .IOSTANDARD("DEFAULT"), // Specify the output I/O standard
-      .SLEW("SLOW")           // Specify the output slew rate
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
     ) OBUFDS_inst3 (
-      .O(outA[3]),        // Diff_p output (connect directly to top-level port)
-      .OB(outB[3]),       // Diff_n output (connect directly to top-level port)
-      .I(wg_rfout_o)          // Buffer input
+      .O(dfOutP[3]),        
+      .OB(dfOutN[3]),       
+      .I(wgRfout)      
     );
     
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
+    ) OBUFDS_inst4 (
+      .O(dfOutP[4]),        
+      .OB(dfOutN[4]),       
+      .I(a_snd_clk)        
+    );
+  
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
+    ) OBUFDS_inst5 (
+      .O(dfOutP[5]),        
+      .OB(dfOutN[5]),       
+      .I(a_snd_tx)       
+    );
+  
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"),
+      .SLEW("SLOW")       
+    ) OBUFDS_inst6 (
+      .O(dfOutP[6]),  
+      .OB(dfOutN[6]), 
+      .I(b_snd_clk) 
+    );
+  
+    OBUFDS #(
+      .IOSTANDARD("DEFAULT"), 
+      .SLEW("SLOW")           
+    ) OBUFDS_inst7 (
+      .O(dfOutP[7]),        
+      .OB(dfOutN[7]),       
+      .I(b_snd_tx)      
+    );
+
+
+
+IBUFDS #(
+      .DIFF_TERM("FALSE"),       // Differential Termination
+      .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
+      .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
+   ) IBUFDS_inst0 (
+      .O(aSndRx),          
+      .I(dfInP[0]),             
+      .IB(dfInN[0])             
+   );
+
+
+IBUFDS #(
+      .DIFF_TERM("FALSE"),       // Differential Termination
+      .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
+      .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
+   ) IBUFDS_inst1 (
+      .O(bSndRx),          
+      .I(dfInP[1]),             
+      .IB(dfInN[1])             
+   );
+
+
+
+
   
   //ram processs ========================================
   always @(posedge ramClk) begin

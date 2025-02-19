@@ -43,7 +43,7 @@
       "hw0_0": ""
     },
     "interface_ports": {
-      "clkSys": {
+      "sysClk50m": {
         "mode": "Slave",
         "vlnv_bus_definition": "xilinx.com:interface:diff_clock:1.0",
         "vlnv": "xilinx.com:interface:diff_clock_rtl:1.0",
@@ -58,11 +58,11 @@
         },
         "port_maps": {
           "CLK_N": {
-            "physical_name": "clkSys_clk_n",
+            "physical_name": "sysClk50m_clk_n",
             "direction": "I"
           },
           "CLK_P": {
-            "physical_name": "clkSys_clk_p",
+            "physical_name": "sysClk50m_clk_p",
             "direction": "I"
           }
         }
@@ -78,16 +78,16 @@
           }
         }
       },
-      "uartRx0": {
+      "uartIpcRxH": {
         "direction": "I"
       },
-      "uartTx0": {
+      "uartIpcTxH": {
         "direction": "O"
       },
-      "uartRx1": {
+      "rs485Ro": {
         "direction": "I"
       },
-      "uartTx1": {
+      "rs485Di": {
         "direction": "O"
       },
       "gpinA": {
@@ -367,22 +367,22 @@
         "inst_hier_path": "clk_wiz_1",
         "parameters": {
           "CLKIN1_JITTER_PS": {
-            "value": "50.0"
+            "value": "200.0"
           },
           "CLKOUT1_JITTER": {
-            "value": "100.010"
+            "value": "161.087"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "97.786"
+            "value": "144.334"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "200"
           },
           "CLKOUT2_JITTER": {
-            "value": "104.455"
+            "value": "167.571"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "97.786"
+            "value": "144.334"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "160.000"
@@ -391,10 +391,10 @@
             "value": "true"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "4.000"
+            "value": "16.000"
           },
           "MMCM_CLKIN1_PERIOD": {
-            "value": "5.000"
+            "value": "20.000"
           },
           "MMCM_CLKIN2_PERIOD": {
             "value": "10.0"
@@ -409,7 +409,7 @@
             "value": "2"
           },
           "PRIM_IN_FREQ": {
-            "value": "200.000"
+            "value": "50"
           },
           "PRIM_SOURCE": {
             "value": "Differential_clock_capable_pin"
@@ -1471,7 +1471,7 @@
     "interface_nets": {
       "clkSys": {
         "interface_ports": [
-          "clkSys",
+          "sysClk50m",
           "clk_wiz_1/CLK_IN1_D"
         ]
       },
@@ -1582,13 +1582,13 @@
       "axi_uartlite_0_tx": {
         "ports": [
           "axi_uartlite_0/tx",
-          "uartTx0"
+          "uartIpcTxH"
         ]
       },
       "axi_uartlite_1_tx": {
         "ports": [
           "axi_uartlite_1/tx",
-          "uartTx1"
+          "rs485Di"
         ]
       },
       "clk_wiz_1_clk_out2": {
@@ -1704,13 +1704,13 @@
       },
       "rx_1_1": {
         "ports": [
-          "uartRx1",
+          "rs485Ro",
           "axi_uartlite_1/rx"
         ]
       },
       "uartRx0_1": {
         "ports": [
-          "uartRx0",
+          "uartIpcRxH",
           "axi_uartlite_0/rx"
         ]
       }
