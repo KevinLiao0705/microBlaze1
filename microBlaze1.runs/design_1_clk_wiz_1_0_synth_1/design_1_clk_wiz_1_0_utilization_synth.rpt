@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb 20 06:47:15 2025
-| Host         : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+| Date         : Thu Feb 20 18:48:45 2025
+| Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_clk_wiz_1_0_utilization_synth.rpt -pb design_1_clk_wiz_1_0_utilization_synth.pb
 | Design       : design_1_clk_wiz_1_0
 | Device       : xc7a100tfgg484-2
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    2 |     0 |          0 |       285 |  0.70 |
+| Bonded IOB                  |    1 |     0 |          0 |       285 |  0.35 |
 | Bonded IPADs                |    0 |     0 |          0 |        14 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |         8 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         6 |  0.00 |
@@ -100,7 +100,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | OUT_FIFO                    |    0 |     0 |          0 |        24 |  0.00 |
 | IN_FIFO                     |    0 |     0 |          0 |        24 |  0.00 |
 | IDELAYCTRL                  |    0 |     0 |          0 |         6 |  0.00 |
-| IBUFDS                      |    1 |     0 |          0 |       274 |  0.36 |
+| IBUFDS                      |    0 |     0 |          0 |       274 |  0.00 |
 | GTPE2_CHANNEL               |    0 |     0 |          0 |         4 |  0.00 |
 | PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        24 |  0.00 |
 | PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        24 |  0.00 |
@@ -119,8 +119,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 | BUFGCTRL   |    3 |     0 |          0 |        32 |  9.38 |
 | BUFIO      |    0 |     0 |          0 |        24 |  0.00 |
-| MMCME2_ADV |    1 |     0 |          0 |         6 | 16.67 |
-| PLLE2_ADV  |    0 |     0 |          0 |         6 |  0.00 |
+| MMCME2_ADV |    0 |     0 |          0 |         6 |  0.00 |
+| PLLE2_ADV  |    1 |     0 |          0 |         6 | 16.67 |
 | BUFMRCE    |    0 |     0 |          0 |        12 |  0.00 |
 | BUFHCE     |    0 |     0 |          0 |        96 |  0.00 |
 | BUFR       |    0 |     0 |          0 |        24 |  0.00 |
@@ -148,13 +148,13 @@ Warning! LUT value is adjusted to account for LUT combining.
 7. Primitives
 -------------
 
-+------------+------+---------------------+
-|  Ref Name  | Used | Functional Category |
-+------------+------+---------------------+
-| BUFG       |    3 |               Clock |
-| MMCME2_ADV |    1 |               Clock |
-| IBUFDS     |    1 |                  IO |
-+------------+------+---------------------+
++-----------+------+---------------------+
+|  Ref Name | Used | Functional Category |
++-----------+------+---------------------+
+| BUFG      |    3 |               Clock |
+| PLLE2_ADV |    1 |               Clock |
+| IBUF      |    1 |                  IO |
++-----------+------+---------------------+
 
 
 8. Black Boxes

@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Feb 20 07:08:28 2025
-| Host         : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+| Date         : Thu Feb 20 18:50:54 2025
+| Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
 | Device       : xc7a100tfgg484-2
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   86 |     0 |          0 |       285 | 30.18 |
+| Bonded IOB                  |   87 |     0 |          0 |       285 | 30.53 |
 | Bonded IPADs                |    0 |     0 |          0 |        14 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |         8 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         6 |  0.00 |
@@ -151,7 +151,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| IBUF     |   45 |                  IO |
+| IBUF     |   46 |                  IO |
 | OBUF     |   41 |                  IO |
 +----------+------+---------------------+
 
@@ -173,6 +173,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | design_1_dlmb_v10_0           |    1 |
 | design_1_dlmb_bram_if_cntlr_0 |    1 |
 | design_1_clk_wiz_1_0          |    1 |
+| design_1_axi_uartlite_1_0     |    1 |
 | design_1_axi_uartlite_0_1     |    1 |
 | design_1_axi_uartlite_0_0     |    1 |
 | design_1_axi_timer_0_0        |    1 |

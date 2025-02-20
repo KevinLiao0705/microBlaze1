@@ -40,10 +40,6 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_mdm_1_0/sim/design_1_mdm_1_0.vhd" \
 -endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_clk_wiz.v" \
-  "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.v" \
--endlib
 -makelib xcelium_lib/lib_cdc_v1_0_2 \
   "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
 -endlib
@@ -64,9 +60,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_axi_uartlite_0_0/sim/design_1_axi_uartlite_0_0.vhd" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/sim/design_1.v" \
 -endlib
 -makelib xcelium_lib/generic_baseblocks_v2_1_0 \
   "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
@@ -102,8 +95,34 @@
   "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/6219/hdl/axi_gpio_v2_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
   "../../../bd/design_1/ip/design_1_axi_gpio_1_0/sim/design_1_axi_gpio_1_0.vhd" \
+-endlib
+-makelib xcelium_lib/axi_timer_v2_0_29 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/22b2/hdl/axi_timer_v2_0_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_timer_0_0/sim/design_1_axi_timer_0_0.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_0_1/sim/design_1_axi_uartlite_0_1.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/axi_bram_ctrl_v4_1_7 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/f80b/hdl/axi_bram_ctrl_v4_1_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_bram_ctrl_0_1/sim/design_1_axi_bram_ctrl_0_1.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_1_0/sim/design_1_axi_uartlite_1_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_clk_wiz.v" \
+  "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.v" \
+  "../../../bd/design_1/ip/design_1_hw0_0_0/sim/design_1_hw0_0_0.v" \
+  "../../../bd/design_1/sim/design_1.v" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

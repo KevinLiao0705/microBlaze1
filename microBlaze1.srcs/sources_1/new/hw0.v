@@ -24,8 +24,10 @@ module hw0
         parameter RamDataWidth = 32,
         parameter RamDepth = 2048 
     )
-    ( 	
+    ( 	  
+
         //ram use
+   		//==========================================================================
         input 					    ramClk,
    		input [RamAddrWidth-1:0]	ramAddr,
    		input [RamDataWidth-1:0]	ramInData,
@@ -33,15 +35,16 @@ module hw0
    		input [3:0]					ramWe,
    		input 					    ramEn,
    		input 					    ramRstp,
-   		//
-        input   wire                sys_clk     ,//System clock 200m
-        input   wire                clk160m     ,//System clock 160m
+   		//==========================================================================
+        input   wire                sysClk200m, //System clock 200m
+        input   wire                clk160m,    //System clock 160m
+        input   wire                resetN,
+        //==========================================================================
+        input wire gpsPps,
+        //output  ledV1,         //output io
 
-        input wire resetN,
-    
-    output  ledV1,         //output io
-    output  ledV3,         //output io
-    output  ledV4,         //output io
+        output  ledV3,         //output io
+        output  ledV4,         //output io
 
 
 
@@ -99,7 +102,11 @@ module hw0
    		
     );
   
-      
+
+
+    reg[31:0]   baseTimer;
+
+
     reg[RamDataWidth-1:0]             ramInit;
     reg[RamDataWidth-1:0]             tmpData;
     reg[RamDataWidth-1:0]             mem[RamDepth-1:0];
@@ -146,6 +153,9 @@ module hw0
     integer      i ;  
   
   
+
+
+
   
   
     initial begin
@@ -518,6 +528,14 @@ IBUFDS #(
   
   assign ramOutData = tmpData;
   //ram processs end====================================
+
+
+  //timer bit24 83ms
+always @(posedge sysClk200m)begin
+    baseTimer <= baseTimer + 1'b1;
+end
+assign ledV3=baseTimer[24];
+assign ledV4=baseTimer[25];
   
 endmodule
 

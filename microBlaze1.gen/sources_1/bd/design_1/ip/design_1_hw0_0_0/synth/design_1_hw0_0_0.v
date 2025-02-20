@@ -63,10 +63,10 @@ module design_1_hw0_0_0 (
   ramWe,
   ramEn,
   ramRstp,
-  sys_clk,
+  sysClk200m,
   clk160m,
   resetN,
-  ledV1,
+  gpsPps,
   ledV3,
   ledV4,
   rfInA,
@@ -89,14 +89,12 @@ output wire [31 : 0] ramOutData;
 input wire [3 : 0] ramWe;
 input wire ramEn;
 input wire ramRstp;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_clk, ASSOCIATED_RESET resetN, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 sys_clk CLK" *)
-input wire sys_clk;
+input wire sysClk200m;
 input wire clk160m;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetN RST" *)
 input wire resetN;
-output wire ledV1;
+input wire gpsPps;
 output wire ledV3;
 output wire ledV4;
 input wire [11 : 0] rfInA;
@@ -123,10 +121,10 @@ output wire [7 : 0] dfOutN;
     .ramWe(ramWe),
     .ramEn(ramEn),
     .ramRstp(ramRstp),
-    .sys_clk(sys_clk),
+    .sysClk200m(sysClk200m),
     .clk160m(clk160m),
     .resetN(resetN),
-    .ledV1(ledV1),
+    .gpsPps(gpsPps),
     .ledV3(ledV3),
     .ledV4(ledV4),
     .rfInA(rfInA),

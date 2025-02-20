@@ -7,16 +7,13 @@
 
 
 
-create_clock -period 20.000 [get_ports {sysClk50m}]
+#create_clock -period 20.000 [get_ports {sysClk50m}]
 set_property PACKAGE_PIN W19 [get_ports {sysClk50m}]
 #set_property IOSTANDARD DIFF_SSTL15 [get_ports {sysClk}]
 set_property IOSTANDARD LVCMOS25 [get_ports {sysClk50m}]
 # switchK1, resetBN
 set_property PACKAGE_PIN H13 [get_ports resetN]
 set_property IOSTANDARD LVCMOS25 [get_ports resetN]
-# ledV1
-set_property PACKAGE_PIN K13 [get_ports {ledV1}]
-set_property IOSTANDARD LVCMOS25 [get_ports {ledV1}]
 # ledV3
 set_property PACKAGE_PIN H14 [get_ports {ledV3}]
 set_property IOSTANDARD LVCMOS25 [get_ports {ledV3}]
@@ -115,7 +112,7 @@ set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[0]}]
 
 # ioA17
 set_property PACKAGE_PIN AB6 [get_ports {fibRxA[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[0}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[0]}]
 
 # ioA18
 set_property PACKAGE_PIN AB7 [get_ports {fibTxA[1]}]
@@ -217,9 +214,11 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[5]}]
 set_property PACKAGE_PIN U2 [get_ports {gpOutA[6]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[6]}]
 
-# ioA47
-set_property PACKAGE_PIN W2 [get_ports {gpOutA[7]}]
+# ioA47 ledV1
+set_property PACKAGE_PIN K13 [get_ports {gpOutA[7]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[7]}]
+
+
 
 
 
@@ -329,7 +328,7 @@ set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[7]}]
 
 # ioB8 spGate
 set_property PACKAGE_PIN L15 [get_ports {hdfiA[8]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {ioB[8]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[8]}]
 
 # ioB9 spPulseWidthCh0
 set_property PACKAGE_PIN L19 [get_ports {hdfiA[9]}]
@@ -349,7 +348,9 @@ set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[12]}]
 
 # ioB13 spPulseWidthCh4
 set_property PACKAGE_PIN K21 [get_ports {hdfiA[13]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[13]}
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[13]}]
+
+
 ############################################################################################
 # DF8 L11 laCh0, laCh2
 set_property PACKAGE_PIN B17 [get_ports {laCh[0]}]
