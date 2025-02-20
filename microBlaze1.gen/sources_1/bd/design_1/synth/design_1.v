@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Mon Feb 26 14:53:45 2024
-//Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
+//Date        : Thu Feb 20 06:46:44 2025
+//Host        : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
@@ -11,30 +11,54 @@
 
 (* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=28,numReposBlks=18,numNonXlnxBlks=0,numHierBlks=10,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=12,da_board_cnt=5,da_bram_cntlr_cnt=2,da_clkrst_cnt=1,da_mb_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
-   (clkSys_clk_n,
-    clkSys_clk_p,
-    gpinA,
-    gpoutA,
+   (dfInN,
+    dfInP,
+    dfOutN,
+    dfOutP,
+    fibRxA,
+    fibTxA,
+    gpInA,
+    gpOutA,
+    hdfiA,
+    hdfoA,
     hwinA,
-    hwoutA,
-    hwoutB,
+    laCh,
+    ledV1,
+    ledV3,
+    ledV4,
     resetN,
-    uartRx0,
-    uartRx1,
-    uartTx0,
-    uartTx1);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 clkSys CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clkSys, CAN_DEBUG false, FREQ_HZ 200000000" *) input clkSys_clk_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 clkSys CLK_P" *) input clkSys_clk_p;
-  input [7:0]gpinA;
-  output [7:0]gpoutA;
+    rfInA,
+    rfOutA,
+    rs485Di,
+    rs485Ro,
+    sysClk50m_clk_n,
+    sysClk50m_clk_p,
+    uartIpcRxH,
+    uartIpcTxH);
+  input [15:0]dfInN;
+  input [15:0]dfInP;
+  output [7:0]dfOutN;
+  output [7:0]dfOutP;
+  input [7:0]fibRxA;
+  output [7:0]fibTxA;
+  input [7:0]gpInA;
+  output [7:0]gpOutA;
+  input [13:0]hdfiA;
+  output [7:0]hdfoA;
   input [0:0]hwinA;
-  output [3:0]hwoutA;
-  output [3:0]hwoutB;
+  output [7:0]laCh;
+  output ledV1;
+  output ledV3;
+  output ledV4;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetN;
-  input uartRx0;
-  input uartRx1;
-  output uartTx0;
-  output uartTx1;
+  input [11:0]rfInA;
+  output [3:0]rfOutA;
+  output rs485Di;
+  input rs485Ro;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysClk50m CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sysClk50m, CAN_DEBUG false, FREQ_HZ 50000000" *) input sysClk50m_clk_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysClk50m CLK_P" *) input sysClk50m_clk_p;
+  input uartIpcRxH;
+  output uartIpcTxH;
 
   wire [12:0]axi_bram_ctrl_0_bram_addr_a;
   wire axi_bram_ctrl_0_bram_clk_a;
@@ -49,10 +73,21 @@ module design_1
   wire clkSys_CLK_P;
   wire clk_wiz_1_clk_out2;
   wire clk_wiz_1_locked;
+  wire [15:0]dfInN_1;
+  wire [15:0]dfInP_1;
+  wire [7:0]fibRxA_1;
   wire [7:0]gpio_io_i_0_1;
-  wire [3:0]hw0_0_outA;
-  wire [3:0]hw0_0_outB;
+  wire [13:0]hdfiA_1;
+  wire [7:0]hw0_0_dfOutN;
+  wire [7:0]hw0_0_dfOutP;
+  wire [7:0]hw0_0_fibTxA;
+  wire [7:0]hw0_0_hdfoA;
+  wire [7:0]hw0_0_laCh;
+  wire hw0_0_ledV1;
+  wire hw0_0_ledV3;
+  wire hw0_0_ledV4;
   wire [31:0]hw0_0_ramOutData;
+  wire [3:0]hw0_0_rfOutA;
   wire [0:0]inA_0_1;
   wire mdm_1_debug_sys_rst;
   wire microblaze_0_Clk;
@@ -220,24 +255,37 @@ module design_1
   wire microblaze_0_ilmb_1_UE;
   wire microblaze_0_ilmb_1_WAIT;
   wire reset_rtl_0_1;
+  wire [11:0]rfInA_1;
   wire [0:0]rst_clk_wiz_1_100M_bus_struct_reset;
   wire rst_clk_wiz_1_100M_mb_reset;
   wire [0:0]rst_clk_wiz_1_100M_peripheral_aresetn;
   wire rx_1_1;
   wire uartRx0_1;
 
-  assign clkSys_CLK_N = clkSys_clk_n;
-  assign clkSys_CLK_P = clkSys_clk_p;
-  assign gpio_io_i_0_1 = gpinA[7:0];
-  assign gpoutA[7:0] = axi_gpio_0_gpio_io_o;
-  assign hwoutA[3:0] = hw0_0_outA;
-  assign hwoutB[3:0] = hw0_0_outB;
+  assign clkSys_CLK_N = sysClk50m_clk_n;
+  assign clkSys_CLK_P = sysClk50m_clk_p;
+  assign dfInN_1 = dfInN[15:0];
+  assign dfInP_1 = dfInP[15:0];
+  assign dfOutN[7:0] = hw0_0_dfOutN;
+  assign dfOutP[7:0] = hw0_0_dfOutP;
+  assign fibRxA_1 = fibRxA[7:0];
+  assign fibTxA[7:0] = hw0_0_fibTxA;
+  assign gpOutA[7:0] = axi_gpio_0_gpio_io_o;
+  assign gpio_io_i_0_1 = gpInA[7:0];
+  assign hdfiA_1 = hdfiA[13:0];
+  assign hdfoA[7:0] = hw0_0_hdfoA;
   assign inA_0_1 = hwinA[0];
+  assign laCh[7:0] = hw0_0_laCh;
+  assign ledV1 = hw0_0_ledV1;
+  assign ledV3 = hw0_0_ledV3;
+  assign ledV4 = hw0_0_ledV4;
   assign reset_rtl_0_1 = resetN;
-  assign rx_1_1 = uartRx1;
-  assign uartRx0_1 = uartRx0;
-  assign uartTx0 = axi_uartlite_0_tx;
-  assign uartTx1 = axi_uartlite_1_tx;
+  assign rfInA_1 = rfInA[11:0];
+  assign rfOutA[3:0] = hw0_0_rfOutA;
+  assign rs485Di = axi_uartlite_1_tx;
+  assign rx_1_1 = rs485Ro;
+  assign uartIpcTxH = axi_uartlite_0_tx;
+  assign uartRx0_1 = uartIpcRxH;
   design_1_axi_bram_ctrl_0_1 axi_bram_ctrl_0
        (.bram_addr_a(axi_bram_ctrl_0_bram_addr_a),
         .bram_clk_a(axi_bram_ctrl_0_bram_clk_a),
@@ -396,9 +444,18 @@ module design_1
         .locked(clk_wiz_1_locked));
   design_1_hw0_0_0 hw0_0
        (.clk160m(clk_wiz_1_clk_out2),
-        .inA(inA_0_1),
-        .outA(hw0_0_outA),
-        .outB(hw0_0_outB),
+        .dfInN(dfInN_1),
+        .dfInP(dfInP_1),
+        .dfOutN(hw0_0_dfOutN),
+        .dfOutP(hw0_0_dfOutP),
+        .fibRxA(fibRxA_1),
+        .fibTxA(hw0_0_fibTxA),
+        .hdfiA(hdfiA_1),
+        .hdfoA(hw0_0_hdfoA),
+        .laCh(hw0_0_laCh),
+        .ledV1(hw0_0_ledV1),
+        .ledV3(hw0_0_ledV3),
+        .ledV4(hw0_0_ledV4),
         .ramAddr(axi_bram_ctrl_0_bram_addr_a),
         .ramClk(axi_bram_ctrl_0_bram_clk_a),
         .ramEn(axi_bram_ctrl_0_bram_en_a),
@@ -406,7 +463,9 @@ module design_1
         .ramOutData(hw0_0_ramOutData),
         .ramRstp(axi_bram_ctrl_0_bram_rst_a),
         .ramWe(axi_bram_ctrl_0_bram_we_a),
-        .rst_n(rst_clk_wiz_1_100M_peripheral_aresetn),
+        .resetN(rst_clk_wiz_1_100M_peripheral_aresetn),
+        .rfInA(rfInA_1),
+        .rfOutA(hw0_0_rfOutA),
         .sys_clk(microblaze_0_Clk));
   design_1_mdm_1_0 mdm_1
        (.Dbg_Capture_0(microblaze_0_debug_CAPTURE),

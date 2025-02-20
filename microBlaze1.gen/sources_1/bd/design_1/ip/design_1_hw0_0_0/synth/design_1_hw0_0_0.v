@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -65,10 +65,21 @@ module design_1_hw0_0_0 (
   ramRstp,
   sys_clk,
   clk160m,
-  rst_n,
-  inA,
-  outA,
-  outB
+  resetN,
+  ledV1,
+  ledV3,
+  ledV4,
+  rfInA,
+  rfOutA,
+  fibTxA,
+  fibRxA,
+  hdfiA,
+  hdfoA,
+  laCh,
+  dfInP,
+  dfInN,
+  dfOutP,
+  dfOutN
 );
 
 input wire ramClk;
@@ -78,16 +89,27 @@ output wire [31 : 0] ramOutData;
 input wire [3 : 0] ramWe;
 input wire ramEn;
 input wire ramRstp;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_clk, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sys_clk, ASSOCIATED_RESET resetN, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 sys_clk CLK" *)
 input wire sys_clk;
 input wire clk160m;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst_n RST" *)
-input wire rst_n;
-input wire [0 : 0] inA;
-output wire [3 : 0] outA;
-output wire [3 : 0] outB;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetN RST" *)
+input wire resetN;
+output wire ledV1;
+output wire ledV3;
+output wire ledV4;
+input wire [11 : 0] rfInA;
+output wire [3 : 0] rfOutA;
+output wire [7 : 0] fibTxA;
+input wire [7 : 0] fibRxA;
+input wire [13 : 0] hdfiA;
+output wire [7 : 0] hdfoA;
+output wire [7 : 0] laCh;
+input wire [15 : 0] dfInP;
+input wire [15 : 0] dfInN;
+output wire [7 : 0] dfOutP;
+output wire [7 : 0] dfOutN;
 
   hw0 #(
     .RamAddrWidth(13),
@@ -103,9 +125,20 @@ output wire [3 : 0] outB;
     .ramRstp(ramRstp),
     .sys_clk(sys_clk),
     .clk160m(clk160m),
-    .rst_n(rst_n),
-    .inA(inA),
-    .outA(outA),
-    .outB(outB)
+    .resetN(resetN),
+    .ledV1(ledV1),
+    .ledV3(ledV3),
+    .ledV4(ledV4),
+    .rfInA(rfInA),
+    .rfOutA(rfOutA),
+    .fibTxA(fibTxA),
+    .fibRxA(fibRxA),
+    .hdfiA(hdfiA),
+    .hdfoA(hdfoA),
+    .laCh(laCh),
+    .dfInP(dfInP),
+    .dfInN(dfInN),
+    .dfOutP(dfOutP),
+    .dfOutN(dfOutN)
   );
 endmodule

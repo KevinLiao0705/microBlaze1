@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Feb 26 14:53:46 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Feb 20 06:46:45 2025" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="design_1" PACKAGE="fgg484" SPEEDGRADE="-2"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="I" NAME="clkSys_clk_n" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_n">
+    <PORT DIR="I" NAME="sysClk50m_clk_n" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_in1_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="clkSys_clk_p" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_p">
+    <PORT DIR="I" NAME="sysClk50m_clk_p" SIGIS="undef" SIGNAME="clk_wiz_1_clk_in1_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_in1_p"/>
       </CONNECTIONS>
@@ -19,60 +19,116 @@
         <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="uartRx0" SIGIS="undef" SIGNAME="External_Ports_uartRx0">
+    <PORT DIR="I" NAME="uartIpcRxH" SIGIS="undef" SIGNAME="External_Ports_uartIpcRxH">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="uartTx0" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+    <PORT DIR="O" NAME="uartIpcTxH" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="uartRx1" SIGIS="undef" SIGNAME="External_Ports_uartRx1">
+    <PORT DIR="I" NAME="rs485Ro" SIGIS="undef" SIGNAME="External_Ports_rs485Ro">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_1" PORT="rx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="uartTx1" SIGIS="undef" SIGNAME="axi_uartlite_1_tx">
+    <PORT DIR="O" NAME="rs485Di" SIGIS="undef" SIGNAME="axi_uartlite_1_tx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_1" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="7" NAME="gpinA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpinA">
+    <PORT DIR="I" LEFT="7" NAME="gpInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_i"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="7" NAME="gpoutA" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
+    <PORT DIR="O" LEFT="7" NAME="gpOutA" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio_io_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="0" NAME="hwinA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hwinA">
+    <PORT DIR="I" LEFT="0" NAME="hwinA" RIGHT="0" SIGIS="undef"/>
+    <PORT DIR="O" NAME="ledV1" SIGIS="undef" SIGNAME="hw0_0_ledV1">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hw0_0" PORT="inA"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="ledV1"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="hwoutA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_outA">
+    <PORT DIR="O" NAME="ledV3" SIGIS="undef" SIGNAME="hw0_0_ledV3">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hw0_0" PORT="outA"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="ledV3"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="3" NAME="hwoutB" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_outB">
+    <PORT DIR="O" NAME="ledV4" SIGIS="undef" SIGNAME="hw0_0_ledV4">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="hw0_0" PORT="outB"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="ledV4"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="rfOutA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_rfOutA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="rfOutA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="fibTxA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_fibTxA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibTxA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="hdfoA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_hdfoA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="hdfoA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="laCh" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_laCh">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="laCh"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="dfOutP" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_dfOutP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="dfOutP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="dfOutN" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_dfOutN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="dfOutN"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="11" NAME="rfInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rfInA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="rfInA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="fibRxA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_fibRxA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibRxA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfiA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="hdfiA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="dfInP" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="dfInP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="dfInN" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="dfInN"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
-    <BUSINTERFACE BUSNAME="External_Interface_clkSys" NAME="clkSys" TYPE="TARGET">
+    <BUSINTERFACE BUSNAME="External_Interface_sysClk50m" NAME="sysClk50m" TYPE="TARGET">
       <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
-      <PARAMETER NAME="FREQ_HZ" VALUE="200000000"/>
+      <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
       <PORTMAPS>
-        <PORTMAP LOGICAL="CLK_N" PHYSICAL="clkSys_clk_n"/>
-        <PORTMAP LOGICAL="CLK_P" PHYSICAL="clkSys_clk_p"/>
+        <PORTMAP LOGICAL="CLK_N" PHYSICAL="sysClk50m_clk_n"/>
+        <PORTMAP LOGICAL="CLK_P" PHYSICAL="sysClk50m_clk_p"/>
       </PORTMAPS>
     </BUSINTERFACE>
   </EXTERNALINTERFACES>
@@ -1006,7 +1062,7 @@
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="gpio_io_o" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="gpoutA"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="gpOutA"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1360,9 +1416,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpinA">
+        <PORT DIR="I" LEFT="7" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="gpinA"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="gpInA"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2242,14 +2298,14 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="External_Ports_uartRx0">
+        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="External_Ports_uartIpcRxH">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="uartRx0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="uartIpcRxH"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="uartTx0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="uartIpcTxH"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2609,14 +2665,14 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M05_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="External_Ports_uartRx1">
+        <PORT DIR="I" NAME="rx" SIGIS="undef" SIGNAME="External_Ports_rs485Ro">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="uartRx1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rs485Ro"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_1_tx">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="uartTx1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rs485Di"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2728,7 +2784,7 @@
         <PARAMETER NAME="C_USE_FAST_SIMULATION" VALUE="0"/>
         <PARAMETER NAME="C_PRIMTYPE_SEL" VALUE="AUTO"/>
         <PARAMETER NAME="C_USE_CLK_VALID" VALUE="0"/>
-        <PARAMETER NAME="C_PRIM_IN_FREQ" VALUE="200.000"/>
+        <PARAMETER NAME="C_PRIM_IN_FREQ" VALUE="50"/>
         <PARAMETER NAME="C_PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
         <PARAMETER NAME="C_IN_FREQ_UNITS" VALUE="Units_MHz"/>
         <PARAMETER NAME="C_SECONDARY_IN_FREQ" VALUE="100.000"/>
@@ -2755,12 +2811,12 @@
         <PARAMETER NAME="C_CLKOUT6_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="C_CLKOUT7_DRIVES" VALUE="BUFG"/>
         <PARAMETER NAME="C_INCLK_SUM_ROW0" VALUE="Input Clock   Freq (MHz)    Input Jitter (UI)"/>
-        <PARAMETER NAME="C_INCLK_SUM_ROW1" VALUE="__primary_________200.000____________0.010"/>
+        <PARAMETER NAME="C_INCLK_SUM_ROW1" VALUE="__primary______________50____________0.010"/>
         <PARAMETER NAME="C_INCLK_SUM_ROW2" VALUE="no_secondary_input_clock"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_out1__200.00000______0.000______50.0______100.010_____97.786"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk_out2__160.00000______0.000______50.0______104.455_____97.786"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_out1__200.00000______0.000______50.0______161.087____144.334"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="clk_out2__160.00000______0.000______50.0______167.571____144.334"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="no_CLK_OUT3_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
@@ -2819,8 +2875,8 @@
         <PARAMETER NAME="C_CLKOUT7_SEQUENCE_NUMBER" VALUE="1"/>
         <PARAMETER NAME="C_MMCM_NOTES" VALUE="None"/>
         <PARAMETER NAME="C_MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
-        <PARAMETER NAME="C_MMCM_CLKFBOUT_MULT_F" VALUE="4.000"/>
-        <PARAMETER NAME="C_MMCM_CLKIN1_PERIOD" VALUE="5.000"/>
+        <PARAMETER NAME="C_MMCM_CLKFBOUT_MULT_F" VALUE="16.000"/>
+        <PARAMETER NAME="C_MMCM_CLKIN1_PERIOD" VALUE="20.000"/>
         <PARAMETER NAME="C_MMCM_CLKIN2_PERIOD" VALUE="10.0"/>
         <PARAMETER NAME="C_MMCM_CLKOUT4_CASCADE" VALUE="FALSE"/>
         <PARAMETER NAME="C_MMCM_CLOCK_HOLD" VALUE="FALSE"/>
@@ -2923,7 +2979,7 @@
         <PARAMETER NAME="C_CLK_IN_SEL_PORT" VALUE="clk_in_sel"/>
         <PARAMETER NAME="C_INPUT_CLK_STOPPED_PORT" VALUE="input_clk_stopped"/>
         <PARAMETER NAME="C_CLKFB_STOPPED_PORT" VALUE="clkfb_stopped"/>
-        <PARAMETER NAME="C_CLKIN1_JITTER_PS" VALUE="50.0"/>
+        <PARAMETER NAME="C_CLKIN1_JITTER_PS" VALUE="200.0"/>
         <PARAMETER NAME="C_CLKIN2_JITTER_PS" VALUE="100.0"/>
         <PARAMETER NAME="C_PRIMITIVE" VALUE="MMCM"/>
         <PARAMETER NAME="C_SS_MODE" VALUE="CENTER_HIGH"/>
@@ -3027,7 +3083,7 @@
         <PARAMETER NAME="USE_DYN_PHASE_SHIFT" VALUE="false"/>
         <PARAMETER NAME="USE_DYN_RECONFIG" VALUE="false"/>
         <PARAMETER NAME="JITTER_SEL" VALUE="No_Jitter"/>
-        <PARAMETER NAME="PRIM_IN_FREQ" VALUE="200.000"/>
+        <PARAMETER NAME="PRIM_IN_FREQ" VALUE="50"/>
         <PARAMETER NAME="PRIM_IN_TIMEPERIOD" VALUE="10.000"/>
         <PARAMETER NAME="IN_FREQ_UNITS" VALUE="Units_MHz"/>
         <PARAMETER NAME="PHASESHIFT_MODE" VALUE="WAVEFORM"/>
@@ -3043,7 +3099,7 @@
         <PARAMETER NAME="CLKIN2_UI_JITTER" VALUE="0.010"/>
         <PARAMETER NAME="PRIM_IN_JITTER" VALUE="0.010"/>
         <PARAMETER NAME="SECONDARY_IN_JITTER" VALUE="0.010"/>
-        <PARAMETER NAME="CLKIN1_JITTER_PS" VALUE="50.0"/>
+        <PARAMETER NAME="CLKIN1_JITTER_PS" VALUE="200.0"/>
         <PARAMETER NAME="CLKIN2_JITTER_PS" VALUE="100.0"/>
         <PARAMETER NAME="CLKOUT1_USED" VALUE="true"/>
         <PARAMETER NAME="CLKOUT2_USED" VALUE="true"/>
@@ -3151,10 +3207,10 @@
         <PARAMETER NAME="MMCM_NOTES" VALUE="None"/>
         <PARAMETER NAME="MMCM_DIVCLK_DIVIDE" VALUE="1"/>
         <PARAMETER NAME="MMCM_BANDWIDTH" VALUE="OPTIMIZED"/>
-        <PARAMETER NAME="MMCM_CLKFBOUT_MULT_F" VALUE="4.000"/>
+        <PARAMETER NAME="MMCM_CLKFBOUT_MULT_F" VALUE="16.000"/>
         <PARAMETER NAME="MMCM_CLKFBOUT_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKFBOUT_USE_FINE_PS" VALUE="false"/>
-        <PARAMETER NAME="MMCM_CLKIN1_PERIOD" VALUE="5.000"/>
+        <PARAMETER NAME="MMCM_CLKIN1_PERIOD" VALUE="20.000"/>
         <PARAMETER NAME="MMCM_CLKIN2_PERIOD" VALUE="10.0"/>
         <PARAMETER NAME="MMCM_CLKOUT4_CASCADE" VALUE="false"/>
         <PARAMETER NAME="MMCM_CLOCK_HOLD" VALUE="false"/>
@@ -3240,10 +3296,10 @@
         <PARAMETER NAME="CDDCREQ_PORT" VALUE="cddcreq"/>
         <PARAMETER NAME="ENABLE_CLKOUTPHY" VALUE="false"/>
         <PARAMETER NAME="CLKOUTPHY_REQUESTED_FREQ" VALUE="600.000"/>
-        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="100.010"/>
-        <PARAMETER NAME="CLKOUT1_PHASE_ERROR" VALUE="97.786"/>
-        <PARAMETER NAME="CLKOUT2_JITTER" VALUE="104.455"/>
-        <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="97.786"/>
+        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="161.087"/>
+        <PARAMETER NAME="CLKOUT1_PHASE_ERROR" VALUE="144.334"/>
+        <PARAMETER NAME="CLKOUT2_JITTER" VALUE="167.571"/>
+        <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="144.334"/>
         <PARAMETER NAME="CLKOUT3_JITTER" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT3_PHASE_ERROR" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT4_JITTER" VALUE="0.0"/>
@@ -3263,12 +3319,12 @@
       <PORTS>
         <PORT DIR="I" NAME="clk_in1_p" SIGIS="clk" SIGNAME="clk_wiz_1_clk_in1_p">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="design_1_imp" PORT="clkSys_clk_p"/>
+            <CONNECTION INSTANCE="design_1_imp" PORT="sysClk50m_clk_p"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="clk_in1_n" SIGIS="clk" SIGNAME="clk_wiz_1_clk_in1_n">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="design_1_imp" PORT="clkSys_clk_n"/>
+            <CONNECTION INSTANCE="design_1_imp" PORT="sysClk50m_clk_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="200000000" DIR="O" NAME="clk_out1" SIGIS="clk" SIGNAME="clk_wiz_1_clk_out1">
@@ -3309,9 +3365,9 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="External_Interface_clkSys" NAME="CLK_IN1_D" TYPE="TARGET" VLNV="xilinx.com:interface:diff_clock:1.0">
+        <BUSINTERFACE BUSNAME="External_Interface_sysClk50m" NAME="CLK_IN1_D" TYPE="TARGET" VLNV="xilinx.com:interface:diff_clock:1.0">
           <PARAMETER NAME="CAN_DEBUG" VALUE="false"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="200000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="50000000"/>
           <PORTMAPS>
             <PORTMAP LOGICAL="CLK_N" PHYSICAL="clk_in1_n"/>
             <PORTMAP LOGICAL="CLK_P" PHYSICAL="clk_in1_p"/>
@@ -3374,24 +3430,79 @@
             <CONNECTION INSTANCE="clk_wiz_1" PORT="clk_out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="rst_clk_wiz_1_100M_peripheral_aresetn">
+        <PORT DIR="I" NAME="resetN" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="rst_clk_wiz_1_100M_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_clk_wiz_1_100M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="inA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hwinA">
+        <PORT DIR="O" NAME="ledV1" SIGIS="undef" SIGNAME="hw0_0_ledV1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="hwinA"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="ledV1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="outA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_outA">
+        <PORT DIR="O" NAME="ledV3" SIGIS="undef" SIGNAME="hw0_0_ledV3">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="hwoutA"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="ledV3"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="outB" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_outB">
+        <PORT DIR="O" NAME="ledV4" SIGIS="undef" SIGNAME="hw0_0_ledV4">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="hwoutB"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="ledV4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="11" NAME="rfInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rfInA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rfInA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="rfOutA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_rfOutA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rfOutA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="fibTxA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_fibTxA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibTxA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="fibRxA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_fibRxA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibRxA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfiA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="hdfiA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="hdfoA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_hdfoA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="hdfoA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="laCh" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_laCh">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="laCh"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dfInP" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dfInP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="dfInN" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dfInN"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="dfOutP" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_dfOutP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dfOutP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="dfOutN" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_dfOutN">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="dfOutN"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6493,7 +6604,7 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M06_ARESETN"/>
             <CONNECTION INSTANCE="axi_gpio_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="hw0_0" PORT="rst_n"/>
+            <CONNECTION INSTANCE="hw0_0" PORT="resetN"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

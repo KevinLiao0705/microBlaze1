@@ -26,33 +26,11 @@ set_property IOSTANDARD LVCMOS25 [get_ports {ledV4}]
 
 
 #====================================================================
-# ioA39 rs485De
-set_property PACKAGE_PIN AA19 [get_ports {gpOutA[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[0]}]
 
 # ioA40
 set_property PACKAGE_PIN T5 [get_ports {gpsPps}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpsPps}]
 
-# sw1_0
-set_property PACKAGE_PIN AA3 [get_ports {gpInA[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[0]}]
-
-# sw1_1
-set_property PACKAGE_PIN T1 [get_ports {gpInA[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[1]}]
-
-# ioA46 ledR
-set_property PACKAGE_PIN U2 [get_ports {gpOutA[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[1]}]
-
-# ioA47 ledG
-set_property PACKAGE_PIN W2 [get_ports {gpOutA[2]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[2]}]
-
-# ioA48 ledB
-set_property PACKAGE_PIN AA1 [get_ports {gpOutA[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[3]}]
 
 
 
@@ -67,68 +45,68 @@ set_property IOSTANDARD LVCMOS25 [get_ports {rs485Di}]
 
 ######################################################################
 # ioA0
-set_property PACKAGE_PIN T4 [get_ports {aRfmaCko}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmaCko}]
+set_property PACKAGE_PIN T4 [get_ports {rfInA[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[0]}]
 
 # ioA1
-set_property PACKAGE_PIN U3 [get_ports {aRfmaDio2}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmaDio2}]
+set_property PACKAGE_PIN U3 [get_ports {rfOutA[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfOutA[0]}]
 
 # ioA2
-set_property PACKAGE_PIN V4 [get_ports {aRfmaDio1}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmaDio1}]
+set_property PACKAGE_PIN V4 [get_ports {rfInA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[1]}]
 
 # ioA3
-set_property PACKAGE_PIN Y3 [get_ports {aRfmaD0}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmaD0}]
+set_property PACKAGE_PIN Y3 [get_ports {rfInA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[2]}]
 
 # ioA4
-set_property PACKAGE_PIN R2 [get_ports {aRfmbCko}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmbCko}]
+set_property PACKAGE_PIN R2 [get_ports {rfInA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[3]}]
 
 # ioA5
-set_property PACKAGE_PIN U1 [get_ports {aRfmbDio2}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmbDio2}]
+set_property PACKAGE_PIN U1 [get_ports {rfOutA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfOutA[1]}]
 
 # ioA6
-set_property PACKAGE_PIN W1 [get_ports {aRfmbDio1}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmbDio1}]
+set_property PACKAGE_PIN W1 [get_ports {rfInA[4]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[4]}]
 
 # ioA7
-set_property PACKAGE_PIN Y1 [get_ports {aRfmbD0}]
-set_property IOSTANDARD LVCMOS25 [get_ports {aRfmbD0}]
+set_property PACKAGE_PIN Y1 [get_ports {rfInA[5]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[5]}]
 
 # ioA8
-set_property PACKAGE_PIN AB1 [get_ports {bRfmaCko}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmaCko}]
+set_property PACKAGE_PIN AB1 [get_ports {rfInA[6]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[6]}]
 
 # ioA9
-set_property PACKAGE_PIN AB2 [get_ports {bRfmaDio2}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmaDio2}]
+set_property PACKAGE_PIN AB2 [get_ports {rfOutA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfOutA[2]}]
 
 # ioA10
-set_property PACKAGE_PIN W5 [get_ports {bRfmaDio1}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmaDio1}]
+set_property PACKAGE_PIN W5 [get_ports {rfInA[7]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[7]}]
 
 # ioA11
-set_property PACKAGE_PIN R6 [get_ports {bRfmaD0}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmaD0}]
+set_property PACKAGE_PIN R6 [get_ports {rfInA[8]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[8]}]
 
 # ioA12
-set_property PACKAGE_PIN W6 [get_ports {bRfmbCko}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmbCko}]
+set_property PACKAGE_PIN W6 [get_ports {rfInA[9]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[9]}]
 
 # ioA13
-set_property PACKAGE_PIN Y6 [get_ports {bRfmbDio2}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmbDio2}]
+set_property PACKAGE_PIN Y6 [get_ports {rfOutA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfOutA[3]}]
 
 # ioA14
-set_property PACKAGE_PIN W7 [get_ports {bRfmbDio1}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmbDio1}]
+set_property PACKAGE_PIN W7 [get_ports {rfInA[10]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[10]}]
 
 # ioA15
-set_property PACKAGE_PIN V8 [get_ports {bRfmbD0}]
-set_property IOSTANDARD LVCMOS25 [get_ports {bRfmbD0}]
+set_property PACKAGE_PIN V8 [get_ports {rfInA[11]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {rfInA[11]}]
 
 ######################################################################
 # ioA16
@@ -194,6 +172,60 @@ set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[7]}]
 # ioA31
 set_property PACKAGE_PIN W15 [get_ports {fibRxA[7]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[7]}]
+
+# ioA32
+set_property PACKAGE_PIN AB15 [get_ports {gpInA[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[0]}]
+
+# ioA33
+set_property PACKAGE_PIN AB16 [get_ports {gpInA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[1]}]
+
+# ioA34  sw1_0
+set_property PACKAGE_PIN AB17 [get_ports {gpInA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
+
+# ioA35 sw1_1
+set_property PACKAGE_PIN AB18 [get_ports {gpInA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
+
+# ioA36 ledR
+set_property PACKAGE_PIN R14 [get_ports {gpOutA[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[0]}]
+
+# ioA37 ledG
+set_property PACKAGE_PIN V15 [get_ports {gpOutA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[1]}]
+
+# ioA38 ledB
+set_property PACKAGE_PIN Y17 [get_ports {gpOutA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[2]}]
+
+# ioA39 rs485De
+set_property PACKAGE_PIN AA19 [get_ports {gpOutA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[3]}]
+
+# ioA44
+set_property PACKAGE_PIN AA3 [get_ports {gpOutA[4]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[4]}]
+
+# ioA45
+set_property PACKAGE_PIN T1 [get_ports {gpOutA[5]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[5]}]
+
+# ioA46
+set_property PACKAGE_PIN U2 [get_ports {gpOutA[6]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[6]}]
+
+# ioA47
+set_property PACKAGE_PIN W2 [get_ports {gpOutA[7]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[7]}]
+
+
+
+
+
+
 
 ###############################################################################################
 # ioB40 slotSw3

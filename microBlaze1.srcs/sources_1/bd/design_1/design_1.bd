@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD5A789149C239FB4",
+      "boundary_crc": "0xD89D9FF355FEB7E",
       "device": "xc7a100tfgg484-2",
       "gen_directory": "../../../../microBlaze1.gen/sources_1/bd/design_1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "microblaze_0": "",
@@ -53,7 +54,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "200000000"
+            "value": "50000000"
           }
         },
         "port_maps": {
@@ -73,6 +74,10 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
           "POLARITY": {
             "value": "ACTIVE_LOW"
           }
@@ -90,12 +95,12 @@
       "rs485Di": {
         "direction": "O"
       },
-      "gpinA": {
+      "gpInA": {
         "direction": "I",
         "left": "7",
         "right": "0"
       },
-      "gpoutA": {
+      "gpOutA": {
         "direction": "O",
         "left": "7",
         "right": "0"
@@ -105,18 +110,69 @@
         "left": "0",
         "right": "0"
       },
-      "hwoutA": {
-        "direction": "O",
-        "left": "3",
-        "right": "0"
-      },
-      "hwoutB": {
-        "direction": "O",
-        "left": "3",
-        "right": "0"
-      },
-      "uartTx2": {
+      "ledV1": {
         "direction": "O"
+      },
+      "ledV3": {
+        "direction": "O"
+      },
+      "ledV4": {
+        "direction": "O"
+      },
+      "rfOutA": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "fibTxA": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "hdfoA": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "laCh": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "dfOutP": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "dfOutN": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "rfInA": {
+        "direction": "I",
+        "left": "11",
+        "right": "0"
+      },
+      "fibRxA": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "hdfiA": {
+        "direction": "I",
+        "left": "13",
+        "right": "0"
+      },
+      "dfInP": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "dfInN": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
       }
     },
     "components": {
@@ -1409,6 +1465,10 @@
             "type": "clk",
             "direction": "I",
             "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "resetN",
+                "value_src": "constant"
+              },
               "FREQ_HZ": {
                 "value": "200000000",
                 "value_src": "ip_prop"
@@ -1440,7 +1500,7 @@
               }
             }
           },
-          "rst_n": {
+          "resetN": {
             "type": "rst",
             "direction": "I",
             "parameters": {
@@ -1450,19 +1510,68 @@
               }
             }
           },
-          "inA": {
+          "ledV1": {
+            "direction": "O"
+          },
+          "ledV3": {
+            "direction": "O"
+          },
+          "ledV4": {
+            "direction": "O"
+          },
+          "rfInA": {
             "direction": "I",
-            "left": "0",
+            "left": "11",
             "right": "0"
           },
-          "outA": {
+          "rfOutA": {
             "direction": "O",
             "left": "3",
             "right": "0"
           },
-          "outB": {
+          "fibTxA": {
             "direction": "O",
-            "left": "3",
+            "left": "7",
+            "right": "0"
+          },
+          "fibRxA": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "hdfiA": {
+            "direction": "I",
+            "left": "13",
+            "right": "0"
+          },
+          "hdfoA": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "laCh": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "dfInP": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dfInN": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "dfOutP": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "dfOutN": {
+            "direction": "O",
+            "left": "7",
             "right": "0"
           }
         }
@@ -1576,7 +1685,7 @@
       "axi_gpio_0_gpio_io_o": {
         "ports": [
           "axi_gpio_0/gpio_io_o",
-          "gpoutA"
+          "gpOutA"
         ]
       },
       "axi_uartlite_0_tx": {
@@ -1603,22 +1712,82 @@
           "rst_clk_wiz_1_100M/dcm_locked"
         ]
       },
+      "dfInN_1": {
+        "ports": [
+          "dfInN",
+          "hw0_0/dfInN"
+        ]
+      },
+      "dfInP_1": {
+        "ports": [
+          "dfInP",
+          "hw0_0/dfInP"
+        ]
+      },
+      "fibRxA_1": {
+        "ports": [
+          "fibRxA",
+          "hw0_0/fibRxA"
+        ]
+      },
       "gpio_io_i_0_1": {
         "ports": [
-          "gpinA",
+          "gpInA",
           "axi_gpio_1/gpio_io_i"
         ]
       },
-      "hw0_0_outA": {
+      "hdfiA_1": {
         "ports": [
-          "hw0_0/outA",
-          "hwoutA"
+          "hdfiA",
+          "hw0_0/hdfiA"
         ]
       },
-      "hw0_0_outB": {
+      "hw0_0_dfOutN": {
         "ports": [
-          "hw0_0/outB",
-          "hwoutB"
+          "hw0_0/dfOutN",
+          "dfOutN"
+        ]
+      },
+      "hw0_0_dfOutP": {
+        "ports": [
+          "hw0_0/dfOutP",
+          "dfOutP"
+        ]
+      },
+      "hw0_0_fibTxA": {
+        "ports": [
+          "hw0_0/fibTxA",
+          "fibTxA"
+        ]
+      },
+      "hw0_0_hdfoA": {
+        "ports": [
+          "hw0_0/hdfoA",
+          "hdfoA"
+        ]
+      },
+      "hw0_0_laCh": {
+        "ports": [
+          "hw0_0/laCh",
+          "laCh"
+        ]
+      },
+      "hw0_0_ledV1": {
+        "ports": [
+          "hw0_0/ledV1",
+          "ledV1"
+        ]
+      },
+      "hw0_0_ledV3": {
+        "ports": [
+          "hw0_0/ledV3",
+          "ledV3"
+        ]
+      },
+      "hw0_0_ledV4": {
+        "ports": [
+          "hw0_0/ledV4",
+          "ledV4"
         ]
       },
       "hw0_0_ramOutData": {
@@ -1627,10 +1796,15 @@
           "axi_bram_ctrl_0/bram_rddata_a"
         ]
       },
+      "hw0_0_rfOutA": {
+        "ports": [
+          "hw0_0/rfOutA",
+          "rfOutA"
+        ]
+      },
       "inA_0_1": {
         "ports": [
-          "hwinA",
-          "hw0_0/inA"
+          "hwinA"
         ]
       },
       "mdm_1_debug_sys_rst": {
@@ -1669,6 +1843,12 @@
           "rst_clk_wiz_1_100M/ext_reset_in"
         ]
       },
+      "rfInA_1": {
+        "ports": [
+          "rfInA",
+          "hw0_0/rfInA"
+        ]
+      },
       "rst_clk_wiz_1_100M_bus_struct_reset": {
         "ports": [
           "rst_clk_wiz_1_100M/bus_struct_reset",
@@ -1699,7 +1879,7 @@
           "microblaze_0_axi_periph/M06_ARESETN",
           "axi_gpio_0/s_axi_aresetn",
           "axi_bram_ctrl_0/s_axi_aresetn",
-          "hw0_0/rst_n"
+          "hw0_0/resetN"
         ]
       },
       "rx_1_1": {

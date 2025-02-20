@@ -37,9 +37,7 @@ module hw0
         input   wire                sys_clk     ,//System clock 200m
         input   wire                clk160m     ,//System clock 160m
 
-
-    input wire sysClk50m,
-    input wire resetN,
+        input wire resetN,
     
     output  ledV1,         //output io
     output  ledV3,         //output io
@@ -48,51 +46,36 @@ module hw0
 
 
         /* 
-                0: rs485De
-                1: ledR
-                2: ledG
-                3:ledB  
+                0: ledR
+                1: ledG
+                2:ledB  
+                3: rs485De
             */
-        output [1:0] gpOutA,
-        /* 
-                0: sw1_0
-                1: sw1_1
-                2:slotSw0
-                3:slotSw1
-                4:slotSw2
-                5:slotSw3
+        //output [3:0] gpOutA,
+        /*
+                0:spare 
+                1: spare
+                2: sw1_0
+                3: sw1_1
+                4:slotSw0
+                5:slotSw1
+                6:slotSw2
+                7:slotSw3
             */
-        input   wire    [3:0]       gpInA,
+        //input   wire    [5:0]       gpInA,
         
-        
+        // 0:aRfmaCko,  1:aRfmaDio1,  2:aRfmaD0,  3:aRfmbCko,  4:aRfmbDio1,  5:aRfmbD0,
+        // 6:bRfmaCko,  7:bRfmaDio1,  8:bRfmaD0,  9:bRfmbCko,  10:bRfmbDio1,  11:bRfmbD0,
+        input wire [11:0] rfInA,
+        // 0:aRfmaDio2,  1:aRfmbDio2, 2:bRfmaDio2,  3:bRfmbDio2,
+        output [3:0] rfOutA,
 
-        input wire aRfmaCko,
-        output wire aRfmaDio2,
-        input wire aRfmaDio1,
-        input wire aRfmaD0,
-        input wire aRfmbCko,
-        output wire aRfmbDio2,
-        input wire aRfmbDio1,
-        input wire aRfmbD0,
         
         output [7:0] fibTxA,    		
         input   wire [7:0] fibRxA,
 
         
         
-        input wire bRfmaCko,
-        output wire bRfmaDio2,
-        input wire bRfmaDio1,
-        input wire bRfmaD0,
-        input wire bRfmbCko,
-        output wire bRfmbDio2,
-        input wire bRfmbDio1,
-        input wire bRfmbD0,
-
-        input wire uartIpcTx2,
-        output uartIpxRx2,
-        input wire uartIpcTxH,
-        output uartIpxRxH,
 
         
         //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
