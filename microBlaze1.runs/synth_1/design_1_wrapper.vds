@@ -2,20 +2,22 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Thu Feb 20 21:18:38 2025
-# Process ID: 11572
-# Current directory: E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1
+# Start of session at: Fri Feb 21 13:37:40 2025
+# Process ID: 10420
+# Current directory: E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1
 # Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
-# Log file: E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/design_1_wrapper.vds
-# Journal file: E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1\vivado.jou
-# Running On: DESKTOP-3AU9R2V, OS: Windows, CPU Frequency: 3418 MHz, CPU Physical cores: 16, Host memory: 68448 MB
+# Log file: E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/design_1_wrapper.vds
+# Journal file: E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1\vivado.jou
+# Running On: DESKTOP-V5UHSH2, OS: Windows, CPU Frequency: 3792 MHz, CPU Physical cores: 8, Host memory: 17039 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1001.605 ; gain = 117.055
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2022.2/data/ip'.
-Command: read_checkpoint -auto_incremental -incremental E:/kevin/myCode/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from E:/kevin/myCode/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp for incremental synthesis
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx202202/Vivado/2022.2/data/ip'.
+add_files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 1042.605 ; gain = 41.000
+Command: read_checkpoint -auto_incremental -incremental E:/kevin/temp/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from E:/kevin/temp/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top design_1_wrapper -part xc7a100tfgg484-2
 Starting synth_design
@@ -26,103 +28,103 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8892
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 1416
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1868.918 ; gain = 408.895
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1870.230 ; gain = 409.113
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [E:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_timer_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_timer_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_timer_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_timer_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'generateout0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
-WARNING: [Synth 8-7071] port 'generateout1' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
-WARNING: [Synth 8-7071] port 'pwm0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
-WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
-WARNING: [Synth 8-7023] instance 'axi_timer_0' of module 'design_1_axi_timer_0_0' has 26 connections declared, but only 22 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:405]
-WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'design_1_axi_uartlite_0_0' has 22 connections declared, but only 21 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:405]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_1_stub.v:5]
-WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_0_1' is unconnected for instance 'axi_uartlite_1' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:427]
-WARNING: [Synth 8-7023] instance 'axi_uartlite_1' of module 'design_1_axi_uartlite_0_1' has 22 connections declared, but only 21 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:427]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_1_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_1_0' is unconnected for instance 'axi_uartlite_2' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:449]
-WARNING: [Synth 8-7023] instance 'axi_uartlite_2' of module 'design_1_axi_uartlite_1_0' has 22 connections declared, but only 21 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:449]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_hw0_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_hw0_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_microblaze_0_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'design_1_microblaze_0_0' is unconnected for instance 'microblaze_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:514]
-WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'design_1_microblaze_0_0' has 52 connections declared, but only 51 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:514]
-INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_axi_periph_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:770]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_8RVYHO' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1938]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_8RVYHO' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1938]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1UTB3Y5' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2070]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1UTB3Y5' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2070]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_7ANRHB' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2202]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_7ANRHB' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2202]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1W07O72' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2334]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_auto_pc_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
-WARNING: [Synth 8-7071] port 'm_axi_awqos' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
-WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
-WARNING: [Synth 8-7071] port 'm_axi_arqos' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_0' has 56 connections declared, but only 52 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1W07O72' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2334]
-INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_5LX7BU' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2604]
-INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_5LX7BU' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2604]
-INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1XR4ZAZ' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2736]
-INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1XR4ZAZ' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2736]
-INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_4YOIXL' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2868]
-INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_4YOIXL' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2868]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1RZP34U' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3234]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1RZP34U' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3234]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_xbar_0_stub.v:5]
-WARNING: [Synth 8-689] width (12) of port connection 'm_axi_arprot' does not match port width (21) of module 'design_1_xbar_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1899]
-WARNING: [Synth 8-689] width (12) of port connection 'm_axi_awprot' does not match port width (21) of module 'design_1_xbar_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1903]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_axi_periph_0' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:770]
-INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3000]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_dlmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_dlmb_v10_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3146]
-WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'design_1_dlmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3146]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_ilmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_ilmb_v10_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3192]
-WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'design_1_ilmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3192]
-INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_lmb_bram_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_lmb_bram_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
-WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'design_1_lmb_bram_0' has 16 connections declared, but only 14 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
-INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3000]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_1_100M_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_1_100M_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-11572-DESKTOP-3AU9R2V/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
-WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'design_1_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 8 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
-INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [E:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'design_1' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:12]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_1' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_1' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_timer_0_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_timer_0_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_timer_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'generateout0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
+WARNING: [Synth 8-7071] port 'generateout1' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
+WARNING: [Synth 8-7071] port 'pwm0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
+WARNING: [Synth 8-7023] instance 'axi_timer_0' of module 'design_1_axi_timer_0_0' has 26 connections declared, but only 22 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:382]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:405]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'design_1_axi_uartlite_0_0' has 22 connections declared, but only 21 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:405]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_1' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_1' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_1_stub.v:5]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_0_1' is unconnected for instance 'axi_uartlite_1' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:427]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_1' of module 'design_1_axi_uartlite_0_1' has 22 connections declared, but only 21 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:427]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_1_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_1_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_1_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_axi_uartlite_1_0' is unconnected for instance 'axi_uartlite_2' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:449]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_2' of module 'design_1_axi_uartlite_1_0' has 22 connections declared, but only 21 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:449]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_1_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_1_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_hw0_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_hw0_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_microblaze_0_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'design_1_microblaze_0_0' is unconnected for instance 'microblaze_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:514]
+WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'design_1_microblaze_0_0' has 52 connections declared, but only 51 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:514]
+INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_axi_periph_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:770]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_8RVYHO' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1938]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_8RVYHO' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1938]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1UTB3Y5' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2070]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1UTB3Y5' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2070]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_7ANRHB' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2202]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_7ANRHB' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2202]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1W07O72' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2334]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_auto_pc_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
+WARNING: [Synth 8-7071] port 'm_axi_awqos' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
+WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
+WARNING: [Synth 8-7071] port 'm_axi_arqos' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'design_1_auto_pc_0' has 56 connections declared, but only 52 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2549]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1W07O72' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2334]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_5LX7BU' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2604]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_5LX7BU' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2604]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1XR4ZAZ' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2736]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1XR4ZAZ' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2736]
+INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_4YOIXL' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2868]
+INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_4YOIXL' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2868]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1RZP34U' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3234]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1RZP34U' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3234]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_xbar_0_stub.v:5]
+WARNING: [Synth 8-689] width (12) of port connection 'm_axi_arprot' does not match port width (21) of module 'design_1_xbar_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1899]
+WARNING: [Synth 8-689] width (12) of port connection 'm_axi_awprot' does not match port width (21) of module 'design_1_xbar_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1903]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_axi_periph_0' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:770]
+INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3000]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_dlmb_v10_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3146]
+WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'design_1_dlmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3146]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_ilmb_v10_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3192]
+WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'design_1_ilmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3192]
+INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_lmb_bram_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
+WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'design_1_lmb_bram_0' has 16 connections declared, but only 14 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3217]
+INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3000]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_1_100M_0' [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_1_100M_0' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-10420-DESKTOP-V5UHSH2/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'design_1_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 8 given [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:759]
+INFO: [Synth 8-6155] done synthesizing module 'design_1' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (0#1) [E:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 WARNING: [Synth 8-7129] Port M_ACLK in module s00_couplers_imp_1RZP34U is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_1RZP34U is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_ACLK in module s00_couplers_imp_1RZP34U is either unconnected or has no load
@@ -208,137 +210,137 @@ WARNING: [Synth 8-7129] Port M06_ARESETN in module design_1_microblaze_0_axi_per
 WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_microblaze_0_axi_periph_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_microblaze_0_axi_periph_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1969.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1970.297 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_microblaze_0_0/design_1_microblaze_0_0/design_1_microblaze_0_0_in_context.xdc] for cell 'design_1_i/microblaze_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_microblaze_0_0/design_1_microblaze_0_0/design_1_microblaze_0_0_in_context.xdc] for cell 'design_1_i/microblaze_0'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_v10_0/design_1_dlmb_v10_0/design_1_dlmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_v10'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_v10_0/design_1_dlmb_v10_0/design_1_dlmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_v10'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_v10_0/design_1_ilmb_v10_0/design_1_dlmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_v10_0/design_1_ilmb_v10_0/design_1_dlmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_lmb_bram_0/design_1_lmb_bram_0/design_1_lmb_bram_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_lmb_bram_0/design_1_lmb_bram_0/design_1_lmb_bram_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_mdm_1_0/design_1_mdm_1_0/design_1_mdm_1_0_in_context.xdc] for cell 'design_1_i/mdm_1'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_mdm_1_0/design_1_mdm_1_0/design_1_mdm_1_0_in_context.xdc] for cell 'design_1_i/mdm_1'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0_in_context.xdc] for cell 'design_1_i/rst_clk_wiz_1_100M'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0_in_context.xdc] for cell 'design_1_i/rst_clk_wiz_1_100M'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_0'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/xbar'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/xbar'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0_in_context.xdc] for cell 'design_1_i/axi_gpio_1'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0_in_context.xdc] for cell 'design_1_i/axi_gpio_1'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0/design_1_axi_timer_0_0_in_context.xdc] for cell 'design_1_i/axi_timer_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0/design_1_axi_timer_0_0_in_context.xdc] for cell 'design_1_i/axi_timer_0'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_1'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_1'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_in_context.xdc] for cell 'design_1_i/axi_gpio_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_in_context.xdc] for cell 'design_1_i/axi_gpio_0'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_0_in_context.xdc] for cell 'design_1_i/axi_bram_ctrl_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_0_in_context.xdc] for cell 'design_1_i/axi_bram_ctrl_0'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_2'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_2'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc] for cell 'design_1_i/clk_wiz_1'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc] for cell 'design_1_i/clk_wiz_1'
-Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc] for cell 'design_1_i/hw0_0'
-Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc] for cell 'design_1_i/hw0_0'
-Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]
-WARNING: [Vivado 12-584] No ports matched 'resetN'. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc:15]
-WARNING: [Vivado 12-584] No ports matched 'resetN'. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc:16]
-Finished Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_microblaze_0_0/design_1_microblaze_0_0/design_1_microblaze_0_0_in_context.xdc] for cell 'design_1_i/microblaze_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_microblaze_0_0/design_1_microblaze_0_0/design_1_microblaze_0_0_in_context.xdc] for cell 'design_1_i/microblaze_0'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_v10_0/design_1_dlmb_v10_0/design_1_ilmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_v10'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_v10_0/design_1_dlmb_v10_0/design_1_ilmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_v10'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_v10_0/design_1_ilmb_v10_0/design_1_ilmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_v10_0/design_1_ilmb_v10_0/design_1_ilmb_v10_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0/design_1_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_lmb_bram_0/design_1_lmb_bram_0/design_1_lmb_bram_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_lmb_bram_0/design_1_lmb_bram_0/design_1_lmb_bram_0_in_context.xdc] for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_mdm_1_0/design_1_mdm_1_0/design_1_mdm_1_0_in_context.xdc] for cell 'design_1_i/mdm_1'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_mdm_1_0/design_1_mdm_1_0/design_1_mdm_1_0_in_context.xdc] for cell 'design_1_i/mdm_1'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0_in_context.xdc] for cell 'design_1_i/rst_clk_wiz_1_100M'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0/design_1_rst_clk_wiz_1_100M_0_in_context.xdc] for cell 'design_1_i/rst_clk_wiz_1_100M'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0/design_1_axi_uartlite_0_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_0'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/xbar'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0/design_1_xbar_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/xbar'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0/design_1_auto_pc_0_in_context.xdc] for cell 'design_1_i/microblaze_0_axi_periph/m03_couplers/auto_pc'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0_in_context.xdc] for cell 'design_1_i/axi_gpio_1'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0/design_1_axi_gpio_1_0_in_context.xdc] for cell 'design_1_i/axi_gpio_1'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0/design_1_axi_timer_0_0_in_context.xdc] for cell 'design_1_i/axi_timer_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0/design_1_axi_timer_0_0_in_context.xdc] for cell 'design_1_i/axi_timer_0'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1_in_context.xdc] for cell 'design_1_i/axi_uartlite_1'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1/design_1_axi_uartlite_0_1_in_context.xdc] for cell 'design_1_i/axi_uartlite_1'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_in_context.xdc] for cell 'design_1_i/axi_gpio_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_in_context.xdc] for cell 'design_1_i/axi_gpio_0'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1_in_context.xdc] for cell 'design_1_i/axi_bram_ctrl_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1/design_1_axi_bram_ctrl_0_1_in_context.xdc] for cell 'design_1_i/axi_bram_ctrl_0'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_2'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0_in_context.xdc] for cell 'design_1_i/axi_uartlite_2'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc] for cell 'design_1_i/clk_wiz_1'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc] for cell 'design_1_i/clk_wiz_1'
+Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc] for cell 'design_1_i/hw0_0'
+Finished Parsing XDC File [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc] for cell 'design_1_i/hw0_0'
+Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]
+WARNING: [Vivado 12-584] No ports matched 'resetN'. [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc:15]
+WARNING: [Vivado 12-584] No ports matched 'resetN'. [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc:16]
+Finished Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/design_1_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/kevin/temp/microBlaze1/microBlaze1.srcs/constrs_1/new/top_pin.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1969.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1970.297 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1969.090 ; gain = 0.000
-WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_0' at clock pin 's_axi_aclk' is different from the actual clock period '5.000', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_1' at clock pin 's_axi_aclk' is different from the actual clock period '5.000', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '5.000', this can lead to different synthesis results.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1970.297 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_0' at clock pin 's_axi_aclk' is different from the actual clock period '4.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_1' at clock pin 's_axi_aclk' is different from the actual clock period '4.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '4.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for sysClk50m. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for sysClk50m. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc, line 5).
-Applied set_property IO_BUFFER_TYPE = NONE for dfInN[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 1).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInN[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 2).
-Applied set_property IO_BUFFER_TYPE = NONE for dfInN[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInN[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 4).
-Applied set_property IO_BUFFER_TYPE = NONE for dfInP[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInP[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 6).
-Applied set_property IO_BUFFER_TYPE = NONE for dfInP[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 7).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInP[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 8).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 9).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 10).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 11).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 12).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[2]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 13).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[2]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 14).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[3]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 15).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[3]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 16).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[4]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 17).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[4]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 18).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[5]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 19).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[5]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 20).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[6]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 21).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[6]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 22).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[7]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 23).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[7]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 24).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 25).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[0]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 26).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 27).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[1]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 28).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[2]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 29).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[2]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 30).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[3]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 31).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[3]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 32).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[4]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 33).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[4]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 34).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[5]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 35).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[5]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 36).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[6]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 37).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[6]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 38).
-Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[7]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 39).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[7]. (constraint file  e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 40).
+Applied set_property IO_BUFFER_TYPE = NONE for sysClk50m. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sysClk50m. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for dfInN[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInN[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for dfInN[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInN[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for dfInP[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInP[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for dfInP[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfInP[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 11).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[2]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 13).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[2]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 14).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[3]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 15).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[3]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 16).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[4]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 17).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[4]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 18).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[5]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 19).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[5]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 20).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[6]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 21).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[6]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 22).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutN[7]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 23).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutN[7]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 24).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 25).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[0]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 26).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 27).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[1]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 28).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[2]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 29).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[2]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 30).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[3]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 31).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[3]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 32).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[4]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 33).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[4]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 34).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[5]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 35).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[5]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 36).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[6]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 37).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[6]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 38).
+Applied set_property IO_BUFFER_TYPE = NONE for dfOutP[7]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 39).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for dfOutP[7]. (constraint file  e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0/design_1_hw0_0_0_in_context.xdc, line 40).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/microblaze_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/microblaze_0_local_memory/dlmb_v10. (constraint file  auto generated constraint).
@@ -361,10 +363,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/axi_uartlite_2. (const
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/clk_wiz_1. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/hw0_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -404,25 +406,25 @@ WARNING: [Synth 8-7129] Port S00_ACLK in module design_1_microblaze_0_axi_periph
 WARNING: [Synth 8-7129] Port S00_ARESETN in module design_1_microblaze_0_axi_periph_0 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1969.090 ; gain = 509.066
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1969.184 ; gain = 509.160
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1969.184 ; gain = 509.160
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1970.297 ; gain = 509.180
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1980.793 ; gain = 520.770
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -440,37 +442,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -527,16 +529,16 @@ Report Cell Usage:
 |21    |OBUF                        |    41|
 +------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:20 . Memory (MB): peak = 1985.594 ; gain = 525.570
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1985.594 ; gain = 525.570
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1984.316 ; gain = 523.199
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1984.316 ; gain = 523.199
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1997.688 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 1996.129 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2005.461 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2001.160 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -544,7 +546,7 @@ Synth Design complete, checksum: e551390
 INFO: [Common 17-83] Releasing license: Synthesis
 87 Infos, 137 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2005.461 ; gain = 942.953
-INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/design_1_wrapper.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2001.160 ; gain = 941.484
+INFO: [Common 17-1381] The checkpoint 'E:/kevin/temp/microBlaze1/microBlaze1.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Feb 20 21:19:12 2025...
+INFO: [Common 17-206] Exiting Vivado at Fri Feb 21 13:38:37 2025...

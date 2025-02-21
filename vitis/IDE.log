@@ -101,3 +101,336 @@ con
 23:16:14 INFO  : No changes in MSS file content so sources will not be generated.
 23:22:03 INFO  : No changes in MSS file content so sources will not be generated.
 09:49:05 INFO  : Disconnected from the channel tcfchan#3.
+11:25:05 DEBUG : Logs will be stored at 'E:/kevin/temp/microBlaze1/vitis/IDE.log'.
+11:25:06 INFO  : Launching XSCT server: xsct.bat -n  -interactive E:\kevin\temp\microBlaze1\vitis\temp_xsdb_launch_script.tcl
+11:25:09 INFO  : XSCT server has started successfully.
+11:25:09 INFO  : Successfully done setting XSCT server connection channel  
+11:25:09 INFO  : plnx-install-location is set to ''
+11:25:09 INFO  : Successfully done setting workspace for the tool. 
+11:25:10 INFO  : Registering command handlers for Vitis TCF services
+11:25:11 INFO  : Platform repository initialization has completed.
+11:25:16 INFO  : Successfully done query RDI_DATADIR 
+11:25:49 INFO  : Hardware specification for platform project 'syncMicroBlaze' is updated.
+11:26:09 INFO  : Result from executing command 'getProjects': syncMicroBlaze
+11:26:09 INFO  : Result from executing command 'getPlatforms': xilinx_vck190_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+11:26:33 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+11:26:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:26:46 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+11:26:46 INFO  : 'jtag frequency' command is executed.
+11:26:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+11:26:50 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+11:26:50 INFO  : Context for processor 'microblaze_0' is selected.
+11:26:50 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+11:26:50 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:26:50 INFO  : Context for processor 'microblaze_0' is selected.
+11:26:50 INFO  : System reset is completed.
+11:26:53 INFO  : 'after 3000' command is executed.
+11:26:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:26:53 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+11:26:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+11:26:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:26:53 INFO  : 'con' command is executed.
+11:26:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+11:26:53 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+11:27:20 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+11:27:52 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+11:29:29 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+11:31:46 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+11:32:15 INFO  : Disconnected from the channel tcfchan#2.
+11:32:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:32:16 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+11:32:16 INFO  : 'jtag frequency' command is executed.
+11:32:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+11:32:19 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+11:32:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:32:19 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+11:32:19 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:32:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:32:19 INFO  : System reset is completed.
+11:32:22 INFO  : 'after 3000' command is executed.
+11:32:22 INFO  : Context for processor 'microblaze_0' is selected.
+11:32:22 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+11:32:22 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+11:32:22 INFO  : Context for processor 'microblaze_0' is selected.
+11:32:22 INFO  : 'con' command is executed.
+11:32:22 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+11:32:22 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+14:02:52 INFO  : Hardware specification for platform project 'syncMicroBlaze' is updated.
+14:03:13 INFO  : Result from executing command 'getProjects': syncMicroBlaze
+14:03:13 INFO  : Result from executing command 'getPlatforms': syncMicroBlaze|E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/syncMicroBlaze.xpfm;xilinx_vck190_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|D:/Xilinx202202/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+14:03:44 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+14:03:56 INFO  : Disconnected from the channel tcfchan#3.
+14:03:57 INFO  : The hardware specification used by project 'syncMain' is out of sync with the platform. Resource files extracted from the hardware specification will be updated.
+14:03:57 INFO  : The file 'E:\kevin\temp\microBlaze1\vitis\syncMain\_ide\bitstream\design_1_wrapper.bit' stored in project is removed.
+14:03:57 INFO  : The file 'E:\kevin\temp\microBlaze1\vitis\syncMain\_ide\bitstream\design_1_wrapper.mmi' stored in project is removed.
+14:03:57 INFO  : The updated bitstream files are copied from platform to folder 'E:\kevin\temp\microBlaze1\vitis\syncMain\_ide\bitstream' in project 'syncMain'.
+14:03:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:03:57 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+14:03:57 INFO  : 'jtag frequency' command is executed.
+14:03:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+14:04:01 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+14:04:01 INFO  : Context for processor 'microblaze_0' is selected.
+14:04:01 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+14:04:01 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:04:01 INFO  : Context for processor 'microblaze_0' is selected.
+14:04:01 INFO  : System reset is completed.
+14:04:04 INFO  : 'after 3000' command is executed.
+14:04:04 INFO  : Context for processor 'microblaze_0' is selected.
+14:04:04 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+14:04:04 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+14:04:04 INFO  : Context for processor 'microblaze_0' is selected.
+14:04:04 INFO  : 'con' command is executed.
+14:04:04 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+14:04:04 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+17:41:17 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:44:57 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:45:32 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:45:57 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:46:40 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:47:14 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:47:26 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:47:37 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:48:04 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:48:47 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:50:13 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:51:19 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:52:01 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:52:16 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:53:06 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:53:28 INFO  : Disconnected from the channel tcfchan#5.
+17:53:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:53:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+17:53:38 ERROR : Could not find FPGA device on the board for connection 'Local'.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+17:53:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:53:49 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+17:53:49 INFO  : 'jtag frequency' command is executed.
+17:53:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+17:53:52 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+17:53:52 INFO  : Context for processor 'microblaze_0' is selected.
+17:53:52 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+17:53:52 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:53:53 INFO  : Context for processor 'microblaze_0' is selected.
+17:53:53 INFO  : System reset is completed.
+17:53:56 INFO  : 'after 3000' command is executed.
+17:53:56 INFO  : Context for processor 'microblaze_0' is selected.
+17:53:56 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+17:53:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+17:53:56 INFO  : Context for processor 'microblaze_0' is selected.
+17:53:56 INFO  : 'con' command is executed.
+17:53:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+17:53:56 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+17:55:07 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:55:17 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+17:55:29 INFO  : Disconnected from the channel tcfchan#6.
+17:55:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:55:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+17:55:39 ERROR : Could not find FPGA device on the board for connection 'Local'.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+17:55:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:55:42 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+17:55:42 INFO  : 'jtag frequency' command is executed.
+17:55:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+17:55:45 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+17:55:45 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:45 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+17:55:45 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+17:55:45 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:45 INFO  : System reset is completed.
+17:55:48 INFO  : 'after 3000' command is executed.
+17:55:48 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:49 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+17:55:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+17:55:49 INFO  : Context for processor 'microblaze_0' is selected.
+17:55:49 INFO  : 'con' command is executed.
+17:55:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+17:55:49 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+18:50:15 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+18:50:23 INFO  : Disconnected from the channel tcfchan#7.
+18:50:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:50:25 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+18:50:25 INFO  : 'jtag frequency' command is executed.
+18:50:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+18:50:28 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+18:50:28 INFO  : Context for processor 'microblaze_0' is selected.
+18:50:28 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+18:50:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+18:50:28 INFO  : Context for processor 'microblaze_0' is selected.
+18:50:28 INFO  : System reset is completed.
+18:50:31 INFO  : 'after 3000' command is executed.
+18:50:31 INFO  : Context for processor 'microblaze_0' is selected.
+18:50:31 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+18:50:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+18:50:31 INFO  : Context for processor 'microblaze_0' is selected.
+18:50:31 INFO  : 'con' command is executed.
+18:50:31 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+18:50:31 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+19:40:26 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+19:44:08 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
+19:44:18 INFO  : Disconnected from the channel tcfchan#8.
+19:44:19 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:44:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+----------------End of Script----------------
+
+19:44:28 ERROR : Could not find FPGA device on the board for connection 'Local'.
+
+
+Troubleshooting hints:
+1. Check whether board is connected to system properly.
+2. In case of zynq board, check whether Digilent/Xilinx cable switch settings are correct.
+3. If you are using Xilinx Platform Cable USB, ensure that status LED is green.
+19:44:31 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:44:32 INFO  : Jtag cable 'Digilent JTAG-HS2 201706300081' is selected.
+19:44:32 INFO  : 'jtag frequency' command is executed.
+19:44:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}' command is executed.
+19:44:35 INFO  : Device configured successfully with "E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit"
+19:44:35 INFO  : Context for processor 'microblaze_0' is selected.
+19:44:35 INFO  : Hardware design and registers information is loaded from 'E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa'.
+19:44:35 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+19:44:35 INFO  : Context for processor 'microblaze_0' is selected.
+19:44:35 INFO  : System reset is completed.
+19:44:38 INFO  : 'after 3000' command is executed.
+19:44:38 INFO  : Context for processor 'microblaze_0' is selected.
+19:44:38 INFO  : The application 'E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf' is downloaded to processor 'microblaze_0'.
+19:44:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-HS2 201706300081" && level==0 && jtag_device_ctx=="jsn-JTAG-HS2-201706300081-13631093-0"}
+fpga -file E:/kevin/temp/microBlaze1/vitis/syncMain/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/hw/design_1_wrapper.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow E:/kevin/temp/microBlaze1/vitis/syncMain/Debug/syncMain.elf
+----------------End of Script----------------
+
+19:44:38 INFO  : Context for processor 'microblaze_0' is selected.
+19:44:38 INFO  : 'con' command is executed.
+19:44:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+19:44:38 INFO  : Launch script is exported to file 'E:\kevin\temp\microBlaze1\vitis\syncMain_system\_ide\scripts\debugger_syncmain-default.tcl'
+20:02:56 INFO  : Disconnected from the channel tcfchan#9.

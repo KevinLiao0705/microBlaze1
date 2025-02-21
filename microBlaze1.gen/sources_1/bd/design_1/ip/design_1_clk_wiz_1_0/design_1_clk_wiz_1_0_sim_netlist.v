@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Feb 20 18:48:45 2025
+// Date        : Fri Feb 21 13:35:56 2025
 // Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_sim_netlist.v
@@ -86,14 +86,14 @@ module design_1_clk_wiz_1_0_clk_wiz
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(32),
+    .CLKFBOUT_MULT(35),
     .CLKFBOUT_PHASE(0.000000),
     .CLKIN1_PERIOD(20.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE(8),
+    .CLKOUT0_DIVIDE(7),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
-    .CLKOUT1_DIVIDE(10),
+    .CLKOUT1_DIVIDE(11),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT2_DIVIDE(1),

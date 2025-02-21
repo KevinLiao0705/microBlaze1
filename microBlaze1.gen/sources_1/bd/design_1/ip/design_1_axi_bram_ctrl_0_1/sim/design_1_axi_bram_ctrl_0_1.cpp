@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -93,7 +93,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
   // 'S_AXI' transactor parameters
     xsc::common_cpp::properties S_AXI_transactor_param_props;
     S_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
-    S_AXI_transactor_param_props.addLong("FREQ_HZ", "200000000");
+    S_AXI_transactor_param_props.addLong("FREQ_HZ", "250000000");
     S_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "13");
     S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -123,7 +123,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
     S_AXI_transactor_param_props.addFloat("PHASE", "0.0");
     S_AXI_transactor_param_props.addString("PROTOCOL", "AXI4");
     S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "design_1_clk_wiz_1_0_clk_out1");
+    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "/clk_wiz_1_clk_out1");
 
     mp_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>("S_AXI_transactor", S_AXI_transactor_param_props);
 
@@ -212,7 +212,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
   // 'S_AXI' transactor parameters
     xsc::common_cpp::properties S_AXI_transactor_param_props;
     S_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
-    S_AXI_transactor_param_props.addLong("FREQ_HZ", "200000000");
+    S_AXI_transactor_param_props.addLong("FREQ_HZ", "250000000");
     S_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "13");
     S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -242,7 +242,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
     S_AXI_transactor_param_props.addFloat("PHASE", "0.0");
     S_AXI_transactor_param_props.addString("PROTOCOL", "AXI4");
     S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "design_1_clk_wiz_1_0_clk_out1");
+    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "/clk_wiz_1_clk_out1");
 
     mp_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>("S_AXI_transactor", S_AXI_transactor_param_props);
 
@@ -331,7 +331,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
   // 'S_AXI' transactor parameters
     xsc::common_cpp::properties S_AXI_transactor_param_props;
     S_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
-    S_AXI_transactor_param_props.addLong("FREQ_HZ", "200000000");
+    S_AXI_transactor_param_props.addLong("FREQ_HZ", "250000000");
     S_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "13");
     S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -361,7 +361,7 @@ void design_1_axi_bram_ctrl_0_1::before_end_of_elaboration()
     S_AXI_transactor_param_props.addFloat("PHASE", "0.0");
     S_AXI_transactor_param_props.addString("PROTOCOL", "AXI4");
     S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "design_1_clk_wiz_1_0_clk_out1");
+    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "/clk_wiz_1_clk_out1");
 
     mp_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>("S_AXI_transactor", S_AXI_transactor_param_props);
 
@@ -439,7 +439,7 @@ design_1_axi_bram_ctrl_0_1::design_1_axi_bram_ctrl_0_1(const sc_core::sc_module_
   // configure S_AXI_transactor
     xsc::common_cpp::properties S_AXI_transactor_param_props;
     S_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
-    S_AXI_transactor_param_props.addLong("FREQ_HZ", "200000000");
+    S_AXI_transactor_param_props.addLong("FREQ_HZ", "250000000");
     S_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "13");
     S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -469,7 +469,7 @@ design_1_axi_bram_ctrl_0_1::design_1_axi_bram_ctrl_0_1(const sc_core::sc_module_
     S_AXI_transactor_param_props.addFloat("PHASE", "0.0");
     S_AXI_transactor_param_props.addString("PROTOCOL", "AXI4");
     S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "design_1_clk_wiz_1_0_clk_out1");
+    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "/clk_wiz_1_clk_out1");
 
     mp_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>("S_AXI_transactor", S_AXI_transactor_param_props);
   mp_S_AXI_transactor->ARADDR(s_axi_araddr);
@@ -559,7 +559,7 @@ design_1_axi_bram_ctrl_0_1::design_1_axi_bram_ctrl_0_1(const sc_core::sc_module_
   // configure S_AXI_transactor
     xsc::common_cpp::properties S_AXI_transactor_param_props;
     S_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
-    S_AXI_transactor_param_props.addLong("FREQ_HZ", "200000000");
+    S_AXI_transactor_param_props.addLong("FREQ_HZ", "250000000");
     S_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S_AXI_transactor_param_props.addLong("ADDR_WIDTH", "13");
     S_AXI_transactor_param_props.addLong("AWUSER_WIDTH", "0");
@@ -589,7 +589,7 @@ design_1_axi_bram_ctrl_0_1::design_1_axi_bram_ctrl_0_1(const sc_core::sc_module_
     S_AXI_transactor_param_props.addFloat("PHASE", "0.0");
     S_AXI_transactor_param_props.addString("PROTOCOL", "AXI4");
     S_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "design_1_clk_wiz_1_0_clk_out1");
+    S_AXI_transactor_param_props.addString("CLK_DOMAIN", "/clk_wiz_1_clk_out1");
 
     mp_S_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>("S_AXI_transactor", S_AXI_transactor_param_props);
   mp_S_AXI_transactor->ARADDR(s_axi_araddr);

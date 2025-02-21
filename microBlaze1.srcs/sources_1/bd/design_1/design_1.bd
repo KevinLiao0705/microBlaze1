@@ -417,7 +417,10 @@
         "inst_hier_path": "axi_uartlite_0",
         "parameters": {
           "C_BAUDRATE": {
-            "value": "115200"
+            "value": "921600"
+          },
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "240"
           }
         }
       },
@@ -1315,7 +1318,7 @@
         "inst_hier_path": "axi_uartlite_1",
         "parameters": {
           "C_BAUDRATE": {
-            "value": "115200"
+            "value": "460800"
           }
         }
       },
@@ -1357,7 +1360,10 @@
         "inst_hier_path": "axi_uartlite_2",
         "parameters": {
           "C_BAUDRATE": {
-            "value": "115200"
+            "value": "921600"
+          },
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "250"
           }
         }
       },
@@ -1374,22 +1380,22 @@
             "value": "BUFG"
           },
           "CLKOUT1_JITTER": {
-            "value": "96.666"
+            "value": "85.224"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "120.359"
+            "value": "112.560"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "200"
+            "value": "250"
           },
           "CLKOUT2_DRIVES": {
             "value": "BUFG"
           },
           "CLKOUT2_JITTER": {
-            "value": "99.833"
+            "value": "90.665"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "120.359"
+            "value": "112.560"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "160.000"
@@ -1419,7 +1425,7 @@
             "value": "OPTIMIZED"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "32"
+            "value": "35"
           },
           "MMCM_CLKIN1_PERIOD": {
             "value": "20.000"
@@ -1428,10 +1434,10 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "8"
+            "value": "7"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "10"
+            "value": "11"
           },
           "MMCM_COMPENSATION": {
             "value": "ZHOLD"
@@ -1497,7 +1503,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "200000000",
+                "value": "250000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1514,7 +1520,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "160000000",
+                "value": "159090909",
                 "value_src": "ip_prop"
               },
               "PHASE": {

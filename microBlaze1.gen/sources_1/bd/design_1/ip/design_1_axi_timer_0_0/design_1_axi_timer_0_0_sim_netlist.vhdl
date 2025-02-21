@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Thu Sep 21 16:26:23 2023
+-- Date        : Fri Feb 21 13:35:59 2025
 -- Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_timer_0_0 -prefix
---               design_1_axi_timer_0_0_ design_1_axi_timer_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0_sim_netlist.vhdl
 -- Design      : design_1_axi_timer_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -38,6 +38,8 @@ entity design_1_axi_timer_0_0_cdc_sync is
   attribute C_SINGLE_BIT of design_1_axi_timer_0_0_cdc_sync : entity is 1;
   attribute C_VECTOR_WIDTH : integer;
   attribute C_VECTOR_WIDTH of design_1_axi_timer_0_0_cdc_sync : entity is 32;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_cdc_sync : entity is "cdc_sync";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_timer_0_0_cdc_sync : entity is "yes";
 end design_1_axi_timer_0_0_cdc_sync;
@@ -519,6 +521,8 @@ entity design_1_axi_timer_0_0_counter_f is
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_counter_f : entity is "counter_f";
 end design_1_axi_timer_0_0_counter_f;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_counter_f is
@@ -3510,6 +3514,8 @@ entity design_1_axi_timer_0_0_mux_onehot_f is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_mux_onehot_f : entity is "mux_onehot_f";
 end design_1_axi_timer_0_0_mux_onehot_f;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_mux_onehot_f is
@@ -4231,6 +4237,8 @@ entity design_1_axi_timer_0_0_pselect_f is
     ce_expnd_i_7 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_pselect_f : entity is "pselect_f";
 end design_1_axi_timer_0_0_pselect_f;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_pselect_f is
@@ -4518,6 +4526,8 @@ entity design_1_axi_timer_0_0_address_decoder is
     bus2ip_rnw_i : in STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[7].ce_out_i_reg[7]_0\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_address_decoder : entity is "address_decoder";
 end design_1_axi_timer_0_0_address_decoder;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_address_decoder is
@@ -6070,6 +6080,8 @@ entity design_1_axi_timer_0_0_count_module is
     s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_count_module : entity is "count_module";
 end design_1_axi_timer_0_0_count_module;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_count_module is
@@ -7315,6 +7327,8 @@ entity design_1_axi_timer_0_0_timer_control is
     counterReg_DBus_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     counterReg_DBus_32 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_timer_control : entity is "timer_control";
 end design_1_axi_timer_0_0_timer_control;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
@@ -7374,13 +7388,10 @@ architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
   signal NLW_INPUT_DOUBLE_REGS3_prmry_ack_UNCONNECTED : STD_LOGIC;
   signal NLW_INPUT_DOUBLE_REGS3_scndry_vect_out_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of GenerateOut0_i_2 : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of GenerateOut1_i_1 : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out0_carry_i_6\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out0_carry_i_7\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out[31]_i_3__0\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out[31]_i_5\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out[31]_i_6__0\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of GenerateOut0_i_2 : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of GenerateOut1_i_1 : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out[31]_i_3__0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \INFERRED_GEN.icount_out[31]_i_5\ : label is "soft_lutpair24";
   attribute C_CDC_TYPE : integer;
   attribute C_CDC_TYPE of INPUT_DOUBLE_REGS : label is 1;
   attribute C_FLOP_INPUT : integer;
@@ -7413,8 +7424,8 @@ architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
   attribute C_VECTOR_WIDTH of INPUT_DOUBLE_REGS3 : label is 32;
   attribute DONT_TOUCH of INPUT_DOUBLE_REGS3 : label is std.standard.true;
   attribute downgradeipidentifiedwarnings of INPUT_DOUBLE_REGS3 : label is "yes";
-  attribute SOFT_HLUTNM of \LOAD_REG_GEN[0].LOAD_REG_I_i_3\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \LOAD_REG_GEN[0].LOAD_REG_I_i_4\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \LOAD_REG_GEN[0].LOAD_REG_I_i_3\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \LOAD_REG_GEN[0].LOAD_REG_I_i_4\ : label is "soft_lutpair23";
   attribute BOX_TYPE : string;
   attribute BOX_TYPE of READ_DONE0_I : label is "PRIMITIVE";
   attribute IS_CE_INVERTED : string;
@@ -7424,7 +7435,7 @@ architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
   attribute BOX_TYPE of READ_DONE1_I : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of READ_DONE1_I : label is "1'b0";
   attribute IS_S_INVERTED of READ_DONE1_I : label is "1'b0";
-  attribute SOFT_HLUTNM of READ_DONE1_I_i_3 : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of READ_DONE1_I_i_3 : label is "soft_lutpair22";
   attribute BOX_TYPE of \TCSR0_GENERATE[20].TCSR0_FF_I\ : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of \TCSR0_GENERATE[20].TCSR0_FF_I\ : label is "1'b0";
   attribute IS_S_INVERTED of \TCSR0_GENERATE[20].TCSR0_FF_I\ : label is "1'b0";
@@ -7437,7 +7448,6 @@ architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
   attribute BOX_TYPE of \TCSR0_GENERATE[23].TCSR0_FF_I\ : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of \TCSR0_GENERATE[23].TCSR0_FF_I\ : label is "1'b0";
   attribute IS_S_INVERTED of \TCSR0_GENERATE[23].TCSR0_FF_I\ : label is "1'b0";
-  attribute SOFT_HLUTNM of \TCSR0_GENERATE[23].TCSR0_FF_I_i_3\ : label is "soft_lutpair26";
   attribute BOX_TYPE of \TCSR0_GENERATE[24].TCSR0_FF_I\ : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of \TCSR0_GENERATE[24].TCSR0_FF_I\ : label is "1'b0";
   attribute IS_S_INVERTED of \TCSR0_GENERATE[24].TCSR0_FF_I\ : label is "1'b0";
@@ -7495,7 +7505,7 @@ architecture STRUCTURE of design_1_axi_timer_0_0_timer_control is
   attribute BOX_TYPE of \TCSR1_GENERATE[31].TCSR1_FF_I\ : label is "PRIMITIVE";
   attribute IS_CE_INVERTED of \TCSR1_GENERATE[31].TCSR1_FF_I\ : label is "1'b0";
   attribute IS_S_INVERTED of \TCSR1_GENERATE[31].TCSR1_FF_I\ : label is "1'b0";
-  attribute SOFT_HLUTNM of captureTrig0_pulse_d1_i_1 : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of captureTrig0_pulse_d1_i_1 : label is "soft_lutpair22";
 begin
   Q(1 downto 0) <= \^q\(1 downto 0);
   \TCSR0_GENERATE[20].TCSR0_FF_I_0\ <= \^tcsr0_generate[20].tcsr0_ff_i_0\;
@@ -8696,6 +8706,8 @@ entity design_1_axi_timer_0_0_slave_attachment is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_slave_attachment : entity is "slave_attachment";
 end design_1_axi_timer_0_0_slave_attachment;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_slave_attachment is
@@ -9838,6 +9850,8 @@ entity design_1_axi_timer_0_0_tc_core is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_tc_core : entity is "tc_core";
 end design_1_axi_timer_0_0_tc_core;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_tc_core is
@@ -10338,6 +10352,8 @@ entity design_1_axi_timer_0_0_axi_lite_ipif is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end design_1_axi_timer_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of design_1_axi_timer_0_0_axi_lite_ipif is
@@ -10585,6 +10601,8 @@ entity design_1_axi_timer_0_0_axi_timer is
   attribute C_TRIG0_ASSERT of design_1_axi_timer_0_0_axi_timer : entity is "1'b1";
   attribute C_TRIG1_ASSERT : string;
   attribute C_TRIG1_ASSERT of design_1_axi_timer_0_0_axi_timer : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_timer_0_0_axi_timer : entity is "axi_timer";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_timer_0_0_axi_timer : entity is "yes";
 end design_1_axi_timer_0_0_axi_timer;
@@ -11106,7 +11124,7 @@ architecture STRUCTURE of design_1_axi_timer_0_0 is
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of interrupt : signal is "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PORTWIDTH 1";
   attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK";
-  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 250000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, INSERT_VIP 0";
   attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 S_AXI_RST RST";
   attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME S_AXI_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARREADY";
@@ -11121,7 +11139,7 @@ architecture STRUCTURE of design_1_axi_timer_0_0 is
   attribute x_interface_info of s_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI WVALID";
   attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
   attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
-  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 200000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 250000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
   attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
   attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";

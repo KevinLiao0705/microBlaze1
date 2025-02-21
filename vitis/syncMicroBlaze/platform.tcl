@@ -23,3 +23,8 @@ bsp reload
 bsp reload
 bsp reload
 bsp reload
+platform active {syncMicroBlaze}
+platform config -updatehw {E:/kevin/temp/microBlaze1/design_1_wrapper.xsa}
+platform generate -domains standalone_domain 
+platform config -updatehw {E:/kevin/temp/microBlaze1/design_1_wrapper.xsa}
+platform generate -domains 
