@@ -65,7 +65,7 @@ module hw0
                 6:slotSw2
                 7:slotSw3
             */
-        //input   wire    [5:0]       gpInA,
+        //input   wire    [7:0]       gpInA,
         
         // 0:aRfmaCko,  1:aRfmaDio1,  2:aRfmaD0,  3:aRfmbCko,  4:aRfmbDio1,  5:aRfmbD0,
         // 6:bRfmaCko,  7:bRfmaDio1,  8:bRfmaD0,  9:bRfmbCko,  10:bRfmbDio1,  11:bRfmbD0,

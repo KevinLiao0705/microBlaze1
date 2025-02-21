@@ -228,36 +228,36 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[7]}]
 
 ###############################################################################################
 # ioB40 slotSw3
-set_property PACKAGE_PIN H18 [get_ports {gpInA[5]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[5]}]
+set_property PACKAGE_PIN H18 [get_ports {gpInA[7]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[7]}]
 
 # ioB41 slotSw2
-set_property PACKAGE_PIN K16 [get_ports {gpInA[4]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[4]}]
+set_property PACKAGE_PIN K16 [get_ports {gpInA[6]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[6]}]
 
 # ioB42 slotSw1
-set_property PACKAGE_PIN K18 [get_ports {gpInA[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
+set_property PACKAGE_PIN K18 [get_ports {gpInA[5]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[5]}]
 
 # ioB43 slotSw0
-set_property PACKAGE_PIN J16 [get_ports {gpInA[2]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
+set_property PACKAGE_PIN J16 [get_ports {gpInA[4]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[4]}]
 
 # ioB44
-set_property PACKAGE_PIN J20 [get_ports {uartIpcTx2[44]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTx2[44]}]
+set_property PACKAGE_PIN J20 [get_ports {uartIpcTx2}]
+set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTx2}]
 
 # ioB45
-set_property PACKAGE_PIN L20 [get_ports {uartIpcRx2[45]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRx2[45]}]
+set_property PACKAGE_PIN L20 [get_ports {uartIpcRx2}]
+set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRx2}]
 
 # ioB46
-set_property PACKAGE_PIN M20 [get_ports {uartIpcTxH[46]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTxH[46]}]
+set_property PACKAGE_PIN M20 [get_ports {uartIpcTxH}]
+set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTxH}]
 
 # ioB47
-set_property PACKAGE_PIN L16 [get_ports {uartIpcRxH[47]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRxH[47]}]
+set_property PACKAGE_PIN L16 [get_ports {uartIpcRxH}]
+set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRxH}]
 
 ####################################################################################
 # ioB22

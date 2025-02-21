@@ -1,0 +1,442 @@
+
+*** Running vivado
+    with args -log design_1_hw0_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_hw0_0_0.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source design_1_hw0_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_hw0_0_0
+Command: synth_design -top design_1_hw0_0_0 -part xc7a100tfgg484-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tfgg484-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 10592
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'a_snd_clk', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:448]
+INFO: [Synth 8-11241] undeclared symbol 'a_snd_tx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:457]
+INFO: [Synth 8-11241] undeclared symbol 'b_snd_clk', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:466]
+INFO: [Synth 8-11241] undeclared symbol 'b_snd_tx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:475]
+INFO: [Synth 8-11241] undeclared symbol 'aSndRx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:485]
+INFO: [Synth 8-11241] undeclared symbol 'bSndRx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:496]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1836.812 ; gain = 408.902
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/synth/design_1_hw0_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'hw0' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:290]
+INFO: [Synth 8-6157] synthesizing module 'OBUFDS' [D:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90676]
+INFO: [Synth 8-6155] done synthesizing module 'OBUFDS' (0#1) [D:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90676]
+INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [D:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (0#1) [D:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
+INFO: [Synth 8-6155] done synthesizing module 'hw0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/synth/design_1_hw0_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element wg_pulseFlag_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:334]
+WARNING: [Synth 8-3848] Net rfOutA in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:74]
+WARNING: [Synth 8-3848] Net fibTxA in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:77]
+WARNING: [Synth 8-3848] Net hdfoA in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:86]
+WARNING: [Synth 8-3848] Net laCh in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:87]
+WARNING: [Synth 8-3848] Net pusleGenDatas[62] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:142]
+WARNING: [Synth 8-3848] Net pusleGenDatas[60] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:142]
+WARNING: [Synth 8-3848] Net pusleGenDatas[63] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:142]
+WARNING: [Synth 8-3848] Net pusleGenDatas[61] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:142]
+WARNING: [Synth 8-3848] Net a_snd_clk in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:448]
+WARNING: [Synth 8-3848] Net a_snd_tx in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:457]
+WARNING: [Synth 8-3848] Net b_snd_clk in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:466]
+WARNING: [Synth 8-3848] Net b_snd_tx in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:475]
+WARNING: [Synth 8-7129] Port rfOutA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port resetN in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gpsPps in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibRxA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[13] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[12] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfiA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[15] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[14] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[13] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[12] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[15] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[14] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[13] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[12] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[2] in module hw0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 8 instances were transformed.
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 8 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:43 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-2
+WARNING: [Synth 8-3936] Found unconnected internal register 'wg_flag_reg' and it is trimmed from '32' to '7' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:300]
+WARNING: [Synth 8-3936] Found unconnected internal register 'ibuf_reg[1]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:327]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[1]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[3]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[5]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[7]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[9]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[11]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[13]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[15]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[17]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[19]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[21]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[23]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[25]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[27]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[29]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[31]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[33]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[35]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[37]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[39]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[41]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[43]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[45]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[47]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[49]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[51]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[53]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[55]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[57]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pusleGenDatas_reg[59]' and it is trimmed from '32' to '16' bits. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:306]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:15 ; elapsed = 00:01:20 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   19 Bit       Adders := 1     
+	   2 Input   18 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 2083  
+	               24 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 1     
+	               18 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               16 Bit    Registers := 34    
+	                8 Bit    Registers := 6     
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input    8 Bit        Muxes := 8207  
+	   5 Input    1 Bit        Muxes := 15    
+	   2 Input    1 Bit        Muxes := 15    
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7129] Port rfOutA[3] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[2] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[1] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[0] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[7] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[6] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[5] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fibTxA[4] in module design_1_hw0_0_0 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-4471] merging register 'sampleCnt_reg[7:0]' into 'sampleCnt_reg[7:0]' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:304]
+DSP Report: Generating DSP cycleEndTime2, operation Mode is: A2*(B:0x3e8).
+DSP Report: register wg_pulseWidth_reg is absorbed into DSP cycleEndTime2.
+DSP Report: operator cycleEndTime2 is absorbed into DSP cycleEndTime2.
+INFO: [Synth 8-3886] merging instance 'cycleEndTime_reg[26]' (FDE) to 'cycleEndTime_reg[27]'
+INFO: [Synth 8-3886] merging instance 'cycleEndTime_reg[27]' (FDE) to 'cycleEndTime_reg[28]'
+INFO: [Synth 8-3886] merging instance 'cycleEndTime_reg[28]' (FDE) to 'cycleEndTime_reg[29]'
+INFO: [Synth 8-3886] merging instance 'cycleEndTime_reg[29]' (FDE) to 'cycleEndTime_reg[30]'
+INFO: [Synth 8-3886] merging instance 'cycleEndTime_reg[30]' (FDE) to 'cycleEndTime_reg[31]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[16]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[17]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[18]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[19]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[20]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3886] merging instance 'wg_data_reg[21]' (FDE) to 'wg_data_reg[22]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\wg_data_reg[22] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:15 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|hw0         | A2*(B:0x3e8) | 16     | 10     | -      | -      | 26     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:16 ; elapsed = 00:02:26 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:19 ; elapsed = 00:02:29 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:31 ; elapsed = 00:02:50 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:41 ; elapsed = 00:03:01 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:42 ; elapsed = 00:03:01 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:44 ; elapsed = 00:03:03 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:44 ; elapsed = 00:03:03 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:45 ; elapsed = 00:03:05 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:45 ; elapsed = 00:03:05 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|hw0         | A'*B        | 16     | 10     | -      | -      | 26     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY4  |   200|
+|2     |DSP48E1 |     1|
+|3     |LUT1    |    96|
+|4     |LUT2    |  3679|
+|5     |LUT3    |   542|
+|6     |LUT4    |   122|
+|7     |LUT5    |   790|
+|8     |LUT6    | 22920|
+|9     |MUXF7   |  8880|
+|10    |MUXF8   |  4352|
+|11    |FDRE    | 67383|
+|12    |IBUFDS  |     2|
+|13    |OBUFDS  |     8|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:45 ; elapsed = 00:03:05 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 126 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:10 ; elapsed = 00:02:53 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+Synthesis Optimization Complete : Time (s): cpu = 00:02:46 ; elapsed = 00:03:06 . Memory (MB): peak = 2886.238 ; gain = 1458.328
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.853 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 13443 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'design_1_hw0_0_0' is not ideal for floorplanning, since the cellview 'hw0' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 8 instances were transformed.
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 8 instances
+
+Synth Design complete, checksum: 11fa392a
+INFO: [Common 17-83] Releasing license: Synthesis
+52 Infos, 146 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:59 ; elapsed = 00:03:19 . Memory (MB): peak = 2886.238 ; gain = 1851.969
+INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_hw0_0_0_synth_1/design_1_hw0_0_0.dcp' has been generated.
+write_vhdl: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_hw0_0_0, cache-ID = f4c35cab6b055602
+INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_hw0_0_0_synth_1/design_1_hw0_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_hw0_0_0_utilization_synth.rpt -pb design_1_hw0_0_0_utilization_synth.pb
+write_vhdl: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2886.238 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 20 21:18:31 2025...

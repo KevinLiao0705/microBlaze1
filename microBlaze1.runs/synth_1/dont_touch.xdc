@@ -66,4 +66,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_hw
 # IP: bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_auto_pc_0 || ORIG_REF_NAME==design_1_auto_pc_0} -quiet] -quiet
 
-# XDC: e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/design_1_ooc.xdc
+# XDC: e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/design_1_ooc.xdc
