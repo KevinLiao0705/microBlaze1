@@ -12,8 +12,8 @@ set_property PACKAGE_PIN W19 [get_ports {sysClk50m}]
 #set_property IOSTANDARD DIFF_SSTL15 [get_ports {sysClk}]
 set_property IOSTANDARD LVCMOS25 [get_ports {sysClk50m}]
 # switchK1, resetBN
-set_property PACKAGE_PIN H13 [get_ports resetN]
-set_property IOSTANDARD LVCMOS25 [get_ports resetN]
+set_property PACKAGE_PIN H13 [get_ports {resetN}]
+set_property IOSTANDARD LVCMOS25 [get_ports {resetN}]
 # ledV3
 set_property PACKAGE_PIN H14 [get_ports {ledV3}]
 set_property IOSTANDARD LVCMOS25 [get_ports {ledV3}]
@@ -115,60 +115,60 @@ set_property PACKAGE_PIN AB6 [get_ports {fibRxA[0]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[0]}]
 
 # ioA18
-set_property PACKAGE_PIN AB7 [get_ports {fibTxA[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[1]}]
+set_property PACKAGE_PIN AB7 [get_ports {fibTx1}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTx1}]
 
 # ioA19
-set_property PACKAGE_PIN AB8 [get_ports {fibRxA[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[1]}]
+set_property PACKAGE_PIN AB8 [get_ports {fibRx1}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRx1}]
 
 # ioA20
-set_property PACKAGE_PIN AB10 [get_ports {fibTxA[2]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[2]}]
+set_property PACKAGE_PIN AB10 [get_ports {fibTxA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[1]}]
 
 # ioA21
-set_property PACKAGE_PIN AB11 [get_ports {fibRxA[2]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[2]}]
+set_property PACKAGE_PIN AB11 [get_ports {fibRxA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[1]}]
 
 # ioA22
-set_property PACKAGE_PIN AA13 [get_ports {fibTxA[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[3]}]
+set_property PACKAGE_PIN AA13 [get_ports {fibTx3}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTx3}]
 
 # ioA23
-set_property PACKAGE_PIN AA9 [get_ports {fibRxA[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[3]}]
+set_property PACKAGE_PIN AA9 [get_ports {fibRx3}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRx3}]
 
 # ioA24
-set_property PACKAGE_PIN Y8 [get_ports {fibTxA[4]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[4]}]
+set_property PACKAGE_PIN Y8 [get_ports {fibTxA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[2]}]
 
 # ioA25
-set_property PACKAGE_PIN Y11 [get_ports {fibRxA[4]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[4]}]
+set_property PACKAGE_PIN Y11 [get_ports {fibRxA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[2]}]
 
 # ioA26
-set_property PACKAGE_PIN V9 [get_ports {fibTxA[5]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[5]}]
+set_property PACKAGE_PIN V9 [get_ports {fibTx5}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTx5}]
 
 # ioA27
-set_property PACKAGE_PIN W10 [get_ports {fibRxA[5]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[5]}]
+set_property PACKAGE_PIN W10 [get_ports {fibRx5}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRx5}]
 
 # ioA28
-set_property PACKAGE_PIN W12 [get_ports {fibTxA[6]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[6]}]
+set_property PACKAGE_PIN W12 [get_ports {fibTxA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[3]}]
 
 # ioA29
-set_property PACKAGE_PIN Y14 [get_ports {fibRxA[6]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[6]}]
+set_property PACKAGE_PIN Y14 [get_ports {fibRxA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[3]}]
 
 # ioA30
-set_property PACKAGE_PIN W14 [get_ports {fibTxA[7]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibTxA[7]}]
+set_property PACKAGE_PIN W14 [get_ports {fibTx7}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibTx7}]
 
 # ioA31
-set_property PACKAGE_PIN W15 [get_ports {fibRxA[7]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {fibRxA[7]}]
+set_property PACKAGE_PIN W15 [get_ports {fibRx7}]
+set_property IOSTANDARD LVCMOS25 [get_ports {fibRx7}]
 
 # ioA32
 set_property PACKAGE_PIN AB15 [get_ports {gpInA[0]}]

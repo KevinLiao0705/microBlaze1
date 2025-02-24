@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri Feb 21 13:35:56 2025
+// Date        : Thu Feb 20 18:48:45 2025
 // Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top design_1_clk_wiz_1_0 -prefix
+//               design_1_clk_wiz_1_0_ design_1_clk_wiz_1_0_sim_netlist.v
 // Design      : design_1_clk_wiz_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,14 +28,14 @@ module design_1_clk_wiz_1_0
   wire clk_out2;
   wire locked;
 
-  design_1_clk_wiz_1_0_clk_wiz inst
+  design_1_clk_wiz_1_0_design_1_clk_wiz_1_0_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
         .clk_out2(clk_out2),
         .locked(locked));
 endmodule
 
-module design_1_clk_wiz_1_0_clk_wiz
+module design_1_clk_wiz_1_0_design_1_clk_wiz_1_0_clk_wiz
    (clk_out1,
     clk_out2,
     locked,
@@ -86,14 +86,14 @@ module design_1_clk_wiz_1_0_clk_wiz
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(35),
+    .CLKFBOUT_MULT(32),
     .CLKFBOUT_PHASE(0.000000),
     .CLKIN1_PERIOD(20.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE(7),
+    .CLKOUT0_DIVIDE(8),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
-    .CLKOUT1_DIVIDE(11),
+    .CLKOUT1_DIVIDE(10),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT2_DIVIDE(1),

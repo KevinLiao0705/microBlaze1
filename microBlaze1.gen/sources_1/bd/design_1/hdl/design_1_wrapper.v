@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Fri Feb 21 13:34:17 2025
+//Date        : Mon Feb 24 18:25:26 2025
 //Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -14,7 +14,15 @@ module design_1_wrapper
     dfInP,
     dfOutN,
     dfOutP,
+    fibRx1,
+    fibRx3,
+    fibRx5,
+    fibRx7,
     fibRxA,
+    fibTx1,
+    fibTx3,
+    fibTx5,
+    fibTx7,
     fibTxA,
     gpInA,
     gpOutA,
@@ -37,8 +45,16 @@ module design_1_wrapper
   input [15:0]dfInP;
   output [7:0]dfOutN;
   output [7:0]dfOutP;
-  input [7:0]fibRxA;
-  output [7:0]fibTxA;
+  input fibRx1;
+  input fibRx3;
+  input fibRx5;
+  input fibRx7;
+  input [3:0]fibRxA;
+  output fibTx1;
+  output fibTx3;
+  output fibTx5;
+  output fibTx7;
+  output [3:0]fibTxA;
   input [7:0]gpInA;
   output [7:0]gpOutA;
   input gpsPps;
@@ -61,8 +77,16 @@ module design_1_wrapper
   wire [15:0]dfInP;
   wire [7:0]dfOutN;
   wire [7:0]dfOutP;
-  wire [7:0]fibRxA;
-  wire [7:0]fibTxA;
+  wire fibRx1;
+  wire fibRx3;
+  wire fibRx5;
+  wire fibRx7;
+  wire [3:0]fibRxA;
+  wire fibTx1;
+  wire fibTx3;
+  wire fibTx5;
+  wire fibTx7;
+  wire [3:0]fibTxA;
   wire [7:0]gpInA;
   wire [7:0]gpOutA;
   wire gpsPps;
@@ -86,7 +110,15 @@ module design_1_wrapper
         .dfInP(dfInP),
         .dfOutN(dfOutN),
         .dfOutP(dfOutP),
+        .fibRx1(fibRx1),
+        .fibRx3(fibRx3),
+        .fibRx5(fibRx5),
+        .fibRx7(fibRx7),
         .fibRxA(fibRxA),
+        .fibTx1(fibTx1),
+        .fibTx3(fibTx3),
+        .fibTx5(fibTx5),
+        .fibTx7(fibTx7),
         .fibTxA(fibTxA),
         .gpInA(gpInA),
         .gpOutA(gpOutA),

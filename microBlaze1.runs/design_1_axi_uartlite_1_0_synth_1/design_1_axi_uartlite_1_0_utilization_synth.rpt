@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Feb 21 13:35:57 2025
+| Date         : Mon Feb 24 16:15:32 2025
 | Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_axi_uartlite_1_0_utilization_synth.rpt -pb design_1_axi_uartlite_1_0_utilization_synth.pb
 | Design       : design_1_axi_uartlite_1_0
@@ -154,12 +154,12 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |   91 |        Flop & Latch |
-| LUT5     |   27 |                 LUT |
 | LUT6     |   26 |                 LUT |
-| LUT4     |   25 |                 LUT |
+| LUT4     |   26 |                 LUT |
+| LUT5     |   25 |                 LUT |
 | SRL16E   |   18 |  Distributed Memory |
 | FDSE     |   18 |        Flop & Latch |
-| LUT2     |   13 |                 LUT |
+| LUT2     |   14 |                 LUT |
 | LUT3     |    9 |                 LUT |
 | MUXF7    |    1 |               MuxFx |
 | LUT1     |    1 |                 LUT |

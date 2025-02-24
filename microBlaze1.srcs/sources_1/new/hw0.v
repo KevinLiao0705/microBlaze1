@@ -74,8 +74,8 @@ module hw0
         output [3:0] rfOutA,
 
         
-        output [7:0] fibTxA,    		
-        input   wire [7:0] fibRxA,
+        output [3:0] fibTxA,    		
+        input   wire [3:0] fibRxA,
 
         
         

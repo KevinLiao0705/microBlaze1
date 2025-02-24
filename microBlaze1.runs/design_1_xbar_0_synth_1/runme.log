@@ -10,7 +10,6 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source design_1_xbar_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1003.582 ; gain = 118.656
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_xbar_0
 Command: synth_design -top design_1_xbar_0 -part xc7a100tfgg484-2 -incremental_mode off -mode out_of_context
 Starting synth_design
@@ -19,10 +18,10 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100
 INFO: [Device 21-403] Loading part xc7a100tfgg484-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 11468
+INFO: [Synth 8-7075] Helper process launched with PID 27752
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1850.680 ; gain = 409.184
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1851.195 ; gain = 409.312
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_axi_crossbar' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:4883]
@@ -44,6 +43,16 @@ INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_s
 INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized4' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
 INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized5' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
 INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized5' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized6' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized6' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized7' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized7' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized8' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized8' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized9' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized9' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6157] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized10' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
+INFO: [Synth 8-6155] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized10' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v:2132]
 INFO: [Synth 8-6155] done synthesizing module 'axi_crossbar_v2_1_28_addr_decoder' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:793]
 INFO: [Synth 8-6157] synthesizing module 'axi_crossbar_v2_1_28_decerr_slave' [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
 INFO: [Synth 8-6155] done synthesizing module 'axi_crossbar_v2_1_28_decerr_slave' (0#1) [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
@@ -86,6 +95,11 @@ WARNING: [Synth 8-7129] Port ADDR[1] in module axi_crossbar_v2_1_28_addr_decoder
 WARNING: [Synth 8-7129] Port ADDR[0] in module axi_crossbar_v2_1_28_addr_decoder is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_AWID[0] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port S_AXI_ARID[0] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[11] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[10] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[9] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[8] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_BID[7] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BID[6] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BID[5] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BID[4] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
@@ -93,6 +107,11 @@ WARNING: [Synth 8-7129] Port M_AXI_BID[3] in module axi_crossbar_v2_1_28_crossba
 WARNING: [Synth 8-7129] Port M_AXI_BID[2] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BID[1] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_BID[0] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[11] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[10] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[9] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[8] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M_AXI_RID[7] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_RID[6] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_RID[5] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M_AXI_RID[4] in module axi_crossbar_v2_1_28_crossbar_sasd is either unconnected or has no load
@@ -151,39 +170,29 @@ WARNING: [Synth 8-7129] Port s_axi_arqos[2] in module axi_crossbar_v2_1_28_axi_c
 WARNING: [Synth 8-7129] Port s_axi_arqos[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axi_arqos[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axi_aruser[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_bid[11] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_bid[10] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_bid[9] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_bid[8] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_bid[7] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m_axi_bid[6] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m_axi_bid[5] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m_axi_bid[4] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 WARNING: [Synth 8-7129] Port m_axi_bid[3] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_bid[2] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_bid[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_bid[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[6] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[5] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[4] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[3] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[2] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[1] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_buser[0] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_rid[6] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_rid[5] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_rid[4] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_rid[3] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
-WARNING: [Synth 8-7129] Port m_axi_rid[2] in module axi_crossbar_v2_1_28_axi_crossbar is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:28 . Memory (MB): peak = 2077.059 ; gain = 635.562
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:28 . Memory (MB): peak = 2077.059 ; gain = 635.562
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:28 . Memory (MB): peak = 2077.059 ; gain = 635.562
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 2077.059 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 2078.652 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -194,32 +203,32 @@ Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_xbar_0_syn
 Finished Parsing XDC File [E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_xbar_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2187.828 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2078.652 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 2187.828 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 2078.652 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_xbar_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:37 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -228,16 +237,18 @@ Detailed RTL Component Info :
 +---Registers : 
 	               64 Bit    Registers := 1     
 	               36 Bit    Registers := 2     
-	                8 Bit    Registers := 1     
-	                3 Bit    Registers := 2     
+	               13 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 14    
 +---Muxes : 
 	   2 Input   64 Bit        Muxes := 1     
 	   2 Input   36 Bit        Muxes := 2     
-	   2 Input    8 Bit        Muxes := 1     
-	   2 Input    7 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 64    
+	   2 Input   13 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 99    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -256,25 +267,25 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 INFO: [Synth 8-3936] Found unconnected internal register 'gen_sasd.crossbar_sasd_0/reg_slice_r/m_payload_i_reg' and it is trimmed from '36' to '35' bits. [e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v:1731]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:41 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:46 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:47 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:48 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -292,37 +303,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -339,35 +350,35 @@ Report Cell Usage:
 |      |Cell |Count |
 +------+-----+------+
 |1     |LUT1 |     1|
-|2     |LUT2 |    20|
-|3     |LUT3 |    43|
-|4     |LUT4 |    59|
-|5     |LUT5 |    81|
-|6     |LUT6 |   104|
-|7     |FDRE |   136|
+|2     |LUT2 |    23|
+|3     |LUT3 |    22|
+|4     |LUT4 |    79|
+|5     |LUT5 |    71|
+|6     |LUT6 |   273|
+|7     |FDRE |   142|
 +------+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 87 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:49 . Memory (MB): peak = 2187.828 ; gain = 635.562
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:52 . Memory (MB): peak = 2187.828 ; gain = 746.332
+Synthesis finished with 0 errors, 0 critical warnings and 112 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:34 . Memory (MB): peak = 2078.652 ; gain = 636.770
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 2078.652 ; gain = 636.770
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 2187.828 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 2078.652 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2187.828 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2078.652 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 64e17483
+Synth Design complete, checksum: d91f1cec
 INFO: [Common 17-83] Releasing license: Synthesis
-60 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
+70 Infos, 105 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:47 ; elapsed = 00:00:59 . Memory (MB): peak = 2187.828 ; gain = 1139.770
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2078.652 ; gain = 1030.535
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_xbar_0_synth_1/design_1_xbar_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_xbar_0, cache-ID = 96adf198c75da8f9
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_xbar_0, cache-ID = 943bf1019afd50ca
 INFO: [Coretcl 2-1174] Renamed 7 cell refs.
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_xbar_0_synth_1/design_1_xbar_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_xbar_0_utilization_synth.rpt -pb design_1_xbar_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 21 13:36:06 2025...
+INFO: [Common 17-206] Exiting Vivado at Mon Feb 24 18:26:34 2025...

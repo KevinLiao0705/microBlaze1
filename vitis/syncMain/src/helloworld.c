@@ -10,13 +10,40 @@
 #include "xuartlite.h"
 #include "xuartlite_l.h"
 #include "xtmrctr.h"
+//#include "xintc.h"
+
+
+
+
+/************************** Function Prototypes ******************************/
+
+
+
+void intcIntPrg(void* callbackRef);
+void uart0TxIntPrg(void *CallBackRef, unsigned int EventData);
+void uart0RxIntPrg(void *CallBackRef, unsigned int EventData);
+void intcDisconnect(u16 vecter);
+
+
+
+
+
+/*
+ * The following counter is used to determine when the entire buffer has
+ * been sent.
+ */
+static volatile int TotalSentCount;
+
+
+/******************************************************************************/
+
 
 #define txBufferSize_k 1024
 #define rxBufferSize_k 1024
 
 #define sspaMoniDatas_size 64
-u16 myDeviceId = 0x2401;
-u16 mySerialId = 0x0000;
+u16 myDeviceId = 25010;//deviceId
+u16 mySerialId = 0x0000;//
 u16 sspaCtrDeviceId = 0x2306;
 
 typedef struct _myStream
@@ -66,9 +93,11 @@ typedef struct _uartDataSt
 	//===
 	u16 txDeiceId;
 	u16 txSerialId;
+	u16 txGroupId;
+	u16 txSerialCnt;
 	//================
-	u8 txDataId;
-	u8 txFlags;
+	//u8 txDataId;
+	//u8 txFlags;
 	int txLen;
 	int txCnt;
 	u16 txCmd;
@@ -77,6 +106,7 @@ typedef struct _uartDataSt
 	u16 txPara2;
 	u16 txPara3;
 	//===========================================
+	u8 preCodeLen;
 	u8 rxEnCode;
 	u8 spcChar_f;
 	u8 rxTmp[rxBufferSize_k * 2];
@@ -86,6 +116,8 @@ typedef struct _uartDataSt
 	//===
 	u16 rxDeiceId;
 	u16 rxSerialId;
+	u16 rxGroupId;
+	u16 rxSerialCnt;
 	u16 rxFlag;
 	u16 rxLen;
 	u16 rxCmd;
@@ -101,7 +133,14 @@ typedef struct _uartDataSt
 
 } UartData;
 
-typedef struct sspaDataSt
+
+typedef struct radarSetSt
+{
+	u8 fpgaId;
+	u16 paraSetSerId;
+} RadarSet;
+
+typedef struct radarDataSt
 {
 	/*
 	 * slotId
@@ -119,7 +158,7 @@ typedef struct sspaDataSt
 	 "語音通信模組 Ａ",     id=11;
 	 "語音通信模組 Ｂ"      id=12
 	 */
-    // slotStatus    0:none, 1:ready, 2:error 3:warn up
+    //slotStatus    0:none, 1:ready, 2:error 3:warn up
     //slotTestStatus 0:none, 1:PreTest,2:testing;
     //bit3:0 slotId;
     //bit5:4 slotStatus
@@ -264,39 +303,118 @@ typedef struct sspaDataSt
 	u16 paFlagTemp[36];//b15:shut down flag, b14 SSPA enable
 	*/
 	// b11:loaded,b7:0 temperature,0:-55,255:200 degree c;
-} SspaData;
+} RadarData;
 
-#define OUTPUTA_DEVICE_ID XPAR_AXI_GPIO_0_DEVICE_ID
-#define OUTPUTA_BASEADDR XPAR_AXI_GPIO_0_BASEADDR
+#define gpOutADeviceId	 		XPAR_AXI_GPIO_0_DEVICE_ID
+#define OUTPUTA_BASEADDR 		XPAR_AXI_GPIO_0_BASEADDR
 //===
-#define INPUTA_DEVICE_ID XPAR_AXI_GPIO_1_DEVICE_ID
-#define INPUTA_BASEADDR XPAR_AXI_GPIO_1_BASEADDR
+#define gpInADeviceId	 		XPAR_AXI_GPIO_1_DEVICE_ID
+#define INPUTA_BASEADDR 		XPAR_AXI_GPIO_1_BASEADDR
 //===
-#define TIMER0_DEVICE_ID XPAR_AXI_TIMER_0_DEVICE_ID
-#define TIMER0_BASEADDR XPAR_AXI_TIMER_0_BASEADDR
+#define timer0DeviceId	 		XPAR_AXI_TIMER_0_DEVICE_ID
+#define TIMER0_BASEADDR 		XPAR_AXI_TIMER_0_BASEADDR
+//===
+#define uart0DeviceId	 		XPAR_AXI_UARTLITE_0_DEVICE_ID
+#define uart0BaseAddr	 		XPAR_AXI_UARTLITE_0_BASEADDR
+//===
+#define uart1DeviceId	 		XPAR_AXI_UARTLITE_1_DEVICE_ID
+#define uart1BaseAddr	 		XPAR_AXI_UARTLITE_1_BASEADDR
+//===
+#define uart2DeviceId	 		XPAR_AXI_UARTLITE_2_DEVICE_ID
+#define uart2BaseAddr	 		XPAR_AXI_UARTLITE_2_BASEADDR
+//===
+#define uart3DeviceId	 		XPAR_AXI_UARTLITE_3_DEVICE_ID
+#define uart3BaseAddr	 		XPAR_AXI_UARTLITE_3_BASEADDR
+//===
+#define uart4DeviceId	 		XPAR_AXI_UARTLITE_4_DEVICE_ID
+#define uart4BaseAddr	 		XPAR_AXI_UARTLITE_4_BASEADDR
+//===
+#define uart5DeviceId	 		XPAR_AXI_UARTLITE_5_DEVICE_ID
+#define uart5BaseAddr	 		XPAR_AXI_UARTLITE_5_BASEADDR
+//===
+#define uart6DeviceId	 		XPAR_AXI_UARTLITE_6_DEVICE_ID
+#define uart6BaseAddr	 		XPAR_AXI_UARTLITE_6_BASEADDR
+//===
+//#define intc0DeviceId 			XPAR_INTC_0_DEVICE_ID
+//#define intc0BaseAddr 			XPAR_INTC_0_BASEADDR
+
+
+
+
+
 //==
-#define BRAM_CTR0_DEVICE_ID XPAR_AXI_BRAM_CTRL_0_DEVICE_ID
-#define BRAM_CTR0_BASEADDR XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR
+#define BRAM_CTR0_DEVICE_ID 	XPAR_AXI_BRAM_CTRL_0_DEVICE_ID
+#define BRAM_CTR0_BASEADDR 		XPAR_AXI_BRAM_CTRL_0_S_AXI_BASEADDR
+//#define uart0IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_0_INTERRUPT_INTR
+//#define uart1IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_1_INTERRUPT_INTR
+//#define uart2IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_2_INTERRUPT_INTR
+//#define uart3IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_3_INTERRUPT_INTR
+//#define uart4IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_4_INTERRUPT_INTR
+//#define uart5IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_5_INTERRUPT_INTR
+//#define uart6IntVecter 			XPAR_AXI_INTC_0_AXI_UARTLITE_6_INTERRUPT_INTR
+//#define timer0IntVecter			XPAR_AXI_INTC_0_AXI_TIMER_0_INTERRUPT_INTR
 
-XGpio inputA_obj;
-XGpio outputA_obj;
-XTmrCtr timer0Obj;
+
+
+
+
+//==
+#define INTC_DEVICE_ID 			XPAR_INTC_0_DEVICE_ID
+#define UART0_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_0_INTERRUPT_INTR
+#define UART1_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_1_INTERRUPT_INTR
+#define UART2_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_2_INTERRUPT_INTR
+#define UART3_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_3_INTERRUPT_INTR
+#define UART4_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_4_INTERRUPT_INTR
+#define UART5_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_5_INTERRUPT_INTR
+#define UART6_INT_ID 			XPAR_AXI_INTC_0_AXI_UARTLITE_6_INTERRUPT_INTR
+#define TIMER_INT_ID 			XPAR_AXI_INTC_0_AXI_TIMER_0_INTERRUPT_INTR
+
+
+
+
+volatile static int InterruptProcessed = FALSE;
+
+static XGpio gpInAObj;
+static XGpio gpOutAObj;
+static XTmrCtr timer0Obj;
+//static XIntc intc0Obj;				/* The instance of the Interrupt Controller */
+//static XUartLite uart0Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart1Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart2Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart3Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart4Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart5Obj;  	 	/* The instance of the UartLite Device */
+//static XUartLite uart6Obj;  	 	/* The instance of the UartLite Device */
+
+
+
+
+
+
+
+
+
+
+
 
 u32 outFlag = 0;
 u32 inFlag = 0xffffffff;
-UartData ud;
+UartData udIpc;
 UartData ud485;
 
+u32 nowTime=0;
 u32 timerBuf = 0;
 u32 timerFlag = 0;
 int bramAddr = 0;
+int shTime=0;
 u8 revData;
 
 u32 uartRestTime = 0;
 u32 rs485RestTime = 0;
 u32 ud485_endTime = 0;
 
-SspaData sspaData;
+RadarData radarData;
+RadarSet radarSet;
 
 u16 rs485_tx_para0;
 u16 rs485_tx_para1;
@@ -306,6 +424,10 @@ u16 rs485_cmd = 0;
 u16 rs485_cmd_para0 = 0;
 u16 rs485_cmd_para1 = 0;
 
+u32 preLoopTime=0;
+u32 maxLoopTime=0;
+
+
 void simple_delay(int simple_delay);
 void encmst(UartData *ud, u8 uch, int enc);
 void encmstW(UartData *ud, u16 uw);
@@ -314,6 +436,7 @@ void txUart2(UartData *ud);
 void testTxUart2(UartData *ud);
 void txUart0(UartData *ud);
 void testTxUart0(UartData *ud);
+void tickFather();
 
 void timerPrg0();
 void timerPrg1();
@@ -322,10 +445,10 @@ void timerPrg3();
 void writeBram32(int data);
 int readBram32();
 int testBram(int addr, int len);
-void init_sspaData();
+void initRadar();
 int uartRxPrg(UartData *udp, u32 baseAddr);
 int uartTxPrg(UartData *udp, u32 baseAddr);
-void uarttx_load_spaData(UartData *udp);
+void uarttx_load_sspaData(UartData *udp);
 void rs485Tx_load_request(UartData *udp);
 int chkUartTxEmpty(u32 baseAddr);
 
@@ -381,8 +504,26 @@ void rs485_reced(UartData *udp)
 	*/
 }
 
-void uart1_reced(UartData *udp)
+void udIpcRxPrg(UartData *udp)
 {
+	int inx = 0;
+	u16 deviceId = getBufferWord(&inx, udp->rxBuffer);
+	u16 serialId = getBufferWord(&inx, udp->rxBuffer);
+	u16 groupId = getBufferWord(&inx, udp->rxBuffer);
+	if (deviceId != myDeviceId || serialId != mySerialId)
+		return;
+	if(groupId==0xac00){
+		u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+		u16 cmd = getBufferWord(&inx, udp->rxBuffer);
+		u16 para0 = getBufferWord(&inx, udp->rxBuffer);
+		u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+		u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+		u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+	}
+
+
+	return;
+
 	/*
 	int inx = 0;
 	u16 deviceId = getBufferWord(&inx, udp->rxBuffer);
@@ -487,41 +628,13 @@ void uart1_reced(UartData *udp)
 	*/
 }
 
-void init_sspaData()
+void initRadar()
 {
+	radarSet.fpgaId=255;
 
-	/*
-	// u32 systemflag;
-	sspaData.systemflag = 0x00000000;
-	// u16 enviStatus;
-	sspaData.enviStatus = 0x0002;
-	// u16 fiberStatus;
-	sspaData.fiberStatus = 0x0003;
-	// u16 sspaCtrStatus;
-	sspaData.sspaCtrStatus = 0x0004;
-	// u16 readyTime;
-	sspaData.readyTime = 100;
-	// u8 attenuator;
-	sspaData.attenuator = 31;
-	// u8 testMode;
-	sspaData.testMode = 5;
-	// u8 testItem;
-	sspaData.testItem = 6;
-	// u8 testResult;
-	sspaData.testResult = 7;
-	// u8 freq
-	sspaData.rfFreq = 10;
-	//
-	for (int i = 0; i <= 6; i++)
-	{
-		sspaData.meterAd[i] = 0x6ff0 + i;
+	for(int i=0;i<12;i++){
+		radarData.slotDataA[i]=i+1;
 	}
-	sspaData.sspaMoniDatasLen = 0;
-	for (int i = 0; i <= 36 * sspaMoniDatas_size; i++)
-	{
-		sspaData.sspaMoniDatas[i] = 0;
-	}
-	*/
 }
 
 void emu_sspaData()
@@ -581,10 +694,67 @@ void emu_sspaData()
 	*/
 }
 
+
+void slotInfPrg(){
+	if (ud485.txStart_f)
+	{
+		if (ud485.endTxFifo_f)
+		{
+			if (chkUartTxEmpty(XPAR_UARTLITE_1_BASEADDR))
+			{
+				ud485_endTime = XTmrCtr_GetValue(&timer0Obj, 1);
+				ud485.endTx_f = 1;
+				ud485.endTxFifo_f = 0;
+			}
+		}
+		else
+		{
+			if (ud485.endTx_f)
+			{
+				if ((nowTime - ud485_endTime) > 10 * 250)
+				{
+					ud485.txStart_f = 0;
+					ud485.endTx_f = 0;
+					outFlag &= 0xffffff7f;
+					XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+				}
+			}
+		}
+	}
+	else
+	{
+		rs485RestTime++;
+		if (rs485RestTime > 10)
+		{
+			rs485RestTime = 0;
+			rs485_tx_para0 = 1; // id mul base (unit=16us)
+			rs485_tx_para1 = rs485_cmd;
+			rs485_tx_para2 = rs485_cmd_para0;
+			rs485_tx_para3 = rs485_cmd_para1;
+			rs485Tx_load_request(&ud485);
+			outFlag |= 0x80;
+			XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+			rs485_cmd = 0;
+			rs485_cmd_para0 = 0;
+			rs485_cmd_para1 = 0;
+		}
+	}
+
+
+
+}
+
+void interruptHandle(void* callback);
+void errorPrg(char* str,int ){
+	while(1){
+
+	}
+}
 int main()
 {
+	int status;
 	init_platform();
-	init_sspaData();
+	initRadar();
 
 	/*
 	if(testBram(1024,256))
@@ -594,43 +764,156 @@ int main()
 	*/
 
 	// initial GPIO =======================================
-	XGpio_Initialize(&inputA_obj, INPUTA_DEVICE_ID);
-	XGpio_Initialize(&outputA_obj, OUTPUTA_DEVICE_ID);
+	status=XGpio_Initialize(&gpInAObj, gpInADeviceId);
+	if(status)
+		errorPrg("gpInAObj Initial Error",status);
+	status=XGpio_Initialize(&gpOutAObj, gpOutADeviceId);
+	if(status)
+		errorPrg("gpOutAObj Initial Error",status);
 	// initial timer ========================================
-	XTmrCtr_Initialize(&timer0Obj, TIMER0_DEVICE_ID);
+	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
+	if(status)
+		errorPrg("timer0Obj Initial Error",status);
 	XTmrCtr_SetOptions(&timer0Obj, 0, XTC_AUTO_RELOAD_OPTION); // enable auto load
 	XTmrCtr_Start(&timer0Obj, 0);
 	XTmrCtr_SetOptions(&timer0Obj, 1, XTC_AUTO_RELOAD_OPTION); // enable auto load
 	XTmrCtr_Start(&timer0Obj, 1);
+	// initial uart0 ========================================
+	/*
+
+	status = XUartLite_Initialize(&uart0Obj, uart0DeviceId);
+	if(status)
+		errorPrg("uart0Obj Initial Error",status);
+	status = XUartLite_SelfTest(&uart0Obj);
+	if(status)
+		errorPrg("uart0Obj Test Error",status);
+	// initial intc0 ========================================
+	status = XIntc_Initialize(&intc0Obj, intc0DeviceId);
+	if(status)
+		errorPrg("intc0Obj Initial Error",status);
+	status = XIntc_Connect(&intc0Obj, uart0IntVecter,(XInterruptHandler)XUartLite_InterruptHandler,
+			       (void *)&uart0Obj);
+	if(status)
+		errorPrg("intc0Obj connect to uart0 Error",status);
+
+
+	XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
+	XUartLite_SetRecvHandler(&uart0Obj, uart0RxIntPrg,&uart0Obj);
+
+
+
+
+
+	status = XIntc_Start(&intc0Obj, XIN_REAL_MODE);
+	if(status)
+		errorPrg("intc0Obj start Error",status);
+
+	XIntc_Enable(&intc0Obj, uart0IntVecter);
+	// initial exception ========================================
+	Xil_ExceptionInit();
+	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
+				     (Xil_ExceptionHandler)XUartLite_InterruptHandler,&intc0Obj);
+	Xil_ExceptionEnable();
+
+
+
+
+
+	XIntc_Disconnect(&intc0Obj, uart0IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart1IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart2IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart3IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart4IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart5IntVecter);
+	XIntc_Disconnect(&intc0Obj, uart6IntVecter);
+	XIntc_Disconnect(&intc0Obj, timer0IntVecter);
+	*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// print("\nInitial All OK.");
 	// print("\nProgram Running ....");
 
-	ud.fptr = uart1_reced;
+	udIpc.fptr = udIpcRxPrg;
 	ud485.fptr = rs485_reced;
-
+	u8 first_f=1;
+	//loopStart
 	while (1)
 	{
-		u32 nowTime = XTmrCtr_GetValue(&timer0Obj, 1);
+		//250mhz 4ns
+		nowTime = XTmrCtr_GetValue(&timer0Obj, 1);
+		if(!first_f){
+			u32 loopTime=nowTime-preLoopTime;
+			if(loopTime>maxLoopTime)
+				maxLoopTime=loopTime;
+		}
+		preLoopTime=nowTime;
+		first_f=0;
+
+
 		timerFlag = nowTime ^ timerBuf;
 		timerBuf = nowTime;
-		if (timerFlag & 0x00010000) // 327.68us
+
+
+
+		if (timerFlag & 0x00010000) // 252,144us
 			timerPrg0();
-		if (timerFlag & 0x00040000) // 1.31072ms
-			timerPrg1();
-		if (timerFlag & 0x01000000) // 83.886ms
+		if (timerFlag & 0x01000000) // 67.108ms
 			timerPrg2();
-		if (timerFlag & 0x08000000) // 671ms
+		if (timerFlag & 0x08000000) // 536ms
 			timerPrg3();
 
-		if (ud.txLen == 0)
+		if(radarSet.fpgaId>=7){
+			continue;
+		}
+
+		if(radarSet.fpgaId==3 || radarSet.fpgaId==4){
+			uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
+			uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
+			//while(uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR));
+			//while(uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR));
+			//while(uartRxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR));
+			//while(uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR));
+			//=============================================
+			//uartRxPrg(&udFiber1, XPAR_UARTLITE_3_BASEADDR);//to ctr
+			//uartTxPrg(&udFiber1, XPAR_UARTLITE_3_BASEADDR);//
+			//=============================================
+			//uartRxPrg(&udFiber3, XPAR_UARTLITE_4_BASEADDR);//to meterFpga
+			//uartTxPrg(&udFiber3, XPAR_UARTLITE_4_BASEADDR);//
+			//=============================================
+			//uartRxPrg(&udFiber5, XPAR_UARTLITE_5_BASEADDR);//to drv0
+			//uartTxPrg(&udFiber5, XPAR_UARTLITE_5_BASEADDR);//
+			//=============================================
+			//uartRxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//to drv1
+			//uartTxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//
+		}
+		continue;
+
+		if (timerFlag & 0x00100000) // 4ms
+			tickFather();
+
+
+
+
+		if (udIpc.txLen == 0)
 		{
 			if (timerFlag & 0x00010000)
-			{ // 327.68us
+			{ // 252.14us
 				uartRestTime++;
 				if (uartRestTime > 30)
 				{
 					uartRestTime = 0;
-					uarttx_load_spaData(&ud);
+					uarttx_load_sspaData(&udIpc);
 				}
 			}
 		}
@@ -639,7 +922,7 @@ int main()
 		{
 			if (ud485.endTxFifo_f)
 			{
-				if (chkUartTxEmpty(XPAR_UARTLITE_2_BASEADDR))
+				if (chkUartTxEmpty(XPAR_UARTLITE_1_BASEADDR))
 				{
 					ud485_endTime = XTmrCtr_GetValue(&timer0Obj, 1);
 					ud485.endTx_f = 1;
@@ -650,12 +933,12 @@ int main()
 			{
 				if (ud485.endTx_f)
 				{
-					if ((nowTime - ud485_endTime) > 10 * 200)
+					if ((nowTime - ud485_endTime) > 10 * 250)
 					{
 						ud485.txStart_f = 0;
 						ud485.endTx_f = 0;
 						outFlag &= 0xffffff7f;
-						XGpio_DiscreteWrite(&outputA_obj, 1, outFlag);
+						XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 					}
 				}
 			}
@@ -674,7 +957,7 @@ int main()
 					rs485_tx_para3 = rs485_cmd_para1;
 					rs485Tx_load_request(&ud485);
 					outFlag |= 0x80;
-					XGpio_DiscreteWrite(&outputA_obj, 1, outFlag);
+					XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 					rs485_cmd = 0;
 					rs485_cmd_para0 = 0;
 					rs485_cmd_para1 = 0;
@@ -682,11 +965,11 @@ int main()
 			}
 		}
 
-		uartRxPrg(&ud, XPAR_UARTLITE_0_BASEADDR);
-		uartTxPrg(&ud, XPAR_UARTLITE_0_BASEADDR);
-		uartRxPrg(&ud485, XPAR_UARTLITE_2_BASEADDR);
-		uartTxPrg(&ud485, XPAR_UARTLITE_2_BASEADDR);
-		chkUartTxEmpty(XPAR_UARTLITE_2_BASEADDR);
+		uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
+		uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
+		uartRxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
+		uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
+		//chkUartTxEmpty(XPAR_UARTLITE_1_BASEADDR);
 
 		// print("\n\r1s");
 	}
@@ -774,29 +1057,62 @@ int chkUartTxEmpty(u32 baseAddr)
 	return (flag & XUL_SR_TX_FIFO_EMPTY);
 }
 
-// 327.68us
+
+
+// 250mhx 252.144us
 void timerPrg0()
 {
+	u8 buf=0;
+	shTime++;
+	if(shTime>=16)
+		shTime=0;
+	if(shTime==0){
+		inFlag=XGpio_DiscreteRead(&gpInAObj, 1);
+		if(inFlag&0x04)
+			buf |=0x01;
+		if(inFlag&0x08)
+			buf |=0x02;
+		if(inFlag&0x100)
+			buf |=0x04;
+		if(inFlag&0x200)
+			buf |=0x08;
+		if(radarSet.fpgaId==buf)
+			return;
+		radarSet.fpgaId=buf;
+		radarSet.fpgaId=3;//<<debug
+		return;
+	}
+	if(shTime==1){
+		tickFather();
+	}
+	if(shTime==2){
+		slotInfPrg();
+	}
+
+
+
+
+
 }
 
-// 1.31ms
+// 250mhx 1.048ms
 void timerPrg1()
 {
 }
 
-// 83.886ms
+// 250mhx 67.108ms
 void timerPrg2()
 {
 	// testTxUart0(&ud);
-	// uarttx_load_spaData(&ud);
+	// uarttx_load_sspaData(&ud);
 	// emu_sspaData();
 }
 
-// 671ms
+// 250mhx 67.108ms
 void timerPrg3()
 {
 	//outFlag ^= 255;
-	//XGpio_DiscreteWrite(&outputA_obj, 1, outFlag);
+	//XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
 	// emu_sspaData();
 	// testTxUart0(&ud);
@@ -887,8 +1203,7 @@ void enc_mystm(UartData *udp)
 	encmst(udp, 0xEA, 0);
 	encmstW(udp, udp->txDeiceId);
 	encmstW(udp, udp->txSerialId);
-	encmst(udp, udp->txDataId, 1);
-	encmst(udp, udp->txFlags, 1);
+	encmstW(udp, udp->txGroupId);
 	int cmdLen = udp->txBufferLen + 10;
 	encmstW(udp, cmdLen);
 	//================================
@@ -909,11 +1224,11 @@ void enc_mystm(UartData *udp)
 
 void txUart2(UartData *udp)
 {
-	if (XUartLite_IsTransmitFull(XPAR_UARTLITE_2_BASEADDR))
+	if (XUartLite_IsTransmitFull(XPAR_UARTLITE_1_BASEADDR))
 		return;
 	enc_mystm(udp);
 	for (int i = 0; i < udp->txLen; i++)
-		XUartLite_SendByte(XPAR_UARTLITE_2_BASEADDR, udp->txTmp[i]);
+		XUartLite_SendByte(XPAR_UARTLITE_1_BASEADDR, udp->txTmp[i]);
 }
 
 void txUart0(UartData *udp)
@@ -952,8 +1267,7 @@ void testTxUart2(UartData *udp)
 {
 	udp->txDeiceId = 0x2401;
 	udp->txSerialId = 0x0000;
-	udp->txDataId = 0x00;
-	udp->txFlags = 0x00;
+	udp->txGroupId = 0xab00;
 	udp->txCmd = 0x000d;
 	udp->txPara0 = 0x0123;
 	udp->txPara1 = 0x4567;
@@ -968,8 +1282,7 @@ void testTxUart0(UartData *udp)
 {
 	udp->txDeiceId = 0x2401;
 	udp->txSerialId = 0x0000;
-	udp->txDataId = 0x00;
-	udp->txFlags = 0x00;
+	udp->txGroupId = 0xab00;
 	udp->txCmd = 0x000d;
 	udp->txPara0 = 0x0123;
 	udp->txPara1 = 0x4567;
@@ -979,18 +1292,43 @@ void testTxUart0(UartData *udp)
 	txUart0(udp);
 }
 
-void uarttx_load_spaData(UartData *udp)
+
+
+void tickFather(){
+	if(radarSet.fpgaId==3){
+		udIpc.txSerialCnt++;
+		udIpc.txDeiceId = myDeviceId;
+		udIpc.txSerialId = mySerialId;
+		udIpc.txGroupId=0xab00;
+		udIpc.txCmd = 0x1000;	//tick
+		udIpc.txPara0 =radarSet.fpgaId;
+		udIpc.txPara1 = udIpc.txSerialCnt;
+		udIpc.txPara2 = 0;
+		udIpc.txPara3 = 0;
+		udIpc.txBufferLen = 0;
+		enc_mystm(&udIpc);
+		udIpc.txStart_f = 1;
+		udIpc.endTxFifo_f = 0;
+
+	}
+
+
+
+}
+void uarttx_load_sspaData(UartData *udp)
 {
 	udp->txDeiceId = myDeviceId;
 	udp->txSerialId = mySerialId;
-	udp->txDataId = 0xab;
-	udp->txFlags = 0x00;
+	udp->txGroupId = 0xab00;
 	udp->txCmd = 0x1000;
 	udp->txPara0 = 0x0000;
 	udp->txPara1 = 0x0000;
 	udp->txPara2 = 0x0000;
 	udp->txPara3 = 0x0000;
 	udp->txBufferLen = 0;
+	for(int i=0;i<12;i++){
+		loadUtxBufferB(udp, radarData.slotDataA[i]);
+	}
 
 	/*
 	loadUtxBufferW(udp, sspaData.systemflag & 0xffff);
@@ -1025,8 +1363,7 @@ void rs485Tx_load_request(UartData *udp)
 {
 	udp->txDeiceId = sspaCtrDeviceId;
 	udp->txSerialId = 0xffff;
-	udp->txDataId = 0xab;
-	udp->txFlags = 0x00;
+	udp->txGroupId = 0xab00;
 	udp->txCmd = 0x1000;
 	udp->txPara0 = rs485_tx_para0; // id mul base (unit=16us)
 	udp->txPara1 = rs485_tx_para1;
@@ -1037,3 +1374,97 @@ void rs485Tx_load_request(UartData *udp)
 	udp->txStart_f = 1;
 	udp->endTxFifo_f = 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************************/
+/**
+*
+* This function disables the interrupts that occur for the UartLite.
+*
+* @param	IntcInstancePtr is a pointer to the instance of the INTC driver.
+* @param	UartLiteIntrId is the Interrupt ID and is typically
+*		XPAR_<INTC_instance>_<UARTLITE_instance>_VEC_ID
+*		value from xparameters.h.
+*
+* @return	None.
+*
+* @note		None.
+*
+******************************************************************************/
+void intcDisconnect(u16 vecter)
+{
+
+	/*
+	 * Disconnect and disable the interrupt for the UartLite.
+	 */
+	//XIntc_Disconnect(&intc0Obj, uart0IntVecter);
+
+}
+
+
+void intcIntPrg(void* callbackRef){
+
+
+}
+
+
+
+
+
+
+/****************************************************************************/
+/**
+*
+* This function is the handler which performs processing to receive data from
+* the UartLite. It is called from an interrupt context such that the amount of
+* processing performed should be minimized. It is called when any data is
+* present in the receive FIFO of the UartLite such that the data can be
+* retrieved from the UartLite. The amount of data present in the FIFO is not
+* known when this function is called.
+*
+* This handler provides an example of how to handle data for the UartLite, but
+* is application specific.
+*
+* @param	CallBackRef contains a callback reference from the driver,
+*		in this case it is the instance pointer for the UartLite driver.
+* @param	EventData contains the number of bytes sent or received for sent
+*		and receive events.
+*
+* @return	None.
+*
+* @note		None.
+*
+****************************************************************************/
+void uart0RxIntPrg(void *CallBackRef, unsigned int EventData)
+{
+
+}
+void uart0TxIntPrg(void *CallBackRef, unsigned int EventData)
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+

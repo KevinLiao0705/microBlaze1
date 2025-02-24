@@ -63,6 +63,24 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_cl
 # IP: bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_hw0_0_0 || ORIG_REF_NAME==design_1_hw0_0_0} -quiet] -quiet
 
+# IP: bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_uartlite_3_0 || ORIG_REF_NAME==design_1_axi_uartlite_3_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_uartlite_4_0/design_1_axi_uartlite_4_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_uartlite_4_0 || ORIG_REF_NAME==design_1_axi_uartlite_4_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_uartlite_5_0/design_1_axi_uartlite_5_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_uartlite_5_0 || ORIG_REF_NAME==design_1_axi_uartlite_5_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_uartlite_6_0/design_1_axi_uartlite_6_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_uartlite_6_0 || ORIG_REF_NAME==design_1_axi_uartlite_6_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_intc_0_0/design_1_axi_intc_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_axi_intc_0_0 || ORIG_REF_NAME==design_1_axi_intc_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_xlconcat_0_0/design_1_xlconcat_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconcat_0_0 || ORIG_REF_NAME==design_1_xlconcat_0_0} -quiet] -quiet
+
 # IP: bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_auto_pc_0 || ORIG_REF_NAME==design_1_auto_pc_0} -quiet] -quiet
 

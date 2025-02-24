@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Feb 21 13:38:37 2025
+| Date         : Mon Feb 24 18:27:54 2025
 | Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -173,10 +173,15 @@ Warning! LUT value is adjusted to account for LUT combining.
 | design_1_dlmb_v10_0           |    1 |
 | design_1_dlmb_bram_if_cntlr_0 |    1 |
 | design_1_clk_wiz_1_0          |    1 |
+| design_1_axi_uartlite_6_0     |    1 |
+| design_1_axi_uartlite_5_0     |    1 |
+| design_1_axi_uartlite_4_0     |    1 |
+| design_1_axi_uartlite_3_0     |    1 |
 | design_1_axi_uartlite_1_0     |    1 |
 | design_1_axi_uartlite_0_1     |    1 |
 | design_1_axi_uartlite_0_0     |    1 |
 | design_1_axi_timer_0_0        |    1 |
+| design_1_axi_intc_0_0         |    1 |
 | design_1_axi_gpio_1_0         |    1 |
 | design_1_axi_gpio_0_0         |    1 |
 | design_1_axi_bram_ctrl_0_1    |    1 |
