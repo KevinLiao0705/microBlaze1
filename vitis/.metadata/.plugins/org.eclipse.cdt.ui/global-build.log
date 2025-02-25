@@ -1,15 +1,15 @@
 Nothing to build in platform 'syncMicroBlaze'
 
-07:26:02 **** Incremental Build of configuration Debug for project syncMain ****
+18:18:35 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 In file included from ../src/helloworld.c:7:
-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
   102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
       |  ^~~~~~~
-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
@@ -32,41 +32,39 @@ E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMi
   505 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:745:12: warning: unused variable 'uart0TxBuffer' [-Wunused-variable]
-  745 |         u8 uart0TxBuffer[100];
-      |            ^~~~~~~~~~~~~
-../src/helloworld.c:744:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
-  744 |         u8 uart0RxBuffer[100];
+../src/helloworld.c:985:41: warning: implicit declaration of function 'rs485Tx_load_request'; did you mean 'rs485TxLoadRequest'? [-Wimplicit-function-declaration]
+  985 |                                         rs485Tx_load_request(&ud485);
+      |                                         ^~~~~~~~~~~~~~~~~~~~
+      |                                         rs485TxLoadRequest
+../src/helloworld.c:750:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
+  750 |         u8 uart0RxBuffer[20];
       |            ^~~~~~~~~~~~~
 At top level:
-../src/helloworld.c:376:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  376 | static XUartLite uart6Obj;
+../src/helloworld.c:373:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+  373 | static XUartLite uart6Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:375:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
-  375 | static XUartLite uart5Obj;
+../src/helloworld.c:372:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
+  372 | static XUartLite uart5Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:374:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
-  374 | static XUartLite uart4Obj;
+../src/helloworld.c:371:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
+  371 | static XUartLite uart4Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:373:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
-  373 | static XUartLite uart3Obj;
+../src/helloworld.c:370:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
+  370 | static XUartLite uart3Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:372:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
-  372 | static XUartLite uart2Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:371:18: warning: 'uart1Obj' defined but not used [-Wunused-variable]
-  371 | static XUartLite uart1Obj;
+../src/helloworld.c:369:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
+  369 | static XUartLite uart2Obj;
       |                  ^~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
 'Building target: syncMain.elf'
 'Invoking: MicroBlaze gcc linker'
-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: syncMain.elf'
 ' '
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  14388	    544	  19028	  33960	   84a8	syncMain.elf
+  15544	    548	  19116	  35208	   8988	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="main"/>
+		<item key="selection" value="rs485RestTime"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="rs485RestTime"/>
+			<item value="slotInfPrg"/>
+			<item value="mainLoop"/>
+			<item value="main:"/>
+			<item value="getSlot"/>
+			<item value="getSlotInf"/>
 			<item value="main"/>
-			<item value="intcIntPrg"/>
-			<item value="uart0IntVecter"/>
-			<item value="XPAR_AXI_INTC_0_DEVICE_ID"/>
-			<item value="XPAR_INTC_0_DEVICE_ID"/>
-			<item value="intc0DeviceId"/>
-			<item value="intrFlag"/>
-			<item value="XPAR_AXI_INTC_0_AXI_UARTLITE_0_INTERRUPT_INTR"/>
-			<item value="xpar_intc_0"/>
-			<item value="interruptHandle"/>
-			<item value="uart0DeviceId"/>
-			<item value="deviceId"/>
-			<item value="uart0DiviceId"/>
-			<item value="uartRxPrg"/>
-			<item value="uartTxPrg"/>
+			<item value="nain"/>
+			<item value="timerPrg"/>
+			<item value="timerPrg0"/>
+			<item value="slot"/>
+			<item value="rs485TxLoadRequest"/>
+			<item value="rs485Tx_load_request"/>
+			<item value="tickFather"/>
+			<item value="2048"/>
 		</list>
 		<list key="replacehistory">
 		</list>
