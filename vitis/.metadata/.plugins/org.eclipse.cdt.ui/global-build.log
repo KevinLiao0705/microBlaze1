@@ -1,43 +1,40 @@
 Nothing to build in platform 'syncMicroBlaze'
 
-18:18:35 **** Incremental Build of configuration Debug for project syncMain ****
+01:08:27 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
 In file included from ../src/helloworld.c:7:
-E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
   102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
       |  ^~~~~~~
-E:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:510:21: warning: unused variable 'para3' [-Wunused-variable]
-  510 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:511:21: warning: unused variable 'para3' [-Wunused-variable]
+  511 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:509:21: warning: unused variable 'para2' [-Wunused-variable]
-  509 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:510:21: warning: unused variable 'para2' [-Wunused-variable]
+  510 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:508:21: warning: unused variable 'para1' [-Wunused-variable]
-  508 |                 u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:508:21: warning: unused variable 'para0' [-Wunused-variable]
+  508 |                 u16 para0 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:507:21: warning: unused variable 'para0' [-Wunused-variable]
-  507 |                 u16 para0 = getBufferWord(&inx, udp->rxBuffer);
-      |                     ^~~~~
-../src/helloworld.c:506:21: warning: unused variable 'cmd' [-Wunused-variable]
-  506 |                 u16 cmd = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:507:21: warning: unused variable 'cmd' [-Wunused-variable]
+  507 |                 u16 cmd = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~
-../src/helloworld.c:505:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  505 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:506:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  506 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:985:41: warning: implicit declaration of function 'rs485Tx_load_request'; did you mean 'rs485TxLoadRequest'? [-Wimplicit-function-declaration]
-  985 |                                         rs485Tx_load_request(&ud485);
+../src/helloworld.c:988:41: warning: implicit declaration of function 'rs485Tx_load_request'; did you mean 'rs485TxLoadRequest'? [-Wimplicit-function-declaration]
+  988 |                                         rs485Tx_load_request(&ud485);
       |                                         ^~~~~~~~~~~~~~~~~~~~
       |                                         rs485TxLoadRequest
-../src/helloworld.c:750:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
-  750 |         u8 uart0RxBuffer[20];
+../src/helloworld.c:753:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
+  753 |         u8 uart0RxBuffer[20];
       |            ^~~~~~~~~~~~~
 At top level:
 ../src/helloworld.c:373:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
@@ -59,12 +56,12 @@ At top level:
 ' '
 'Building target: syncMain.elf'
 'Invoking: MicroBlaze gcc linker'
-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/temp/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 'Finished building target: syncMain.elf'
 ' '
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  15544	    548	  19116	  35208	   8988	syncMain.elf
+  15664	    548	  19124	  35336	   8a08	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
