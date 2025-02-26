@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="IpcRxPrg"/>
+		<item key="selection" value="enviStatus"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="ipcRxPrg"/>
-			<item value="tickFatherTime"/>
-			<item value="ipcRx"/>
-			<item value="timerPrg0"/>
-			<item value="udIpc.txLen"/>
+			<item value="enviStatus"/>
+			<item value="&amp;w"/>
+			<item value="uarttx_load_sspaData"/>
+			<item value="fpgaId"/>
+			<item value="paraSetSerId"/>
+			<item value="radarSet"/>
+			<item value="slotDataA"/>
+			<item value="systemStatus0"/>
+			<item value="systemStatus"/>
 			<item value="tickFather"/>
-			<item value="main"/>
-			<item value="txStart_f"/>
-			<item value="tick"/>
-			<item value="uartTxPrg"/>
+			<item value="ipcRx"/>
+			<item value="tickFatherTime"/>
+			<item value="tickFatherTimer"/>
+			<item value="ipcRxPrg"/>
+			<item value="timerPrg0"/>
 		</list>
 		<list key="replacehistory">
 		</list>

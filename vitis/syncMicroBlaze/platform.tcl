@@ -17,3 +17,6 @@ platform generate -domains
 platform active {syncMicroBlaze}
 platform config -updatehw {E:/kevin/myCode/microBlaze1/design_1_wrapper.xsa}
 platform generate
+platform active {syncMicroBlaze}
+platform config -updatehw {E:/kevin/myCode/microBlaze1/design_1_wrapper.xsa}
+platform generate -domains standalone_domain 

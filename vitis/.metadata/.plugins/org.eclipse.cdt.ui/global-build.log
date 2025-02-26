@@ -1,6 +1,6 @@
 Nothing to build in platform 'syncMicroBlaze'
 
-01:08:27 **** Incremental Build of configuration Debug for project syncMain ****
+19:15:17 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -13,44 +13,40 @@ E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMi
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:511:21: warning: unused variable 'para3' [-Wunused-variable]
-  511 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:506:21: warning: unused variable 'para3' [-Wunused-variable]
+  506 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:510:21: warning: unused variable 'para2' [-Wunused-variable]
-  510 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:505:21: warning: unused variable 'para2' [-Wunused-variable]
+  505 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:508:21: warning: unused variable 'para0' [-Wunused-variable]
-  508 |                 u16 para0 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:504:21: warning: unused variable 'para1' [-Wunused-variable]
+  504 |                 u16 para1 = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~
-../src/helloworld.c:507:21: warning: unused variable 'cmd' [-Wunused-variable]
-  507 |                 u16 cmd = getBufferWord(&inx, udp->rxBuffer);
-      |                     ^~~
-../src/helloworld.c:506:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  506 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:503:21: warning: unused variable 'para0' [-Wunused-variable]
+  503 |                 u16 para0 = getBufferWord(&inx, udp->rxBuffer);
+      |                     ^~~~~
+../src/helloworld.c:501:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  501 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:988:41: warning: implicit declaration of function 'rs485Tx_load_request'; did you mean 'rs485TxLoadRequest'? [-Wimplicit-function-declaration]
-  988 |                                         rs485Tx_load_request(&ud485);
-      |                                         ^~~~~~~~~~~~~~~~~~~~
-      |                                         rs485TxLoadRequest
-../src/helloworld.c:753:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
-  753 |         u8 uart0RxBuffer[20];
+../src/helloworld.c:773:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
+  773 |         u8 uart0RxBuffer[20];
       |            ^~~~~~~~~~~~~
 At top level:
-../src/helloworld.c:373:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  373 | static XUartLite uart6Obj;
+../src/helloworld.c:358:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+  358 | static XUartLite uart6Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:372:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
-  372 | static XUartLite uart5Obj;
+../src/helloworld.c:357:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
+  357 | static XUartLite uart5Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:371:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
-  371 | static XUartLite uart4Obj;
+../src/helloworld.c:356:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
+  356 | static XUartLite uart4Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:370:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
-  370 | static XUartLite uart3Obj;
+../src/helloworld.c:355:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
+  355 | static XUartLite uart3Obj;
       |                  ^~~~~~~~
-../src/helloworld.c:369:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
-  369 | static XUartLite uart2Obj;
+../src/helloworld.c:354:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
+  354 | static XUartLite uart2Obj;
       |                  ^~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -62,6 +58,6 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicr
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  15664	    548	  19124	  35336	   8a08	syncMain.elf
+  19436	    548	  17848	  37832	   93c8	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '

@@ -99,6 +99,7 @@ typedef struct _uartDataSt
 	u16 txPara1;
 	u16 txPara2;
 	u16 txPara3;
+	u8 txPackItemCnt;
 	//===========================================
 	u8 preCodeLen;
 	u8 rxEnCode;
@@ -136,170 +137,159 @@ typedef struct radarSetSt
 	u8 fpgaId;
 	u16 paraSetSerId;
 } RadarSet;
-
+//&w
 typedef struct radarDataSt
 {
 	/*
-	 * slotId
-	 * none 			d=0;
-	 "ＩＰＣ控制模組",     	id=1;
-	 "ＦＰＧＡ控制模組",    id=2;
-	 "ＩＯ控制模組",       	id=3;
-	 "邏輯分析模組",       	id=4;
-	 "光纖傳輸模組 １",     id=5;
-	 "光纖傳輸模組 ２",     id=6;
-	 "光纖傳輸模組 ３",     id=7;
-	 "光纖傳輸模組 ４",     id=8;
-	 "ＲＦ傳輸模組 Ａ",     id=9;
-	 "ＲＦ傳輸模組 Ｂ",     id=10;
-	 "語音通信模組 Ａ",     id=11;
-	 "語音通信模組 Ｂ"      id=12
+	 array 0:mast, 1:sub1, 2:sub2, 3:ctr1, 4:ctr2, 5:drv1a, 6:drv1b, 7:drv2a, 8:drv2b
+	 *** slotId[3:0] ==>
+	 	 "none 				id=0;
+	 	 "ＩＰＣ控制模組",     	id=1;
+	 	 "ＦＰＧＡ控制模組",    id=2;
+	 	 "ＩＯ控制模組",       id=3;
+	 	 "邏輯分析模組",       id=4;
+	 	 "光纖傳輸模組",     	id=5;
+	 	 "ＲＦ傳輸模組	",     	id=6;
+	 	 "語音通信模組",   	id=7;
+	 	 "SSPA驅動模組",   	id=8;
+	  *** slotSerNo		7:4
+	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
+      *** slotTestStatus 11:10 ==> 0:none, 1:PreTest, 2:testing;
 	 */
-    //slotStatus    0:none, 1:ready, 2:error 3:warn up
-    //slotTestStatus 0:none, 1:PreTest,2:testing;
-    //bit3:0 slotId;
-    //bit5:4 slotStatus
-    //bit7:6 slotTestStatus
-    u8 slotDataA[12];
-    /* systemStatus every item is 2 bit
-     0 mainStatus 0:none, 1:warn up, 2:ready, 3:error
-     1 rfPulse detect flag      0:none 1: ok
-     2 envi status 0:none ,     1:ok ,2:error              //generate
-     3 sspa power status        0:none , 1:ok ,2:error     //generate
-     4 sspa module status       0:none , 1:ok ,2:error     //generate
-     5 rfPulsee over duty flag  0:none , 1:ok ,2:error
-     6 rfPulse over width flag  0:none , 1:ok ,2:error
-     7
-     8 local pulse generate flag    0:none 1:ok
-     9 emergency on flag            0:none 1:emergency
+	u8 fpgaId;
+    u16 slotDataAA[9][12];
+    /*=================================================
+     mast mainStatus[1:0] 		==> 0:none, 1:warn up, 2:ready, 3:error
+     sub1 mainStatus[3:2] 		==> 0:none, 1:warn up, 2:ready, 3:error
+     sub2 mainStatus[5:4] 		==> 0:none, 1:warn up, 2:ready, 3:error
+     ctr1 mainStatus[7:6] 		==> 0:none, 1:warn up, 2:ready, 3:error
+     ctr2 mainStatus[9:8] 		==> 0:none, 1:warn up, 2:ready, 3:error
+     drv1a mainStatus[11:10] 	==> 0:none, 1:warn up, 2:ready, 3:error
+     drv1b mainStatus[13:12] 	==> 0:none, 1:warn up, 2:ready, 3:error
+     drv2a mainStatus[15:14] 	==> 0:none, 1:warn up, 2:ready, 3:error
+     drv2b mainStatus[17:16] 	==> 0:none, 1:warn up, 2:ready, 3:error
+     meter mainStatus[19:18] 	==> 0:none, 1:warn up, 2:ready, 3:error
+     rfPulse detect flag[21:20] ==> 0:unknow ,1: none  ,2:ok
+            電源啟動[22] 					==> 0:停止 1:啟動
+     SSPA致能[23] 				==> 0:停止 1:啟動
+            本地脈波啟動[24] 				==> 0:停止 1:啟動
+            緊急停止[25] 					==> 0:備便 1:停止
+     sub1 光纖連線狀態[26] ==> 0:未連線, 1:未連線
+     sub1 RF連線狀態[27] ==> 0:未連線, 1:未連線
+
      */
-    u32 systemStatus0;//radar0
-    u32 systemStatus1;//radar1
-    u32 systemStatus2;//radar2
-
-    u8 gpaData0[16];
-    u8 gpaData1[16];
-    u8 gpaData2[16];
-
-
-
+    u32 systemStatus0;
+    //=============================================
     /* enviStatus every item is 2 bit
      value 0:none, 1:ok, 2:error
-     0 airFlow left
-     1 airFlow middle
-     2 airFlow right
-     3 waterFlow 1
-     4 waterFlow 2
-     5 waterFlow 3
-     6 waterFlow 4
-     7 waterFlow 5
-     8 waterFlow 6
-     9 waterFlow temperature
+     airFlow left
+     airFlow middle
+     airFlow right
+     waterFlow 1
+     waterFlow 2
+     waterFlow 3
+     waterFlow 4
+     waterFlow 5
+     waterFlow 6
+     waterFlow temperature
      */
-    u32 enviFlag;
-    //0 connectFlag, 1 faultLed, 2:v50enLed, 3:v32enLed, 4:v50v, 5:v50i, 6:v50t, 7:v32v, 8:v32i, 9:v32t
-    u8 	sspaPowerStatusA[36];
-    u16 sspaPowerV50vA[36];
-    u16 sspaPowerV50iA[36];
-    u16 sspaPowerV50tA[36];
-    u16 sspaPowerV32vA[36];
-    u16 sspaPowerV32iA[36];
-    u16 sspaPowerV32tA[36];
-
-    /*
-     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高, 7:RF輸出, 8:溫度
-     */
-    u8 sspaModuleStatusA[36];
-    u16 sspaModuleRfOutA[36];
-    u16 sspaModuleTemprA[36];
-
-
-
+    u32 enviStatusA[2];
+    //=============================================
     /*
      0:input rf power
-     //
+     1:
      2:pre amp output rf power
      3:driver amp output rf power
      4:cw output rf power
      5:ccw output rf power
      */
-    u16 meterStatusA[6];
-
-
-
-
-    /* mast
-     	 SP雷達信號     0.0: 無信號, 0.1: 信號備便
-     	 脈波來源       1.0: 主雷同步, 1.1: 本機脈波
-     	 與副控1連線方式  2.0: 光纖, 2.1: 無線, 2.2: 自動
-     	 與副控2連線方式  2.0: 光纖, 2.1: 無線, 2.2: 自動
+    u16 meterStatusAA[2][6];
+    //=============================================
+    //0 connectFlag, 1 faultLed, 2:v50enLed, 3:v32enLed, 4:v50v, 5:v50i, 6:v50t, 7:v32v, 8:v32i, 9:v32t
+    u8 	sspaPowerStatusAA[2][36];
+    u16 sspaPowerV50vAA[2][36];
+    u16 sspaPowerV50iAA[2][36];
+    u16 sspaPowerV50tAA[2][36];
+    u16 sspaPowerV32vAA[2][36];
+    u16 sspaPowerV32iAA[2][36];
+    u16 sspaPowerV32tAA[2][36];
+    //=============================================
+    /*
+     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高, 7:RF輸出, 8:溫度
      */
+    u8 sspaModuleStatusA[2][36];
+    u16 sspaModuleRfOutA[2][36];
+    u16 sspaModuleTemprA[2][36];
+    //=============================================
+    u8 gpaData[3][16];//0:mast, 1sub1, 2sub2
+    u16 adjTimeOf1588[2];
+    u16 commPackageCnt[2];
+    u16 commOkRate[2];
+    u16 rfRxPower[4];
+    /*=============================================================================
+    emulate 信號模擬[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
+    //
+    ctr1 遠端遙控[2] ==> 0:disable 1:enable
+    ctr2 遠端遙控[3] ==> 0:disable 1:enable
+    //
+    mast 脈波來源[4] ==> 0:SP脈波, 1:本機脈波
+    sub1 脈波來源[5] ==> 0:主控脈波, 1:本機脈波
+    sub2 脈波來源[6] ==> 0:主控脈波, 1:本機脈波
+    ctr1 脈波來源[7] ==> 0:同步脈波, 1:本機脈波
+    ctr2 脈波來源[8] ==> 0:同步脈波, 1:本機脈波
+    //
+    ctr1 戰備短路[9] ==> 0:關閉, 1:開啟
+    ctr2 戰備短路[10] ==> 0:關閉, 1:開啟
+    //
+    ctr1 輸出裝置[11] ==> 0:天線, 1:假負載
+    ctr2 輸出裝置[12] ==> 0:天線, 1:假負載
+    //
+   	mast 與副控1連線方式[14:13] ==> 0: 光纖, 1: 無線, 2: 自動
+   	mast 與副控2連線方式[16:15] ==> 0: 光纖, 1: 無線, 2: 自動
+   	//
+   	mast 與副控1通道[17] ==> 0:關閉, 1:開啟
+   	mast 與副控2通道[18] ==> 0:關閉, 1:開啟:
+   	//
+    sub1 與主控連線方式 [19] ==> 0: 光纖, 1:無線, 2:自動
+    sub2 與主控連線方式 [20] ==> 0: 光纖, 1:無線, 2:自動
+    //
+    sub1 主控與副控1同步模式 [21] ==> 0: 固定時間延時, 1:1588同步追蹤
+    sub2 主控與副控2同步模式 [22] ==> 0: 固定時間延時, 1:1588同步追蹤
 
-    /* sub1 and sub2
-     	 雷達狀態    0.0: 未連線, 0.1: 準備中, 0.2:本機備便, 0.3:發射備便, 0.4:發射中, 0.5:異常
-     	 環控        1.0: 未連線, 1.1:良好, 1.2: 異常
-     	SSPA電源    2.0: 未連線, 2.1:良好, 2.2: 異常
-     	SSPA放大器  3.0: 未連線, 3.1:良好, 3.2: 異常
-     	SSPA功率    4.0: 未連線, 3.1:良好, 4.2: 異常
-     	 戰備狀態    5.0: 未連線, 5.1:關閉, 5.2: 開啟
-     	 遠端遙控    6.0: 未連線, 6.1:關閉, 6.2: 開啟
-     	 脈波來源    7.0: 未連線, 7.1: 主雷同步, 7.2: 本機脈波
-     	 輸出裝置    8.0: 未連線, 8.1: 天線, 8.2:假負載
-     	 連線方式    9.0: 未連線, 9.1: 光纖, 9.2:無線, 9.3:自動
-     */
-    u16 radarStatus0;
-    u16 radarStatus1;
-    u16 radarStatus2;
-
-
-    //0 光纖連線狀態 0:未連線, 1:未連線
-    //1 RF連線狀態 0:未連線, 1:未連線
-    //2 1588修正時間
-    //3 封包發送數
-    //4 正確率
-    //5 主控RF接收能量
-    //6 副控RF接收能量
-
-    u8	commStatus1A[16];
-    u8	commStatus2A[16];
-
-
-
-
-	// b0=0:power off, 1: power On//no use
-	// b1=0:sspaOn power on
-	// b2=0:radiation ready
-	// b3=localRemote_f 0:local 1:remote
-	// b4=pulseType 1:fix 0:random
-	// b5=local pulse start flag
-	// b6=sspa protect on
-
-	u32 systemflag;
-	u16 enviStatus;
-	u16 fiberStatus;
-	u16 sspaCtrStatus;
-	u16 readyTime;
+    */
+    u32 systemFlag0;
+    //===============================
+    u8 sspaPowerV32OnDly;
+    u8 sspaPowerV32OffDly;
 	u8 attenuator;
-	u8 testMode;
-	u8 testItem;
-	u8 testResult;
-	u8 rfFreq;
-	//
-	u16 meterAd[6]; // 0x6fff undload
-	//
-	u8 sspaMoniDatasLen;
-	u8 sspaMoniDatas[36 * sspaMoniDatas_size];
+	u8 sspaPowerEnable[5];
+	u8 sspaModuleEnable[5];
+	u8 pulseGenItem;
+	u8 pulseGenDatas[6*32];
+	//================================
+	u16 commTestPacks;
+	u16 vgTimeDelay;
+	u16 chTimeFineTune[2];
+	u16 chFiberDelay[2];
+	u16 chRfDelay[2];
+	u8 chRfTxCh[2];
+	u8 chRfRxCh[2];
 
-	/*
-	u16 psV34V[36];//0x6fff undload
-	u16 psV34I[36];//0x6fff undload
-	u16 psFlagTemp[36];//b15:fault Flag, b14:ps1(5v) enable, b13:ps2(-10v) enable, b12:ps1(34v) enable,
-	//b11:loaded,b7:0 temperature,0:-55,255:200 degree c;
-	u16 paRfIn[36];//0x6fff undload
-	u16 paRfOut[36];//0x6fff undload
-	u16 paFlagTemp[36];//b15:shut down flag, b14 SSPA enable
-	*/
-	// b11:loaded,b7:0 temperature,0:-55,255:200 degree c;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 } RadarData;
 
 #define gpOutADeviceId	 		XPAR_AXI_GPIO_0_DEVICE_ID
@@ -434,12 +424,21 @@ int testBram(int addr, int len);
 void initRadar();
 int uartRxPrg(UartData *udp, u32 baseAddr);
 int uartTxPrg(UartData *udp, u32 baseAddr);
-void uarttx_load_sspaData(UartData *udp);
 void rs485TxLoadRequest(UartData *udp);
 int chkUartTxEmpty(u32 baseAddr);
 void uartByteDec(UartData *udp,u8 revData);
 void uartRxChk(UartData *udp);
 
+
+
+u16 getBufferDword(int *inxp, u8 *buf)
+{
+	int inx = *inxp;
+	u32 sbuf = buf[inx] + buf[inx + 1] * 256;
+	sbuf += buf[inx+2]*65536 + buf[inx + 3] * 256*65536;
+	*inxp += 4;
+	return sbuf;
+}
 
 
 u16 getBufferWord(int *inxp, u8 *buf)
@@ -496,6 +495,7 @@ void rs485_reced(UartData *udp)
 
 void udIpcRxPrg(UartData *udp)
 {
+	u8 ibuf;
 	int inx = 0;
 	u16 deviceId = getBufferWord(&inx, udp->rxBuffer);
 	u16 serialId = getBufferWord(&inx, udp->rxBuffer);
@@ -509,8 +509,35 @@ void udIpcRxPrg(UartData *udp)
 		u16 para1 = getBufferWord(&inx, udp->rxBuffer);
 		u16 para2 = getBufferWord(&inx, udp->rxBuffer);
 		u16 para3 = getBufferWord(&inx, udp->rxBuffer);
-		if(udp->txPara1==para1)
-			tickFatherTime=8;
+		if(cmd!=udp->txCmd)
+			return;
+		//if(udp->txPara1==para1)
+		//	tickFatherTime=8;
+		if(cmd == 0x1000){//tickFather
+			radarData.systemFlag0 = getBufferDword(&inx, udp->rxBuffer);
+
+			radarData.sspaPowerV32OnDly = getBufferByte(&inx, udp->rxBuffer);
+			radarData.sspaPowerV32OffDly = getBufferByte(&inx, udp->rxBuffer);
+			radarData.attenuator = getBufferByte(&inx, udp->rxBuffer);
+			for(int i=0;i<5;i++)
+				radarData.sspaPowerEnable[i] = getBufferByte(&inx, udp->rxBuffer);
+			for(int i=0;i<5;i++)
+				radarData.sspaModuleEnable[i] = getBufferByte(&inx, udp->rxBuffer);
+			ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackId
+			if(ibuf==-0xab)
+				return;
+			radarData.pulseGenItem=getBufferByte(&inx, udp->rxBuffer);
+			ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackCnt
+			if(ibuf >=32)
+				return;
+			int offset=6*ibuf;
+			for(int i=0;i<6;i++){
+				radarData.pulseGenDatas[offset+i] = getBufferByte(&inx, udp->rxBuffer);
+			}
+		}
+
+
+
 	}
 
 
@@ -622,10 +649,8 @@ void udIpcRxPrg(UartData *udp)
 
 void initRadar()
 {
-	radarSet.fpgaId=255;
-
+	radarData.fpgaId=255;
 	for(int i=0;i<12;i++){
-		radarData.slotDataA[i]=i+1;
 	}
 }
 
@@ -889,7 +914,7 @@ int main()
 		if (timerFlag & 0x08000000) //
 			timerPrg3();
 
-		if(radarSet.fpgaId>=7){
+		if(radarData.fpgaId>=7){
 			continue;
 		}
 
@@ -897,7 +922,7 @@ int main()
 			intrFlag=0;
 		}
 
-		if(radarSet.fpgaId==3 || radarSet.fpgaId==4){
+		if(radarData.fpgaId==3 || radarData.fpgaId==4){
 			//uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
 			uartRxChk(&udIpc);
 			uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
@@ -929,79 +954,10 @@ int main()
 
 		continue;
 
-		if (timerFlag & 0x00100000) // 4ms
-			tickFather();
 
 
 
 
-		if (udIpc.txLen == 0)
-		{
-			if (timerFlag & 0x00010000)
-			{ // 252.14us
-				uartRestTime++;
-				if (uartRestTime > 30)
-				{
-					uartRestTime = 0;
-					uarttx_load_sspaData(&udIpc);
-				}
-			}
-		}
-
-		if (ud485.txStart_f)
-		{
-			if (ud485.endTxFifo_f)
-			{
-				if (chkUartTxEmpty(XPAR_UARTLITE_1_BASEADDR))
-				{
-					ud485_endTime = XTmrCtr_GetValue(&timer0Obj, 1);
-					ud485.endTx_f = 1;
-					ud485.endTxFifo_f = 0;
-				}
-			}
-			else
-			{
-				if (ud485.endTx_f)
-				{
-					if ((nowTime - ud485_endTime) > 10 * 250)
-					{
-						ud485.txStart_f = 0;
-						ud485.endTx_f = 0;
-						outFlag &= 0xffffff7f;
-						XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
-					}
-				}
-			}
-		}
-		else
-		{
-			if (timerFlag & 0x00010000)
-			{ // 327.68us
-				rs485RestTime++;
-				if (rs485RestTime > 30)
-				{
-					rs485RestTime = 0;
-					rs485_tx_para0 = 1; // id mul base (unit=16us)
-					rs485_tx_para1 = rs485_cmd;
-					rs485_tx_para2 = rs485_cmd_para0;
-					rs485_tx_para3 = rs485_cmd_para1;
-					rs485Tx_load_request(&ud485);
-					outFlag |= 0x80;
-					XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
-					rs485_cmd = 0;
-					rs485_cmd_para0 = 0;
-					rs485_cmd_para1 = 0;
-				}
-			}
-		}
-
-		//uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
-		//uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
-		//uartRxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
-		//uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
-		//chkUartTxEmpty(XPAR_UARTLITE_1_BASEADDR);
-
-		// print("\n\r1s");
 	}
 
 	cleanup_platform();
@@ -1130,17 +1086,17 @@ void timerPrg0()
 			buf |=0x04;
 		if(inFlag&0x200)
 			buf |=0x08;
-		if(radarSet.fpgaId==buf)
+		if(radarData.fpgaId==buf)
 			return;
-		radarSet.fpgaId=buf;
-		radarSet.fpgaId=3;//<<debug
+		radarData.fpgaId=buf;
+		radarData.fpgaId=3;//<<debug
 		return;
 	}
 	if(shTime==1){
 		if(udIpc.txLen)
 			tickFatherTime=0;
 		tickFatherTime++;
-		if(tickFatherTime<10)
+		if(tickFatherTime<20)
 			return;
 		tickFatherTime=0;
 		tickFather();
@@ -1320,17 +1276,63 @@ void loadUtxBufferL(UartData *udp, u32 dword)
 
 
 void tickFather(){
-	if(radarSet.fpgaId==3){
+	int fpgaId=radarSet.fpgaId;
+	if(fpgaId==3 || fpgaId == 4){
 		udIpc.txSerialCnt++;
 		udIpc.txDeiceId = myDeviceId;
 		udIpc.txSerialId = mySerialId;
 		udIpc.txGroupId=0xab00;
 		udIpc.txCmd = 0x1000;	//tick
-		udIpc.txPara0 =radarSet.fpgaId;
+		udIpc.txPara0 =fpgaId;
 		udIpc.txPara1 = udIpc.txSerialCnt;
 		udIpc.txPara2 = 0;
 		udIpc.txPara3 = 0;
 		udIpc.txBufferLen = 0;
+		//&w
+		int inx=0;
+		for(int i=0;i<12;i++){
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]&255;
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]>>8;
+		}
+
+		udIpc.txBuffer[inx++]=(radarData.systemFlag0)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemFlag0>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemFlag0)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemFlag0>>8)&255;
+
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3])&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>24)&255;
+
+		for(int i=0;i<6;i++){
+			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]&255;
+			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]>>8;
+		}
+
+		udIpc.txBuffer[inx++]=0xab;
+		if(udIpc.txPackItemCnt>=36)
+		udIpc.txPackItemCnt=0;
+		udIpc.txBuffer[inx++]=0xab;
+		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerStatusAA[fpgaId-3][udIpc.txPackItemCnt];
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+
+		udIpc.txPackItemCnt++;
+		udIpc.txBufferLen = inx;
+
 		enc_mystm(&udIpc);
 		udIpc.txStart_f = 1;
 		udIpc.endTxFifo_f = 0;
@@ -1339,49 +1341,6 @@ void tickFather(){
 
 
 
-}
-void uarttx_load_sspaData(UartData *udp)
-{
-	udp->txDeiceId = myDeviceId;
-	udp->txSerialId = mySerialId;
-	udp->txGroupId = 0xab00;
-	udp->txCmd = 0x1000;
-	udp->txPara0 = 0x0000;
-	udp->txPara1 = 0x0000;
-	udp->txPara2 = 0x0000;
-	udp->txPara3 = 0x0000;
-	udp->txBufferLen = 0;
-	for(int i=0;i<12;i++){
-		loadUtxBufferB(udp, radarData.slotDataA[i]);
-	}
-
-	/*
-	loadUtxBufferW(udp, sspaData.systemflag & 0xffff);
-	loadUtxBufferW(udp, sspaData.systemflag >> 16);
-	loadUtxBufferW(udp, sspaData.enviStatus);
-	loadUtxBufferW(udp, sspaData.fiberStatus);
-	loadUtxBufferW(udp, sspaData.sspaCtrStatus);
-	loadUtxBufferW(udp, sspaData.readyTime);
-	loadUtxBufferB(udp, sspaData.attenuator);
-	loadUtxBufferB(udp, sspaData.testMode);
-	loadUtxBufferB(udp, sspaData.testItem);
-	loadUtxBufferB(udp, sspaData.testResult);
-	loadUtxBufferB(udp, sspaData.rfFreq);
-	loadUtxBufferB(udp, 0);
-	for (int i = 0; i < 6; i++)
-	{
-		loadUtxBufferW(udp, sspaData.meterAd[i]);
-	}
-	for (int i = 0; i < 36; i++)
-	{
-		int binx = i * sspaMoniDatas_size;
-		for (int j = 0; j < sspaData.sspaMoniDatasLen * 2; j++)
-			loadUtxBufferB(udp, sspaData.sspaMoniDatas[binx++]);
-	}
-	*/
-	enc_mystm(udp);
-	udp->txStart_f = 1;
-	udp->endTxFifo_f = 0;
 }
 
 void rs485TxLoadRequest(UartData *udp)
