@@ -144,14 +144,14 @@ typedef struct radarDataSt
 	 array 0:mast, 1:sub1, 2:sub2, 3:ctr1, 4:ctr2, 5:drv1a, 6:drv1b, 7:drv2a, 8:drv2b
 	 *** slotId[3:0] ==>
 	 	 "none 				id=0;
-	 	 "ï¼©ï¼°ï¼£æŽ§åˆ¶æ¨¡çµ„",     	id=1;
-	 	 "ï¼¦ï¼°ï¼§ï¼¡æŽ§åˆ¶æ¨¡çµ„",    id=2;
-	 	 "ï¼©ï¼¯æŽ§åˆ¶æ¨¡çµ„",       id=3;
-	 	 "é‚è¼¯åˆ†æžæ¨¡çµ„",       id=4;
-	 	 "å…‰çº–å‚³è¼¸æ¨¡çµ„",     	id=5;
-	 	 "ï¼²ï¼¦å‚³è¼¸æ¨¡çµ„	",     	id=6;
-	 	 "èªžéŸ³é€šä¿¡æ¨¡çµ„",   	id=7;
-	 	 "SSPAé©…å‹•æ¨¡çµ„",   	id=8;
+	 	 "¢×¢Þ¢Ñ±±¨î¼Ò²Õ",     	id=1;
+	 	 "¢Ô¢Þ¢Õ¢Ï±±¨î¼Ò²Õ",    id=2;
+	 	 "¢×¢Ý±±¨î¼Ò²Õ",       id=3;
+	 	 "ÅÞ¿è¤ÀªR¼Ò²Õ",       id=4;
+	 	 "¥úÅÖ¶Ç¿é¼Ò²Õ",     	id=5;
+	 	 "¢à¢Ô¶Ç¿é¼Ò²Õ	",     	id=6;
+	 	 "»y­µ³q«H¼Ò²Õ",   	id=7;
+	 	 "SSPAÅX°Ê¼Ò²Õ",   	id=8;
 	  *** slotSerNo		7:4
 	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
       *** slotTestStatus 11:10 ==> 0:none, 1:PreTest, 2:testing;
@@ -170,12 +170,12 @@ typedef struct radarDataSt
      drv2b mainStatus[17:16] 	==> 0:none, 1:warn up, 2:ready, 3:error
      meter mainStatus[19:18] 	==> 0:none, 1:warn up, 2:ready, 3:error
      rfPulse detect flag[21:20] ==> 0:unknow ,1: none  ,2:ok
-            é›»æºå•Ÿå‹•[22] 					==> 0:åœæ­¢ 1:å•Ÿå‹•
-     SSPAè‡´èƒ½[23] 				==> 0:åœæ­¢ 1:å•Ÿå‹•
-            æœ¬åœ°è„ˆæ³¢å•Ÿå‹•[24] 				==> 0:åœæ­¢ 1:å•Ÿå‹•
-            ç·Šæ€¥åœæ­¢[25] 					==> 0:å‚™ä¾¿ 1:åœæ­¢
-     sub1 å…‰çº–é€£ç·šç‹€æ…‹[26] ==> 0:æœªé€£ç·š, 1:æœªé€£ç·š
-     sub1 RFé€£ç·šç‹€æ…‹[27] ==> 0:æœªé€£ç·š, 1:æœªé€£ç·š
+            ¹q·½±Ò°Ê[22] 					==> 0:°±¤î 1:±Ò°Ê
+     SSPA­P¯à[23] 				==> 0:°±¤î 1:±Ò°Ê
+            ¥»¦a¯ßªi±Ò°Ê[24] 				==> 0:°±¤î 1:±Ò°Ê
+            ºò«æ°±¤î[25] 					==> 0:³Æ«K 1:°±¤î
+     sub1 ¥úÅÖ³s½uª¬ºA[26] ==> 0:¥¼³s½u, 1:¥¼³s½u
+     sub1 RF³s½uª¬ºA[27] ==> 0:¥¼³s½u, 1:¥¼³s½u
 
      */
     u32 systemStatus0;
@@ -215,46 +215,46 @@ typedef struct radarDataSt
     u16 sspaPowerV32tAA[2][36];
     //=============================================
     /*
-     0:connect, 1:è‡´èƒ½, 2 ä¿è­·è§¸ç™¼, 3:å·¥ä½œæ¯”éŽé«˜, 4:è„ˆå¯¬éŽé«˜, 5:æº«åº¦éŽé«˜, 6:åå°„éŽé«˜, 7:RFè¼¸å‡º, 8:æº«åº¦
+     0:connect, 1:­P¯à, 2 «OÅ@Ä²µo, 3:¤u§@¤ñ¹L°ª, 4:¯ß¼e¹L°ª, 5:·Å«×¹L°ª, 6:¤Ï®g¹L°ª, 7:RF¿é¥X, 8:·Å«×
      */
-    u8 sspaModuleStatusA[2][36];
-    u16 sspaModuleRfOutA[2][36];
-    u16 sspaModuleTemprA[2][36];
+    u8 sspaModuleStatusAA[2][36];
+    u16 sspaModuleRfOutAA[2][36];
+    u16 sspaModuleTemprAA[2][36];
     //=============================================
     u8 gpaData[3][16];//0:mast, 1sub1, 2sub2
     u16 adjTimeOf1588[2];
     u16 commPackageCnt[2];
     u16 commOkRate[2];
-    u16 rfRxPower[4];
+    u16 rfRxPower[4];//mast rx1,mast rx1,sub1 rx sub2 rx
     /*=============================================================================
-    emulate ä¿¡è™Ÿæ¨¡æ“¬[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
+    emulate «H¸¹¼ÒÀÀ[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
     //
-    ctr1 é ç«¯é™æŽ§[2] ==> 0:disable 1:enable
-    ctr2 é ç«¯é™æŽ§[3] ==> 0:disable 1:enable
+    ctr1 »·ºÝ»»±±[2] ==> 0:disable 1:enable
+    ctr2 »·ºÝ»»±±[3] ==> 0:disable 1:enable
     //
-    mast è„ˆæ³¢ä¾†æº[4] ==> 0:SPè„ˆæ³¢, 1:æœ¬æ©Ÿè„ˆæ³¢
-    sub1 è„ˆæ³¢ä¾†æº[5] ==> 0:ä¸»æŽ§è„ˆæ³¢, 1:æœ¬æ©Ÿè„ˆæ³¢
-    sub2 è„ˆæ³¢ä¾†æº[6] ==> 0:ä¸»æŽ§è„ˆæ³¢, 1:æœ¬æ©Ÿè„ˆæ³¢
-    ctr1 è„ˆæ³¢ä¾†æº[7] ==> 0:åŒæ­¥è„ˆæ³¢, 1:æœ¬æ©Ÿè„ˆæ³¢
-    ctr2 è„ˆæ³¢ä¾†æº[8] ==> 0:åŒæ­¥è„ˆæ³¢, 1:æœ¬æ©Ÿè„ˆæ³¢
+    mast ¯ßªi¨Ó·½[4] ==> 0:SP¯ßªi, 1:¥»¾÷¯ßªi
+    sub1 ¯ßªi¨Ó·½[5] ==> 0:¥D±±¯ßªi, 1:¥»¾÷¯ßªi
+    sub2 ¯ßªi¨Ó·½[6] ==> 0:¥D±±¯ßªi, 1:¥»¾÷¯ßªi
+    ctr1 ¯ßªi¨Ó·½[7] ==> 0:¦P¨B¯ßªi, 1:¥»¾÷¯ßªi
+    ctr2 ¯ßªi¨Ó·½[8] ==> 0:¦P¨B¯ßªi, 1:¥»¾÷¯ßªi
     //
-    ctr1 æˆ°å‚™çŸ­è·¯[9] ==> 0:é—œé–‰, 1:é–‹å•Ÿ
-    ctr2 æˆ°å‚™çŸ­è·¯[10] ==> 0:é—œé–‰, 1:é–‹å•Ÿ
+    ctr1 ¾Ô³Æµu¸ô[9] ==> 0:Ãö³¬, 1:¶}±Ò
+    ctr2 ¾Ô³Æµu¸ô[10] ==> 0:Ãö³¬, 1:¶}±Ò
     //
-    ctr1 è¼¸å‡ºè£ç½®[11] ==> 0:å¤©ç·š, 1:å‡è² è¼‰
-    ctr2 è¼¸å‡ºè£ç½®[12] ==> 0:å¤©ç·š, 1:å‡è² è¼‰
+    ctr1 ¿é¥X¸Ë¸m[11] ==> 0:¤Ñ½u, 1:°²­t¸ü
+    ctr2 ¿é¥X¸Ë¸m[12] ==> 0:¤Ñ½u, 1:°²­t¸ü
     //
-   	mast èˆ‡å‰¯æŽ§1é€£ç·šæ–¹å¼[14:13] ==> 0: å…‰çº–, 1: ç„¡ç·š, 2: è‡ªå‹•
-   	mast èˆ‡å‰¯æŽ§2é€£ç·šæ–¹å¼[16:15] ==> 0: å…‰çº–, 1: ç„¡ç·š, 2: è‡ªå‹•
+   	mast »P°Æ±±1³s½u¤è¦¡[14:13] ==> 0: ¥úÅÖ, 1: µL½u, 2: ¦Û°Ê
+   	mast »P°Æ±±2³s½u¤è¦¡[16:15] ==> 0: ¥úÅÖ, 1: µL½u, 2: ¦Û°Ê
    	//
-   	mast èˆ‡å‰¯æŽ§1é€šé“[17] ==> 0:é—œé–‰, 1:é–‹å•Ÿ
-   	mast èˆ‡å‰¯æŽ§2é€šé“[18] ==> 0:é—œé–‰, 1:é–‹å•Ÿ:
+   	mast »P°Æ±±1³q¹D[17] ==> 0:Ãö³¬, 1:¶}±Ò
+   	mast »P°Æ±±2³q¹D[18] ==> 0:Ãö³¬, 1:¶}±Ò:
    	//
-    sub1 èˆ‡ä¸»æŽ§é€£ç·šæ–¹å¼ [19] ==> 0: å…‰çº–, 1:ç„¡ç·š, 2:è‡ªå‹•
-    sub2 èˆ‡ä¸»æŽ§é€£ç·šæ–¹å¼ [20] ==> 0: å…‰çº–, 1:ç„¡ç·š, 2:è‡ªå‹•
+    sub1 »P¥D±±³s½u¤è¦¡ [19] ==> 0: ¥úÅÖ, 1:µL½u, 2:¦Û°Ê
+    sub2 »P¥D±±³s½u¤è¦¡ [20] ==> 0: ¥úÅÖ, 1:µL½u, 2:¦Û°Ê
     //
-    sub1 ä¸»æŽ§èˆ‡å‰¯æŽ§1åŒæ­¥æ¨¡å¼ [21] ==> 0: å›ºå®šæ™‚é–“å»¶æ™‚, 1:1588åŒæ­¥è¿½è¹¤
-    sub2 ä¸»æŽ§èˆ‡å‰¯æŽ§2åŒæ­¥æ¨¡å¼ [22] ==> 0: å›ºå®šæ™‚é–“å»¶æ™‚, 1:1588åŒæ­¥è¿½è¹¤
+    sub1 ¥D±±»P°Æ±±1¦P¨B¼Ò¦¡ [21] ==> 0: ©T©w®É¶¡©µ®É, 1:1588¦P¨B°lÂÜ
+    sub2 ¥D±±»P°Æ±±2¦P¨B¼Ò¦¡ [22] ==> 0: ©T©w®É¶¡©µ®É, 1:1588¦P¨B°lÂÜ
 
     */
     u32 systemFlag0;
@@ -262,18 +262,18 @@ typedef struct radarDataSt
     u8 sspaPowerV32OnDly;
     u8 sspaPowerV32OffDly;
 	u8 attenuator;
-	u8 sspaPowerEnable[5];
-	u8 sspaModuleEnable[5];
-	u8 pulseGenItem;
-	u8 pulseGenDatas[6*32];
+	u8 sspaPowerExistAA[2][5];
+	u8 sspaModuleExistAA[2][5];
+	u8 pulseGenCh;
+	u8 pulseGenDatasA[6*32];
 	//================================
 	u16 commTestPacks;
 	u16 vgTimeDelay;
-	u16 chTimeFineTune[2];
-	u16 chFiberDelay[2];
-	u16 chRfDelay[2];
-	u8 chRfTxCh[2];
-	u8 chRfRxCh[2];
+	u16 chTimeFineTuneA[2];
+	u16 chFiberDelayA[2];
+	u16 chRfDelayA[2];
+	u8 chRfTxChA[2];
+	u8 chRfRxChA[2];
 
 
 
@@ -511,28 +511,34 @@ void udIpcRxPrg(UartData *udp)
 		u16 para3 = getBufferWord(&inx, udp->rxBuffer);
 		if(cmd!=udp->txCmd)
 			return;
+		int fpgaId=radarData.fpgaId;
+		if(fpgaId!=para0)
+			return;
+
 		//if(udp->txPara1==para1)
 		//	tickFatherTime=8;
-		if(cmd == 0x1000){//tickFather
-			radarData.systemFlag0 = getBufferDword(&inx, udp->rxBuffer);
+		if(fpgaId==3 || fpgaId==4){
+			if(cmd == 0x1000){//tickFather
+				radarData.systemFlag0 = getBufferDword(&inx, udp->rxBuffer);
 
-			radarData.sspaPowerV32OnDly = getBufferByte(&inx, udp->rxBuffer);
-			radarData.sspaPowerV32OffDly = getBufferByte(&inx, udp->rxBuffer);
-			radarData.attenuator = getBufferByte(&inx, udp->rxBuffer);
-			for(int i=0;i<5;i++)
-				radarData.sspaPowerEnable[i] = getBufferByte(&inx, udp->rxBuffer);
-			for(int i=0;i<5;i++)
-				radarData.sspaModuleEnable[i] = getBufferByte(&inx, udp->rxBuffer);
-			ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackId
-			if(ibuf==-0xab)
-				return;
-			radarData.pulseGenItem=getBufferByte(&inx, udp->rxBuffer);
-			ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackCnt
-			if(ibuf >=32)
-				return;
-			int offset=6*ibuf;
-			for(int i=0;i<6;i++){
-				radarData.pulseGenDatas[offset+i] = getBufferByte(&inx, udp->rxBuffer);
+				radarData.sspaPowerV32OnDly = getBufferByte(&inx, udp->rxBuffer);
+				radarData.sspaPowerV32OffDly = getBufferByte(&inx, udp->rxBuffer);
+				radarData.attenuator = getBufferByte(&inx, udp->rxBuffer);
+				for(int i=0;i<5;i++)
+					radarData.sspaPowerExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
+				for(int i=0;i<5;i++)
+					radarData.sspaModuleExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
+				ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackId
+				if(ibuf!=0xab)
+					return;
+				radarData.pulseGenCh=getBufferByte(&inx, udp->rxBuffer);
+				ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackCnt
+				if(ibuf >=32)
+					return;
+				int offset=6*ibuf;
+				for(int i=0;i<6;i++){
+					radarData.pulseGenDatasA[offset+i] = getBufferByte(&inx, udp->rxBuffer);
+				}
 			}
 		}
 
