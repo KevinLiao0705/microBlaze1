@@ -1,0 +1,61 @@
+16:58:19 **** Incremental Build of configuration Debug for project syncMain ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+In file included from ../src/helloworld.c:7:
+E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+  102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+      |  ^~~~~~~
+E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+  103 | #warning  Please refer the Standalone BSP UG647 for further details
+      |  ^~~~~~~
+../src/helloworld.c: In function 'udIpcRxPrg':
+../src/helloworld.c:568:37: warning: unused variable 'i' [-Wunused-variable]
+  568 |                                 int i=0;
+      |                                     ^
+../src/helloworld.c:533:21: warning: unused variable 'para3' [-Wunused-variable]
+  533 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+      |                     ^~~~~
+../src/helloworld.c:532:21: warning: unused variable 'para2' [-Wunused-variable]
+  532 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+      |                     ^~~~~
+../src/helloworld.c:528:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  528 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+      |                     ^~~~~~
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:811:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
+  811 |         u8 uart0RxBuffer[20];
+      |            ^~~~~~~~~~~~~
+At top level:
+../src/helloworld.c:386:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+  386 | static XUartLite uart6Obj;
+      |                  ^~~~~~~~
+../src/helloworld.c:385:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
+  385 | static XUartLite uart5Obj;
+      |                  ^~~~~~~~
+../src/helloworld.c:384:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
+  384 | static XUartLite uart4Obj;
+      |                  ^~~~~~~~
+../src/helloworld.c:383:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
+  383 | static XUartLite uart3Obj;
+      |                  ^~~~~~~~
+../src/helloworld.c:382:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
+  382 | static XUartLite uart2Obj;
+      |                  ^~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: syncMain.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: syncMain.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size syncMain.elf  |tee "syncMain.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  20488	    548	  17876	  38912	   9800	syncMain.elf
+'Finished building: syncMain.elf.size'
+' '
+
+16:58:20 Build Finished (took 936ms)
+

@@ -21672,3 +21672,12 @@ java.lang.NullPointerException
 
 !ENTRY com.xilinx.sdk.utils 0 0 2025-02-26 22:22:17.457
 !MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-15: Build Project
+!SESSION 2025-02-27 10:07:40.729 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-02-27 10:08:10.207
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition

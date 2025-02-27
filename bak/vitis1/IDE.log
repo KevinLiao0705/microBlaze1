@@ -1164,3 +1164,4 @@ con
 19:15:17 INFO  : Checking for BSP changes to sync application flags for project 'syncMain'...
 19:31:39 INFO  : Disconnected from the channel tcfchan#6.
 21:30:38 DEBUG : Logs will be stored at 'E:/kevin/myCode/microBlaze1/vitis/IDE.log'.
+10:16:45 DEBUG : Logs will be stored at 'E:/kevin/myCode/microBlaze1/bak/vitis1/IDE.log'.
