@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="2001"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="transSync"/>
-			<item value="tickFather"/>
-			<item value="tickFather)"/>
-			<item value="tickFather()"/>
-			<item value="tfickFather"/>
-			<item value="init"/>
-			<item value="&lt;&lt;debug"/>
-			<item value="radarSet"/>
-			<item value="fpgaId"/>
-			<item value="loopStart"/>
-			<item value="main"/>
-			<item value="testBram"/>
-			<item value="timerPrg0"/>
-			<item value="XTmrCtr_GetValue"/>
-			<item value="nowTime"/>
+			<item value="2001"/>
+			<item value="2100"/>
+			<item value="bramAddr"/>
+			<item value="transB"/>
+			<item value="1001"/>
+			<item value="preTrigTime"/>
+			<item value="44"/>
+			<item value="trans"/>
+			<item value="preTrig"/>
+			<item value="systemFlag"/>
+			<item value="systemStatus"/>
+			<item value="0x1000"/>
+			<item value="transBram"/>
+			<item value="pulseGenDat"/>
+			<item value="transBra"/>
 		</list>
 		<list key="replacehistory">
 		</list>

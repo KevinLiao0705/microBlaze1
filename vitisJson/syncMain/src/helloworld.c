@@ -22,6 +22,7 @@
 void uart0TxIntPrg(void *CallBackRef, unsigned int EventData);
 void uart0RxIntPrg(void *CallBackRef, unsigned int EventData);
 void intcDisconnect(u16 vecter);
+void transBram(void);
 
 
 
@@ -137,7 +138,7 @@ typedef struct radarSetSt
 	u8 fpgaId;
 	u16 paraSetSerId;
 } RadarSetxx;
-//&w
+//
 typedef struct radarDataSt
 {
 	u8 fpgaId;
@@ -173,14 +174,14 @@ typedef struct radarDataSt
      ctr2Meter mainStatus[21:20] 	==> 0:none, 1:warn up, 2:ready, 3:error
      //===
      ctr1 rfPulse detect flag[22] ==> 0:none  1:OK
-     ctr1 電源啟動[23] 			==> 0:停止 1:啟動
-     ctr1 SSPA致能[24] 			==> 0:停止 1:啟動
+     xxxxxxxxx[23] 			==> 0:停止 1:啟動
+     xxxxxxxxxxx[24] 			==> 0:停止 1:啟動
      ctr1 本地脈波啟動[25] 			==> 0:停止 1:啟動
      ctr1 緊急停止[26] 			==> 0:備便 1:停止
      //===
      ctr2 rfPulse detect flag[27] ==> 0:none  1:OK
-     ctr2 電源啟動[28] 			==> 0:停止 1:啟動
-     ctr2 SSPA致能[29] 			==> 0:停止 1:啟動
+     xxxxxxxxx[28] 			==> 0:停止 1:啟動
+     xxxxxxxxxxx[29] 			==> 0:停止 1:啟動
      ctr2 本地脈波啟動[30] 			==> 0:停止 1:啟動
      ctr2 緊急停止[31] 			==> 0:備便 1:停止
      //===
@@ -200,11 +201,11 @@ typedef struct radarDataSt
     ctr1 allSspaModuleSlatus[9] 	==> 0:OK, 1:Error
     ctr1 overWidth[10] 				==> 0:OK, 1:Error
     ctr1 overDuty[11] 				==> 0:OK, 1:Error
-    ctr2 allSspaEnviSlatus[7] 		==> 0:OK, 1:Error
-    ctr2 allSspaPowerSlatus[8] 		==> 0:OK, 1:Error
-    ctr2 allSspaModuleSlatus[9] 	==> 0:OK, 1:Error
-    ctr2 overWidth[10] 				==> 0:OK, 1:Error
-    ctr2 overDuty[11] 				==> 0:OK, 1:Error
+    ctr2 allSspaEnviSlatus[12] 		==> 0:OK, 1:Error
+    ctr2 allSspaPowerSlatus[13] 	==> 0:OK, 1:Error
+    ctr2 allSspaModuleSlatus[14] 	==> 0:OK, 1:Error
+    ctr2 overWidth[15] 				==> 0:OK, 1:Error
+    ctr2 overDuty[16] 				==> 0:OK, 1:Error
 
 
     */
@@ -235,7 +236,7 @@ typedef struct radarDataSt
      */
     u16 meterStatusAA[2][6];
     //=============================================
-    //0 connectFlag, 1 faultLed, 2:v50enLed, 3:v32enLed, 4:v50v, 5:v50i, 6:v50t, 7:v32v, 8:v32i, 9:v32t
+    //0 connectFlag, 1 faultLed, 2:v50enLed, 3:v32enLed,4:powerOnSet;
     u8 	sspaPowerStatusAA[2][36];
     u16 sspaPowerV50vAA[2][36];
     u16 sspaPowerV50iAA[2][36];
@@ -245,7 +246,7 @@ typedef struct radarDataSt
     u16 sspaPowerV32tAA[2][36];
     //=============================================
     /*
-     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高, 7:RF輸出, 8:溫度
+     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高,
      */
     u8 sspaModuleStatusAA[2][36];
     u16 sspaModuleRfOutAA[2][36];
@@ -293,6 +294,12 @@ typedef struct radarDataSt
    	mast 與副控1語音通道[25] ==> 0:關閉, 1:開啟
    	mast 與副控2語音通道[26] ==> 0:關閉, 1:開啟:
 
+   	SSPA 保護開關[27] ==> 0:關閉, 1:開啟:
+
+   	fpgaId[31:28] ==> :
+
+
+
     */
     u32 systemFlag0;
     u32 systemFlag1;
@@ -302,16 +309,22 @@ typedef struct radarDataSt
 	u8 attenuator;
 	u8 sspaPowerExistAA[2][5];
 	u8 sspaModuleExistAA[2][5];
+
+	u16 preTrigTime;
+	u8 preRfOutTime;
+	u8 afterTrigTime;
+	//=============================
+	u16 commTestPacks;
+	u16 vgTimeDelay;//unit 0.1
+	u16 chTimeFineTune;
+	u16 chFiberDelay;
+	u16 chRfDelay;
+	u8 chRfTxChA[2];
+	u8 chRfRxChA[2];
+	//=============================
 	u8 pulseGenCh;
 	u8 pulseGenDatasA[6*32];
 	//================================
-	u16 commTestPacks;
-	u16 vgTimeDelay;
-	u16 chTimeFineTuneA[2];
-	u16 chFiberDelayA[2];
-	u16 chRfDelayA[2];
-	u8 chRfTxChA[2];
-	u8 chRfRxChA[2];
 
 
 
@@ -565,6 +578,25 @@ void udIpcRxPrg(UartData *udp)
 					radarData.sspaPowerExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
 				for(int i=0;i<5;i++)
 					radarData.sspaModuleExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
+				radarData.preTrigTime = getBufferWord(&inx, udp->rxBuffer);
+				radarData.preRfOutTime = getBufferByte(&inx, udp->rxBuffer);
+				radarData.afterTrigTime = getBufferByte(&inx, udp->rxBuffer);
+				//==============================================
+				radarData.commTestPacks = getBufferWord(&inx, udp->rxBuffer);
+				radarData.vgTimeDelay = getBufferWord(&inx, udp->rxBuffer);
+				radarData.chTimeFineTune = getBufferWord(&inx, udp->rxBuffer);
+				radarData.chFiberDelay = getBufferWord(&inx, udp->rxBuffer);
+				radarData.chRfDelay = getBufferWord(&inx, udp->rxBuffer);
+				radarData.chRfTxChA[0] = getBufferByte(&inx, udp->rxBuffer);
+				radarData.chRfTxChA[1] = getBufferByte(&inx, udp->rxBuffer);
+				radarData.chRfRxChA[0] = getBufferByte(&inx, udp->rxBuffer);
+				radarData.chRfRxChA[1] = getBufferByte(&inx, udp->rxBuffer);
+
+
+
+
+
+				//==============================================
 				radarData.pulseGenCh=getBufferByte(&inx, udp->rxBuffer);
 				ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackId
 				if(ibuf!=0xab)
@@ -580,7 +612,80 @@ void udIpcRxPrg(UartData *udp)
 				if(ibuf!=0xcd){
 					return;
 				}
-				int i=0;
+				//
+				int start = para3;
+				int end=para3+1;
+				if(para3==0xffff){
+					start=0;
+					end=36;
+				}
+
+				if(fpgaId==3 || fpgaId == 4){
+					if(para2==0x2000){//sspaPowerOn
+						u8* bufA=radarData.sspaPowerExistAA[fpgaId-3];
+						for(int i=start;i<end;i++){
+							int exist=bufA[i/8]&(1<<(i%8));
+							if(exist)
+								radarData.sspaPowerStatusAA[fpgaId-3][i] |= 0x1d;
+						}
+						return;
+					}
+					if(para2==0x2001){//sspaPowerOff
+						for(int i=start;i<end;i++){
+							radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xe0;
+						}
+						return;
+					}
+					if(para2==0x2002){//sspaModuleOn
+						u8* bufA=radarData.sspaModuleExistAA[fpgaId-3];
+						for(int i=start;i<end;i++){
+							int exist=bufA[i/8]&(1<<(i%8));
+							if(exist)
+								radarData.sspaModuleStatusAA[fpgaId-3][i] |= 0x02;
+						}
+						return;
+					}
+					if(para2==0x2003){//sspaModuleOff
+						for(int i=start;i<end;i++){
+							radarData.sspaModuleStatusAA[fpgaId-3][i] &= 0xfd;
+						}
+						return;
+					}
+					if(para2==0x2004){//local pulse on
+						int sh=25+(fpgaId-3)*5;
+						radarData.systemStatus0 |= 1<<sh;
+						transBram();
+						return;
+					}
+					if(para2==0x2005){//local pulse off
+						int sh=25+(fpgaId-3)*5;
+						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						return;
+					}
+					if(para2==0x2006){//emergency on
+						int sh=26+(fpgaId-3)*5;
+						radarData.systemStatus0 |= 1<<sh;
+						for(int i=0;i<36;i++){
+							radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xef;
+						}
+						for(int i=0;i<36;i++){
+							radarData.sspaModuleStatusAA[fpgaId-3][i] &= 0xfd;
+						}
+						sh=25+(fpgaId-3)*5;
+						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						return;
+					}
+					if(para2==0x2007){//emergency off
+						int sh=26+(fpgaId-3)*5;
+						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						return;
+					}
+
+
+
+
+				}
+
 			}
 		}
 
@@ -695,11 +800,84 @@ void udIpcRxPrg(UartData *udp)
 	*/
 }
 
+void transBram(){
+	int ibuf;
+	bramAddr = 0;
+	writeBram32(radarData.systemStatus0);
+	writeBram32(radarData.systemStatus1);
+	writeBram32(radarData.systemFlag0);
+	writeBram32(radarData.systemFlag1);
+	//==================
+	ibuf=radarData.afterTrigTime;
+	ibuf+=radarData.preRfOutTime<<8;
+	ibuf+=radarData.preTrigTime<<16;
+	writeBram32(ibuf);
+	//===================
+	writeBram32(radarData.commTestPacks);
+	ibuf=radarData.vgTimeDelay;
+	ibuf+=radarData.chTimeFineTune<<16;
+	writeBram32(ibuf);
+	ibuf=radarData.chFiberDelay;
+	ibuf+=radarData.chRfDelay<<16;
+	writeBram32(ibuf);
+	//=================================
+	int sampleLen = 0;
+	int i=0;
+	int endi=32;
+	if(radarData.pulseGenCh!=0xff){
+		i=radarData.pulseGenCh;
+		endi=1;
+	}
+	for (; i < endi; i++)
+	{
+		u16 dutyReg=radarData.pulseGenDatasA[6*i]+radarData.pulseGenDatasA[6*i+1]*256;
+		u16 width=radarData.pulseGenDatasA[6*i+2]+radarData.pulseGenDatasA[6*i+3]*256;
+		u8 freq=radarData.pulseGenDatasA[6*i+4];
+		u8 times=radarData.pulseGenDatasA[6*i+5]-1;
+		u8 flag = dutyReg>>12;
+		dutyReg &=0xfff;
+		if (flag & 1)
+		{
+			ibuf = (times << 24) + (freq << 16) + width;
+			bramAddr = (32 + i) * 4;
+			writeBram32(ibuf);
+			ibuf = (flag<<16) + dutyReg;
+			bramAddr = (32 + i) * 4;
+			writeBram32(ibuf);
+			sampleLen++;
+		}
+	}
+	bramAddr = 8 * 4;
+	ibuf=sampleLen - 1;
+	ibuf+=radarData.fpgaId<<8;
+	writeBram32(ibuf);
+
+	bramAddr = 15 * 4;
+	ibuf = readBram32();
+	bramAddr = 15 * 4;
+	writeBram32(ibuf + 1);
+
+
+
+
+}
+
 void initRadar()
 {
 	radarData.fpgaId=255;
+	radarData.systemStatus0=0;
+	radarData.systemStatus1=0;
 	for(int i=0;i<12;i++){
 	}
+
+	for(int i=0;i<36;i++){
+		radarData.sspaPowerStatusAA[0][i] |= 0x01;
+		radarData.sspaPowerStatusAA[1][i] |= 0x01;
+		radarData.sspaModuleStatusAA[0][i] |= 0x01;
+		radarData.sspaModuleStatusAA[1][i] |= 0x01;
+	}
+
+
 }
 
 void emu_sspaData()
@@ -812,7 +990,7 @@ void slotInfPrg(){
 }
 
 void interruptHandle(void* callback);
-void errorPrg(char* str,int ){
+void errorPrg(char* str,int statis ){
 	while(1){
 
 	}
@@ -820,23 +998,19 @@ void errorPrg(char* str,int ){
 u8 uart0TxBuffer[20];
 
 u8 first_f=1;
+u8 warnUpTime=10;
 
 int main()
 {
-	u8 uart0RxBuffer[20];
 
-	int status;
+	int status=0;
 	init_platform();
 	initRadar();
 
 
-	/*
-	if(testBram(1024,256))
-		print("\nTest Bram Error !!!");
-	else
-		print("\nTest Bram OK.");
-	*/
 
+	if(testBram(1024,256))
+		errorPrg("testBram Error",1);
 	// initial GPIO =======================================
 	status=XGpio_Initialize(&gpInAObj, gpInADeviceId);
 	if(status)
@@ -1134,10 +1308,14 @@ void timerPrg0()
 			buf |=0x04;
 		if(inFlag&0x200)
 			buf |=0x08;
+		buf=3;//<<debug
 		if(radarData.fpgaId==buf)
 			return;
 		radarData.fpgaId=buf;
-		radarData.fpgaId=3;//<<debug
+		radarData.systemStatus0 &= (3<<(radarData.fpgaId*2))^0xffffffff;
+		radarData.systemStatus0 |= (1<<(radarData.fpgaId*2));
+
+
 		return;
 	}
 	if(shTime==1){
@@ -1178,6 +1356,13 @@ void timerPrg3()
 	outFlag ^= 255;
 	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
+	if(warnUpTime){
+		warnUpTime--;
+		if(warnUpTime==0){
+			radarData.systemStatus0 &= (3<<(radarData.fpgaId*2))^0xffffffff;
+			radarData.systemStatus0 |= (2<<(radarData.fpgaId*2));
+		}
+	}
 }
 
 void simple_delay(int simple_delay)
@@ -1336,7 +1521,7 @@ void tickFather(){
 		udIpc.txPara2 = 0;
 		udIpc.txPara3 = 0;
 		udIpc.txBufferLen = 0;
-		//&w
+		//
 		int inx=0;
 		for(int i=0;i<12;i++){
 			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]&255;
@@ -1345,13 +1530,13 @@ void tickFather(){
 
 		udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
 		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
-		udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
-		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
 
 		udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
 		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
-		udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
-		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
 
 
 		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3])&255;

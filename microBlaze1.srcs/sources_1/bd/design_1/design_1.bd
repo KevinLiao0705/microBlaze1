@@ -47,13 +47,13 @@
       "axi_bram_ctrl_0": "",
       "axi_uartlite_2": "",
       "clk_wiz_1": "",
-      "hw0_0": "",
       "axi_uartlite_3": "",
       "axi_uartlite_4": "",
       "axi_uartlite_5": "",
       "axi_uartlite_6": "",
       "axi_intc_0": "",
-      "xlconcat_0": ""
+      "xlconcat_0": "",
+      "hw0_0": ""
     },
     "ports": {
       "uartIpcRxH": {
@@ -1967,6 +1967,68 @@
           }
         }
       },
+      "axi_uartlite_3": {
+        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+        "xci_name": "design_1_axi_uartlite_3_0",
+        "xci_path": "ip\\design_1_axi_uartlite_3_0\\design_1_axi_uartlite_3_0.xci",
+        "inst_hier_path": "axi_uartlite_3",
+        "parameters": {
+          "C_BAUDRATE": {
+            "value": "460800"
+          }
+        }
+      },
+      "axi_uartlite_4": {
+        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+        "xci_name": "design_1_axi_uartlite_4_0",
+        "xci_path": "ip\\design_1_axi_uartlite_4_0\\design_1_axi_uartlite_4_0.xci",
+        "inst_hier_path": "axi_uartlite_4",
+        "parameters": {
+          "C_BAUDRATE": {
+            "value": "460800"
+          },
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "200"
+          }
+        }
+      },
+      "axi_uartlite_5": {
+        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+        "xci_name": "design_1_axi_uartlite_5_0",
+        "xci_path": "ip\\design_1_axi_uartlite_5_0\\design_1_axi_uartlite_5_0.xci",
+        "inst_hier_path": "axi_uartlite_5",
+        "parameters": {
+          "C_BAUDRATE": {
+            "value": "460800"
+          },
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "200"
+          }
+        }
+      },
+      "axi_uartlite_6": {
+        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+        "xci_name": "design_1_axi_uartlite_6_0",
+        "xci_path": "ip\\design_1_axi_uartlite_6_0\\design_1_axi_uartlite_6_0.xci",
+        "inst_hier_path": "axi_uartlite_6"
+      },
+      "axi_intc_0": {
+        "vlnv": "xilinx.com:ip:axi_intc:4.1",
+        "xci_name": "design_1_axi_intc_0_0",
+        "xci_path": "ip\\design_1_axi_intc_0_0\\design_1_axi_intc_0_0.xci",
+        "inst_hier_path": "axi_intc_0"
+      },
+      "xlconcat_0": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "xci_name": "design_1_xlconcat_0_0",
+        "xci_path": "ip\\design_1_xlconcat_0_0\\design_1_xlconcat_0_0.xci",
+        "inst_hier_path": "xlconcat_0",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "8"
+          }
+        }
+      },
       "hw0_0": {
         "vlnv": "xilinx.com:module_ref:hw0:1.0",
         "xci_name": "design_1_hw0_0_0",
@@ -2114,68 +2176,6 @@
             "direction": "O",
             "left": "7",
             "right": "0"
-          }
-        }
-      },
-      "axi_uartlite_3": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "design_1_axi_uartlite_3_0",
-        "xci_path": "ip\\design_1_axi_uartlite_3_0\\design_1_axi_uartlite_3_0.xci",
-        "inst_hier_path": "axi_uartlite_3",
-        "parameters": {
-          "C_BAUDRATE": {
-            "value": "460800"
-          }
-        }
-      },
-      "axi_uartlite_4": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "design_1_axi_uartlite_4_0",
-        "xci_path": "ip\\design_1_axi_uartlite_4_0\\design_1_axi_uartlite_4_0.xci",
-        "inst_hier_path": "axi_uartlite_4",
-        "parameters": {
-          "C_BAUDRATE": {
-            "value": "460800"
-          },
-          "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
-          }
-        }
-      },
-      "axi_uartlite_5": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "design_1_axi_uartlite_5_0",
-        "xci_path": "ip\\design_1_axi_uartlite_5_0\\design_1_axi_uartlite_5_0.xci",
-        "inst_hier_path": "axi_uartlite_5",
-        "parameters": {
-          "C_BAUDRATE": {
-            "value": "460800"
-          },
-          "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
-          }
-        }
-      },
-      "axi_uartlite_6": {
-        "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-        "xci_name": "design_1_axi_uartlite_6_0",
-        "xci_path": "ip\\design_1_axi_uartlite_6_0\\design_1_axi_uartlite_6_0.xci",
-        "inst_hier_path": "axi_uartlite_6"
-      },
-      "axi_intc_0": {
-        "vlnv": "xilinx.com:ip:axi_intc:4.1",
-        "xci_name": "design_1_axi_intc_0_0",
-        "xci_path": "ip\\design_1_axi_intc_0_0\\design_1_axi_intc_0_0.xci",
-        "inst_hier_path": "axi_intc_0"
-      },
-      "xlconcat_0": {
-        "vlnv": "xilinx.com:ip:xlconcat:2.1",
-        "xci_name": "design_1_xlconcat_0_0",
-        "xci_path": "ip\\design_1_xlconcat_0_0\\design_1_xlconcat_0_0.xci",
-        "inst_hier_path": "xlconcat_0",
-        "parameters": {
-          "NUM_PORTS": {
-            "value": "8"
           }
         }
       }
@@ -2573,7 +2573,6 @@
           "axi_bram_ctrl_0/s_axi_aclk",
           "axi_uartlite_2/s_axi_aclk",
           "microblaze_0_axi_periph/M07_ACLK",
-          "hw0_0/sysClk200m",
           "axi_uartlite_3/s_axi_aclk",
           "axi_uartlite_4/s_axi_aclk",
           "microblaze_0_axi_periph/M08_ACLK",
@@ -2582,7 +2581,8 @@
           "axi_uartlite_6/s_axi_aclk",
           "microblaze_0_axi_periph/M10_ACLK",
           "axi_intc_0/s_axi_aclk",
-          "microblaze_0_axi_periph/M11_ACLK"
+          "microblaze_0_axi_periph/M11_ACLK",
+          "hw0_0/sysClk200m"
         ]
       },
       "rfInA_1": {
@@ -2629,7 +2629,6 @@
           "axi_bram_ctrl_0/s_axi_aresetn",
           "axi_uartlite_2/s_axi_aresetn",
           "microblaze_0_axi_periph/M07_ARESETN",
-          "hw0_0/resetN",
           "axi_uartlite_3/s_axi_aresetn",
           "axi_uartlite_4/s_axi_aresetn",
           "microblaze_0_axi_periph/M08_ARESETN",
@@ -2638,7 +2637,8 @@
           "axi_uartlite_6/s_axi_aresetn",
           "microblaze_0_axi_periph/M10_ARESETN",
           "axi_intc_0/s_axi_aresetn",
-          "microblaze_0_axi_periph/M11_ARESETN"
+          "microblaze_0_axi_periph/M11_ARESETN",
+          "hw0_0/resetN"
         ]
       },
       "sysClk50m_1": {
