@@ -22,6 +22,7 @@
 void uart0TxIntPrg(void *CallBackRef, unsigned int EventData);
 void uart0RxIntPrg(void *CallBackRef, unsigned int EventData);
 void intcDisconnect(u16 vecter);
+void transBram(void);
 
 
 
@@ -293,6 +294,12 @@ typedef struct radarDataSt
    	mast 與副控1語音通道[25] ==> 0:關閉, 1:開啟
    	mast 與副控2語音通道[26] ==> 0:關閉, 1:開啟:
 
+   	SSPA 保護開關[27] ==> 0:關閉, 1:開啟:
+
+   	fpgaId[31:28] ==> :
+
+
+
     */
     u32 systemFlag0;
     u32 systemFlag1;
@@ -303,7 +310,7 @@ typedef struct radarDataSt
 	u8 sspaPowerExistAA[2][5];
 	u8 sspaModuleExistAA[2][5];
 
-	u8 preTrigTime;
+	u16 preTrigTime;
 	u8 preRfOutTime;
 	u8 afterTrigTime;
 	//=============================
@@ -571,7 +578,7 @@ void udIpcRxPrg(UartData *udp)
 					radarData.sspaPowerExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
 				for(int i=0;i<5;i++)
 					radarData.sspaModuleExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
-				radarData.preTrigTime = getBufferByte(&inx, udp->rxBuffer);
+				radarData.preTrigTime = getBufferWord(&inx, udp->rxBuffer);
 				radarData.preRfOutTime = getBufferByte(&inx, udp->rxBuffer);
 				radarData.afterTrigTime = getBufferByte(&inx, udp->rxBuffer);
 				//==============================================
@@ -619,13 +626,13 @@ void udIpcRxPrg(UartData *udp)
 						for(int i=start;i<end;i++){
 							int exist=bufA[i/8]&(1<<(i%8));
 							if(exist)
-								radarData.sspaPowerStatusAA[fpgaId-3][i] |= 0x10;
+								radarData.sspaPowerStatusAA[fpgaId-3][i] |= 0x1d;
 						}
 						return;
 					}
 					if(para2==0x2001){//sspaPowerOff
 						for(int i=start;i<end;i++){
-							radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xef;
+							radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xe0;
 						}
 						return;
 					}
@@ -647,11 +654,14 @@ void udIpcRxPrg(UartData *udp)
 					if(para2==0x2004){//local pulse on
 						int sh=25+(fpgaId-3)*5;
 						radarData.systemStatus0 |= 1<<sh;
+						radarData.pulseGenCh=para3&255;
+						transBram();
 						return;
 					}
 					if(para2==0x2005){//local pulse off
 						int sh=25+(fpgaId-3)*5;
 						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						transBram();
 						return;
 					}
 					if(para2==0x2006){//emergency on
@@ -794,56 +804,65 @@ void udIpcRxPrg(UartData *udp)
 
 void transBram(){
 	int ibuf;
+	bramAddr = 32;
+	ibuf = readBram32();
 	bramAddr = 0;
+	bramAddr = 0;
+
+
+
 	writeBram32(radarData.systemStatus0);
 	writeBram32(radarData.systemStatus1);
 	writeBram32(radarData.systemFlag0);
 	writeBram32(radarData.systemFlag1);
-	ibuf=radarData.preTrigTime;
+	//==================
+	ibuf=radarData.afterTrigTime;
 	ibuf+=radarData.preRfOutTime<<8;
-	ibuf+=radarData.afterTrigTime<<8;
+	ibuf+=radarData.preTrigTime<<16;
 	writeBram32(ibuf);
+	//===================
 	writeBram32(radarData.commTestPacks);
 	ibuf=radarData.vgTimeDelay;
-	ibuf+=radarData.chTimeFineTune;
+	ibuf+=radarData.chTimeFineTune<<16;
 	writeBram32(ibuf);
 	ibuf=radarData.chFiberDelay;
-	ibuf+=radarData.chRfDelay;
+	ibuf+=radarData.chRfDelay<<16;
 	writeBram32(ibuf);
 	//=================================
 	int sampleLen = 0;
-	for (int i = 0; i < 32; i++)
+	int i=0;
+	int endi=32;
+	if(radarData.pulseGenCh!=0xff){
+		i=radarData.pulseGenCh;
+		endi=i+1;
+	}
+	bramAddr = 32*4;
+	for (; i < endi; i++)
 	{
-		dutyReg=radarData.pulsGenDataA[6*i]+radarData.pulsGenDataA[6*i+1]*256;
-
-
-
-        lb.wShortInt(dutyReg);
-        lb.wShortInt(pulseWidth);
-        lb.wByteInt(freq);
-        lb.wByteInt(trigTimes);
-		u16 width = getBufferWord(&inx, udp->rxBuffer);
-		u16 duty = getBufferWord(&inx, udp->rxBuffer);
-		u16 buf16 = getBufferWord(&inx, udp->rxBuffer);
-		u8 enable = buf16 & 255;
-		u8 times = (buf16 >> 8) - 1;
-		//repeatTime freq,pulseWidth 8:8:16
-
-
-		if (enable)
+		u16 dutyReg=radarData.pulseGenDatasA[6*i]+radarData.pulseGenDatasA[6*i+1]*256;
+		u16 width=radarData.pulseGenDatasA[6*i+2]+radarData.pulseGenDatasA[6*i+3]*256;
+		u8 freq=radarData.pulseGenDatasA[6*i+4];
+		u8 times=radarData.pulseGenDatasA[6*i+5]-1;
+		u8 flag = dutyReg>>12;
+		dutyReg &=0xfff;
+		if (flag & 1)
 		{
-			ibuf0 = (times << 24) + (sspaData.rfFreq << 16) + width;
-			bramAddr = (32 + i) * 4;
-			writeBram32(ibuf0);
-			writeBram32(duty);
+			ibuf = (times << 24) + (freq << 16) + width;
+			writeBram32(ibuf);
+			ibuf = (flag<<16) + dutyReg;
+			writeBram32(ibuf);
 			sampleLen++;
 		}
 	}
+	bramAddr = 8 * 4;
+	ibuf=sampleLen - 1;
+	ibuf+=radarData.fpgaId<<8;
+	writeBram32(ibuf);
 
-
-
-
-
+	bramAddr = 15 * 4;
+	ibuf = readBram32();
+	bramAddr = 15 * 4;
+	writeBram32(ibuf + 1);
 
 
 

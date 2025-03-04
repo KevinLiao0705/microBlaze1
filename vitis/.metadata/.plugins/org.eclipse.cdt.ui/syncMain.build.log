@@ -1,48 +1,6 @@
-13:40:30 **** Incremental Build of configuration Debug for project syncMain ****
+09:56:35 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
-'Building file: ../src/helloworld.c'
-'Invoking: MicroBlaze gcc compiler'
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
-In file included from ../src/helloworld.c:7:
-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
-  102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
-      |  ^~~~~~~
-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
-  103 | #warning  Please refer the Standalone BSP UG647 for further details
-      |  ^~~~~~~
-../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:549:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  549 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
-      |                     ^~~~~~
-At top level:
-../src/helloworld.c:407:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  407 | static XUartLite uart6Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:406:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
-  406 | static XUartLite uart5Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:405:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
-  405 | static XUartLite uart4Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:404:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
-  404 | static XUartLite uart3Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:403:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
-  403 | static XUartLite uart2Obj;
-      |                  ^~~~~~~~
-'Finished building: ../src/helloworld.c'
-' '
-'Building target: syncMain.elf'
-'Invoking: MicroBlaze gcc linker'
-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-'Finished building target: syncMain.elf'
-' '
-'Invoking: MicroBlaze Print Size'
-mb-size syncMain.elf  |tee "syncMain.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  24516	    548	  17880	  42944	   a7c0	syncMain.elf
-'Finished building: syncMain.elf.size'
-' '
+make: Nothing to be done for 'all'.
 
-13:40:31 Build Finished (took 644ms)
+09:56:35 Build Finished (took 87ms)
 

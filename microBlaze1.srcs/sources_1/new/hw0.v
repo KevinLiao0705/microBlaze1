@@ -154,7 +154,9 @@ module hw0
     reg[31:0] systemStatus1;
     reg[31:0] systemFlag0;
     reg[31:0] systemFlag1;
-    
+    reg[31:0] pulseDetTime;
+    reg[31:0] pulseCnt;
+    reg preWgRfout;
     
 
     integer      i ;  
@@ -199,7 +201,7 @@ module hw0
         
         
         
-        mem[0]=32'h0000_0000;//systemStatus0
+        mem[0]=32'h0200_0000;//systemStatus0
         mem[1]=32'h0000_0000;//systemStatus1
         mem[2]=32'h0000_0000;//systemFlag0
         mem[3]=32'h0000_0000;//systemFlag1
@@ -214,7 +216,7 @@ module hw0
         mem[15]=32'habcd_1234;//setAllFlag 0xabcd_1234
         
         
-        /*/
+        /*
                         wgRepeatEnd<=ibuf[0][31:24];
                         wgRfFreq<=ibuf[0][23:16];
                         wgPulseWidth<=ibuf[0][15:0];
@@ -298,15 +300,14 @@ module hw0
                         wgPulseFlag<=ibuf[1][31:16];
                         wgDuty<=ibuf[1][15:0];
                         //==================
-                        localPulseOn<=1;
-                        /*
+                        //localPulseOn<=1;
+                        
                         if(fpgaId==2 || fpgaId==4 ||fpgaId==7 || fpgaId==8)begin
                             localPulseOn<=systemStatus0[30];
                             end
                         else begin    
                             localPulseOn<=systemStatus0[25];
-                            end
-                            */
+                        end
                         //====================================    
                         end
                     if(wg_timeClk==3)begin
@@ -377,16 +378,39 @@ module hw0
         end
   
     
-    
-    
+    always @(posedge sysClk200m) begin
+        if(wgRfout)begin
+            if(preWgRfout==0)begin
+                pulseDetTime<=1;
+                pulseCnt<=pulseCnt+1'b1;
+                preWgRfout<=1;
+            end
+            else begin
+                pulseDetTime<=pulseDetTime+1'b1;
+            end    
+        end
+        else begin
+            if(preWgRfout==1)begin
+                pulseDetTime<=1;
+                pulseCnt<=pulseCnt+1'b1;
+                preWgRfout<=0;
+            end
+            else begin
+                pulseDetTime<=pulseDetTime+1'b1;
+            end    
+        end    
+        mem[16]=preWgRfout;
+        mem[17]=pulseDetTime;
+        mem[18]=pulseCnt;
+    end
+        
     OBUFDS #(
       .IOSTANDARD("DEFAULT"), 
       .SLEW("SLOW")           
     ) OBUFDS_inst0 (
       .O(dfOutP[0]),        
       .OB(dfOutN[0]),
-      .I(base160Timer[8])       
-      //.I(wgClk)        
+      .I(wgClk)        
     );
     
     
