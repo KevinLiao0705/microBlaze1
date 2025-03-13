@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x714F27EEF24D24F",
+      "boundary_crc": "0xA4F646104CC66621",
       "device": "xc7a100tfgg484-2",
       "gen_directory": "../../../../microBlaze1.gen/sources_1/bd/design_1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "microblaze_0": "",
@@ -55,12 +56,6 @@
       "hw0_0": ""
     },
     "ports": {
-      "uartIpcRxH": {
-        "direction": "I"
-      },
-      "uartIpcTxH": {
-        "direction": "O"
-      },
       "rs485Ro": {
         "direction": "I"
       },
@@ -128,12 +123,6 @@
         "left": "15",
         "right": "0"
       },
-      "uartIpcTx2": {
-        "direction": "O"
-      },
-      "uartIpcRx2": {
-        "direction": "I"
-      },
       "gpsPps": {
         "direction": "I"
       },
@@ -141,8 +130,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sysClk50m",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -178,6 +183,18 @@
         "direction": "I"
       },
       "fibTx7": {
+        "direction": "O"
+      },
+      "uartIpcTx2": {
+        "direction": "I"
+      },
+      "uartIpcTxH": {
+        "direction": "I"
+      },
+      "uartIpcRxH": {
+        "direction": "O"
+      },
+      "uartIpcRx2": {
         "direction": "O"
       }
     },
@@ -438,7 +455,7 @@
             "value": "460800"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
+            "value": "160"
           }
         }
       },
@@ -1809,7 +1826,7 @@
             "value": "460800"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
+            "value": "160"
           }
         }
       },
@@ -1854,7 +1871,7 @@
             "value": "460800"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
+            "value": "160"
           }
         }
       },
@@ -1871,13 +1888,13 @@
             "value": "BUFG"
           },
           "CLKOUT1_JITTER": {
-            "value": "96.666"
+            "value": "99.833"
           },
           "CLKOUT1_PHASE_ERROR": {
             "value": "120.359"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "200"
+            "value": "160"
           },
           "CLKOUT2_DRIVES": {
             "value": "BUFG"
@@ -1925,7 +1942,7 @@
             "value": "10.0"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "8"
+            "value": "10"
           },
           "MMCM_CLKOUT1_DIVIDE": {
             "value": "10"
@@ -1958,6 +1975,9 @@
         "parameters": {
           "C_BAUDRATE": {
             "value": "460800"
+          },
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "160"
           }
         }
       },
@@ -1971,7 +1991,7 @@
             "value": "460800"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
+            "value": "160"
           }
         }
       },
@@ -1985,7 +2005,7 @@
             "value": "460800"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "200"
+            "value": "160"
           }
         }
       },
@@ -1993,7 +2013,12 @@
         "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
         "xci_name": "design_1_axi_uartlite_6_0",
         "xci_path": "ip\\design_1_axi_uartlite_6_0\\design_1_axi_uartlite_6_0.xci",
-        "inst_hier_path": "axi_uartlite_6"
+        "inst_hier_path": "axi_uartlite_6",
+        "parameters": {
+          "C_S_AXI_ACLK_FREQ_HZ_d": {
+            "value": "160"
+          }
+        }
       },
       "axi_intc_0": {
         "vlnv": "xilinx.com:ip:axi_intc:4.1",
@@ -2053,10 +2078,38 @@
             "direction": "I"
           },
           "sysClk200m": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "160000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "clk160m": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "160000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "resetN": {
             "type": "rst",
@@ -2297,7 +2350,7 @@
       "axi_uartlite_0_tx": {
         "ports": [
           "axi_uartlite_0/tx",
-          "uartIpcTxH"
+          "uartIpcRxH"
         ]
       },
       "axi_uartlite_1_interrupt": {
@@ -2321,7 +2374,7 @@
       "axi_uartlite_2_tx": {
         "ports": [
           "axi_uartlite_2/tx",
-          "uartIpcTx2"
+          "uartIpcRx2"
         ]
       },
       "axi_uartlite_3_interrupt": {
@@ -2602,15 +2655,15 @@
           "clk_wiz_1/clk_in1"
         ]
       },
-      "uartIpcRx2": {
+      "uartIpcTx2_1": {
         "ports": [
-          "uartIpcRx2",
+          "uartIpcTx2",
           "axi_uartlite_2/rx"
         ]
       },
-      "uartIpcRxH": {
+      "uartIpcTxH_1": {
         "ports": [
-          "uartIpcRxH",
+          "uartIpcTxH",
           "axi_uartlite_0/rx"
         ]
       },

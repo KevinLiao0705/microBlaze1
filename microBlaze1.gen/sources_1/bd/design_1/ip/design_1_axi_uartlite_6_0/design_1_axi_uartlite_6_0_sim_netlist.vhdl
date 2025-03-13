@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Feb 24 17:24:56 2025
+-- Date        : Thu Mar 13 14:35:04 2025
 -- Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               e:/kevin/temp/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_6_0/design_1_axi_uartlite_6_0_sim_netlist.vhdl
+--               e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_6_0/design_1_axi_uartlite_6_0_sim_netlist.vhdl
 -- Design      : design_1_axi_uartlite_6_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,17 +28,18 @@ architecture STRUCTURE of design_1_axi_uartlite_6_0_baudrate is
   signal \^en_16x_baud\ : STD_LOGIC;
   signal count : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal \count[10]_i_2_n_0\ : STD_LOGIC;
+  signal \count[2]_i_2_n_0\ : STD_LOGIC;
   signal \count[3]_i_2_n_0\ : STD_LOGIC;
   signal \count[5]_i_2_n_0\ : STD_LOGIC;
   signal \count[5]_i_3_n_0\ : STD_LOGIC;
   signal count_0 : STD_LOGIC_VECTOR ( 10 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \count[0]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \count[1]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \count[0]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \count[1]_i_1\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \count[2]_i_1\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \count[3]_i_1\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of \count[4]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \count[5]_i_2\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \count[5]_i_2\ : label is "soft_lutpair10";
 begin
 EN_16x_Baud_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -48,9 +49,9 @@ EN_16x_Baud_i_1: unisim.vcomponents.LUT6
       I0 => \count[10]_i_2_n_0\,
       I1 => count(6),
       I2 => count(7),
-      I3 => count(10),
-      I4 => count(8),
-      I5 => count(9),
+      I3 => count(8),
+      I4 => count(9),
+      I5 => count(10),
       O => \^en_16x_baud\
     );
 EN_16x_Baud_reg: unisim.vcomponents.FDRE
@@ -71,12 +72,12 @@ EN_16x_Baud_reg: unisim.vcomponents.FDRE
     );
 \count[10]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F0F0F0F0F0F0F0E1"
+      INIT => X"AAAAAAAAAAAAAAA9"
     )
         port map (
-      I0 => count(9),
-      I1 => count(8),
-      I2 => count(10),
+      I0 => count(10),
+      I1 => count(9),
+      I2 => count(8),
       I3 => count(7),
       I4 => count(6),
       I5 => \count[10]_i_2_n_0\,
@@ -95,27 +96,40 @@ EN_16x_Baud_reg: unisim.vcomponents.FDRE
       I5 => count(2),
       O => \count[10]_i_2_n_0\
     );
-\count[1]_i_1\: unisim.vcomponents.LUT5
+\count[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"F00FF00E"
+      INIT => X"F00E"
     )
         port map (
-      I0 => count(2),
-      I1 => \count[3]_i_2_n_0\,
+      I0 => \count[2]_i_2_n_0\,
+      I1 => count(2),
       I2 => count(1),
       I3 => count(0),
-      I4 => count(3),
       O => count_0(1)
     );
-\count[2]_i_1\: unisim.vcomponents.LUT3
+\count[2]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"A9"
+      INIT => X"E1E0"
     )
         port map (
-      I0 => count(2),
+      I0 => count(1),
       I1 => count(0),
-      I2 => count(1),
+      I2 => count(2),
+      I3 => \count[2]_i_2_n_0\,
       O => count_0(2)
+    );
+\count[2]_i_2\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => count(4),
+      I1 => count(5),
+      I2 => \count[5]_i_3_n_0\,
+      I3 => count(7),
+      I4 => count(6),
+      I5 => count(3),
+      O => \count[2]_i_2_n_0\
     );
 \count[3]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -182,9 +196,9 @@ EN_16x_Baud_reg: unisim.vcomponents.FDRE
       INIT => X"FE"
     )
         port map (
-      I0 => count(9),
-      I1 => count(8),
-      I2 => count(10),
+      I0 => count(10),
+      I1 => count(9),
+      I2 => count(8),
       O => \count[5]_i_3_n_0\
     );
 \count[6]_i_1\: unisim.vcomponents.LUT6
@@ -192,9 +206,9 @@ EN_16x_Baud_reg: unisim.vcomponents.FDRE
       INIT => X"FFFF00000000FFFE"
     )
         port map (
-      I0 => count(10),
-      I1 => count(8),
-      I2 => count(9),
+      I0 => count(8),
+      I1 => count(9),
+      I2 => count(10),
       I3 => count(7),
       I4 => count(6),
       I5 => \count[10]_i_2_n_0\,
@@ -208,32 +222,34 @@ EN_16x_Baud_reg: unisim.vcomponents.FDRE
       I0 => count(7),
       I1 => count(6),
       I2 => \count[10]_i_2_n_0\,
-      I3 => count(9),
-      I4 => count(8),
-      I5 => count(10),
+      I3 => count(10),
+      I4 => count(9),
+      I5 => count(8),
       O => count_0(7)
     );
-\count[8]_i_1\: unisim.vcomponents.LUT4
+\count[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAA9"
+      INIT => X"FE01FE01FE01FE00"
+    )
+        port map (
+      I0 => \count[10]_i_2_n_0\,
+      I1 => count(6),
+      I2 => count(7),
+      I3 => count(8),
+      I4 => count(9),
+      I5 => count(10),
+      O => count_0(8)
+    );
+\count[9]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFE0001FFFE0000"
     )
         port map (
       I0 => count(8),
       I1 => count(7),
       I2 => count(6),
       I3 => \count[10]_i_2_n_0\,
-      O => count_0(8)
-    );
-\count[9]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FF00FE01FF00FE00"
-    )
-        port map (
-      I0 => \count[10]_i_2_n_0\,
-      I1 => count(6),
-      I2 => count(7),
-      I3 => count(9),
-      I4 => count(8),
+      I4 => count(9),
       I5 => count(10),
       O => count_0(9)
     );
@@ -3811,7 +3827,7 @@ entity design_1_axi_uartlite_6_0_axi_uartlite is
   attribute C_ODD_PARITY : integer;
   attribute C_ODD_PARITY of design_1_axi_uartlite_6_0_axi_uartlite : entity is 0;
   attribute C_S_AXI_ACLK_FREQ_HZ : integer;
-  attribute C_S_AXI_ACLK_FREQ_HZ of design_1_axi_uartlite_6_0_axi_uartlite : entity is 200000000;
+  attribute C_S_AXI_ACLK_FREQ_HZ of design_1_axi_uartlite_6_0_axi_uartlite : entity is 160000000;
   attribute C_S_AXI_ADDR_WIDTH : integer;
   attribute C_S_AXI_ADDR_WIDTH of design_1_axi_uartlite_6_0_axi_uartlite : entity is 4;
   attribute C_S_AXI_DATA_WIDTH : integer;
@@ -4026,7 +4042,7 @@ architecture STRUCTURE of design_1_axi_uartlite_6_0 is
   attribute C_ODD_PARITY : integer;
   attribute C_ODD_PARITY of U0 : label is 0;
   attribute C_S_AXI_ACLK_FREQ_HZ : integer;
-  attribute C_S_AXI_ACLK_FREQ_HZ of U0 : label is 200000000;
+  attribute C_S_AXI_ACLK_FREQ_HZ of U0 : label is 160000000;
   attribute C_S_AXI_ADDR_WIDTH : integer;
   attribute C_S_AXI_ADDR_WIDTH of U0 : label is 4;
   attribute C_S_AXI_DATA_WIDTH : integer;
@@ -4041,7 +4057,7 @@ architecture STRUCTURE of design_1_axi_uartlite_6_0 is
   attribute x_interface_info of rx : signal is "xilinx.com:interface:uart:1.0 UART RxD";
   attribute x_interface_parameter of rx : signal is "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UARTLITE_BOARD_INTERFACE";
   attribute x_interface_info of s_axi_aclk : signal is "xilinx.com:signal:clock:1.0 ACLK CLK";
-  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_aclk : signal is "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 160000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, INSERT_VIP 0";
   attribute x_interface_info of s_axi_aresetn : signal is "xilinx.com:signal:reset:1.0 ARESETN RST";
   attribute x_interface_parameter of s_axi_aresetn : signal is "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute x_interface_info of s_axi_arready : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARREADY";
@@ -4057,7 +4073,7 @@ architecture STRUCTURE of design_1_axi_uartlite_6_0 is
   attribute x_interface_info of tx : signal is "xilinx.com:interface:uart:1.0 UART TxD";
   attribute x_interface_info of s_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI ARADDR";
   attribute x_interface_info of s_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
-  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 200000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute x_interface_parameter of s_axi_awaddr : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 160000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute x_interface_info of s_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI BRESP";
   attribute x_interface_info of s_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S_AXI RDATA";
   attribute x_interface_info of s_axi_rresp : signal is "xilinx.com:interface:aximm:1.0 S_AXI RRESP";

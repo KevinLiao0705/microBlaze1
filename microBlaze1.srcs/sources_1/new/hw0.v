@@ -154,18 +154,19 @@ module hw0
     reg[31:0] systemStatus1;
     reg[31:0] systemFlag0;
     reg[31:0] systemFlag1;
-    reg[31:0] pulseDetTime;
-    reg[31:0] pulseCnt;
-    reg preWgRfout;
+    //==========================
+    //reg[30:0] pulseDetTime;
+    //reg[31:0] pulseCnt;
+    //reg preWgRfout;
+    //reg shiftTrigF;
+    //reg[31:0] waveBufA[127:0]; 
+    //reg[6:0] waveBufInx0;
+    //reg[6:0] waveBufInx1;
     
 
     integer      i ;  
   
-  
 
-
-
-  
   
     initial begin
         tmpData = 0;
@@ -186,22 +187,10 @@ module hw0
 	//==================
         
         
-        //0:protect bit 1:ON 0:OFF, default ON
-        //1:rfon_f,1:rf on  
-        //2:random_f,1:random
-        
-        
-	   //b0=0:power off, 1: power On//no use
-	   //b1=0:sspaOn power on
-	   //b2=0:radiation ready
-	   //b3=localRemote_f 0:local 1:remote
-	   //b4=pulseType 1:fix 0:random
-	   //b5=local pulse start flag
-	   //b6=sspa protect on
         
         
         
-        mem[0]=32'h0200_0000;//systemStatus0
+        mem[0]=32'h0000_0000;//systemStatus0
         mem[1]=32'h0000_0000;//systemStatus1
         mem[2]=32'h0000_0000;//systemFlag0
         mem[3]=32'h0000_0000;//systemFlag1
@@ -216,17 +205,19 @@ module hw0
         mem[15]=32'habcd_1234;//setAllFlag 0xabcd_1234
         
         
-        /*
-                        wgRepeatEnd<=ibuf[0][31:24];
-                        wgRfFreq<=ibuf[0][23:16];
-                        wgPulseWidth<=ibuf[0][15:0];
-                        wgPulseFlag<=ibuf[1][31:16];
-                        wgDuty<=ibuf[1][15:0];
-        */
+      //                  wgRepeatEnd<=ibuf[0][31:24];
+      //                  wgRfFreq<=ibuf[0][23:16];
+      //                  wgPulseWidth<=ibuf[0][15:0];
+      //                  wgPulseFlag<=ibuf[1][31:16];
+      //                  wgDuty<=ibuf[1][15:0];
+      
+      
+      
        for(i=0;i<32;i=i+1)begin
             mem[32+i*2]=(2*256+10)*65536+10*10;
             mem[33+i*2]=0*65536+80;
        end
+       
        //===========================================    
         maxPulseWidth=10*4000;
         maxDuty=400;
@@ -247,6 +238,8 @@ module hw0
         
     end
 
+   
+    
     always @(posedge clk160m) begin
         clk160m_cnt<=clk160m_cnt+1'b1;
         case(clk160m_cnt)
@@ -292,6 +285,8 @@ module hw0
                     if(wg_timeClk==1)begin
                         ibuf[0]<=pusleGenDatas[sampleCnt*2];
                         ibuf[1]<=pusleGenDatas[sampleCnt*2+1];
+                        //ibuf[0]<=pusleGenDatas[0];
+                        //ibuf[1]<=pusleGenDatas[1];
                         end
                     if(wg_timeClk==2)begin
                         wgRepeatEnd<=ibuf[0][31:24];
@@ -300,13 +295,12 @@ module hw0
                         wgPulseFlag<=ibuf[1][31:16];
                         wgDuty<=ibuf[1][15:0];
                         //==================
-                        //localPulseOn<=1;
-                        
                         if(fpgaId==2 || fpgaId==4 ||fpgaId==7 || fpgaId==8)begin
                             localPulseOn<=systemStatus0[30];
                             end
                         else begin    
                             localPulseOn<=systemStatus0[25];
+                            
                         end
                         //====================================    
                         end
@@ -324,12 +318,25 @@ module hw0
                         end
                     if(wg_timeClk==4)begin
                 	   //mem[4] 16:8:8 ,,preTrigTime,  preRfoutTime  afterTrigTime,
-                        trigStartTime <= 8+24+wgSet[31:16];
-                        rfoutStartTime <= 8+24+wgSet[31:16]+wgSet[15:8];
-                        rfoutEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth;
-                        trigEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth+wgSet[7:0];
-                        cycleEndTime <= (wgPulseWidth*1000/wgDuty)-1;
+                        trigStartTime <= 32+wgSet[31:16];
+                        //rfoutStartTime <= 8+24+wgSet[31:16]+wgSet[15:8];
+                        //rfoutEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth;
+                        //trigEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth+wgSet[7:0];
+                        //cycleEndTime <= (wgPulseWidth*1000/wgDuty)-1;
+                        cycleEndTime <= 32'b0000_1000;
                         end
+                    if(wg_timeClk==5)begin
+                        rfoutStartTime <= trigStartTime+wgSet[15:8];
+                        end
+                    if(wg_timeClk==6)begin
+                        rfoutEndTime <= rfoutStartTime+wgPulseWidth;
+                        end
+                    if(wg_timeClk==7)begin
+                        trigEndTime <= rfoutEndTime+wgSet[7:0];;
+                        end
+                        
+                        
+                        
                     if(wg_timeClk>=8 && wg_timeClk<32)begin
                         if(localPulseOn)begin
                             wgClk <= 1;
@@ -370,39 +377,17 @@ module hw0
             4'b0100:begin
                 end
             4'b1000:begin
-                wgClk=0;
+                wgClk<=0;
                 end
             4'b1100:begin
                 end
             endcase    
         end
+        
   
     
-    always @(posedge sysClk200m) begin
-        if(wgRfout)begin
-            if(preWgRfout==0)begin
-                pulseDetTime<=1;
-                pulseCnt<=pulseCnt+1'b1;
-                preWgRfout<=1;
-            end
-            else begin
-                pulseDetTime<=pulseDetTime+1'b1;
-            end    
-        end
-        else begin
-            if(preWgRfout==1)begin
-                pulseDetTime<=1;
-                pulseCnt<=pulseCnt+1'b1;
-                preWgRfout<=0;
-            end
-            else begin
-                pulseDetTime<=pulseDetTime+1'b1;
-            end    
-        end    
-        mem[16]=preWgRfout;
-        mem[17]=pulseDetTime;
-        mem[18]=pulseCnt;
-    end
+    
+        
         
     OBUFDS #(
       .IOSTANDARD("DEFAULT"), 
@@ -507,29 +492,36 @@ IBUFDS #(
 
 
   
+  
   //ram processs ========================================
   always @(posedge ramClk) begin
+  
     if(ramEn & ramWe[0])
-        mem[ramAddr>>2][7:0] <= ramInData[7:0];
+        mem[ramAddr[12:2]][7:0] <= ramInData[7:0];
     if(ramEn & ramWe[1])
-        mem[ramAddr>>2][15:8] <= ramInData[15:8];
+        mem[ramAddr[12:2]][15:8] <= ramInData[15:8];
     if(ramEn & ramWe[2])
-        mem[ramAddr>>2][23:16] <= ramInData[23:16];
+        mem[ramAddr[12:2]][23:16] <= ramInData[23:16];
     if(ramEn & ramWe[3])
-        mem[ramAddr>>2][31:24] <= ramInData[31:24];
+        mem[ramAddr[12:2]][31:24] <= ramInData[31:24];
+    tmpData=31'h1234_5678;
+        
+    /*    
     if(!ramWe[0] & !ramWe[1] & !ramWe[2] & !ramWe[3])
         if(ramEn)
             if(ramRstp)
                 tmpData=ramInit;
-            else        
+            else 
                 tmpData=mem[ramAddr>>2];
     else
         if(ramEn)
             if(ramRstp)
                 tmpData=ramInit;
             else        
-                tmpData=ramInData;    
+                tmpData=ramInData;
+                */    
   end
+  
   
   assign ramOutData = tmpData;
   //ram processs end====================================
@@ -546,6 +538,7 @@ end
 
 assign ledV3=baseTimer[24];
 assign ledV4=base160Timer[24];
+
   
 endmodule
 

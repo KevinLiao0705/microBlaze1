@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="aaa" location="E:/kevin/myCode/microBlaze1/vitisJson/aaa" platform="E:/kevin/myCode/microBlaze1/vitisJson/syncMicroBlaze/export/syncMicroBlaze/syncMicroBlaze.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="aaa_system" sysConfig="syncMicroBlaze" runtime="C/C++" cpu="standalone_domain" cpuInstance="microblaze_0" os="standalone" mssSignature="586f197663400809c726b268755db249">
+  <configuration name="Debug" id="xilinx.gnu.mb.exe.debug.118966470" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.mb.exe.release.268333383" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

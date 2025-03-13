@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/kevin/temp/microBlaze1/microBlaze1.runs/design_1_axi_intc_0_0_synth_1'
+HD_PWD='E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_axi_intc_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

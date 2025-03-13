@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Sep 21 16:26:23 2023
+// Date        : Thu Mar 13 14:36:13 2025
 // Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_axi_timer_0_0 -prefix
-//               design_1_axi_timer_0_0_ design_1_axi_timer_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_timer_0_0/design_1_axi_timer_0_0_sim_netlist.v
 // Design      : design_1_axi_timer_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,135 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "design_1_axi_timer_0_0,axi_timer,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timer,Vivado 2022.2" *) 
+(* NotValidForBitStream *)
+module design_1_axi_timer_0_0
+   (capturetrig0,
+    capturetrig1,
+    generateout0,
+    generateout1,
+    pwm0,
+    interrupt,
+    freeze,
+    s_axi_aclk,
+    s_axi_aresetn,
+    s_axi_awaddr,
+    s_axi_awvalid,
+    s_axi_awready,
+    s_axi_wdata,
+    s_axi_wstrb,
+    s_axi_wvalid,
+    s_axi_wready,
+    s_axi_bresp,
+    s_axi_bvalid,
+    s_axi_bready,
+    s_axi_araddr,
+    s_axi_arvalid,
+    s_axi_arready,
+    s_axi_rdata,
+    s_axi_rresp,
+    s_axi_rvalid,
+    s_axi_rready);
+  input capturetrig0;
+  input capturetrig1;
+  output generateout0;
+  output generateout1;
+  output pwm0;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PORTWIDTH 1" *) output interrupt;
+  input freeze;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 160000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, INSERT_VIP 0" *) input s_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_RST RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s_axi_aresetn;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 160000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_1_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [4:0]s_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [4:0]s_axi_araddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
+
+  wire \<const0> ;
+  wire capturetrig0;
+  wire capturetrig1;
+  wire freeze;
+  wire generateout0;
+  wire generateout1;
+  wire interrupt;
+  wire pwm0;
+  wire s_axi_aclk;
+  wire [4:0]s_axi_araddr;
+  wire s_axi_aresetn;
+  wire s_axi_arready;
+  wire s_axi_arvalid;
+  wire [4:0]s_axi_awaddr;
+  wire s_axi_awready;
+  wire s_axi_awvalid;
+  wire s_axi_bready;
+  wire s_axi_bvalid;
+  wire [31:0]s_axi_rdata;
+  wire s_axi_rready;
+  wire s_axi_rvalid;
+  wire [31:0]s_axi_wdata;
+  wire s_axi_wready;
+  wire s_axi_wvalid;
+  wire [1:0]NLW_U0_s_axi_bresp_UNCONNECTED;
+  wire [1:0]NLW_U0_s_axi_rresp_UNCONNECTED;
+
+  assign s_axi_bresp[1] = \<const0> ;
+  assign s_axi_bresp[0] = \<const0> ;
+  assign s_axi_rresp[1] = \<const0> ;
+  assign s_axi_rresp[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  (* C_COUNT_WIDTH = "32" *) 
+  (* C_FAMILY = "artix7" *) 
+  (* C_GEN0_ASSERT = "1'b1" *) 
+  (* C_GEN1_ASSERT = "1'b1" *) 
+  (* C_ONE_TIMER_ONLY = "0" *) 
+  (* C_S_AXI_ADDR_WIDTH = "5" *) 
+  (* C_S_AXI_DATA_WIDTH = "32" *) 
+  (* C_TRIG0_ASSERT = "1'b1" *) 
+  (* C_TRIG1_ASSERT = "1'b1" *) 
+  (* downgradeipidentifiedwarnings = "yes" *) 
+  design_1_axi_timer_0_0_axi_timer U0
+       (.capturetrig0(capturetrig0),
+        .capturetrig1(capturetrig1),
+        .freeze(freeze),
+        .generateout0(generateout0),
+        .generateout1(generateout1),
+        .interrupt(interrupt),
+        .pwm0(pwm0),
+        .s_axi_aclk(s_axi_aclk),
+        .s_axi_araddr({s_axi_araddr[4:2],1'b0,1'b0}),
+        .s_axi_aresetn(s_axi_aresetn),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_awaddr({s_axi_awaddr[4:2],1'b0,1'b0}),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_bresp(NLW_U0_s_axi_bresp_UNCONNECTED[1:0]),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rready(s_axi_rready),
+        .s_axi_rresp(NLW_U0_s_axi_rresp_UNCONNECTED[1:0]),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_wstrb({1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_wvalid(s_axi_wvalid));
+endmodule
+
+(* ORIG_REF_NAME = "address_decoder" *) 
 module design_1_axi_timer_0_0_address_decoder
    (\GEN_BKEND_CE_REGISTERS[5].ce_out_i_reg[5]_0 ,
     \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ,
@@ -1482,6 +1611,7 @@ module design_1_axi_timer_0_0_address_decoder
         .O(D[1]));
 endmodule
 
+(* ORIG_REF_NAME = "axi_lite_ipif" *) 
 module design_1_axi_timer_0_0_axi_lite_ipif
    (\GEN_BKEND_CE_REGISTERS[5].ce_out_i_reg ,
     \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
@@ -2026,7 +2156,7 @@ endmodule
 (* C_COUNT_WIDTH = "32" *) (* C_FAMILY = "artix7" *) (* C_GEN0_ASSERT = "1'b1" *) 
 (* C_GEN1_ASSERT = "1'b1" *) (* C_ONE_TIMER_ONLY = "0" *) (* C_S_AXI_ADDR_WIDTH = "5" *) 
 (* C_S_AXI_DATA_WIDTH = "32" *) (* C_TRIG0_ASSERT = "1'b1" *) (* C_TRIG1_ASSERT = "1'b1" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "axi_timer" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_axi_timer_0_0_axi_timer
    (capturetrig0,
     capturetrig1,
@@ -2476,7 +2606,7 @@ endmodule
 
 (* C_CDC_TYPE = "1" *) (* C_FLOP_INPUT = "0" *) (* C_MTBF_STAGES = "4" *) 
 (* C_RESET_STATE = "0" *) (* C_SINGLE_BIT = "1" *) (* C_VECTOR_WIDTH = "32" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "cdc_sync" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_axi_timer_0_0_cdc_sync
    (prmry_aclk,
     prmry_resetn,
@@ -2822,6 +2952,7 @@ module design_1_axi_timer_0_0_cdc_sync__2
        (.G(\<const0> ));
 endmodule
 
+(* ORIG_REF_NAME = "count_module" *) 
 module design_1_axi_timer_0_0_count_module
    (\LOAD_REG_GEN[0].LOAD_REG_I_0 ,
     loadReg_DBus_32,
@@ -4129,6 +4260,7 @@ module design_1_axi_timer_0_0_count_module_0
         .R(s_axi_aresetn_0));
 endmodule
 
+(* ORIG_REF_NAME = "counter_f" *) 
 module design_1_axi_timer_0_0_counter_f
    (\INFERRED_GEN.icount_out_reg[31]_0 ,
     s_axi_aresetn_0,
@@ -5082,7 +5214,7 @@ module design_1_axi_timer_0_0_counter_f
        (.I0(\INFERRED_GEN.icount_out_reg[1]_0 ),
         .I1(\INFERRED_GEN.icount_out_reg[2]_0 ),
         .O(\INFERRED_GEN.icount_out0_carry_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'h74)) 
     \INFERRED_GEN.icount_out[0]_i_1__0 
@@ -5090,6 +5222,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[0]),
         .O(\INFERRED_GEN.icount_out[0]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[10]_i_1__0 
@@ -5097,6 +5230,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[10]),
         .O(\INFERRED_GEN.icount_out[10]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[11]_i_1__0 
@@ -5104,6 +5238,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[11]),
         .O(\INFERRED_GEN.icount_out[11]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[12]_i_1__0 
@@ -5111,6 +5246,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[12]),
         .O(\INFERRED_GEN.icount_out[12]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[13]_i_1__0 
@@ -5118,6 +5254,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[13]),
         .O(\INFERRED_GEN.icount_out[13]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[14]_i_1__0 
@@ -5125,6 +5262,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[14]),
         .O(\INFERRED_GEN.icount_out[14]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[15]_i_1__0 
@@ -5132,6 +5270,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[15]),
         .O(\INFERRED_GEN.icount_out[15]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[16]_i_1__0 
@@ -5139,6 +5278,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[16]),
         .O(\INFERRED_GEN.icount_out[16]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[17]_i_1__0 
@@ -5146,6 +5286,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[17]),
         .O(\INFERRED_GEN.icount_out[17]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[18]_i_1__0 
@@ -5153,6 +5294,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[18]),
         .O(\INFERRED_GEN.icount_out[18]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[19]_i_1__0 
@@ -5160,7 +5302,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[19]),
         .O(\INFERRED_GEN.icount_out[19]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[1]_i_1__0 
@@ -5168,6 +5310,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[1]),
         .O(\INFERRED_GEN.icount_out[1]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[20]_i_1__0 
@@ -5175,6 +5318,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[20]),
         .O(\INFERRED_GEN.icount_out[20]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[21]_i_1__0 
@@ -5182,6 +5326,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[21]),
         .O(\INFERRED_GEN.icount_out[21]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[22]_i_1__0 
@@ -5189,6 +5334,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[22]),
         .O(\INFERRED_GEN.icount_out[22]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[23]_i_1__0 
@@ -5196,6 +5342,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[23]),
         .O(\INFERRED_GEN.icount_out[23]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[24]_i_1__0 
@@ -5203,6 +5350,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[24]),
         .O(\INFERRED_GEN.icount_out[24]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[25]_i_1__0 
@@ -5210,6 +5358,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[25]),
         .O(\INFERRED_GEN.icount_out[25]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[26]_i_1__0 
@@ -5217,6 +5366,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[26]),
         .O(\INFERRED_GEN.icount_out[26]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[27]_i_1__0 
@@ -5224,6 +5374,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[27]),
         .O(\INFERRED_GEN.icount_out[27]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[28]_i_1__0 
@@ -5231,6 +5382,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[28]),
         .O(\INFERRED_GEN.icount_out[28]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[29]_i_1__0 
@@ -5238,6 +5390,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[29]),
         .O(\INFERRED_GEN.icount_out[29]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[2]_i_1__0 
@@ -5245,6 +5398,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[2]),
         .O(\INFERRED_GEN.icount_out[2]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[30]_i_1__0 
@@ -5252,6 +5406,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[30]),
         .O(\INFERRED_GEN.icount_out[30]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[31]_i_2__0 
@@ -5268,6 +5423,7 @@ module design_1_axi_timer_0_0_counter_f
         .I3(counter_TC),
         .I4(s_axi_aresetn),
         .O(\INFERRED_GEN.icount_out[32]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[3]_i_1__0 
@@ -5275,6 +5431,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[3]),
         .O(\INFERRED_GEN.icount_out[3]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[4]_i_1__0 
@@ -5282,6 +5439,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[4]),
         .O(\INFERRED_GEN.icount_out[4]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[5]_i_1__0 
@@ -5289,6 +5447,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[5]),
         .O(\INFERRED_GEN.icount_out[5]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[6]_i_1__0 
@@ -5296,6 +5455,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[6]),
         .O(\INFERRED_GEN.icount_out[6]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[7]_i_1__0 
@@ -5303,6 +5463,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[7]),
         .O(\INFERRED_GEN.icount_out[7]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[8]_i_1__0 
@@ -5310,6 +5471,7 @@ module design_1_axi_timer_0_0_counter_f
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_0[8]),
         .O(\INFERRED_GEN.icount_out[8]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[9]_i_1__0 
@@ -5950,7 +6112,7 @@ module design_1_axi_timer_0_0_counter_f_1
        (.I0(\INFERRED_GEN.icount_out_reg[3]_0 [0]),
         .I1(\INFERRED_GEN.icount_out_reg[3]_0 [1]),
         .O(\INFERRED_GEN.icount_out0_carry_i_4__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'h2E)) 
     \INFERRED_GEN.icount_out[0]_i_1 
@@ -5958,6 +6120,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[0]_0 ),
         .O(p_1_in[0]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[10]_i_1 
@@ -5965,6 +6128,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[10]),
         .O(p_1_in[10]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[11]_i_1 
@@ -5972,6 +6136,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [0]),
         .O(p_1_in[11]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[12]_i_1 
@@ -5979,6 +6144,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [1]),
         .O(p_1_in[12]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[13]_i_1 
@@ -5986,6 +6152,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [2]),
         .O(p_1_in[13]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[14]_i_1 
@@ -5993,6 +6160,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [3]),
         .O(p_1_in[14]));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[15]_i_1 
@@ -6000,6 +6168,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [4]),
         .O(p_1_in[15]));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[16]_i_1 
@@ -6007,6 +6176,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [5]),
         .O(p_1_in[16]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[17]_i_1 
@@ -6014,6 +6184,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [6]),
         .O(p_1_in[17]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[18]_i_1 
@@ -6021,6 +6192,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [7]),
         .O(p_1_in[18]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[19]_i_1 
@@ -6028,7 +6200,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [8]),
         .O(p_1_in[19]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[1]_i_1 
@@ -6036,6 +6208,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[1]),
         .O(p_1_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[20]_i_1 
@@ -6043,6 +6216,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [9]),
         .O(p_1_in[20]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[21]_i_1 
@@ -6050,6 +6224,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [10]),
         .O(p_1_in[21]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[22]_i_1 
@@ -6057,6 +6232,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [11]),
         .O(p_1_in[22]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[23]_i_1 
@@ -6064,6 +6240,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [12]),
         .O(p_1_in[23]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[24]_i_1 
@@ -6071,6 +6248,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [13]),
         .O(p_1_in[24]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[25]_i_1 
@@ -6078,6 +6256,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [14]),
         .O(p_1_in[25]));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[26]_i_1 
@@ -6085,6 +6264,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [15]),
         .O(p_1_in[26]));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[27]_i_1 
@@ -6092,6 +6272,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [16]),
         .O(p_1_in[27]));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[28]_i_1 
@@ -6099,6 +6280,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [17]),
         .O(p_1_in[28]));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[29]_i_1 
@@ -6106,6 +6288,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [18]),
         .O(p_1_in[29]));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[2]_i_1 
@@ -6113,6 +6296,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[2]),
         .O(p_1_in[2]));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[30]_i_1 
@@ -6120,6 +6304,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(\INFERRED_GEN.icount_out_reg[31]_3 [19]),
         .O(p_1_in[30]));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[31]_i_2 
@@ -6136,6 +6321,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I3(counter_TC),
         .I4(s_axi_aresetn),
         .O(\INFERRED_GEN.icount_out[32]_i_1__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[3]_i_1 
@@ -6143,6 +6329,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[3]),
         .O(p_1_in[3]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[4]_i_1 
@@ -6150,6 +6337,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[4]),
         .O(p_1_in[4]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[5]_i_1 
@@ -6157,6 +6345,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[5]),
         .O(p_1_in[5]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[6]_i_1 
@@ -6164,6 +6353,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[6]),
         .O(p_1_in[6]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[7]_i_1 
@@ -6171,6 +6361,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[7]),
         .O(p_1_in[7]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[8]_i_1 
@@ -6178,6 +6369,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .I1(\INFERRED_GEN.icount_out_reg[31]_2 ),
         .I2(loadReg_DBus_32[8]),
         .O(p_1_in[8]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \INFERRED_GEN.icount_out[9]_i_1 
@@ -6391,134 +6583,7 @@ module design_1_axi_timer_0_0_counter_f_1
         .O(generateOutPre00));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "design_1_axi_timer_0_0,axi_timer,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "axi_timer,Vivado 2022.2" *) 
-(* NotValidForBitStream *)
-module design_1_axi_timer_0_0
-   (capturetrig0,
-    capturetrig1,
-    generateout0,
-    generateout1,
-    pwm0,
-    interrupt,
-    freeze,
-    s_axi_aclk,
-    s_axi_aresetn,
-    s_axi_awaddr,
-    s_axi_awvalid,
-    s_axi_awready,
-    s_axi_wdata,
-    s_axi_wstrb,
-    s_axi_wvalid,
-    s_axi_wready,
-    s_axi_bresp,
-    s_axi_bvalid,
-    s_axi_bready,
-    s_axi_araddr,
-    s_axi_arvalid,
-    s_axi_arready,
-    s_axi_rdata,
-    s_axi_rresp,
-    s_axi_rvalid,
-    s_axi_rready);
-  input capturetrig0;
-  input capturetrig1;
-  output generateout0;
-  output generateout1;
-  output pwm0;
-  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PORTWIDTH 1" *) output interrupt;
-  input freeze;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S_AXI_ACLK CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, INSERT_VIP 0" *) input s_axi_aclk;
-  (* x_interface_info = "xilinx.com:signal:reset:1.0 S_AXI_RST RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 200000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_1_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [4:0]s_axi_awaddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input s_axi_awvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output s_axi_awready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]s_axi_wdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]s_axi_wstrb;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input s_axi_wvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output s_axi_wready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]s_axi_bresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output s_axi_bvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input s_axi_bready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [4:0]s_axi_araddr;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input s_axi_arvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output s_axi_arready;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]s_axi_rdata;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]s_axi_rresp;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output s_axi_rvalid;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input s_axi_rready;
-
-  wire \<const0> ;
-  wire capturetrig0;
-  wire capturetrig1;
-  wire freeze;
-  wire generateout0;
-  wire generateout1;
-  wire interrupt;
-  wire pwm0;
-  wire s_axi_aclk;
-  wire [4:0]s_axi_araddr;
-  wire s_axi_aresetn;
-  wire s_axi_arready;
-  wire s_axi_arvalid;
-  wire [4:0]s_axi_awaddr;
-  wire s_axi_awready;
-  wire s_axi_awvalid;
-  wire s_axi_bready;
-  wire s_axi_bvalid;
-  wire [31:0]s_axi_rdata;
-  wire s_axi_rready;
-  wire s_axi_rvalid;
-  wire [31:0]s_axi_wdata;
-  wire s_axi_wready;
-  wire s_axi_wvalid;
-  wire [1:0]NLW_U0_s_axi_bresp_UNCONNECTED;
-  wire [1:0]NLW_U0_s_axi_rresp_UNCONNECTED;
-
-  assign s_axi_bresp[1] = \<const0> ;
-  assign s_axi_bresp[0] = \<const0> ;
-  assign s_axi_rresp[1] = \<const0> ;
-  assign s_axi_rresp[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  (* C_COUNT_WIDTH = "32" *) 
-  (* C_FAMILY = "artix7" *) 
-  (* C_GEN0_ASSERT = "1'b1" *) 
-  (* C_GEN1_ASSERT = "1'b1" *) 
-  (* C_ONE_TIMER_ONLY = "0" *) 
-  (* C_S_AXI_ADDR_WIDTH = "5" *) 
-  (* C_S_AXI_DATA_WIDTH = "32" *) 
-  (* C_TRIG0_ASSERT = "1'b1" *) 
-  (* C_TRIG1_ASSERT = "1'b1" *) 
-  (* downgradeipidentifiedwarnings = "yes" *) 
-  design_1_axi_timer_0_0_axi_timer U0
-       (.capturetrig0(capturetrig0),
-        .capturetrig1(capturetrig1),
-        .freeze(freeze),
-        .generateout0(generateout0),
-        .generateout1(generateout1),
-        .interrupt(interrupt),
-        .pwm0(pwm0),
-        .s_axi_aclk(s_axi_aclk),
-        .s_axi_araddr({s_axi_araddr[4:2],1'b0,1'b0}),
-        .s_axi_aresetn(s_axi_aresetn),
-        .s_axi_arready(s_axi_arready),
-        .s_axi_arvalid(s_axi_arvalid),
-        .s_axi_awaddr({s_axi_awaddr[4:2],1'b0,1'b0}),
-        .s_axi_awready(s_axi_awready),
-        .s_axi_awvalid(s_axi_awvalid),
-        .s_axi_bready(s_axi_bready),
-        .s_axi_bresp(NLW_U0_s_axi_bresp_UNCONNECTED[1:0]),
-        .s_axi_bvalid(s_axi_bvalid),
-        .s_axi_rdata(s_axi_rdata),
-        .s_axi_rready(s_axi_rready),
-        .s_axi_rresp(NLW_U0_s_axi_rresp_UNCONNECTED[1:0]),
-        .s_axi_rvalid(s_axi_rvalid),
-        .s_axi_wdata(s_axi_wdata),
-        .s_axi_wready(s_axi_wready),
-        .s_axi_wstrb({1'b0,1'b0,1'b0,1'b0}),
-        .s_axi_wvalid(s_axi_wvalid));
-endmodule
-
+(* ORIG_REF_NAME = "mux_onehot_f" *) 
 module design_1_axi_timer_0_0_mux_onehot_f
    (D,
     \GEN.DATA_WIDTH_GEN[0].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0 ,
@@ -7199,6 +7264,7 @@ module design_1_axi_timer_0_0_mux_onehot_f
         .S({\NLW_GEN.DATA_WIDTH_GEN[9].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_CARRY4_S_UNCONNECTED [3:2],\GEN.DATA_WIDTH_GEN[9].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0 ,\GEN.DATA_WIDTH_GEN[9].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0 }));
 endmodule
 
+(* ORIG_REF_NAME = "pselect_f" *) 
 module design_1_axi_timer_0_0_pselect_f
    (ce_expnd_i_7,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] );
@@ -7312,6 +7378,7 @@ module design_1_axi_timer_0_0_pselect_f__parameterized6
         .O(ce_expnd_i_0));
 endmodule
 
+(* ORIG_REF_NAME = "slave_attachment" *) 
 module design_1_axi_timer_0_0_slave_attachment
    (\GEN_BKEND_CE_REGISTERS[5].ce_out_i_reg[5] ,
     \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ,
@@ -8454,6 +8521,7 @@ module design_1_axi_timer_0_0_slave_attachment
         .R(rst));
 endmodule
 
+(* ORIG_REF_NAME = "tc_core" *) 
 module design_1_axi_timer_0_0_tc_core
    (D,
     \LOAD_REG_GEN[0].LOAD_REG_I ,
@@ -9162,6 +9230,7 @@ module design_1_axi_timer_0_0_tc_core
         .s_axi_wdata(s_axi_wdata));
 endmodule
 
+(* ORIG_REF_NAME = "timer_control" *) 
 module design_1_axi_timer_0_0_timer_control
    (generateout0,
     generateout1,
@@ -9493,7 +9562,7 @@ module design_1_axi_timer_0_0_timer_control
         .I4(tCSR1_Reg[31]),
         .I5(\GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_1 ),
         .O(\LOAD_REG_GEN[31].LOAD_REG_I ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT4 #(
     .INIT(16'hA808)) 
     GenerateOut0_i_2
@@ -9508,7 +9577,7 @@ module design_1_axi_timer_0_0_timer_control
         .D(GenerateOut00),
         .Q(generateout0),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT5 #(
     .INIT(32'h8F808080)) 
     GenerateOut1_i_1
@@ -9540,7 +9609,7 @@ module design_1_axi_timer_0_0_timer_control
         .I1(\INFERRED_GEN.icount_out0_carry_i_6_n_0 ),
         .I2(tCSR0_Reg[30]),
         .O(\INFERRED_GEN.icount_out_reg[1] ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT5 #(
     .INIT(32'hAABAAAAA)) 
     \INFERRED_GEN.icount_out0_carry_i_6 
@@ -9560,7 +9629,7 @@ module design_1_axi_timer_0_0_timer_control
         .I4(\INFERRED_GEN.icount_out[31]_i_3_n_0 ),
         .I5(generateOutPre0),
         .O(\INFERRED_GEN.icount_out0_carry_i_6__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
     \INFERRED_GEN.icount_out0_carry_i_7 
@@ -9599,7 +9668,7 @@ module design_1_axi_timer_0_0_timer_control
         .I4(Freeze_int),
         .I5(\TCSR0_GENERATE[24].TCSR0_FF_I_0 ),
         .O(\INFERRED_GEN.icount_out[31]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \INFERRED_GEN.icount_out[31]_i_3__0 
@@ -9623,7 +9692,7 @@ module design_1_axi_timer_0_0_timer_control
         .I2(counter_TC[1]),
         .I3(tCSR1_Reg[27]),
         .O(\INFERRED_GEN.icount_out[31]_i_4__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hFB)) 
     \INFERRED_GEN.icount_out[31]_i_5 
@@ -9646,7 +9715,7 @@ module design_1_axi_timer_0_0_timer_control
         .I3(\TCSR0_GENERATE[20].TCSR0_FF_I_0 ),
         .I4(tCSR0_Reg[27]),
         .O(\INFERRED_GEN.icount_out[31]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \INFERRED_GEN.icount_out[31]_i_6__0 
@@ -9771,7 +9840,7 @@ module design_1_axi_timer_0_0_timer_control
         .I4(READ_DONE1_I_i_1_n_0),
         .I5(\LOAD_REG_GEN[0].LOAD_REG_I_i_4_n_0 ),
         .O(CE_0));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hAB)) 
     \LOAD_REG_GEN[0].LOAD_REG_I_i_3 
@@ -9779,7 +9848,7 @@ module design_1_axi_timer_0_0_timer_control
         .I1(tCSR1_Reg[27]),
         .I2(read_done1),
         .O(\LOAD_REG_GEN[0].LOAD_REG_I_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT4 #(
     .INIT(16'h1FFF)) 
     \LOAD_REG_GEN[0].LOAD_REG_I_i_4 
@@ -9855,7 +9924,7 @@ module design_1_axi_timer_0_0_timer_control
         .I3(captureTrig1_d),
         .I4(captureTrig1_d2),
         .O(READ_DONE1_I_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT4 #(
     .INIT(16'hFEFF)) 
     READ_DONE1_I_i_3
@@ -9929,7 +9998,7 @@ module design_1_axi_timer_0_0_timer_control
         .I3(READ_DONE0_I_i_1_n_0),
         .I4(tCSR0_Reg[23]),
         .O(\TCSR0_GENERATE[23].TCSR0_FF_I_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \TCSR0_GENERATE[23].TCSR0_FF_I_i_3 
@@ -10231,7 +10300,7 @@ module design_1_axi_timer_0_0_timer_control
         .D(captureTrig0_d0),
         .Q(captureTrig0_d),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'h2)) 
     captureTrig0_pulse_d1_i_1

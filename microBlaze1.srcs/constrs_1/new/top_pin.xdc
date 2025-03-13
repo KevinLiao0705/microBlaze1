@@ -12,8 +12,8 @@ set_property PACKAGE_PIN W19 [get_ports {sysClk50m}]
 #set_property IOSTANDARD DIFF_SSTL15 [get_ports {sysClk}]
 set_property IOSTANDARD LVCMOS25 [get_ports {sysClk50m}]
 # switchK1, resetBN
-set_property PACKAGE_PIN H13 [get_ports {resetN}]
-set_property IOSTANDARD LVCMOS25 [get_ports {resetN}]
+#set_property PACKAGE_PIN H13 [get_ports {sysResetN}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {sysResetN}]
 # ledV3
 set_property PACKAGE_PIN H14 [get_ports {ledV3}]
 set_property IOSTANDARD LVCMOS25 [get_ports {ledV3}]
@@ -244,19 +244,19 @@ set_property PACKAGE_PIN J16 [get_ports {gpInA[4]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[4]}]
 
 # ioB44
-set_property PACKAGE_PIN J20 [get_ports {uartIpcTx2}]
+set_property PACKAGE_PIN M20 [get_ports {uartIpcTx2}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTx2}]
 
 # ioB45
-set_property PACKAGE_PIN L20 [get_ports {uartIpcRx2}]
+set_property PACKAGE_PIN L16 [get_ports {uartIpcRx2}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRx2}]
 
 # ioB46
-set_property PACKAGE_PIN M20 [get_ports {uartIpcTxH}]
+set_property PACKAGE_PIN H22 [get_ports {uartIpcTxH}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTxH}]
 
 # ioB47
-set_property PACKAGE_PIN L16 [get_ports {uartIpcRxH}]
+set_property PACKAGE_PIN N15 [get_ports {uartIpcRxH}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRxH}]
 
 ####################################################################################

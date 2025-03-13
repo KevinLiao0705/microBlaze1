@@ -1,11 +1,11 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri Nov 17 17:30:09 2023
+-- Date        : Thu Mar 13 14:35:03 2025
 -- Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_axi_uartlite_3_0 -prefix
---               design_1_axi_uartlite_3_0_ design_1_axi_uartlite_0_1_stub.vhdl
--- Design      : design_1_axi_uartlite_0_1
+--               design_1_axi_uartlite_3_0_ design_1_axi_uartlite_1_0_stub.vhdl
+-- Design      : design_1_axi_uartlite_1_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tfgg484-2
 -- --------------------------------------------------------------------------------

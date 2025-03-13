@@ -21,6 +21,10 @@
 
 void uart0TxIntPrg(void *CallBackRef, unsigned int EventData);
 void uart0RxIntPrg(void *CallBackRef, unsigned int EventData);
+void uart1RxIntPrg(void *CallBackRef, unsigned int EventData);
+void uart1TxIntPrg(void *CallBackRef, unsigned int EventData);
+
+
 void intcDisconnect(u16 vecter);
 void transBram(void);
 
@@ -39,7 +43,7 @@ void transBram(void);
 #define sspaMoniDatas_size 64
 u16 myDeviceId = 25010;//deviceId
 u16 mySerialId = 0x0000;//
-u16 sspaCtrDeviceId = 0x2306;
+u16 slotDeviceId = 0x2536;
 
 typedef struct _myStream
 {
@@ -153,7 +157,7 @@ typedef struct radarDataSt
 	 	 "邏輯分析模組",       id=4;
 	 	 "光纖傳輸模組",     	id=5;
 	 	 "ＲＦ傳輸模組	",     	id=6;
-	 	 "語音通信模組",   	id=7;
+	 	 "語音通信模組",   		id=7;
 	 	 "SSPA驅動模組",   	id=8;
 	  *** slotSerNo		7:4
 	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
@@ -305,7 +309,7 @@ typedef struct radarDataSt
     u32 systemFlag1;
     //===============================
     u8 sspaPowerV32OnDly;
-    u8 sspaPowerV32OffDly;
+    u8 sspaPowerV50OffDly;
 	u8 attenuator;
 	u8 sspaPowerExistAA[2][5];
 	u8 sspaModuleExistAA[2][5];
@@ -442,6 +446,7 @@ u32 ud485_endTime = 0;
 
 RadarData radarData;
 
+u16 rs485_tx_slotId=1;
 u16 rs485_tx_para0;
 u16 rs485_tx_para1;
 u16 rs485_tx_para2;
@@ -449,6 +454,8 @@ u16 rs485_tx_para3;
 u16 rs485_cmd = 0;
 u16 rs485_cmd_para0 = 0;
 u16 rs485_cmd_para1 = 0;
+u16 rs485_cmd_para2 = 0;
+u16 rs485_cmd_para3 = 0;
 
 u32 preLoopTime=0;
 u32 maxLoopTime=0;
@@ -507,21 +514,78 @@ u8 getBufferByte(int *inxp, u8 *buf)
 	return sbuf;
 }
 
-void rs485_reced(UartData *udp)
+void ud485RxPrg(UartData *udp)
 {
-	/*
+
 	int inx = 0;
+	u16 ibuf=0;
 	u16 deviceId = getBufferWord(&inx, udp->rxBuffer);
-	if (deviceId != sspaCtrDeviceId)
+	if (deviceId != slotDeviceId)
 		return;
 	u16 serialId = getBufferWord(&inx, udp->rxBuffer);
-	u16 flag = getBufferWord(&inx, udp->rxBuffer);
+	u16 groupId = getBufferWord(&inx, udp->rxBuffer);
 	u16 len = getBufferWord(&inx, udp->rxBuffer);
 	u16 cmd = getBufferWord(&inx, udp->rxBuffer);
 	u16 para0 = getBufferWord(&inx, udp->rxBuffer);
 	u16 para1 = getBufferWord(&inx, udp->rxBuffer);
 	u16 para2 = getBufferWord(&inx, udp->rxBuffer);
 	u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+	if(serialId>=12)
+		return;
+	if(groupId!=0xac00)
+		return;
+	if(cmd==0x1000){
+		radarData.slotDataAA[radarData.fpgaId][serialId]=para0;//slotStatus
+		if((para0&15)==8){//sspaDriver
+			u8 itemCnt=(para0>>4)&15;
+			if(itemCnt>=10)
+				return;
+			u8 dataLen=4;
+			if(itemCnt==0 || itemCnt ==9)
+				dataLen=2;
+			u8 adrStart=itemCnt*4-2;
+			if(itemCnt==0)
+				adrStart=0;
+			u8 ainx=1;
+			u8 adrEnd=adrStart+dataLen;
+
+			if(radarData.fpgaId==3 || radarData.fpgaId==5 || radarData.fpgaId==6){
+				ainx=0;
+			}
+			for(int i=adrStart;i<adrEnd;i++){
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+		    	radarData.sspaPowerStatusAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV50vAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV50iAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV50tAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV32vAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV32iAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaPowerV32tAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaModuleStatusAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaModuleRfOutAA[ainx][i]=ibuf;
+				ibuf = getBufferWord(&inx, udp->rxBuffer);
+				radarData.sspaModuleTemprAA[ainx][i]=ibuf;
+
+			}
+		    //=============================================
+
+		}
+
+	}
+
+
+
+
+
+	/*
 	sspaData.sspaMoniDatasLen = para3 & 255;
 	if (cmd == 0x1000)
 	{ // sspa data load
@@ -541,6 +605,7 @@ void rs485_reced(UartData *udp)
 		}
 	}
 	*/
+
 }
 
 void udIpcRxPrg(UartData *udp)
@@ -572,7 +637,7 @@ void udIpcRxPrg(UartData *udp)
 				radarData.systemFlag0 = getBufferDword(&inx, udp->rxBuffer);
 				radarData.systemFlag1 = getBufferDword(&inx, udp->rxBuffer);
 				radarData.sspaPowerV32OnDly = getBufferByte(&inx, udp->rxBuffer);
-				radarData.sspaPowerV32OffDly = getBufferByte(&inx, udp->rxBuffer);
+				radarData.sspaPowerV50OffDly = getBufferByte(&inx, udp->rxBuffer);
 				radarData.attenuator = getBufferByte(&inx, udp->rxBuffer);
 				for(int i=0;i<5;i++)
 					radarData.sspaPowerExistAA[fpgaId-3][i] = getBufferByte(&inx, udp->rxBuffer);
@@ -621,19 +686,35 @@ void udIpcRxPrg(UartData *udp)
 				}
 
 				if(fpgaId==3 || fpgaId == 4){
+					u16 ia[3]={0,0,0};
 					if(para2==0x2000){//sspaPowerOn
 						u8* bufA=radarData.sspaPowerExistAA[fpgaId-3];
 						for(int i=start;i<end;i++){
 							int exist=bufA[i/8]&(1<<(i%8));
 							if(exist)
-								radarData.sspaPowerStatusAA[fpgaId-3][i] |= 0x1d;
+								ia[i/16]|=1<<(i%16);
+							//radarData.sspaPowerStatusAA[fpgaId-3][i] |= 0x1d;
+
 						}
+						rs485_cmd=para2;
+						rs485_cmd_para0=ia[0];
+						rs485_cmd_para1=ia[1];
+						rs485_cmd_para2=ia[2];
+						rs485_cmd_para3=radarData.sspaPowerV32OnDly;
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2001){//sspaPowerOff
 						for(int i=start;i<end;i++){
-							radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xe0;
+							ia[i/16]|=1<<(i%16);
+							//radarData.sspaPowerStatusAA[fpgaId-3][i] &= 0xe0;
 						}
+						rs485_cmd=para2;
+						rs485_cmd_para0=ia[0];
+						rs485_cmd_para1=ia[1];
+						rs485_cmd_para2=ia[2];
+						rs485_cmd_para3=radarData.sspaPowerV50OffDly;
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2002){//sspaModuleOn
@@ -641,25 +722,43 @@ void udIpcRxPrg(UartData *udp)
 						for(int i=start;i<end;i++){
 							int exist=bufA[i/8]&(1<<(i%8));
 							if(exist)
-								radarData.sspaModuleStatusAA[fpgaId-3][i] |= 0x02;
+								ia[i/16]|=1<<(i%16);
+								//radarData.sspaModuleStatusAA[fpgaId-3][i] |= 0x02;
 						}
+						rs485_cmd=para2;
+						rs485_cmd_para0=ia[0];
+						rs485_cmd_para1=ia[1];
+						rs485_cmd_para2=ia[2];
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2003){//sspaModuleOff
 						for(int i=start;i<end;i++){
-							radarData.sspaModuleStatusAA[fpgaId-3][i] &= 0xfd;
+							ia[i/16]|=1<<(i%16);
+							//radarData.sspaModuleStatusAA[fpgaId-3][i] &= 0xfd;
 						}
+						rs485_cmd=para2;
+						rs485_cmd_para0=ia[0];
+						rs485_cmd_para1=ia[1];
+						rs485_cmd_para2=ia[2];
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2004){//local pulse on
 						int sh=25+(fpgaId-3)*5;
 						radarData.systemStatus0 |= 1<<sh;
+						radarData.pulseGenCh=para3&255;
 						transBram();
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2005){//local pulse off
 						int sh=25+(fpgaId-3)*5;
 						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						transBram();
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2006){//emergency on
@@ -673,11 +772,15 @@ void udIpcRxPrg(UartData *udp)
 						}
 						sh=25+(fpgaId-3)*5;
 						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
 						return;
 					}
 					if(para2==0x2007){//emergency off
 						int sh=26+(fpgaId-3)*5;
 						radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
 						return;
 					}
 
@@ -802,8 +905,56 @@ void udIpcRxPrg(UartData *udp)
 
 void transBram(){
 	int ibuf;
+	int debug;
 	bramAddr = 0;
-	writeBram32(radarData.systemStatus0);
+
+	for(int i=0;i<64;i++){
+		ibuf = readBram32();
+		debug++;
+		if(i==32)
+			debug++;
+
+	}
+
+
+
+	bramAddr = 0;
+	writeBram32(0xffffffff);
+	bramAddr = 0;
+	writeBram32(0xffffffff);
+	bramAddr = 0;
+	writeBram32(0xffffffff);
+	bramAddr = 0;
+	writeBram32(0xffffffff);
+
+	bramAddr = 15 * 4;
+	ibuf = readBram32();
+	ibuf++;
+	bramAddr = 15 * 4;
+	writeBram32(ibuf);
+	bramAddr = 15 * 4;
+	writeBram32(ibuf);
+	bramAddr = 15 * 4;
+	writeBram32(ibuf);
+	bramAddr = 15 * 4;
+	writeBram32(ibuf);
+	return
+
+
+
+
+
+	writeBram32(0x00000020);
+
+	bramAddr = 15 * 4;
+	ibuf = readBram32();
+	bramAddr = 15 * 4;
+	writeBram32(ibuf + 1);
+	return;
+
+
+
+
 	writeBram32(radarData.systemStatus1);
 	writeBram32(radarData.systemFlag0);
 	writeBram32(radarData.systemFlag1);
@@ -826,8 +977,9 @@ void transBram(){
 	int endi=32;
 	if(radarData.pulseGenCh!=0xff){
 		i=radarData.pulseGenCh;
-		endi=1;
+		endi=i+1;
 	}
+	bramAddr = 32*4;
 	for (; i < endi; i++)
 	{
 		u16 dutyReg=radarData.pulseGenDatasA[6*i]+radarData.pulseGenDatasA[6*i+1]*256;
@@ -839,10 +991,8 @@ void transBram(){
 		if (flag & 1)
 		{
 			ibuf = (times << 24) + (freq << 16) + width;
-			bramAddr = (32 + i) * 4;
 			writeBram32(ibuf);
 			ibuf = (flag<<16) + dutyReg;
-			bramAddr = (32 + i) * 4;
 			writeBram32(ibuf);
 			sampleLen++;
 		}
@@ -856,6 +1006,13 @@ void transBram(){
 	ibuf = readBram32();
 	bramAddr = 15 * 4;
 	writeBram32(ibuf + 1);
+
+	bramAddr = 0;
+	ibuf = readBram32();
+	ibuf+=0;
+	ibuf+=0;
+	ibuf+=0;
+
 
 
 
@@ -871,10 +1028,10 @@ void initRadar()
 	}
 
 	for(int i=0;i<36;i++){
-		radarData.sspaPowerStatusAA[0][i] |= 0x01;
-		radarData.sspaPowerStatusAA[1][i] |= 0x01;
-		radarData.sspaModuleStatusAA[0][i] |= 0x01;
-		radarData.sspaModuleStatusAA[1][i] |= 0x01;
+		radarData.sspaPowerStatusAA[0][i] |= 0x00;
+		radarData.sspaPowerStatusAA[1][i] |= 0x00;
+		radarData.sspaModuleStatusAA[0][i] |= 0x00;
+		radarData.sspaModuleStatusAA[1][i] |= 0x00;
 	}
 
 
@@ -967,21 +1124,22 @@ void slotInfPrg(){
 	}
 	else
 	{
-		if (timerFlag & 0x00010000)
+		if (timerFlag & 0x00001000)
 			rs485RestTime++;
-		if (rs485RestTime > 10)
+		if (rs485RestTime > 40)
 		{
 			rs485RestTime = 0;
-			rs485_tx_para0 = 1; // id mul base (unit=16us)
-			rs485_tx_para1 = rs485_cmd;
-			rs485_tx_para2 = rs485_cmd_para0;
-			rs485_tx_para3 = rs485_cmd_para1;
 			rs485TxLoadRequest(&ud485);
 			outFlag |= 0x08;
 			XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 			rs485_cmd = 0;
 			rs485_cmd_para0 = 0;
 			rs485_cmd_para1 = 0;
+			rs485_cmd_para2 = 0;
+			rs485_cmd_para3 = 0;
+			rs485_tx_slotId++;
+			if(rs485_tx_slotId>=13)
+				rs485_tx_slotId=1;
 		}
 	}
 
@@ -1009,8 +1167,8 @@ int main()
 
 
 
-	if(testBram(1024,256))
-		errorPrg("testBram Error",1);
+	//if(testBram(1024,256))
+	//	errorPrg("testBram Error",1);
 	// initial GPIO =======================================
 	status=XGpio_Initialize(&gpInAObj, gpInADeviceId);
 	if(status)
@@ -1018,6 +1176,11 @@ int main()
 	status=XGpio_Initialize(&gpOutAObj, gpOutADeviceId);
 	if(status)
 		errorPrg("gpOutAObj Initial Error",status);
+
+	outFlag = 0x00000000;
+	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+
+
 	// initial timer ========================================
 	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
 	if(status)
@@ -1036,14 +1199,17 @@ int main()
 	XUartLite_EnableInterrupt(&uart0Obj);
 	XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
 	XUartLite_SetRecvHandler(&uart0Obj, uart0RxIntPrg,&uart0Obj);
-	//=========================================================
+	//==========
 	status = XUartLite_Initialize(&uart1Obj, uart1DeviceId);
 	if(status)
 		errorPrg("uart1Obj Initial Error",status);
 	status = XUartLite_SelfTest(&uart1Obj);
 	if(status)
 		errorPrg("uart1Obj Test Error",status);
-	//=========================================================
+	XUartLite_EnableInterrupt(&uart1Obj);
+	XUartLite_SetSendHandler(&uart1Obj, uart1TxIntPrg,&uart1Obj);
+	XUartLite_SetRecvHandler(&uart1Obj, uart1RxIntPrg,&uart1Obj);
+
 
 
 
@@ -1054,17 +1220,25 @@ int main()
 	status = XIntc_Initialize(&intc0Obj, intc0DeviceId);
 	if(status)
 		errorPrg("intc0Obj Initial Error",status);
+	//==============
 	status = XIntc_Connect(&intc0Obj, uart0IntVecter,(XInterruptHandler)XUartLite_InterruptHandler,
 			       (void *)&uart0Obj);
 	if(status)
 		errorPrg("intc0Obj connect to uart0 Error",status);
+	//==============
+	status = XIntc_Connect(&intc0Obj, uart1IntVecter,(XInterruptHandler)XUartLite_InterruptHandler,
+			       (void *)&uart1Obj);
+	if(status)
+		errorPrg("intc1Obj connect to uart1 Error",status);
 
 
 	//==============================================================
 	XIntc_Enable(&intc0Obj, uart0IntVecter);
+	XIntc_Enable(&intc0Obj, uart1IntVecter);
 	status = XIntc_Start(&intc0Obj, XIN_REAL_MODE);
 	if(status)
 		errorPrg("intc0Obj start Error",status);
+
 
 
 	// initial exception ========================================
@@ -1105,7 +1279,7 @@ int main()
 	// print("\nProgram Running ....");
 
 	udIpc.fptr = udIpcRxPrg;
-	ud485.fptr = rs485_reced;
+	ud485.fptr = ud485RxPrg;
 	//loopStart
 
 
@@ -1144,12 +1318,16 @@ int main()
 			intrFlag=0;
 		}
 
+
+
 		if(radarData.fpgaId==3 || radarData.fpgaId==4){
 			//uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
 			uartRxChk(&udIpc);
 			uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
+
 			slotInfPrg();
 			uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
+			uartRxChk(&ud485);
 
 
 
@@ -1353,8 +1531,8 @@ void timerPrg2()
 // 250mhx 67.108ms
 void timerPrg3()
 {
-	outFlag ^= 255;
-	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+	//outFlag ^= 255;
+	//XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
 	if(warnUpTime){
 		warnUpTime--;
@@ -1509,6 +1687,7 @@ void loadUtxBufferL(UartData *udp, u32 dword)
 
 
 void tickFather(){
+	int ibuf;
 	int fpgaId=radarData.fpgaId;
 	if(fpgaId==3 || fpgaId == 4){
 		udIpc.txSerialCnt++;
@@ -1572,7 +1751,25 @@ void tickFather(){
 		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
 		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt]&255;
 		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+
+
+
+		udIpc.txBuffer[inx++]=0xac;
+		bramAddr = 96*4;
+		for(int i=0;i<16;i++){
+			ibuf = readBram32();
+			udIpc.txBuffer[inx++]=ibuf&255;
+			udIpc.txBuffer[inx++]=(ibuf>>8)&255;
+			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
+			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
+		}
+
+
+
 		udIpc.txBuffer[inx++]=0xcd;//check end
+
+
+
 
 
 
@@ -1591,15 +1788,26 @@ void tickFather(){
 
 void rs485TxLoadRequest(UartData *udp)
 {
-	udp->txDeiceId = sspaCtrDeviceId;
-	udp->txSerialId = 0xffff;
+	udp->txDeiceId = slotDeviceId;
+	if(rs485_tx_slotId==0){
+		udp->txSerialId=0xffff;
+		udp->txCmd = rs485_cmd;
+		udp->txPara0 = rs485_cmd_para0;
+		udp->txPara1 = rs485_cmd_para1;
+		udp->txPara2 = rs485_cmd_para2;
+		udp->txPara3 = rs485_cmd_para3;
+		udp->txBufferLen = 0;
+	}
+	else{
+		udp->txSerialId=rs485_tx_slotId-1;
+		udp->txCmd = 0x1000;
+		udp->txPara0 = radarData.systemStatus0&0xffff;
+		udp->txPara1 = (radarData.systemStatus0>>16);
+		udp->txPara2 = radarData.systemFlag0&0xffff;
+		udp->txPara3 = radarData.systemFlag0>>16;
+		udp->txBufferLen = 0;
+	}
 	udp->txGroupId = 0xab00;
-	udp->txCmd = 0x1000;
-	udp->txPara0 = rs485_tx_para0; // id mul base (unit=16us)
-	udp->txPara1 = rs485_tx_para1;
-	udp->txPara2 = rs485_tx_para2;
-	udp->txPara3 = rs485_tx_para3;
-	udp->txBufferLen = 0;
 	enc_mystm(udp);
 	udp->txStart_f = 1;
 	udp->endTxFifo_f = 0;
@@ -1641,6 +1849,24 @@ void uart0TxIntPrg(void *CallBackRef, unsigned int EventData)
 
 }
 
+
+
+void uart1RxIntPrg(void *CallBackRef, unsigned int EventData)
+{
+	u32 baseAddr=XPAR_UARTLITE_1_BASEADDR;
+	if (XUartLite_IsReceiveEmpty(baseAddr))
+		return;
+	rs485RestTime=0;
+	ud485.rxTmp[ud485.rxTmpPtr0] = (u8)XUartLite_ReadReg(baseAddr, XUL_RX_FIFO_OFFSET);
+	ud485.rxTmpPtr0++;
+	if(ud485.rxTmpPtr0>=2048)
+		ud485.rxTmpPtr0=0;
+
+}
+void uart1TxIntPrg(void *CallBackRef, unsigned int EventData)
+{
+
+}
 
 
 

@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="2001"/>
+		<item key="selection" value="transBram"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="2001"/>
-			<item value="2100"/>
-			<item value="bramAddr"/>
-			<item value="transB"/>
-			<item value="1001"/>
-			<item value="preTrigTime"/>
-			<item value="44"/>
-			<item value="trans"/>
-			<item value="preTrig"/>
-			<item value="systemFlag"/>
-			<item value="systemStatus"/>
-			<item value="0x1000"/>
 			<item value="transBram"/>
-			<item value="pulseGenDat"/>
-			<item value="transBra"/>
+			<item value="main"/>
+			<item value="testBram"/>
+			<item value="writeBram32"/>
+			<item value="transbram"/>
+			<item value="trans_bram"/>
+			<item value="wb"/>
+			<item value="write_bram"/>
+			<item value="bram"/>
+			<item value="wgSampl"/>
+			<item value="transB"/>
+			<item value="trans"/>
+			<item value="sspaModuleStatusAA"/>
+			<item value="485RXPRG"/>
+			<item value="RX485"/>
 		</list>
 		<list key="replacehistory">
+			<item value="t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
