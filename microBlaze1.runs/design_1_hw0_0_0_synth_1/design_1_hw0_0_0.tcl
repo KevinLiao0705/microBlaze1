@@ -72,6 +72,7 @@ proc create_report { reportName command } {
 OPTRACE "design_1_hw0_0_0_synth_1" START { ROLLUP_AUTO }
 set_param general.maxThreads 8
 set_param chipscope.maxJobs 4
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -92,7 +93,10 @@ set_property ip_output_repo e:/kevin/myCode/microBlaze1/microBlaze1.cache/ip [cu
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v
+read_verilog -library xil_defaultlib {
+  E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v
+  E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v
+}
 read_ip -quiet E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0.xci
 
 OPTRACE "Adding files" END { }

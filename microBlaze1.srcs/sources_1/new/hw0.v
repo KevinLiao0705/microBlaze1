@@ -95,10 +95,15 @@ module hw0
                 */
         input [15:0]    dfInP,
         input [15:0]    dfInN,
+        
+        
+        
         // diff output
         // 0:wg_clk, 1:wg_data, 2:wg_trig, 3:wg_rfout, 4:a_snd_clk, 5:a_snd_tx, 6:b_snd_clk, 7:b_snd_tx           
         output  [7:0]       dfOutP    ,   //+   		
         output  [7:0]       dfOutN        //-
+        
+        
    		
     );
   
@@ -238,7 +243,69 @@ module hw0
         
     end
 
-   
+    
+//===============================================
+// generate emu rfrx 4m clk
+    reg [4:0] emuRfRxClkTimeCnt;  
+    reg emuRfRxClk4m;
+    reg[15:0] emuRfRxClk4mAdj;
+    always @(posedge clk160m) begin
+        emuRfRxClk4mAdj=emuRfRxClk4mAdj+1;
+        if(emuRfRxClkTimeCnt<19)begin
+            if(emuRfRxClk4mAdj<50000)
+                emuRfRxClkTimeCnt=emuRfRxClkTimeCnt+1;
+            else
+                emuRfRxClk4mAdj=0;     
+        end    
+        else begin    
+            emuRfRxClkTimeCnt=0;
+            emuRfRxClk4m=emuRfRxClk4m^1;
+        end    
+    end    
+//===============================================
+
+
+//===============================================
+// generate emu rftx 4m clk
+    reg [4:0] emuRfTxClkTimeCnt;  
+    reg emuRfTxClk4m;
+    reg[15:0] emuRfTxClk4mAdj;
+    always @(posedge clk160m) begin
+        emuRfTxClk4mAdj=emuRfTxClk4mAdj+1;
+        if(emuRfTxClkTimeCnt<19)begin
+            if(emuRfTxClk4mAdj<50000)
+                emuRfTxClkTimeCnt=emuRfTxClkTimeCnt+1;
+            else
+                emuRfTxClk4mAdj=0;     
+        end    
+        else begin    
+            emuRfTxClkTimeCnt=0;
+            emuRfTxClk4m=emuRfTxClk4m^1;
+        end    
+    end    
+//===============================================
+
+reg[31:0] preDataGateTimeCnt;
+reg preDataGate_f;
+reg[7:0] laChr;
+
+//===============================================
+// generate preDataGate
+    always @(posedge clk160m) begin
+        if(preDataGateTimeCnt<32000)begin
+            preDataGateTimeCnt<=preDataGateTimeCnt+1;
+            if(preDataGateTimeCnt<640)
+                preDataGate_f<=0;
+            else
+                preDataGate_f<=1;            
+        end        
+        else begin       
+            laChr[7:0]<=laChr[7:0]^8'b11111111;
+            preDataGateTimeCnt<=0;
+        end           
+    end    
+//===============================================
+
     
     always @(posedge clk160m) begin
         clk160m_cnt<=clk160m_cnt+1'b1;
@@ -322,8 +389,8 @@ module hw0
                         //rfoutStartTime <= 8+24+wgSet[31:16]+wgSet[15:8];
                         //rfoutEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth;
                         //trigEndTime <= 8+24+wgSet[31:16]+wgSet[15:8]+wgPulseWidth+wgSet[7:0];
-                        //cycleEndTime <= (wgPulseWidth*1000/wgDuty)-1;
-                        cycleEndTime <= 32'b0000_1000;
+                        cycleEndTime <= (wgPulseWidth*1000/wgDuty)-1;
+                        //cycleEndTime <= 32'b0000_1000;
                         end
                     if(wg_timeClk==5)begin
                         rfoutStartTime <= trigStartTime+wgSet[15:8];
@@ -489,7 +556,23 @@ IBUFDS #(
    );
 
 
-
+TXPROC txProc1(
+        .clk160m(clk160m),
+        .preVideoGate(preDataGate_f),
+        .txcon_f(0),
+        .tx_data0(16'h1234),
+        .tx_data1(16'h5678),
+        .tx_data2(16'habcd),
+        .tx_data3(16'hef01),
+        .tx_data4(16'h2345),
+        .txRfEn_f(0),
+        .txClkIn_f(0),
+        .txOutDataBit(laCh[0]),				
+        .txBitClkOut(laCh[1])				
+    );
+   
+    
+assign laCh[2]=preDataGate_f;
 
   
   

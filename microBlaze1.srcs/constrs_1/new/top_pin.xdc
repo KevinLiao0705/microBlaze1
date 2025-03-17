@@ -355,7 +355,7 @@ set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[13]}]
 # DF8 L11 laCh0, laCh2
 set_property PACKAGE_PIN B17 [get_ports {laCh[0]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {laCh[0]}]
-set_property PACKAGE_PIN B16 [get_ports {laCh[2]}]
+set_property PACKAGE_PIN B18 [get_ports {laCh[2]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {laCh[2]}]
 
 # DF9 L5 laCh4, laCh6

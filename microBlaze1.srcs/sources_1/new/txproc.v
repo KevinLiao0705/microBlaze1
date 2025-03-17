@@ -20,60 +20,60 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module txproc(
+module TXPROC(
         input 					    clk160m,
-        input 					    video_gate,
+        input 					    preVideoGate,
         input 					    txcon_f,
         input [15:0]                tx_data0,
         input [15:0]                tx_data1,
         input [15:0]                tx_data2,
         input [15:0]                tx_data3,
         input [15:0]                tx_data4,
-        input                       rfen_f,
-        input                       syncin_f,
-        output                      txout_f,				
-        output                      clk4m_out				
+        input                       txRfEn_f,
+        input                       txClkIn_f,
+        output                      txOutDataBit,				
+        output                      txBitClkOut				
 
     );
     
-      reg[7:0] syncin_cnt;
-      reg[5:0] sync4m_cnt;
-      reg sync4m_f;
+      reg[7:0] txClkHCnt;
+      reg[5:0] txSync4mTimeCnt;
+      reg txSync4mClk;
   
     //======================================================================    
     always @(posedge clk160m) begin
     //========================
-        if(sync4m_cnt<10)
-            sync4m_f<=1'b0;
-        else if(sync4m_cnt<30)
-            sync4m_f<=1'b1;
+        if(txSync4mTimeCnt<10)
+            txSync4mClk<=1'b0;
+        else if(txSync4mTimeCnt<30)
+            txSync4mClk<=1'b1;
         else
-            sync4m_f<=1'b0;
+            txSync4mClk<=1'b0;
     //========================
-        if(!syncin_f) 
-            syncin_cnt<=5'b00000;
+        if(!txClkIn_f) 
+            txClkHCnt<=5'b00000;
         else begin 
-            if(!syncin_cnt[4])
-                syncin_cnt<=syncin_cnt+1;
+            if(!txClkHCnt[4])
+                txClkHCnt<=txClkHCnt+1;
         end        
     //========================
-        if(rfen_f && syncin_f==1 && syncin_cnt==8'b00000100)begin
-            if(sync4m_cnt==6'b000000)
-                sync4m_cnt<=1;
-            else if(sync4m_cnt==38)
-                sync4m_cnt<=0;
-            else if(sync4m_cnt==39)
-                sync4m_cnt<=1;
-            else if(sync4m_cnt<20)
-                sync4m_cnt<=sync4m_cnt;   
+        if(txRfEn_f && txClkIn_f==1 && txClkHCnt==8'b00000100)begin
+            if(txSync4mTimeCnt==6'b000000)
+                txSync4mTimeCnt<=1;
+            else if(txSync4mTimeCnt==38)
+                txSync4mTimeCnt<=0;
+            else if(txSync4mTimeCnt==39)
+                txSync4mTimeCnt<=1;
+            else if(txSync4mTimeCnt<20)
+                txSync4mTimeCnt<=txSync4mTimeCnt;   
             else
-                sync4m_cnt<=sync4m_cnt+2;
+                txSync4mTimeCnt<=txSync4mTimeCnt+2;
         end 
         else begin
-            if(sync4m_cnt==39)
-                sync4m_cnt<=0;
+            if(txSync4mTimeCnt==39)
+                txSync4mTimeCnt<=0;
             else    
-                sync4m_cnt<=sync4m_cnt+1;
+                txSync4mTimeCnt<=txSync4mTimeCnt+1;
         end
     end 
     //======================================================================    
@@ -83,50 +83,50 @@ module txproc(
       reg[4:0] wait_cnt;
       reg[4:0] clk4mh_cnt;
       reg[4:0] clk4ml_cnt;
-      reg[8:0] synctx_tim;
+      reg[8:0] syncTxShiftTime;
       reg txload_f;
-      reg clk4m_f;        
+      reg txBitClk;        
 
     //======================================================================
     //4M txclk generator
-    //input clk160m,video_gate
+    //input clk160m,preVideoGate
     //output clk4m,txload_f
         
     always @(posedge clk160m) begin
-        if(!video_gate)begin
+        if(!preVideoGate)begin
             txbit_cnt<=10'b0000000000;
             wait_cnt<=5'b00000;
             clk4mh_cnt<=5'b00000;
             clk4ml_cnt<=5'b00000;
             txload_f<=1'b0;	
-            clk4m_f<=1'b0;
-            synctx_tim<=9'b000000000;
+            txBitClk<=1'b0;
+            syncTxShiftTime<=8'b00000000;
         end
         else begin
-            synctx_tim<=synctx_tim+1;
-            if(!sync4m_f)begin
-                clk4mh_cnt<=5'b00000;
+            syncTxShiftTime<=syncTxShiftTime+1;
+            if(!txSync4mClk)begin
+                clk4mh_cnt<=0;
                 if(clk4ml_cnt<20)
                     clk4ml_cnt<=clk4ml_cnt+1;
-                if(clk4ml_cnt==5'b01000)begin
+                if(clk4ml_cnt==8)begin
 				    txload_f<=0;
-					clk4m_f<=0;
+					txBitClk<=0;
 				end 	
             end 
             else begin
-                clk4ml_cnt<=5'b00000;
+                clk4ml_cnt<=0;
                 if(clk4mh_cnt<20)
                     clk4mh_cnt<=clk4mh_cnt+1;
-                if(clk4mh_cnt==5'b01000)begin
+                if(clk4mh_cnt==8)begin
                     if(wait_cnt<20)
                         wait_cnt<=wait_cnt+1;
-                    if(wait_cnt==6)
+                    if(wait_cnt==3)//6
                         txload_f<=1;
-                    if(wait_cnt>=8)begin
+                    if(wait_cnt>=4)begin
                         if(txbit_cnt < 248 )begin
                             if(!txcon_f)
                                 txbit_cnt<=txbit_cnt+1;	
-                            clk4m_f<=1;
+                            txBitClk<=1;
 						end 
 					end
 			     end		
@@ -187,7 +187,7 @@ module txproc(
             txload_cnt<=5'b00000;
             //txd5<=tx_data0;
 			txd5[15:8]<=tx_data0[15:8];
-			txd5[7:0]<=synctx_tim;
+			txd5[7:0]<=syncTxShiftTime;
 			txd4<=tx_data1;
 			txd3<=tx_data2;
 			txd2<=tx_data3;
@@ -251,10 +251,11 @@ module txproc(
     
     //txdata transmit 	
     //input txbuf0-13,clk4m,txload_f,reset_n
-    //output txout_f
-    reg txout_f;
-    always @(posedge clk4m_f) begin
-        if(!txload_f)begin
+    //output txOutDataBit
+    reg txOut_f;
+    always @(posedge txBitClk) begin
+        if(txload_f)begin
+            /*
             txbuf0b<=txbuf0;
             txbuf1b<=txbuf1;
             txbuf2b<=txbuf2;
@@ -271,10 +272,35 @@ module txproc(
             txbuf13b<=txbuf13;
             txbuf14b<=txbuf14;
             txbuf15b<=txbuf15;
-            txout_f<=0;
+            */
+            
+            txbuf0b<=16'b0101_0101_0101_0101;
+            txbuf1b<=16'b0011_0011_0011_0011;
+            txbuf2b<=16'b0001_1100_0111_0001;
+            txbuf3b<=16'b0000_1111_0000_1111;
+            
+            txbuf4b<=16'b0101_0101_0101_0101;
+            txbuf5b<=16'b0011_0011_0011_0011;
+            txbuf6b<=16'b0001_1100_0111_0001;
+            txbuf7b<=16'b0000_1111_0000_1111;
+            
+            txbuf8b<=16'b0101_0101_0101_0101;
+            txbuf9b<=16'b0011_0011_0011_0011;
+            txbuf10b<=16'b0001_1100_0111_0001;
+            txbuf11b<=16'b0000_1111_0000_1111;
+            
+            txbuf12b<=16'b0101_0101_0101_0101;
+            txbuf13b<=16'b0011_0011_0011_0011;
+            txbuf14b<=16'b0001_1100_0111_0001;
+            txbuf15b<=16'b0000_1111_0000_1111;
+            
+            
+            
+            
+            txOut_f<=0;
         end
 		else begin	
-            txout_f<=txbuf0b[7];
+            txOut_f<=txbuf0b[7];
             txbuf0b<= {txbuf0b[14:0],txbuf1b[15]};
             txbuf1b<= {txbuf1b[14:0],txbuf2b[15]};
             txbuf2b<= {txbuf2b[14:0],txbuf3b[15]};
@@ -290,12 +316,13 @@ module txproc(
             txbuf12b<= {txbuf12b[14:0],txbuf13b[15]};
             txbuf13b<= {txbuf13b[14:0],txbuf14b[15]};
             txbuf14b<= {txbuf14b[14:0],txbuf15b[15]};
-            txbuf15b<= {txbuf15b[14:0],!txbuf1b[0]};
+            txbuf15b<= {txbuf15b[14:0],!txbuf15b[0]};
 		end	
 	end
-	assign clk4m_out=clk4m_f;
+	assign txBitClkOut=txBitClk;
+	assign txOutDataBit=txOut_f;
 	
-	//clk4m_out=clk4m_f;
+	//clk4m_out=txBitClk;
     
     
     

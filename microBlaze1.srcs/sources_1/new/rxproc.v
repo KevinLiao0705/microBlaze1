@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module txproc(
+module rxproc(
         input 					    clk160m,
         input                       rxin_f,
         input [15:0]                rtime_cnt,
