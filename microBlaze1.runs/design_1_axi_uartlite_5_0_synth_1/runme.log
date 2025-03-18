@@ -10,7 +10,6 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source design_1_axi_uartlite_5_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1002.883 ; gain = 117.254
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_uartlite_5_0
 INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 7da319202cd7f03c to dir: E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_axi_uartlite_5_0_synth_1
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/kevin/myCode/microBlaze1/microBlaze1.cache/ip/2022.2/7/d/7da319202cd7f03c/design_1_axi_uartlite_1_0.dcp to E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_axi_uartlite_5_0_synth_1/design_1_axi_uartlite_5_0.dcp.
@@ -19,4 +18,4 @@ INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/kevin/myCode/microBlaze1/
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/kevin/myCode/microBlaze1/microBlaze1.cache/ip/2022.2/7/d/7da319202cd7f03c/design_1_axi_uartlite_1_0_stub.v to E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_axi_uartlite_5_0_synth_1/design_1_axi_uartlite_5_0_stub.v.
 INFO: [IP_Flow 19-6928] IPCACHE: copied cached file e:/kevin/myCode/microBlaze1/microBlaze1.cache/ip/2022.2/7/d/7da319202cd7f03c/design_1_axi_uartlite_1_0_stub.vhdl to E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_axi_uartlite_5_0_synth_1/design_1_axi_uartlite_5_0_stub.vhdl.
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_axi_uartlite_5_0, cache-ID = 7da319202cd7f03c.
-INFO: [Common 17-206] Exiting Vivado at Thu Mar 13 14:35:36 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 11:06:54 2025...

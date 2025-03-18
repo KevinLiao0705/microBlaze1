@@ -243,26 +243,15 @@ module hw0
         
     end
 
+
+    reg[15:0] hRealTime;
+    reg[15:0] sRealTime;
     
-//===============================================
-// generate emu rfrx 4m clk
-    reg [4:0] emuRfRxClkTimeCnt;  
-    reg emuRfRxClk4m;
-    reg[15:0] emuRfRxClk4mAdj;
     always @(posedge clk160m) begin
-        emuRfRxClk4mAdj=emuRfRxClk4mAdj+1;
-        if(emuRfRxClkTimeCnt<19)begin
-            if(emuRfRxClk4mAdj<50000)
-                emuRfRxClkTimeCnt=emuRfRxClkTimeCnt+1;
-            else
-                emuRfRxClk4mAdj=0;     
-        end    
-        else begin    
-            emuRfRxClkTimeCnt=0;
-            emuRfRxClk4m=emuRfRxClk4m^1;
-        end    
+        hRealTime=hRealTime+1;
     end    
-//===============================================
+    
+    
 
 
 //===============================================
@@ -287,12 +276,11 @@ module hw0
 
 reg[31:0] preDataGateTimeCnt;
 reg preDataGate_f;
-reg[7:0] laChr;
 
 //===============================================
 // generate preDataGate
     always @(posedge clk160m) begin
-        if(preDataGateTimeCnt<32000)begin
+        if(preDataGateTimeCnt<10000)begin
             preDataGateTimeCnt<=preDataGateTimeCnt+1;
             if(preDataGateTimeCnt<640)
                 preDataGate_f<=0;
@@ -300,7 +288,6 @@ reg[7:0] laChr;
                 preDataGate_f<=1;            
         end        
         else begin       
-            laChr[7:0]<=laChr[7:0]^8'b11111111;
             preDataGateTimeCnt<=0;
         end           
     end    
@@ -556,24 +543,56 @@ IBUFDS #(
    );
 
 
+
+/*
+    tx_data0[15:9] packId,[7:0] pretrigOffsetTime[7:0]
+    tx_data1[15:0] = cmdDat 
+    tx_data2[15:0] = sound data 
+    tx_data3[15:0] = pulseWidth 
+    tx_data4[15:0] = hrtime_cnt  
+*/
+    reg txLoad_f;
+    reg txDataClk_f;
+    reg txData_f;
 TXPROC txProc1(
-        .clk160m(clk160m),
-        .preVideoGate(preDataGate_f),
-        .txcon_f(0),
-        .tx_data0(16'h1234),
-        .tx_data1(16'h5678),
-        .tx_data2(16'habcd),
-        .tx_data3(16'hef01),
-        .tx_data4(16'h2345),
-        .txRfEn_f(0),
-        .txClkIn_f(0),
-        .txOutDataBit(laCh[0]),				
-        .txBitClkOut(laCh[1])				
+        .clk160m_i(clk160m),
+        .preDataGate_i(preDataGate_f),
+        .txCon_i(0),
+        .txData0_ib(16'h1234),
+        .txData1_ib(16'h5678),
+        .txData2_ib(16'habcd),
+        .txData3_ib(16'hef01),
+        .txData4_ib(16'h2345),
+        .txSyncClkEn_i(0),
+        .txSyncClk_i(0),
+        .txLoad_o(txLoad_f),				
+        .txData_o(txData_f),				
+        .txDataClk_o(txDataClk_f)				
     );
    
     
-assign laCh[2]=preDataGate_f;
-
+    reg aRxClk4m_f;
+    reg aRxData_f;
+    reg aRxPack_f;
+    reg[15:0] aRxData0;
+    reg[15:0] aRxData1;
+    reg[15:0] aRxData2;
+    reg[15:0] aRxData3;
+    reg[15:0] aRxData4;
+    
+    
+RXPROC rxProc1(
+        .clk160m_i(clk160m),
+        .rxData_i(txData_f),
+        .rxClk4m_o(aRxClk4m_f),
+        .rxPack_o(aRxPack_f),
+        .rxData0_ob(aRxData0),
+        .rxData1_ob(aRxData1),
+        .rxData2_ob(aRxData2),
+        .rxData3_ob(aRxData3),
+        .rxData4_ob(aRxData4)
+    );
+    
   
   
   //ram processs ========================================
@@ -621,6 +640,14 @@ end
 
 assign ledV3=baseTimer[24];
 assign ledV4=base160Timer[24];
+
+assign laCh[0]=preDataGate_f;
+assign laCh[1]=txLoad_f;
+assign laCh[2]=txData_f;
+assign laCh[3]=txDataClk_f;
+assign laCh[4]=aRxClk4m_f;
+assign laCh[5]=aRxPack_f;
+
 
   
 endmodule
