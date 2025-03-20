@@ -39,7 +39,7 @@ module RXPROC(
     reg[9:0] rxPackTime;
     reg rxPack_f;
     reg rxClk4m_f;
-    reg[7:0] rxclkHTime;
+    reg[7:0] rxClkHTime;
     reg[15:0] rxd0;
     reg[15:0] rxd1;
     reg[15:0] rxd2;
@@ -81,42 +81,47 @@ module RXPROC(
     reg[15:0] rxHead;
     reg[15:0] rxchk;
 
-
+    initial begin
+        rxPackTime=10'b1111111111;
+    
+    end
     always @(posedge clk160m_i) begin
 		if(rxPackTime<640) //4 us
 		    rxPackTime<=rxPackTime+1;
-		else
-		    rxPack_f<=0;
+		if(rxPackTime==10)    
+            rxPack_f<=1;
+		if(rxPackTime==170)    
+            rxPack_f<=0;
+            
         if(!rxClk4m_f)
-            rxclkHTime=0;
+            rxClkHTime=0;
 		else begin	
-		    if(rxclkHTime<20)      
-				rxclkHTime<=rxclkHTime+1;
-			if(rxclkHTime==0)begin
+		    if(rxClkHTime<20)      
+				rxClkHTime<=rxClkHTime+1;
+			if(rxClkHTime==1)begin
                 if(rxHead!=16'b0001110101010101)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd0!=rxd0b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd1!=rxd1b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd2!=rxd2b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd3!=rxd3b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd4!=rxd4b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 if(rxd5!=rxd5b)
-                    rxclkHTime<=40;
+                    rxClkHTime<=40;
                 rxchk<=rxd0+rxd1;
             end
-			if(rxclkHTime==2)
+			if(rxClkHTime==3)
                 rxchk<=rxchk+rxd2;
-            if(rxclkHTime==4)
+            if(rxClkHTime==5)
                 rxchk<=rxchk+rxd3;
-            if(rxclkHTime==6)
+            if(rxClkHTime==7)
                 rxchk<=rxchk+rxd4;
-			if(rxclkHTime==8 && rxchk==rxd5)begin
-                rxPack_f<=1;
+			if(rxClkHTime==9 && rxchk==rxd5)begin
                 rxPackTime<=0;
                 rxData0<=rxd0;
                 rxData1<=rxd1;

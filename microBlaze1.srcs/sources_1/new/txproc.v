@@ -40,7 +40,13 @@ module TXPROC(
       reg[7:0] txClkHCnt;
       reg[5:0] txSync4mTimeCnt;
       reg txSync4mClk;
-  
+      reg[15:0] txEndTimeCnt;
+      reg[15:0] txEndTime;
+    initial begin
+        txEndTimeCnt=16'hffff;
+        txEndTime=1600;
+    end       
+        
     //======================================================================    
     always @(posedge clk160m_i) begin
     //========================
@@ -58,7 +64,7 @@ module TXPROC(
                 txClkHCnt<=txClkHCnt+1;
         end        
     //========================
-        if(txSyncClkEn_i && txSyncClk_i==1 && txClkHCnt==8'b00000100)begin
+        if(txSyncClkEn_i && txSyncClk_i==1 && txClkHCnt==8'b00001010)begin
             if(txSync4mTimeCnt==6'b000000)
                 txSync4mTimeCnt<=1;
             else if(txSync4mTimeCnt==38)
@@ -87,6 +93,7 @@ module TXPROC(
       reg[8:0] syncTxShiftTime;
       reg txload_f;
       reg txBitClk_f;        
+      reg txEnd_f;
 
     //======================================================================
     //4M txclk generator
@@ -128,6 +135,17 @@ module TXPROC(
                             if(!txCon_i)
                                 txBitCnt<=txBitCnt+1;	
                             txBitClk_f<=1;
+                            txEndTimeCnt<=0;
+                            txEnd_f<=0;    						    
+						end 
+						else begin
+						    if(!txEndTimeCnt[15])begin
+                                txEndTimeCnt<=txEndTimeCnt+1;
+                                if(txEndTimeCnt<txEndTime)
+                                    txEnd_f<=1;
+                                else
+                                    txEnd_f<=0;    						    
+						    end      
 						end 
 					end
 			     end		
@@ -187,9 +205,9 @@ module TXPROC(
     always @(posedge clk160m_i) begin
         if(txload_f==0)begin
             txload_cnt<=5'b00000;
-            //txd5<=txData0_ib;
 			txd0[15:8]<=txData0_ib[15:8];
 			txd0[7:0]<=syncTxShiftTime;
+			//txd0<=txData0_ib;
 			txd1<=txData1_ib;
 			txd2<=txData2_ib;
 			txd3<=txData3_ib;
