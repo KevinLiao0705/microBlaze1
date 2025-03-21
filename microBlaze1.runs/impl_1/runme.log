@@ -41,8 +41,8 @@ INFO: [Project 1-454] Reading design checkpoint 'e:/kevin/myCode/microBlaze1/mic
 INFO: [Project 1-454] Reading design checkpoint 'e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/design_1_ilmb_bram_if_cntlr_0.dcp' for cell 'design_1_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
 INFO: [Project 1-454] Reading design checkpoint 'e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_ilmb_v10_0/design_1_ilmb_v10_0.dcp' for cell 'design_1_i/microblaze_0_local_memory/ilmb_v10'
 INFO: [Project 1-454] Reading design checkpoint 'e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_lmb_bram_0/design_1_lmb_bram_0.dcp' for cell 'design_1_i/microblaze_0_local_memory/lmb_bram'
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.285 . Memory (MB): peak = 1561.855 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 583 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.297 . Memory (MB): peak = 1563.195 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 725 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2022.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -79,7 +79,7 @@ Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1
 Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.xdc] for cell 'design_1_i/clk_wiz_1/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2288.070 ; gain = 588.145
+get_clocks: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2289.219 ; gain = 588.707
 Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.xdc] for cell 'design_1_i/clk_wiz_1/inst'
 Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0_board.xdc] for cell 'design_1_i/axi_uartlite_3/U0'
 Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0_board.xdc] for cell 'design_1_i/axi_uartlite_3/U0'
@@ -108,7 +108,7 @@ Finished Parsing XDC File [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 Generating merged BMM file for the design top 'design_1_wrapper'...
 INFO: [Memdata 28-144] Successfully populated the BRAM INIT strings from the following elf files: e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_microblaze_0_0/data/mb_bootloop_le.elf 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2288.070 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2289.219 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 104 instances were transformed.
   LUT6_2 => LUT6_2 (LUT5, LUT6): 80 instances
@@ -117,7 +117,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 37 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 2288.070 ; gain = 1223.152
+link_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2289.219 ; gain = 1224.738
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 Command: opt_design
@@ -130,63 +130,66 @@ INFO: [DRC 23-27] Running DRC with 16 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.900 . Memory (MB): peak = 2288.070 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.871 . Memory (MB): peak = 2289.219 ; gain = 0.000
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 1e515659a
+Ending Cache Timing Information Task | Checksum: 1c00565ea
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.245 . Memory (MB): peak = 2312.016 ; gain = 23.945
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.296 . Memory (MB): peak = 2311.309 ; gain = 22.090
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
-INFO: [Opt 31-1287] Pulled Inverter design_1_i/hw0_0/inst/s1RxProc/rxData0[7]_i_1 into driver instance design_1_i/hw0_0/inst/s1RxProc/rxData0[7]_i_2, which resulted in an inversion of 12 pins
+INFO: [Opt 31-1287] Pulled Inverter design_1_i/hw0_0/inst/hostS1RxProc/rxData0[7]_i_1 into driver instance design_1_i/hw0_0/inst/hostS1RxProc/rxData0[7]_i_2, which resulted in an inversion of 12 pins
+INFO: [Opt 31-1287] Pulled Inverter design_1_i/hw0_0/inst/s1RxProc/rxData0[7]_i_1__0 into driver instance design_1_i/hw0_0/inst/s1RxProc/rxData0[7]_i_2__0, which resulted in an inversion of 12 pins
 INFO: [Opt 31-1287] Pulled Inverter design_1_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/Use_BSCAN.FDC_I/Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_1 into driver instance design_1_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/Use_BSCAN.FDC_I/Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2, which resulted in an inversion of 14 pins
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 151e7a402
+Phase 1 Retarget | Checksum: 25738d3c7
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.475 . Memory (MB): peak = 2645.562 ; gain = 0.000
-INFO: [Opt 31-389] Phase Retarget created 190 cells and removed 268 cells
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.512 . Memory (MB): peak = 2647.375 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 190 cells and removed 269 cells
 INFO: [Opt 31-1021] In phase Retarget, 17 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 2 load pin(s).
-Phase 2 Constant propagation | Checksum: 1955e0a74
+Phase 2 Constant propagation | Checksum: 1ca53f209
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.601 . Memory (MB): peak = 2645.562 ; gain = 0.000
-INFO: [Opt 31-389] Phase Constant propagation created 68 cells and removed 252 cells
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.694 . Memory (MB): peak = 2647.375 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 68 cells and removed 540 cells
 INFO: [Opt 31-1021] In phase Constant propagation, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: d5f9099e
+Phase 3 Sweep | Checksum: 20b726c82
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.931 . Memory (MB): peak = 2645.562 ; gain = 0.000
-INFO: [Opt 31-389] Phase Sweep created 10 cells and removed 158 cells
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2647.375 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 12 cells and removed 302 cells
 INFO: [Opt 31-1021] In phase Sweep, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 
 Phase 4 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG design_1_i/hw0_0/inst/hostS1RxProc/CLK_BUFG_inst to drive 319 load(s) on clock net design_1_i/hw0_0/inst/hostS1RxProc/CLK_BUFG
 INFO: [Opt 31-194] Inserted BUFG design_1_i/hw0_0/inst/s1RxProc/CLK_BUFG_inst to drive 319 load(s) on clock net design_1_i/hw0_0/inst/s1RxProc/CLK_BUFG
 INFO: [Opt 31-194] Inserted BUFG design_1_i/hw0_0/inst/hostTxProc/txBitClk_f_reg_0_BUFG_inst to drive 276 load(s) on clock net design_1_i/hw0_0/inst/hostTxProc/txBitClk_f_reg_0_BUFG
+INFO: [Opt 31-194] Inserted BUFG design_1_i/hw0_0/inst/s1TxProc/txBitClk_f_reg_0_BUFG_inst to drive 276 load(s) on clock net design_1_i/hw0_0/inst/s1TxProc/txBitClk_f_reg_0_BUFG
 INFO: [Opt 31-194] Inserted BUFG design_1_i/mdm_1/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG_inst to drive 40 load(s) on clock net design_1_i/mdm_1/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG
-INFO: [Opt 31-193] Inserted 3 BUFG(s) on clock nets
-Phase 4 BUFG optimization | Checksum: 1355481d3
+INFO: [Opt 31-193] Inserted 5 BUFG(s) on clock nets
+Phase 4 BUFG optimization | Checksum: 17e253c70
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2645.562 ; gain = 0.000
-INFO: [Opt 31-662] Phase BUFG optimization created 3 cells of which 3 are BUFGs and removed 0 cells.
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2647.375 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 5 cells of which 5 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: 1355481d3
+Phase 5 Shift Register Optimization | Checksum: 17e253c70
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2645.562 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2647.375 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: 14b38657b
+Phase 6 Post Processing Netlist | Checksum: 1a73327a8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2645.562 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2647.375 ; gain = 0.000
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 INFO: [Opt 31-1021] In phase Post Processing Netlist, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
 Opt_design Change Summary
@@ -196,10 +199,10 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |             190  |             268  |                                             17  |
-|  Constant propagation         |              68  |             252  |                                              1  |
-|  Sweep                        |              10  |             158  |                                              1  |
-|  BUFG optimization            |               3  |               0  |                                              0  |
+|  Retarget                     |             190  |             269  |                                             17  |
+|  Constant propagation         |              68  |             540  |                                              1  |
+|  Sweep                        |              12  |             302  |                                              1  |
+|  BUFG optimization            |               5  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
 |  Post Processing Netlist      |               0  |               0  |                                              1  |
 -------------------------------------------------------------------------------------------------------------------------
@@ -208,10 +211,10 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2645.562 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 145953284
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 2647.375 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 24e674a3c
 
-Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 2645.562 ; gain = 0.000
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2647.375 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -227,27 +230,27 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 32 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 0 newly gated: 0 Total Ports: 64
-Ending PowerOpt Patch Enables Task | Checksum: 145953284
+Ending PowerOpt Patch Enables Task | Checksum: 24e674a3c
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.137 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 145953284
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.135 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 24e674a3c
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:03 . Memory (MB): peak = 2873.402 ; gain = 227.840
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 2876.879 ; gain = 229.504
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 145953284
+Ending Final Cleanup Task | Checksum: 24e674a3c
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Ending Netlist Obfuscation Task | Checksum: 145953284
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 24e674a3c
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-70 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+73 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:08 . Memory (MB): peak = 2873.402 ; gain = 585.332
+opt_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:09 . Memory (MB): peak = 2876.879 ; gain = 587.660
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -255,7 +258,7 @@ INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/impl_1/design_1_wrapper_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
 Command: report_drc -file design_1_wrapper_drc_opted.rpt -pb design_1_wrapper_drc_opted.pb -rpx design_1_wrapper_drc_opted.rpx
@@ -280,60 +283,60 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: efd6d22e
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 17905c4fb
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 WARNING: [Place 30-87] Partially locked IO Bus is found. Following components of the IO Bus dfInN are not locked:  'dfInN[15]'  'dfInN[14]'  'dfInN[13]'  'dfInN[12]'  'dfInN[11]'  'dfInN[10]'  'dfInN[9]'  'dfInN[8]'  'dfInN[7]'  'dfInN[6]'  'dfInN[5]'  'dfInN[4]'  'dfInN[3]'  'dfInN[2]' 
 WARNING: [Place 30-87] Partially locked IO Bus is found. Following components of the IO Bus dfInP are not locked:  'dfInP[15]'  'dfInP[14]'  'dfInP[13]'  'dfInP[12]'  'dfInP[11]'  'dfInP[10]'  'dfInP[9]'  'dfInP[8]'  'dfInP[7]'  'dfInP[6]'  'dfInP[5]'  'dfInP[4]'  'dfInP[3]'  'dfInP[2]' 
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d70996c2
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 9838e547
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.490 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.545 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1d9c9d6e5
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b7f3c200
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:02 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1d9c9d6e5
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b7f3c200
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 1d9c9d6e5
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:02 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1b7f3c200
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:02 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 1e854d7f8
+Phase 2.1 Floorplanning | Checksum: 19fcb174c
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:03 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:03 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1c40f410f
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 153b1f1b8
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:03 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 1c40f410f
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 153b1f1b8
 
-Time (s): cpu = 00:00:11 ; elapsed = 00:00:03 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.4 Global Placement Core
 
 Phase 2.4.1 UpdateTiming Before Physical Synthesis
-Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 1bf1e7f9e
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 198ad6e98
 
-Time (s): cpu = 00:00:47 ; elapsed = 00:00:15 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:15 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.4.2 Physical Synthesis In Placer
-INFO: [Physopt 32-1035] Found 4 LUTNM shape to break, 348 LUT instances to create LUTNM shape
-INFO: [Physopt 32-1044] Break lutnm for timing: one critical 4, two critical 0, total 4, new lutff created 0
-INFO: [Physopt 32-1138] End 1 Pass. Optimized 188 nets or LUTs. Breaked 4 LUTs, combined 184 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1035] Found 13 LUTNM shape to break, 616 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 5, two critical 8, total 13, new lutff created 7
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 349 nets or LUTs. Breaked 13 LUTs, combined 336 existing LUTs and moved 0 existing LUT
 INFO: [Physopt 32-65] No nets found for high-fanout optimization.
 INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
@@ -349,7 +352,7 @@ INFO: [Physopt 32-846] No candidate cells for URAM register optimization found i
 INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
 INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
 INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Summary of Physical Synthesis Optimizations
 ============================================
@@ -358,7 +361,7 @@ Summary of Physical Synthesis Optimizations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 |  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-|  LUT Combining                                    |            4  |            184  |                   188  |           0  |           1  |  00:00:00  |
+|  LUT Combining                                    |           13  |            336  |                   349  |           0  |           1  |  00:00:00  |
 |  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
@@ -367,64 +370,64 @@ Summary of Physical Synthesis Optimizations
 |  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
 |  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
-|  Total                                            |            4  |            184  |                   188  |           0  |           9  |  00:00:00  |
+|  Total                                            |           13  |            336  |                   349  |           0  |           9  |  00:00:00  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Phase 2.4.2 Physical Synthesis In Placer | Checksum: 25bf82a84
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 16e7db82a
 
-Time (s): cpu = 00:00:49 ; elapsed = 00:00:16 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 2.4 Global Placement Core | Checksum: 1ac5db1da
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:16 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 2.4 Global Placement Core | Checksum: 1a1a1ac49
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:17 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 2 Global Placement | Checksum: 1ac5db1da
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:17 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 1a1a1ac49
 
-Time (s): cpu = 00:00:52 ; elapsed = 00:00:17 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:17 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1dfeb224e
+Phase 3.1 Commit Multi Column Macros | Checksum: 19bd0460c
 
-Time (s): cpu = 00:00:54 ; elapsed = 00:00:17 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:17 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1f5a660e5
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 166b4e905
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:18 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:18 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1aeab3cf5
+Phase 3.3 Area Swap Optimization | Checksum: 147c62e7b
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:18 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:18 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 15666726b
+Phase 3.4 Pipeline Register Optimization | Checksum: 1a5208caa
 
-Time (s): cpu = 00:00:56 ; elapsed = 00:00:18 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:18 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.5 Fast Optimization
-Phase 3.5 Fast Optimization | Checksum: 18c909e2e
+Phase 3.5 Fast Optimization | Checksum: f94f5fe7
 
-Time (s): cpu = 00:01:00 ; elapsed = 00:00:20 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:04 ; elapsed = 00:00:23 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 1736fac5f
+Phase 3.6 Small Shape Detail Placement | Checksum: 168cbacc5
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:23 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:26 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 162b4fd24
+Phase 3.7 Re-assign LUT pins | Checksum: 1eef8e126
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:23 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:26 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 1e5ebb397
+Phase 3.8 Pipeline Register Optimization | Checksum: 1cc196eb5
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:23 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 1e5ebb397
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:27 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 1cc196eb5
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:23 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:27 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -432,7 +435,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 26bc89bb5
+Post Placement Optimization Initialization | Checksum: 1b598384a
 
 Phase 4.1.1.1 BUFG Insertion
 
@@ -440,34 +443,34 @@ Starting Physical Synthesis Task
 
 Phase 1 Physical Synthesis Initialization
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 16 CPUs
-INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.068 | TNS=-0.068 |
-Phase 1 Physical Synthesis Initialization | Checksum: 1c65f864f
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.569 | TNS=-0.873 |
+Phase 1 Physical Synthesis Initialization | Checksum: 210838f9c
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.264 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.204 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Place 46-33] Processed net design_1_i/hw0_0/inst/fpgaId, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
-Ending Physical Synthesis Task | Checksum: 1f26bbd6a
+Ending Physical Synthesis Task | Checksum: 1b113f791
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.371 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 4.1.1.1 BUFG Insertion | Checksum: 26bc89bb5
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.348 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1b598384a
 
-Time (s): cpu = 00:01:10 ; elapsed = 00:00:25 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:17 ; elapsed = 00:00:28 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 4.1.1.2 Post Placement Timing Optimization
-INFO: [Place 30-746] Post Placement Timing Summary WNS=0.512. For the most accurate timing information please run report_timing.
-Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 12f164cfe
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.504. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: dbbb6fc8
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 12f164cfe
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: dbbb6fc8
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 12f164cfe
+Phase 4.2 Post Placement Cleanup | Checksum: dbbb6fc8
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
 
@@ -477,60 +480,60 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |           | Global Congestion | Short Congestion  |
 | Direction | Region Size       | Region Size       |
 |___________|___________________|___________________|
-|      North|                1x1|                1x1|
+|      North|                1x1|                2x2|
 |___________|___________________|___________________|
 |      South|                1x1|                1x1|
 |___________|___________________|___________________|
-|       East|                1x1|                2x2|
+|       East|                1x1|                1x1|
 |___________|___________________|___________________|
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 12f164cfe
+Phase 4.3.1 Print Estimated Congestion | Checksum: dbbb6fc8
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 4.3 Placer Reporting | Checksum: 12f164cfe
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: dbbb6fc8
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 12b75c669
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 17731ceba
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:27 . Memory (MB): peak = 2873.402 ; gain = 0.000
-Ending Placer Task | Checksum: f9ca078d
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
+Ending Placer Task | Checksum: 113d4050e
 
-Time (s): cpu = 00:01:13 ; elapsed = 00:00:28 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:34 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-112 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+115 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:01:15 ; elapsed = 00:00:28 . Memory (MB): peak = 2873.402 ; gain = 0.000
+place_design: Time (s): cpu = 00:01:25 ; elapsed = 00:00:35 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.830 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/impl_1/design_1_wrapper_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file design_1_wrapper_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 2873.402 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_placed.rpt -pb design_1_wrapper_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 2873.402 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 2876.879 ; gain = 0.000
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
 
 Starting Initial Update Timing Task
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.856 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
 INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
 INFO: [Common 17-83] Releasing license: Implementation
-122 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+125 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
@@ -538,7 +541,7 @@ INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.816 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 2876.879 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/impl_1/design_1_wrapper_physopt.dcp' has been generated.
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -553,114 +556,126 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: 5be4a6ca ConstDB: 0 ShapeSum: 9de560c3 RouteDB: 0
-Post Restoration Checksum: NetGraph: d9812679 NumContArr: f83ba187 Constraints: 0 Timing: 0
-Phase 1 Build RT Design | Checksum: 1d1bcc800
+Checksum: PlaceDB: 172161bb ConstDB: 0 ShapeSum: fcb2a353 RouteDB: 0
+Post Restoration Checksum: NetGraph: b8d0403d NumContArr: 4516544c Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: fde69489
 
-Time (s): cpu = 00:00:30 ; elapsed = 00:00:26 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:25 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2 Router Initialization
 
 Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: 1d1bcc800
+Phase 2.1 Fix Topology Constraints | Checksum: fde69489
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:26 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:25 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: 1d1bcc800
+Phase 2.2 Pre Route Cleanup | Checksum: fde69489
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:26 . Memory (MB): peak = 2873.402 ; gain = 0.000
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:26 . Memory (MB): peak = 2876.879 ; gain = 0.000
 
 Phase 2.3 Update Timing
-Phase 2.3 Update Timing | Checksum: 104bad9b3
+Phase 2.3 Update Timing | Checksum: 1b3f1ce0a
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:28 . Memory (MB): peak = 2896.480 ; gain = 23.078
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.531  | TNS=0.000  | WHS=-0.392 | THS=-465.413|
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:28 . Memory (MB): peak = 2907.418 ; gain = 30.539
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.512  | TNS=0.000  | WHS=-0.392 | THS=-675.114|
 
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.016016 %
-  Global Horizontal Routing Utilization  = 0.014919 %
+  Global Vertical Routing Utilization    = 0.0315098 %
+  Global Horizontal Routing Utilization  = 0.0250071 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 8812
+  Number of Failed Nets               = 11807
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 8763
-  Number of Partially Routed Nets     = 49
-  Number of Node Overlaps             = 59
+  Number of Unrouted Nets             = 11709
+  Number of Partially Routed Nets     = 98
+  Number of Node Overlaps             = 109
 
-Phase 2 Router Initialization | Checksum: 18e6187c2
+Phase 2 Router Initialization | Checksum: 17df03492
 
-Time (s): cpu = 00:00:40 ; elapsed = 00:00:29 . Memory (MB): peak = 2906.875 ; gain = 33.473
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:29 . Memory (MB): peak = 2921.676 ; gain = 44.797
 
 Phase 3 Initial Routing
 
 Phase 3.1 Global Routing
-Phase 3.1 Global Routing | Checksum: 18e6187c2
+Phase 3.1 Global Routing | Checksum: 17df03492
 
-Time (s): cpu = 00:00:40 ; elapsed = 00:00:29 . Memory (MB): peak = 2906.875 ; gain = 33.473
-Phase 3 Initial Routing | Checksum: 1f093f65d
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:29 . Memory (MB): peak = 2921.676 ; gain = 44.797
+Phase 3 Initial Routing | Checksum: 21202351e
 
-Time (s): cpu = 00:00:51 ; elapsed = 00:00:32 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:31 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 959
- Number of Nodes with overlaps = 173
- Number of Nodes with overlaps = 55
- Number of Nodes with overlaps = 19
- Number of Nodes with overlaps = 8
- Number of Nodes with overlaps = 3
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1104
+ Number of Nodes with overlaps = 195
+ Number of Nodes with overlaps = 79
+ Number of Nodes with overlaps = 22
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.282  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.010  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 15c5ba4ae
+Phase 4.1 Global Iteration 0 | Checksum: 139ed4253
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:40 . Memory (MB): peak = 3126.570 ; gain = 253.168
-Phase 4 Rip-up And Reroute | Checksum: 15c5ba4ae
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:39 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:40 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 57
+ Number of Nodes with overlaps = 29
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.149  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 15cf27226
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3049.738 ; gain = 172.859
+Phase 4 Rip-up And Reroute | Checksum: 15cf27226
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 15c5ba4ae
+Phase 5.1 Delay CleanUp | Checksum: 15cf27226
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:40 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 15c5ba4ae
+Phase 5.2 Clock Skew Optimization | Checksum: 15cf27226
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:40 . Memory (MB): peak = 3126.570 ; gain = 253.168
-Phase 5 Delay and Skew Optimization | Checksum: 15c5ba4ae
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3049.738 ; gain = 172.859
+Phase 5 Delay and Skew Optimization | Checksum: 15cf27226
 
-Time (s): cpu = 00:01:03 ; elapsed = 00:00:40 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 1bbbb98df
+Phase 6.1.1 Update Timing | Checksum: 17558b66d
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.282  | TNS=0.000  | WHS=0.082  | THS=0.000  |
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:42 . Memory (MB): peak = 3049.738 ; gain = 172.859
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.223  | TNS=0.000  | WHS=0.065  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: 1bbbb98df
+Phase 6.1 Hold Fix Iter | Checksum: 17558b66d
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
-Phase 6 Post Hold Fix | Checksum: 1bbbb98df
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:42 . Memory (MB): peak = 3049.738 ; gain = 172.859
+Phase 6 Post Hold Fix | Checksum: 17558b66d
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:42 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 2.66475 %
-  Global Horizontal Routing Utilization  = 2.83163 %
+  Global Vertical Routing Utilization    = 3.48061 %
+  Global Horizontal Routing Utilization  = 3.65146 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -670,45 +685,45 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 17c48b0e3
+Phase 7 Route finalize | Checksum: 186dd800e
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:42 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 17c48b0e3
+Phase 8 Verifying routed nets | Checksum: 186dd800e
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:42 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 133401213
+Phase 9 Depositing Routes | Checksum: 15b91bddb
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:41 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:08 ; elapsed = 00:00:43 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.282  | TNS=0.000  | WHS=0.082  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.223  | TNS=0.000  | WHS=0.065  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 133401213
+Phase 10 Post Router Timing | Checksum: 15b91bddb
 
-Time (s): cpu = 00:01:06 ; elapsed = 00:00:42 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:43 . Memory (MB): peak = 3049.738 ; gain = 172.859
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:01:06 ; elapsed = 00:00:42 . Memory (MB): peak = 3126.570 ; gain = 253.168
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:43 . Memory (MB): peak = 3049.738 ; gain = 172.859
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-137 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+141 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:01:08 ; elapsed = 00:00:42 . Memory (MB): peak = 3126.570 ; gain = 253.168
+route_design: Time (s): cpu = 00:01:12 ; elapsed = 00:00:44 . Memory (MB): peak = 3049.738 ; gain = 172.859
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:00.885 . Memory (MB): peak = 3126.570 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3049.738 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/impl_1/design_1_wrapper_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 Command: report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
@@ -730,7 +745,7 @@ Running Vector-less Activity Propagation...
 Finished Running Vector-less Activity Propagation
 WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
 Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
-150 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+154 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file design_1_wrapper_route_status.rpt -pb design_1_wrapper_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file design_1_wrapper_timing_summary_routed.rpt -pb design_1_wrapper_timing_summary_routed.pb -rpx design_1_wrapper_timing_summary_routed.rpx -warn_on_violation 
@@ -805,7 +820,55 @@ WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/hostTxProc/
 WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 49 Warnings
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 97 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
 Loading data files...
@@ -818,7 +881,7 @@ Writing bitstream ./design_1_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-12 Infos, 49 Warnings, 0 Critical Warnings and 0 Errors encountered.
+12 Infos, 97 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:22 ; elapsed = 00:00:13 . Memory (MB): peak = 3396.312 ; gain = 269.742
-INFO: [Common 17-206] Exiting Vivado at Thu Mar 20 16:26:32 2025...
+write_bitstream: Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 3426.637 ; gain = 373.023
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 21 19:43:04 2025...

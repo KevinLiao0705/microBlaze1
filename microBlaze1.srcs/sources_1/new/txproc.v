@@ -275,7 +275,7 @@ module TXPROC(
     //input txbuf0-13,clk4m,txload_f,reset_n
     //output txData_f
     reg txData_f;
-    always @(posedge txBitClk_f,posedge txload2_f) begin
+    always @(posedge txBitClk_f or posedge txload2_f) begin
         if(txload2_f)begin
             //txbuf0b<=txbuf0;
             //txbuf1b<=txbuf1;

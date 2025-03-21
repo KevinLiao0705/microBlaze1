@@ -375,6 +375,31 @@ set_property PACKAGE_PIN B20 [get_ports {laCh[5]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {laCh[5]}]
 set_property PACKAGE_PIN A20 [get_ports {laCh[7]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {laCh[7]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[7]}]
+
+# DF10 L13 laCh8, laCh10
+set_property PACKAGE_PIN C18 [get_ports {laCh[8]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[8]}]
+set_property PACKAGE_PIN C19 [get_ports {laCh[10]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[10]}]
+
+# DF11 L19 laCh12, laCh14
+set_property PACKAGE_PIN D20 [get_ports {laCh[12]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[12]}]
+set_property PACKAGE_PIN C20 [get_ports {laCh[14]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[14]}]
+
+# DF14 L21 laCh9, laCh11
+set_property PACKAGE_PIN B21 [get_ports {laCh[9]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[9]}]
+set_property PACKAGE_PIN A21 [get_ports {laCh[11]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[11]}]
+
+# DF15 L23 laCh13, laCh15
+set_property PACKAGE_PIN E21 [get_ports {laCh[13]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[13]}]
+set_property PACKAGE_PIN D21 [get_ports {laCh[15]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {laCh[15]}]
 
 
 #/==============================================================

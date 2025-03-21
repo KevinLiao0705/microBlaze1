@@ -103,7 +103,7 @@ output wire [3 : 0] fibTxA;
 input wire [3 : 0] fibRxA;
 input wire [13 : 0] hdfiA;
 output wire [7 : 0] hdfoA;
-output wire [7 : 0] laCh;
+output wire [15 : 0] laCh;
 input wire [15 : 0] dfInP;
 input wire [15 : 0] dfInN;
 output wire [7 : 0] dfOutP;

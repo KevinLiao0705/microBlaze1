@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Mar 20 16:22:13 2025
+//Date        : Fri Mar 21 19:38:30 2025
 //Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -61,7 +61,7 @@ module design_1
   input gpsPps;
   input [13:0]hdfiA;
   output [7:0]hdfoA;
-  output [7:0]laCh;
+  output [15:0]laCh;
   output ledV3;
   output ledV4;
   input [11:0]rfInA;
@@ -113,7 +113,7 @@ module design_1
   wire [7:0]hw0_0_dfOutP;
   wire [3:0]hw0_0_fibTxA;
   wire [7:0]hw0_0_hdfoA;
-  wire [7:0]hw0_0_laCh;
+  wire [15:0]hw0_0_laCh;
   wire hw0_0_ledV3;
   wire hw0_0_ledV4;
   wire [31:0]hw0_0_ramOutData;
@@ -414,7 +414,7 @@ module design_1
   assign gpsPps_1 = gpsPps;
   assign hdfiA_1 = hdfiA[13:0];
   assign hdfoA[7:0] = hw0_0_hdfoA;
-  assign laCh[7:0] = hw0_0_laCh;
+  assign laCh[15:0] = hw0_0_laCh;
   assign ledV3 = hw0_0_ledV3;
   assign ledV4 = hw0_0_ledV4;
   assign rfInA_1 = rfInA[11:0];
