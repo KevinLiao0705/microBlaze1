@@ -125,9 +125,8 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param general.maxThreads 16
   set_param chipscope.maxJobs 4
-  set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
-  create_project -in_memory -part xc7a100tfgg484-2
+  create_project -in_memory -part xc7a200tfbg484-2
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
@@ -150,7 +149,7 @@ OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
   set_param project.isImplRun true
-  link_design -top design_1_wrapper -part xc7a100tfgg484-2 
+  link_design -top design_1_wrapper -part xc7a200tfbg484-2 
 OPTRACE "link_design" END { }
   set_param project.isImplRun false
 OPTRACE "gray box cells" START { }

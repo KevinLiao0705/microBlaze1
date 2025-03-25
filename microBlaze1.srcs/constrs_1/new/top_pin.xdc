@@ -194,6 +194,10 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[0]}]
 set_property PACKAGE_PIN V15 [get_ports {gpOutA[1]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[1]}]
 
+#set_property PACKAGE_PIN V15 [get_ports {ledG}]
+#set_property IOSTANDARD LVCMOS25 [get_ports {ledG}]
+
+
 # ioA38 ledB
 set_property PACKAGE_PIN Y17 [get_ports {gpOutA[2]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[2]}]
@@ -252,11 +256,11 @@ set_property PACKAGE_PIN L16 [get_ports {uartIpcRx2}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRx2}]
 
 # ioB46
-set_property PACKAGE_PIN H22 [get_ports {uartIpcTxH}]
+set_property PACKAGE_PIN N15 [get_ports {uartIpcTxH}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTxH}]
 
 # ioB47
-set_property PACKAGE_PIN N15 [get_ports {uartIpcRxH}]
+set_property PACKAGE_PIN H22 [get_ports {uartIpcRxH}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRxH}]
 
 ####################################################################################

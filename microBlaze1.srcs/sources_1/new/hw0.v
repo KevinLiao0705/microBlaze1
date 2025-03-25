@@ -36,7 +36,7 @@ module hw0
    		input 					    ramEn,
    		input 					    ramRstp,
    		//==========================================================================
-        input   wire                sysClk200m, //System clock 200m
+        input   wire                sysClk,     //System clock
         input   wire                clk160m,    //System clock 160m
         input   wire                resetN,
         //==========================================================================
@@ -113,9 +113,9 @@ module hw0
     reg[31:0]   base160Timer;
 
 
-    reg[RamDataWidth-1:0]             ramInit;
-    reg[RamDataWidth-1:0]             tmpData;
+    reg[RamDataWidth-1:0]             ramOutDataR;
     reg[RamDataWidth-1:0]             mem[RamDepth-1:0];
+    reg[RamDataWidth-1:0]             rmem[255:0];
     reg[3:0] clk160m_cnt;
   
     //================================
@@ -184,11 +184,12 @@ module hw0
     //===================================
     
     reg[31:0] hostPreDataGateTimeCnt;
-    reg hostPreDataGate_f;
+    reg hostLocalPreDataGate_f;
     
     reg[15:0] s1SyncRespDelayTimeCnt;
     reg[15:0] s1SyncRespDelayTime;
-    reg s1PreDataGate_f;
+    reg s1LocalPreDataGate_f;
+    reg s1SyncPreDataGate_f;
     reg[15:0] s1PreDataGateTimeCnt;
 
     reg[15:0] commTimeCnt;
@@ -215,15 +216,45 @@ module hw0
     wire[15:0] s1RxData4_wb;
     
     
+    reg[15:0] laChR;
+    
+    wire hostTxLoad_w;
+    wire hostTxDataClk_w;
+    wire hostTxData_w;
+    wire s1TxLoad_w;
+    wire s1TxDataClk_w;
+    wire s1TxData_w;
+    wire s2TxLoad_w;
+    wire s2TxDataClk_w;
+    wire s2TxData_w;
+    
+    reg[31:0] emuS1RxDataBuf;
+    reg[31:0] emuS2RxDataBuf;
+    reg[31:0] emuHostS1RxDataBuf;
+    reg[31:0] emuHostS2RxDataBuf;
+    
+    reg [4:0] emuRfTxClkTimeCnt;  
+    reg emuRfTxClk4m;
+    reg[15:0] emuRfTxClk4mAdj;
     
     integer      i ;  
   
 
   
     initial begin
-        tmpData = 0;
-        ramInit = 0;
+        ramOutDataR = 0;
         clk160m_cnt=0;
+        
+       for(i=0;i<256;i=i+1)begin
+            rmem[i]=0;
+       end
+       rmem[0]=32'h1234_5678;
+       rmem[1]=32'habcd_1234;
+        
+       for(i=0;i<32;i=i+1)begin
+            mem[32+i*2]=(2*256+10)*65536+10*10;
+            mem[33+i*2]=1*65536*256+100*10;
+       end
         
 	   //mem[0] systemStatus0;
 	   //mem[1] systemStatus1;
@@ -264,10 +295,10 @@ module hw0
       //                  wgPri<=ibuf[1][23:0];
       
       
-      
+      //pulseGen datas addr 0x20 end 0x60//
        for(i=0;i<32;i=i+1)begin
             mem[32+i*2]=(2*256+10)*65536+10*10;
-            mem[33+i*2]=0*65536+80;
+            mem[33+i*2]=1*65536*256+100*10;
        end
        
        //===========================================    
@@ -293,90 +324,29 @@ module hw0
         hostVideoGateDelayTime=76*160;
         hostVideoGateWidthTime=10*160;
         hostVideoGateDelayTimeCnt=16'hff00;
-        hostPreDataGate_f=1;
+        hostLocalPreDataGate_f=1;
         hostVideoGate_f=0;
         //==================================
         s1SyncVideoGateDelayTime=2957;
         s1VideoGateWidthTime=10*160;
         s1SyncVideoGateDelayTimeCnt=16'hff00;
-        s1PreDataGate_f=1;
+        s1LocalPreDataGate_f=1;
+        s1SyncPreDataGate_f=1;
         s1SyncVideoGate_f=0;
         s1SyncRespDelayTime=640;
         //===================================        
     end
 
 
-    reg[15:0] hRealTime;
-    reg[15:0] sRealTime;
-    
-    always @(posedge clk160m) begin
-        hRealTime=hRealTime+1;
-    end    
-    
     
 
 
-//===============================================
-// generate emu rftx 4m clk
-    reg [4:0] emuRfTxClkTimeCnt;  
-    reg emuRfTxClk4m;
-    reg[15:0] emuRfTxClk4mAdj;
-    always @(posedge clk160m) begin
-        emuRfTxClk4mAdj=emuRfTxClk4mAdj+1;
-        if(emuRfTxClkTimeCnt<19)begin
-            if(emuRfTxClk4mAdj<50000)
-                emuRfTxClkTimeCnt=emuRfTxClkTimeCnt+1;
-            else
-                emuRfTxClk4mAdj=0;     
-        end    
-        else begin    
-            emuRfTxClkTimeCnt=0;
-            emuRfTxClk4m=emuRfTxClk4m^1;
-        end    
-    end    
-//===============================================
 
-
-//===============================================
-// generate hostPreDataGate
-    always @(posedge clk160m) begin
-        if(hostPreDataGateTimeCnt<20000)begin
-            hostPreDataGateTimeCnt<=hostPreDataGateTimeCnt+1;
-            if(hostPreDataGateTimeCnt<preDataGateWidth)
-                hostPreDataGate_f<=0;
-            else
-                hostPreDataGate_f<=1;            
-        end        
-        else begin       
-            hostPreDataGateTimeCnt<=0;
-        end           
-    end    
-//===============================================
-// generate hostVideoGate
-    always @(posedge clk160m) begin
-        if(!hostPreDataGate_f)begin
-            hostVideoGateDelayTimeCnt<=0;    
-            hostVideoGate_f<=0;
-        end    
-        else begin
-            hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
-            if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
-                hostVideoGate_f<=0;
-            if(hostVideoGateDelayTimeCnt<19200)begin//120us
-                hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
-                if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
-                    hostVideoGate_f<=1;
-                    hostVideoGateWidthTimeCnt<=0;
-                end   
-            end
-        end
-    end    
-//===============================================
 
 //===============================================
 // host  get comm delay time
     always @(posedge clk160m) begin
-        if(!hostPreDataGate_f)begin
+        if(!hostLocalPreDataGate_f)begin
             commTimeCnt<=0;    
             commTime_f<=0;
             preHostS1RxGate_f=1;
@@ -399,49 +369,10 @@ module hw0
 
 
 
-//===============================================
-// generate s1SyncVideoGate
-    always @(posedge clk160m) begin
-        if(s1RxPack_w)begin
-            s1SyncVideoGateDelayTimeCnt<={8'b0000_0000,s1RxData0_wb[7:0]};    
-            s1SyncVideoGate_f<=0;
-        end    
-        else begin
-            s1SyncVideoGateWidthTimeCnt<=s1SyncVideoGateWidthTimeCnt+1;
-            if(s1SyncVideoGateWidthTimeCnt==s1VideoGateWidthTime)
-                s1SyncVideoGate_f<=0;
-            if(s1SyncVideoGateDelayTimeCnt<19200)begin//120us
-                s1SyncVideoGateDelayTimeCnt<=s1SyncVideoGateDelayTimeCnt+1;
-                if(s1SyncVideoGateDelayTimeCnt==s1SyncVideoGateDelayTime)begin
-                    s1SyncVideoGate_f<=1;
-                    s1SyncVideoGateWidthTimeCnt<=0;
-                end   
-            end
-        end
-    end    
-//===============================================
-// generate s1SyncVideoGate
-    always @(posedge clk160m) begin
-        if(s1RxPack_w)begin
-            s1SyncRespDelayTimeCnt<={8'b0000_0000,s1RxData0_wb[7:0]};//<<debug    
-            s1PreDataGate_f<=1;
-        end    
-        else begin
-            s1PreDataGateTimeCnt<=s1PreDataGateTimeCnt+1;
-            if(s1PreDataGateTimeCnt==preDataGateWidth)//1us
-                s1PreDataGate_f<=1;
-            if(s1SyncRespDelayTimeCnt<19200)begin//120us
-                s1SyncRespDelayTimeCnt<=s1SyncRespDelayTimeCnt+1;
-                if(s1SyncRespDelayTimeCnt==s1SyncRespDelayTime)begin
-                    s1PreDataGate_f<=0;
-                    s1PreDataGateTimeCnt<=0;
-                end   
-            end
-        end
-    end    
-//===============================================
 
-// generate hostS1SyncGate
+//===================================================
+// generate hostS1RxGate_f 
+//===================================================
     always @(posedge clk160m) begin
         if(hostS1RxPack_w)begin
             hostS1RxGateDelayTimeCnt<={8'b0000_0000,hostS1RxData0_wb[7:0]};    
@@ -460,7 +391,6 @@ module hw0
             end
         end
     end    
-//===============================================
 
 
 
@@ -469,9 +399,109 @@ module hw0
 
 
 
+//===================================================
+// generate host preDataGate 
+//===================================================
+    always @(posedge clk160m) begin
+        if(hostPreDataGateTimeCnt<20000)begin
+            hostPreDataGateTimeCnt<=hostPreDataGateTimeCnt+1;
+            if(hostPreDataGateTimeCnt<preDataGateWidth)
+                hostLocalPreDataGate_f<=0;
+            else
+                hostLocalPreDataGate_f<=1;            
+        end        
+        else begin       
+            hostPreDataGateTimeCnt<=0;
+        end           
+    end    
+
+//===================================================
+// generate host videoGate 
+//===================================================
+    always @(posedge clk160m) begin
+        if(!hostLocalPreDataGate_f)begin
+            hostVideoGateDelayTimeCnt<=0;    
+            hostVideoGate_f<=0;
+        end    
+        else begin
+            hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
+            if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
+                hostVideoGate_f<=0;
+            if(hostVideoGateDelayTimeCnt<19200)begin//120us
+                hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
+                if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
+                    hostVideoGate_f<=1;
+                    hostVideoGateWidthTimeCnt<=0;
+                end   
+            end
+        end
+    end    
 
 
+//===================================================
+// generate s1LocalPreDataGate 
+//===================================================
+    always @(posedge clk160m) begin
+        if(s1PreDataGateTimeCnt<20000)begin
+            s1PreDataGateTimeCnt<=s1PreDataGateTimeCnt+1;
+            if(s1PreDataGateTimeCnt<preDataGateWidth)
+                s1LocalPreDataGate_f<=0;
+            else
+                s1LocalPreDataGate_f<=1;            
+        end        
+        else begin       
+            s1PreDataGateTimeCnt<=0;
+        end           
+    end    
+
+
+//===================================================
+// generate s1SyncPreDataGate 
+//===================================================
+    always @(posedge clk160m) begin
+        if(s1RxPack_w)begin
+            s1SyncRespDelayTimeCnt<={8'b0000_0000,s1RxData0_wb[7:0]};//<<debug    
+            s1SyncPreDataGate_f<=1;
+        end    
+        else begin
+            s1PreDataGateTimeCnt<=s1PreDataGateTimeCnt+1;
+            if(s1PreDataGateTimeCnt==preDataGateWidth)//1us
+                s1SyncPreDataGate_f<=1;
+            if(s1SyncRespDelayTimeCnt<19200)begin//120us
+                s1SyncRespDelayTimeCnt<=s1SyncRespDelayTimeCnt+1;
+                if(s1SyncRespDelayTimeCnt==s1SyncRespDelayTime)begin
+                    s1SyncPreDataGate_f<=0;
+                    s1PreDataGateTimeCnt<=0;
+                end   
+            end
+        end
+    end    
     
+//===================================================
+// generate s1SyncVideoGate 
+//===================================================
+    always @(posedge clk160m) begin
+        if(s1RxPack_w)begin
+            s1SyncVideoGateDelayTimeCnt<={8'b0000_0000,s1RxData0_wb[7:0]};    
+            s1SyncVideoGate_f<=0;
+        end    
+        else begin
+            s1SyncVideoGateWidthTimeCnt<=s1SyncVideoGateWidthTimeCnt+1;
+            if(s1SyncVideoGateWidthTimeCnt==s1VideoGateWidthTime)
+                s1SyncVideoGate_f<=0;
+            if(s1SyncVideoGateDelayTimeCnt<19200)begin//120us
+                s1SyncVideoGateDelayTimeCnt<=s1SyncVideoGateDelayTimeCnt+1;
+                if(s1SyncVideoGateDelayTimeCnt==s1SyncVideoGateDelayTime)begin
+                    s1SyncVideoGate_f<=1;
+                    s1SyncVideoGateWidthTimeCnt<=0;
+                end   
+            end
+        end
+    end    
+
+//===================================================
+// wg signal  process 
+//===================================================
     always @(posedge clk160m) begin
         clk160m_cnt<=clk160m_cnt+1'b1;
         case(clk160m_cnt)
@@ -608,113 +638,101 @@ module hw0
                 end
             endcase    
         end
-        
-  
+
+
+//===================================================
+// rx emu  process 
+//===================================================
+    always @(posedge clk160m)begin
+        emuS1RxDataBuf[31:0]={emuS1RxDataBuf[30:0],hostTxData_w};
+        emuS2RxDataBuf[31:0]={emuS2RxDataBuf[30:0],hostTxData_w};
+        emuHostS1RxDataBuf[31:0]={emuHostS1RxDataBuf[30:0],s1TxData_w};
+        emuHostS2RxDataBuf[31:0]={emuHostS2RxDataBuf[30:0],s2TxData_w};
+    end
     
+//===================================================
+// ram process 
+//===================================================
+    always @(posedge ramClk) begin
+        if(ramEn & ramWe[0])
+            mem[ramAddr[12:2]][7:0] <= ramInData[7:0];
+        if(ramEn & ramWe[1])
+            mem[ramAddr[12:2]][15:8] <= ramInData[15:8];
+        if(ramEn & ramWe[2])
+            mem[ramAddr[12:2]][23:16] <= ramInData[23:16];
+        if(ramEn & ramWe[3])
+            mem[ramAddr[12:2]][31:24] <= ramInData[31:24];
+        ramOutDataR=rmem[ramAddr[9:2]];
+    end
+
+//===================================================
+// timer cnt 
+//===================================================
+    always @(posedge sysClk)begin
+        baseTimer <= baseTimer + 1'b1;
+    end
+    always @(posedge clk160m)begin
+        base160Timer <= base160Timer + 1'b1;
+    end
+
+
+//===================================================
+// la register assign
+//===================================================
+    always @* 
+    begin
+        if(laGroup == 3'b000)begin
+            laChR[0] = hostLocalPreDataGate_f;
+            laChR[1] = hostTxDataClk_w;
+            laChR[2] = hostTxData_w;
+            laChR[3] = hostVideoGate_f;
+            laChR[4] = s1RxClk4m_w;
+            laChR[5] = emuS1RxDataBuf[31];
+            laChR[6] = s1RxPack_w;
+            laChR[7] = s1SyncVideoGate_f;
+            //===========================
+            laChR[8] = s1PreDataGate_f;
+            laChR[9] = s1TxDataClk_w;
+            laChR[10] = s1TxData_w;
+            laChR[11] = hostS1RxClk4m_w;
+            laChR[12] = hostS1RxPack_w;
+            laChR[14] = hostS1RxGate_f;
+            laChR[13] = commTime_f;
+        end  
+    end
     
-        
-        
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst0 (
-      .O(dfOutP[0]),        
-      .OB(dfOutN[0]),
-      .I(wgClk)        
-    );
-    
-    
-    
-    
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst1 (
-      .O(dfOutP[1]),        
-      .OB(dfOutN[1]),       
-      .I(wgDataBit)       
-    );
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"),
-      .SLEW("SLOW")       
-    ) OBUFDS_inst2 (
-      .O(dfOutP[2]),  
-      .OB(dfOutN[2]), 
-      .I(wgTrig) 
-    );
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst3 (
-      .O(dfOutP[3]),        
-      .OB(dfOutN[3]),       
-      .I(wgRfout)      
-    );
-    
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst4 (
-      .O(dfOutP[4]),        
-      .OB(dfOutN[4]),       
-      .I(a_snd_clk)        
-    );
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst5 (
-      .O(dfOutP[5]),        
-      .OB(dfOutN[5]),       
-      .I(a_snd_tx)       
-    );
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"),
-      .SLEW("SLOW")       
-    ) OBUFDS_inst6 (
-      .O(dfOutP[6]),  
-      .OB(dfOutN[6]), 
-      .I(b_snd_clk) 
-    );
-  
-    OBUFDS #(
-      .IOSTANDARD("DEFAULT"), 
-      .SLEW("SLOW")           
-    ) OBUFDS_inst7 (
-      .O(dfOutP[7]),        
-      .OB(dfOutN[7]),       
-      .I(b_snd_tx)      
-    );
+//===================================================
+// outport  assign
+//===================================================
+assign ramOutData = ramOutDataR;
+assign ledV3=baseTimer[24];
+assign ledV4=base160Timer[24];
+assign laCh[15:0]=laChR[15:0];
 
 
 
-IBUFDS #(
-      .DIFF_TERM("FALSE"),       // Differential Termination
-      .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
-      .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
-   ) IBUFDS_inst0 (
-      .O(aSndRx),          
-      .I(dfInP[0]),             
-      .IB(dfInN[0])             
-   );
-
-
-IBUFDS #(
-      .DIFF_TERM("FALSE"),       // Differential Termination
-      .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
-      .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
-   ) IBUFDS_inst1 (
-      .O(bSndRx),          
-      .I(dfInP[1]),             
-      .IB(dfInN[1])             
-   );
+//===================================================
+// generate emu rftx 4m clk
+//===================================================
+    always @(posedge clk160m) begin
+        emuRfTxClk4mAdj=emuRfTxClk4mAdj+1;
+        if(emuRfTxClkTimeCnt<19)begin
+            if(emuRfTxClk4mAdj<50000)
+                emuRfTxClkTimeCnt=emuRfTxClkTimeCnt+1;
+            else
+                emuRfTxClk4mAdj=0;     
+        end    
+        else begin    
+            emuRfTxClkTimeCnt=0;
+            emuRfTxClk4m=emuRfTxClk4m^1;
+        end    
+    end    
+//===============================================
 
 
 
+//===================================================
+// tx process
 /*
     tx_data0[15:9] serialCnt,[7:0] pretrigOffsetTime[7:0]
     tx_data1[15:0] = cmdData  & statusData  0xfxxx=command  0xxxx  value 
@@ -722,13 +740,10 @@ IBUFDS #(
     tx_data3[15:0] = deltaTime//pulseWidth and chfreq
     tx_data4[15:0] = hrtime_cnt  
 */
-    wire hostTxLoad_w;
-    wire hostTxDataClk_w;
-    wire hostTxData_w;
-    
+//===================================================
 TXPROC hostTxProc(
         .clk160m_i(clk160m),
-        .preDataGate_i(hostPreDataGate_f),
+        .preDataGate_i(hostLocalPreDataGate_f),
         .txCon_i(0),
         .txData0_ib(16'h1200),
         .txData1_ib(16'h5678),
@@ -742,11 +757,7 @@ TXPROC hostTxProc(
         .txDataClk_o(hostTxDataClk_w)				
     );
 
-
-    wire s1TxLoad_w;
-    wire s1TxDataClk_w;
-    wire s1TxData_w;
-TXPROC s1TxProc(
+    TXPROC s1TxProc(
         .clk160m_i(clk160m),
         .preDataGate_i(s1PreDataGate_f),
         .txCon_i(0),
@@ -763,19 +774,10 @@ TXPROC s1TxProc(
     );
 
 
-
-    
-    reg[31:0] emuRxDataBuf;
-    always @(posedge clk160m)begin
-        emuRxDataBuf[31:0]={emuRxDataBuf[30:0],hostTxData_w};
-    end
-    
-    
-   
-    
-    
-
-RXPROC hostS1RxProc(
+//===================================================
+// rx process
+//===================================================
+    RXPROC hostS1RxProc(
         .clk160m_i(clk160m),
         //.rxData_i(emuRxDataBuf[31]),
         .rxData_i(s1TxData_w),
@@ -787,10 +789,8 @@ RXPROC hostS1RxProc(
         .rxData3_ob(hostS1RxData3_wb),
         .rxData4_ob(hostS1RxData4_wb)
     );
-
-
-    
-RXPROC s1RxProc(
+    //
+    RXPROC s1RxProc(
         .clk160m_i(clk160m),
         //.rxData_i(emuRxDataBuf[31]),
         .rxData_i(hostTxData_w),
@@ -802,88 +802,106 @@ RXPROC s1RxProc(
         .rxData3_ob(s1RxData3_wb),
         .rxData4_ob(s1RxData4_wb)
     );
+
+
+//===================================================
+// defential output buffers
+//===================================================
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    )OBUFDS_inst0 (
+        .O(dfOutP[0]),        
+        .OB(dfOutN[0]),
+        .I(wgClk)        
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    ) OBUFDS_inst1 (
+        .O(dfOutP[1]),        
+        .OB(dfOutN[1]),       
+        .I(wgDataBit)       
+    );
+    //  
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"),
+        .SLEW("SLOW")       
+    ) OBUFDS_inst2 (
+        .O(dfOutP[2]),  
+        .OB(dfOutN[2]), 
+        .I(wgTrig) 
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    ) OBUFDS_inst3 (
+        .O(dfOutP[3]),        
+        .OB(dfOutN[3]),       
+        .I(wgRfout)      
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    ) OBUFDS_inst4 (
+        .O(dfOutP[4]),        
+        .OB(dfOutN[4]),       
+        .I(a_snd_clk)        
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    ) OBUFDS_inst5 (
+        .O(dfOutP[5]),        
+        .OB(dfOutN[5]),       
+        .I(a_snd_tx)       
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"),
+        .SLEW("SLOW")       
+    ) OBUFDS_inst6 (
+        .O(dfOutP[6]),  
+        .OB(dfOutN[6]), 
+        .I(b_snd_clk) 
+    );
+    //
+    OBUFDS #(
+        .IOSTANDARD("DEFAULT"), 
+        .SLEW("SLOW")           
+    ) OBUFDS_inst7 (
+        .O(dfOutP[7]),        
+        .OB(dfOutN[7]),       
+        .I(b_snd_tx)      
+    );
     
-  //ram processs ========================================
-  always @(posedge ramClk) begin
-  
-    if(ramEn & ramWe[0])
-        mem[ramAddr[12:2]][7:0] <= ramInData[7:0];
-    if(ramEn & ramWe[1])
-        mem[ramAddr[12:2]][15:8] <= ramInData[15:8];
-    if(ramEn & ramWe[2])
-        mem[ramAddr[12:2]][23:16] <= ramInData[23:16];
-    if(ramEn & ramWe[3])
-        mem[ramAddr[12:2]][31:24] <= ramInData[31:24];
-    tmpData=31'h1234_5678;
-        
-    /*    
-    if(!ramWe[0] & !ramWe[1] & !ramWe[2] & !ramWe[3])
-        if(ramEn)
-            if(ramRstp)
-                tmpData=ramInit;
-            else 
-                tmpData=mem[ramAddr>>2];
-    else
-        if(ramEn)
-            if(ramRstp)
-                tmpData=ramInit;
-            else        
-                tmpData=ramInData;
-                */    
-  end
-  
-  
-  assign ramOutData = tmpData;
-  //ram processs end====================================
-
-
-  //timer bit24 83ms
-always @(posedge sysClk200m)begin
-    baseTimer <= baseTimer + 1'b1;
-end
-
-always @(posedge clk160m)begin
-    base160Timer <= base160Timer + 1'b1;
-end
-
-
-
-    reg[15:0] laChR;
-    always @* 
-    begin
-        if(laGroup == 3'b000)begin
-            laChR[0] = hostPreDataGate_f;
-            laChR[1] = hostTxDataClk_w;
-            laChR[2] = hostTxData_w;
-            laChR[3] = hostVideoGate_f;
-            laChR[4] = s1RxClk4m_w;
-            laChR[5] = emuRxDataBuf[31];
-            laChR[6] = s1RxPack_w;
-            laChR[7] = s1SyncVideoGate_f;
-            //===========================
-            laChR[8] = s1PreDataGate_f;
-            laChR[9] = s1TxDataClk_w;
-            laChR[10] = s1TxData_w;
-            laChR[11] = hostS1RxClk4m_w;
-            laChR[12] = hostS1RxPack_w;
-            laChR[14] = hostS1RxGate_f;
-            laChR[13] = commTime_f;
-            //laChR[15] = s1SyncVideoGate_f;
-            
-            
-            
-            
-            
-      end  
-    end
-
-
-
-assign ledV3=baseTimer[24];
-assign ledV4=base160Timer[24];
-
-assign laCh[15:0]=laChR[15:0];
-
+    
+//===================================================
+// defential inputt buffers
+//===================================================
+    IBUFDS #(
+        .DIFF_TERM("FALSE"),       // Differential Termination
+        .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
+        .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
+    ) IBUFDS_inst0 (
+        .O(aSndRx),          
+        .I(dfInP[0]),             
+        .IB(dfInN[0])             
+    );
+    //
+    IBUFDS #(
+        .DIFF_TERM("FALSE"),       // Differential Termination
+        .IBUF_LOW_PWR("TRUE"),     // Low power="TRUE", Highest performance="FALSE" 
+        .IOSTANDARD("DEFAULT")     // Specify the input I/O standard
+   ) IBUFDS_inst1 (
+        .O(bSndRx),          
+        .I(dfInP[1]),             
+        .IB(dfInN[1])             
+   );
 
   
 endmodule

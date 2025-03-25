@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -1650,7 +1650,7 @@ BEGIN
   U0 : MDM
     GENERIC MAP (
       C_FAMILY => "artix7",
-      C_DEVICE => "xc7a100t",
+      C_DEVICE => "xc7a200t",
       C_REVISION => "",
       C_JTAG_CHAIN => 2,
       C_USE_BSCAN => 0,

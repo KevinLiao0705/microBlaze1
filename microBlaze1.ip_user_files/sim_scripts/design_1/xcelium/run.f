@@ -61,33 +61,6 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_axi_uartlite_0_0/sim/design_1_axi_uartlite_0_0.vhd" \
 -endlib
--makelib xcelium_lib/generic_baseblocks_v2_1_0 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_infrastructure_v1_1_0 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_register_slice_v2_1_27 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_7 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_7 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.vhd" \
--endlib
--makelib xcelium_lib/fifo_generator_v13_2_7 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
--endlib
--makelib xcelium_lib/axi_data_fifo_v2_1_26 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_crossbar_v2_1_28 \
-  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
--endlib
 -makelib xcelium_lib/interrupt_control_v3_1_4 \
   "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/a040/hdl/interrupt_control_v3_1_vh_rfs.vhd" \
 -endlib
@@ -115,14 +88,59 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_clk_wiz.v" \
   "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_3_0/sim/design_1_axi_uartlite_3_0.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_4_0/sim/design_1_axi_uartlite_4_0.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_5_0/sim/design_1_axi_uartlite_5_0.vhd" \
+  "../../../bd/design_1/ip/design_1_axi_uartlite_6_0/sim/design_1_axi_uartlite_6_0.vhd" \
+-endlib
+-makelib xcelium_lib/axi_intc_v4_1_17 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/802b/hdl/axi_intc_v4_1_vh_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_intc_0_0/sim/design_1_axi_intc_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/xlconcat_v2_1_4 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_xlconcat_0_0/sim/design_1_xlconcat_0_0.v" \
   "../../../bd/design_1/ip/design_1_hw0_0_0/sim/design_1_hw0_0_0.v" \
-  "../../../bd/design_1/sim/design_1.v" \
+-endlib
+-makelib xcelium_lib/generic_baseblocks_v2_1_0 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_infrastructure_v1_1_0 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_register_slice_v2_1_27 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_7 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_7 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.vhd" \
+-endlib
+-makelib xcelium_lib/fifo_generator_v13_2_7 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_data_fifo_v2_1_26 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_crossbar_v2_1_28 \
+  "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
   "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+  "../../../bd/design_1/sim/design_1.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

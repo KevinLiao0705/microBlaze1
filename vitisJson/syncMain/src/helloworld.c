@@ -104,7 +104,10 @@ typedef struct _uartDataSt
 	u16 txPara1;
 	u16 txPara2;
 	u16 txPara3;
-	u8 txPackItemCnt;
+	u8 txPackItemCnt0;
+	u8 txPackItemCnt1;
+	u8 txPackItemCnt2;
+	u8 txPackItemCnt3;
 	//===========================================
 	u8 preCodeLen;
 	u8 rxEnCode;
@@ -132,6 +135,7 @@ typedef struct _uartDataSt
 	u8 endTx_f;
 	u8 txStart_f;
 
+
 	void (*fptr)(struct _uartDataSt *);
 
 } UartData;
@@ -151,14 +155,14 @@ typedef struct radarDataSt
 	 array 0:mast, 1:sub1, 2:sub2, 3:ctr1, 4:ctr2, 5:drv1a, 6:drv1b, 7:drv2a, 8:drv2b
 	 *** slotId[3:0] ==>
 	 	 "none 				id=0;
-	 	 "¢×¢Þ¢Ñ±±¨î¼Ò²Õ",     	id=1;
-	 	 "¢Ô¢Þ¢Õ¢Ï±±¨î¼Ò²Õ",    id=2;
-	 	 "¢×¢Ý±±¨î¼Ò²Õ",       id=3;
-	 	 "ÅÞ¿è¤ÀªR¼Ò²Õ",       id=4;
-	 	 "¥úÅÖ¶Ç¿é¼Ò²Õ",     	id=5;
-	 	 "¢à¢Ô¶Ç¿é¼Ò²Õ	",     	id=6;
-	 	 "»y­µ³q«H¼Ò²Õ",   		id=7;
-	 	 "SSPAÅX°Ê¼Ò²Õ",   	id=8;
+	 	 "ï¿½×¢Þ¢Ñ±ï¿½ï¿½ï¿½Ò²ï¿½",     	id=1;
+	 	 "ï¿½Ô¢Þ¢Õ¢Ï±ï¿½ï¿½ï¿½Ò²ï¿½",    id=2;
+	 	 "ï¿½×¢Ý±ï¿½ï¿½ï¿½Ò²ï¿½",       id=3;
+	 	 "ï¿½Þ¿ï¿½ï¿½ï¿½Rï¿½Ò²ï¿½",       id=4;
+	 	 "ï¿½ï¿½ï¿½Ö¶Ç¿ï¿½Ò²ï¿½",     	id=5;
+	 	 "ï¿½ï¿½Ô¶Ç¿ï¿½Ò²ï¿½	",     	id=6;
+	 	 "ï¿½yï¿½ï¿½ï¿½qï¿½Hï¿½Ò²ï¿½",   		id=7;
+	 	 "SSPAï¿½Xï¿½Ê¼Ò²ï¿½",   	id=8;
 	  *** slotSerNo		7:4
 	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
       *** slotTestStatus 11:10 ==> 0:none, 1:PreTest, 2:testing;
@@ -178,27 +182,27 @@ typedef struct radarDataSt
      ctr2Meter mainStatus[21:20] 	==> 0:none, 1:warn up, 2:ready, 3:error
      //===
      ctr1 rfPulse detect flag[22] ==> 0:none  1:OK
-     xxxxxxxxx[23] 			==> 0:°±¤î 1:±Ò°Ê
-     xxxxxxxxxxx[24] 			==> 0:°±¤î 1:±Ò°Ê
-     ctr1 ¥»¦a¯ßªi±Ò°Ê[25] 			==> 0:°±¤î 1:±Ò°Ê
-     ctr1 ºò«æ°±¤î[26] 			==> 0:³Æ«K 1:°±¤î
+     xxxxxxxxx[23] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     xxxxxxxxxxx[24] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     ctr1 ï¿½ï¿½ï¿½aï¿½ßªiï¿½Ò°ï¿½[25] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     ctr1 ï¿½ï¿½æ°±ï¿½ï¿½[26] 			==> 0:ï¿½Æ«K 1:ï¿½ï¿½ï¿½ï¿½
      //===
      ctr2 rfPulse detect flag[27] ==> 0:none  1:OK
-     xxxxxxxxx[28] 			==> 0:°±¤î 1:±Ò°Ê
-     xxxxxxxxxxx[29] 			==> 0:°±¤î 1:±Ò°Ê
-     ctr2 ¥»¦a¯ßªi±Ò°Ê[30] 			==> 0:°±¤î 1:±Ò°Ê
-     ctr2 ºò«æ°±¤î[31] 			==> 0:³Æ«K 1:°±¤î
+     xxxxxxxxx[28] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     xxxxxxxxxxx[29] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     ctr2 ï¿½ï¿½ï¿½aï¿½ßªiï¿½Ò°ï¿½[30] 			==> 0:ï¿½ï¿½ï¿½ï¿½ 1:ï¿½Ò°ï¿½
+     ctr2 ï¿½ï¿½æ°±ï¿½ï¿½[31] 			==> 0:ï¿½Æ«K 1:ï¿½ï¿½ï¿½ï¿½
      //===
      */
     u32 systemStatus0;
     //=============================================
     /*
-    sub1 ¥úÅÖ³s½uª¬ºA[0]		==> 0:¥¼³s½u, 1:¥¼³s½u
-    sub1 RF³s½uª¬ºA[1] 		==> 0:¥¼³s½u, 1:¥¼³s½u
-    sub2 ¥úÅÖ³s½uª¬ºA[2] 		==> 0:¥¼³s½u, 1:¥¼³s½u
-    sub2 RF³s½uª¬ºA[3] 		==> 0:¥¼³s½u, 1:¥¼³s½u
-    ctr1 »·ºÝ»»±±[4]     	 	==> 0:Ãö³¬, 1:¶}±Ò
-    ctr2 »·ºÝ»»±±[5]      		==> 0:Ãö³¬, 1:¶}±Ò
+    sub1 ï¿½ï¿½ï¿½Ö³sï¿½uï¿½ï¿½ï¿½A[0]		==> 0:ï¿½ï¿½ï¿½sï¿½u, 1:ï¿½ï¿½ï¿½sï¿½u
+    sub1 RFï¿½sï¿½uï¿½ï¿½ï¿½A[1] 		==> 0:ï¿½ï¿½ï¿½sï¿½u, 1:ï¿½ï¿½ï¿½sï¿½u
+    sub2 ï¿½ï¿½ï¿½Ö³sï¿½uï¿½ï¿½ï¿½A[2] 		==> 0:ï¿½ï¿½ï¿½sï¿½u, 1:ï¿½ï¿½ï¿½sï¿½u
+    sub2 RFï¿½sï¿½uï¿½ï¿½ï¿½A[3] 		==> 0:ï¿½ï¿½ï¿½sï¿½u, 1:ï¿½ï¿½ï¿½sï¿½u
+    ctr1 ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½[4]     	 	==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
+    ctr2 ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½[5]      		==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
     mast spPulseExist[6]	==  0:none 1:exist
     ctr1 allSspaEnviSlatus[7] 		==> 0:OK, 1:Error
     ctr1 allSspaPowerSlatus[8] 		==> 0:OK, 1:Error
@@ -250,7 +254,7 @@ typedef struct radarDataSt
     u16 sspaPowerV32tAA[2][36];
     //=============================================
     /*
-     0:connect, 1:­P¯à, 2 «OÅ@Ä²µo, 3:¤u§@¤ñ¹L°ª, 4:¯ß¼e¹L°ª, 5:·Å«×¹L°ª, 6:¤Ï®g¹L°ª,
+     0:connect, 1:ï¿½Pï¿½ï¿½, 2 ï¿½Oï¿½@Ä²ï¿½o, 3:ï¿½uï¿½@ï¿½ï¿½Lï¿½ï¿½, 4:ï¿½ß¼eï¿½Lï¿½ï¿½, 5:ï¿½Å«×¹Lï¿½ï¿½, 6:ï¿½Ï®gï¿½Lï¿½ï¿½,
      */
     u8 sspaModuleStatusAA[2][36];
     u16 sspaModuleRfOutAA[2][36];
@@ -261,44 +265,45 @@ typedef struct radarDataSt
     u16 commPackageCntA[2];
     u16 commOkRateA[2];
     u16 rfRxPowerA[4];//mast rx1,mast rx2,sub1 rx sub2 rx
+    //==============================================
 
 
 
 
     /*=============================================================================
-    emulate «H¸¹¼ÒÀÀ[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
+    emulate ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
     //
-    ctr1 »·ºÝ»»±±[2] ==> 0:disable 1:enable
-    ctr2 »·ºÝ»»±±[3] ==> 0:disable 1:enable
+    ctr1 ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½[2] ==> 0:disable 1:enable
+    ctr2 ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½[3] ==> 0:disable 1:enable
     //
-    mast ¯ßªi¨Ó·½[4] ==> 0:SP¯ßªi, 1:¥»¾÷¯ßªi
-    sub1 ¯ßªi¨Ó·½[5] ==> 0:¥D±±¯ßªi, 1:¥»¾÷¯ßªi
-    sub2 ¯ßªi¨Ó·½[6] ==> 0:¥D±±¯ßªi, 1:¥»¾÷¯ßªi
-    ctr1 ¯ßªi¨Ó·½[7] ==> 0:¦P¨B¯ßªi, 1:¥»¾÷¯ßªi
-    ctr2 ¯ßªi¨Ó·½[8] ==> 0:¦P¨B¯ßªi, 1:¥»¾÷¯ßªi
+    mast ï¿½ßªiï¿½Ó·ï¿½[4] ==> 0:SPï¿½ßªi, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ßªi
+    sub1 ï¿½ßªiï¿½Ó·ï¿½[5] ==> 0:ï¿½Dï¿½ï¿½ï¿½ßªi, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ßªi
+    sub2 ï¿½ßªiï¿½Ó·ï¿½[6] ==> 0:ï¿½Dï¿½ï¿½ï¿½ßªi, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ßªi
+    ctr1 ï¿½ßªiï¿½Ó·ï¿½[7] ==> 0:ï¿½Pï¿½Bï¿½ßªi, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ßªi
+    ctr2 ï¿½ßªiï¿½Ó·ï¿½[8] ==> 0:ï¿½Pï¿½Bï¿½ßªi, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ßªi
     //
-    ctr1 ¾Ô³Æµu¸ô[9] ==> 0:Ãö³¬, 1:¶}±Ò
-    ctr2 ¾Ô³Æµu¸ô[10] ==> 0:Ãö³¬, 1:¶}±Ò
+    ctr1 ï¿½Ô³Æµuï¿½ï¿½[9] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
+    ctr2 ï¿½Ô³Æµuï¿½ï¿½[10] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
     //
-    ctr1 ¿é¥X¸Ë¸m[11] ==> 0:¤Ñ½u, 1:°²­t¸ü
-    ctr2 ¿é¥X¸Ë¸m[12] ==> 0:¤Ñ½u, 1:°²­t¸ü
+    ctr1 ï¿½ï¿½Xï¿½Ë¸m[11] ==> 0:ï¿½Ñ½u, 1:ï¿½ï¿½ï¿½tï¿½ï¿½
+    ctr2 ï¿½ï¿½Xï¿½Ë¸m[12] ==> 0:ï¿½Ñ½u, 1:ï¿½ï¿½ï¿½tï¿½ï¿½
     //
-   	mast »P°Æ±±1³s½u¤è¦¡[14:13] ==> 0: ¥úÅÖ, 1: µL½u, 2: ¦Û°Ê
-   	mast »P°Æ±±2³s½u¤è¦¡[16:15] ==> 0: ¥úÅÖ, 1: µL½u, 2: ¦Û°Ê
+   	mast ï¿½Pï¿½Æ±ï¿½1ï¿½sï¿½uï¿½è¦¡[14:13] ==> 0: ï¿½ï¿½ï¿½ï¿½, 1: ï¿½Lï¿½u, 2: ï¿½Û°ï¿½
+   	mast ï¿½Pï¿½Æ±ï¿½2ï¿½sï¿½uï¿½è¦¡[16:15] ==> 0: ï¿½ï¿½ï¿½ï¿½, 1: ï¿½Lï¿½u, 2: ï¿½Û°ï¿½
    	//
-   	mast »P°Æ±±1³q¹D[17] ==> 0:Ãö³¬, 1:¶}±Ò
-   	mast »P°Æ±±2³q¹D[18] ==> 0:Ãö³¬, 1:¶}±Ò:
+   	mast ï¿½Pï¿½Æ±ï¿½1ï¿½qï¿½D[17] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
+   	mast ï¿½Pï¿½Æ±ï¿½2ï¿½qï¿½D[18] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½:
    	//
-    sub1 »P¥D±±³s½u¤è¦¡ [20:19] ==> 0: ¥úÅÖ, 1:µL½u, 2:¦Û°Ê
-    sub2 »P¥D±±³s½u¤è¦¡ [22:21] ==> 0: ¥úÅÖ, 1:µL½u, 2:¦Û°Ê
+    sub1 ï¿½Pï¿½Dï¿½ï¿½ï¿½sï¿½uï¿½è¦¡ [20:19] ==> 0: ï¿½ï¿½ï¿½ï¿½, 1:ï¿½Lï¿½u, 2:ï¿½Û°ï¿½
+    sub2 ï¿½Pï¿½Dï¿½ï¿½ï¿½sï¿½uï¿½è¦¡ [22:21] ==> 0: ï¿½ï¿½ï¿½ï¿½, 1:ï¿½Lï¿½u, 2:ï¿½Û°ï¿½
     //
-    sub1 ¥D±±»P°Æ±±1¦P¨B¼Ò¦¡ [23] ==> 0: ©T©w®É¶¡©µ®É, 1:1588¦P¨B°lÂÜ
-    sub2 ¥D±±»P°Æ±±2¦P¨B¼Ò¦¡ [24] ==> 0: ©T©w®É¶¡©µ®É, 1:1588¦P¨B°lÂÜ
+    sub1 ï¿½Dï¿½ï¿½ï¿½Pï¿½Æ±ï¿½1ï¿½Pï¿½Bï¿½Ò¦ï¿½ [23] ==> 0: ï¿½Tï¿½wï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½, 1:1588ï¿½Pï¿½Bï¿½lï¿½ï¿½
+    sub2 ï¿½Dï¿½ï¿½ï¿½Pï¿½Æ±ï¿½2ï¿½Pï¿½Bï¿½Ò¦ï¿½ [24] ==> 0: ï¿½Tï¿½wï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½, 1:1588ï¿½Pï¿½Bï¿½lï¿½ï¿½
 
-   	mast »P°Æ±±1»y­µ³q¹D[25] ==> 0:Ãö³¬, 1:¶}±Ò
-   	mast »P°Æ±±2»y­µ³q¹D[26] ==> 0:Ãö³¬, 1:¶}±Ò:
+   	mast ï¿½Pï¿½Æ±ï¿½1ï¿½yï¿½ï¿½ï¿½qï¿½D[25] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½
+   	mast ï¿½Pï¿½Æ±ï¿½2ï¿½yï¿½ï¿½ï¿½qï¿½D[26] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½:
 
-   	SSPA «OÅ@¶}Ãö[27] ==> 0:Ãö³¬, 1:¶}±Ò:
+   	SSPA ï¿½Oï¿½@ï¿½}ï¿½ï¿½[27] ==> 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½}ï¿½ï¿½:
 
    	fpgaId[31:28] ==> :
 
@@ -327,7 +332,7 @@ typedef struct radarDataSt
 	u8 chRfRxChA[2];
 	//=============================
 	u8 pulseGenCh;
-	u8 pulseGenDatasA[6*32];
+	u8 pulseGenDatasA[8*32];
 	//================================
 
 
@@ -669,8 +674,8 @@ void udIpcRxPrg(UartData *udp)
 				ibuf=getBufferByte(&inx, udp->rxBuffer);//altPackCnt
 				if(ibuf >=32)
 					return;
-				int offset=6*ibuf;
-				for(int i=0;i<6;i++){
+				int offset=8*ibuf;
+				for(int i=0;i<8;i++){
 					radarData.pulseGenDatasA[offset+i] = getBufferByte(&inx, udp->rxBuffer);
 				}
 				ibuf=getBufferByte(&inx, udp->rxBuffer);//endPackId
@@ -749,7 +754,11 @@ void udIpcRxPrg(UartData *udp)
 						radarData.systemStatus0 |= 1<<sh;
 						radarData.pulseGenCh=para3&255;
 						transBram();
+
+						u8 freq=radarData.pulseGenDatasA[8*radarData.pulseGenCh+6];
 						rs485_cmd=para2;
+						rs485_cmd_para0=freq;
+						rs485_cmd_para1=radarData.attenuator;
 						rs485_tx_slotId=0;
 						return;
 					}
@@ -908,53 +917,7 @@ void transBram(){
 	int debug;
 	bramAddr = 0;
 
-	for(int i=0;i<64;i++){
-		ibuf = readBram32();
-		debug++;
-		if(i==32)
-			debug++;
-
-	}
-
-
-
-	bramAddr = 0;
-	writeBram32(0xffffffff);
-	bramAddr = 0;
-	writeBram32(0xffffffff);
-	bramAddr = 0;
-	writeBram32(0xffffffff);
-	bramAddr = 0;
-	writeBram32(0xffffffff);
-
-	bramAddr = 15 * 4;
-	ibuf = readBram32();
-	ibuf++;
-	bramAddr = 15 * 4;
-	writeBram32(ibuf);
-	bramAddr = 15 * 4;
-	writeBram32(ibuf);
-	bramAddr = 15 * 4;
-	writeBram32(ibuf);
-	bramAddr = 15 * 4;
-	writeBram32(ibuf);
-	return
-
-
-
-
-
-	writeBram32(0x00000020);
-
-	bramAddr = 15 * 4;
-	ibuf = readBram32();
-	bramAddr = 15 * 4;
-	writeBram32(ibuf + 1);
-	return;
-
-
-
-
+	writeBram32(radarData.systemStatus0);
 	writeBram32(radarData.systemStatus1);
 	writeBram32(radarData.systemFlag0);
 	writeBram32(radarData.systemFlag1);
@@ -982,18 +945,17 @@ void transBram(){
 	bramAddr = 32*4;
 	for (; i < endi; i++)
 	{
-		u16 dutyReg=radarData.pulseGenDatasA[6*i]+radarData.pulseGenDatasA[6*i+1]*256;
-		u16 width=radarData.pulseGenDatasA[6*i+2]+radarData.pulseGenDatasA[6*i+3]*256;
-		u8 freq=radarData.pulseGenDatasA[6*i+4];
-		u8 times=radarData.pulseGenDatasA[6*i+5]-1;
-		u8 flag = dutyReg>>12;
-		dutyReg &=0xfff;
+		u32 pri=radarData.pulseGenDatasA[8*i]+radarData.pulseGenDatasA[8*i+1]*256;
+		pri+=radarData.pulseGenDatasA[8*i+2]*65536+radarData.pulseGenDatasA[8*i+3]*256*65536;
+		u16 width=radarData.pulseGenDatasA[8*i+4]+radarData.pulseGenDatasA[8*i+5]*256;
+		u8 freq=radarData.pulseGenDatasA[8*i+6];
+		u8 times=radarData.pulseGenDatasA[8*i+7]-1;
+		u8 flag = pri>>24;
 		if (flag & 1)
 		{
 			ibuf = (times << 24) + (freq << 16) + width;
 			writeBram32(ibuf);
-			ibuf = (flag<<16) + dutyReg;
-			writeBram32(ibuf);
+			writeBram32(pri);
 			sampleLen++;
 		}
 	}
@@ -1002,17 +964,10 @@ void transBram(){
 	ibuf+=radarData.fpgaId<<8;
 	writeBram32(ibuf);
 
-	bramAddr = 15 * 4;
+	bramAddr = 15 * 4;//ram change flag
 	ibuf = readBram32();
 	bramAddr = 15 * 4;
 	writeBram32(ibuf + 1);
-
-	bramAddr = 0;
-	ibuf = readBram32();
-	ibuf+=0;
-	ibuf+=0;
-	ibuf+=0;
-
 
 
 
@@ -1161,10 +1116,15 @@ u8 warnUpTime=10;
 int main()
 {
 
+	int ibuf;
 	int status=0;
 	init_platform();
 	initRadar();
 
+	bramAddr = 0;
+	ibuf = readBram32();
+	bramAddr = 4;
+	ibuf = readBram32();
 
 
 	//if(testBram(1024,256))
@@ -1531,8 +1491,11 @@ void timerPrg2()
 // 250mhx 67.108ms
 void timerPrg3()
 {
-	//outFlag ^= 255;
-	//XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+
+	outFlag ^= 0x82;
+	outFlag |= 0x05;
+
+	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
 	if(warnUpTime){
 		warnUpTime--;
@@ -1727,55 +1690,49 @@ void tickFather(){
 			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]&255;
 			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]>>8;
 		}
-		if(udIpc.txPackItemCnt>=36)
-			udIpc.txPackItemCnt=0;
+		if(udIpc.txPackItemCnt0>=36)
+			udIpc.txPackItemCnt0=0;
 		udIpc.txBuffer[inx++]=0xab;
-		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerStatusAA[fpgaId-3][udIpc.txPackItemCnt];
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt0;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerStatusAA[fpgaId-3][udIpc.txPackItemCnt0];
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
 
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
 
-		udIpc.txBuffer[inx++]=radarData.sspaModuleStatusAA[fpgaId-3][udIpc.txPackItemCnt];
-		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt]>>8;
-
-
-
+		udIpc.txBuffer[inx++]=radarData.sspaModuleStatusAA[fpgaId-3][udIpc.txPackItemCnt0];
+		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		//===================================
+		if(udIpc.txPackItemCnt1>=32)
+			udIpc.txPackItemCnt1=0;
 		udIpc.txBuffer[inx++]=0xac;
-		bramAddr = 96*4;
-		for(int i=0;i<16;i++){
+		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt1;
+		bramAddr = udIpc.txPackItemCnt1*8*4;
+		for(int i=0;i<8;i++){
 			ibuf = readBram32();
 			udIpc.txBuffer[inx++]=ibuf&255;
 			udIpc.txBuffer[inx++]=(ibuf>>8)&255;
 			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
 			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
 		}
-
-
-
 		udIpc.txBuffer[inx++]=0xcd;//check end
-
-
-
-
-
-
-		udIpc.txPackItemCnt++;
+		//====================================
+		udIpc.txPackItemCnt0++;
+		udIpc.txPackItemCnt1++;
+		//====================================
 		udIpc.txBufferLen = inx;
-
 		enc_mystm(&udIpc);
 		udIpc.txStart_f = 1;
 		udIpc.endTxFifo_f = 0;

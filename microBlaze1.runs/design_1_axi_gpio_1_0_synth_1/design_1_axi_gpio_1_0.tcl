@@ -70,14 +70,14 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_axi_gpio_1_0_synth_1" START { ROLLUP_AUTO }
-set_param general.maxThreads 8
+set_param general.maxThreads 16
 set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7a100tfgg484-2
+create_project -in_memory -part xc7a200tfbg484-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
@@ -118,7 +118,7 @@ if { $cacheID == "" } {
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top design_1_axi_gpio_1_0 -part xc7a100tfgg484-2 -incremental_mode off -mode out_of_context
+synth_design -top design_1_axi_gpio_1_0 -part xc7a200tfbg484-2 -incremental_mode off -mode out_of_context
 OPTRACE "synth_design" END { }
 OPTRACE "Write IP Cache" START { }
 

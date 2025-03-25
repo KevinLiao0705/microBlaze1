@@ -14,16 +14,18 @@ vlib riviera/proc_sys_reset_v5_0_13
 vlib riviera/lib_pkg_v1_0_2
 vlib riviera/lib_srl_fifo_v1_0_2
 vlib riviera/axi_uartlite_v2_0_31
+vlib riviera/interrupt_control_v3_1_4
+vlib riviera/axi_gpio_v2_0_29
+vlib riviera/axi_timer_v2_0_29
+vlib riviera/axi_bram_ctrl_v4_1_7
+vlib riviera/axi_intc_v4_1_17
+vlib riviera/xlconcat_v2_1_4
 vlib riviera/generic_baseblocks_v2_1_0
 vlib riviera/axi_infrastructure_v1_1_0
 vlib riviera/axi_register_slice_v2_1_27
 vlib riviera/fifo_generator_v13_2_7
 vlib riviera/axi_data_fifo_v2_1_26
 vlib riviera/axi_crossbar_v2_1_28
-vlib riviera/interrupt_control_v3_1_4
-vlib riviera/axi_gpio_v2_0_29
-vlib riviera/axi_timer_v2_0_29
-vlib riviera/axi_bram_ctrl_v4_1_7
 vlib riviera/axi_protocol_converter_v2_1_27
 
 vmap xpm riviera/xpm
@@ -39,19 +41,21 @@ vmap proc_sys_reset_v5_0_13 riviera/proc_sys_reset_v5_0_13
 vmap lib_pkg_v1_0_2 riviera/lib_pkg_v1_0_2
 vmap lib_srl_fifo_v1_0_2 riviera/lib_srl_fifo_v1_0_2
 vmap axi_uartlite_v2_0_31 riviera/axi_uartlite_v2_0_31
+vmap interrupt_control_v3_1_4 riviera/interrupt_control_v3_1_4
+vmap axi_gpio_v2_0_29 riviera/axi_gpio_v2_0_29
+vmap axi_timer_v2_0_29 riviera/axi_timer_v2_0_29
+vmap axi_bram_ctrl_v4_1_7 riviera/axi_bram_ctrl_v4_1_7
+vmap axi_intc_v4_1_17 riviera/axi_intc_v4_1_17
+vmap xlconcat_v2_1_4 riviera/xlconcat_v2_1_4
 vmap generic_baseblocks_v2_1_0 riviera/generic_baseblocks_v2_1_0
 vmap axi_infrastructure_v1_1_0 riviera/axi_infrastructure_v1_1_0
 vmap axi_register_slice_v2_1_27 riviera/axi_register_slice_v2_1_27
 vmap fifo_generator_v13_2_7 riviera/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 riviera/axi_data_fifo_v2_1_26
 vmap axi_crossbar_v2_1_28 riviera/axi_crossbar_v2_1_28
-vmap interrupt_control_v3_1_4 riviera/interrupt_control_v3_1_4
-vmap axi_gpio_v2_0_29 riviera/axi_gpio_v2_0_29
-vmap axi_timer_v2_0_29 riviera/axi_timer_v2_0_29
-vmap axi_bram_ctrl_v4_1_7 riviera/axi_bram_ctrl_v4_1_7
 vmap axi_protocol_converter_v2_1_27 riviera/axi_protocol_converter_v2_1_27
 
-vlog -work xpm  -sv2k12 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vlog -work xpm  -sv2k12 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "D:/Xilinx202202/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 "D:/Xilinx202202/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
@@ -78,10 +82,10 @@ vcom -work xil_defaultlib -93  \
 "../../../bd/design_1/ip/design_1_dlmb_bram_if_cntlr_0/sim/design_1_dlmb_bram_if_cntlr_0.vhd" \
 "../../../bd/design_1/ip/design_1_ilmb_bram_if_cntlr_0/sim/design_1_ilmb_bram_if_cntlr_0.vhd" \
 
-vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vlog -work blk_mem_gen_v8_4_5  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/25a8/simulation/blk_mem_gen_v8_4.v" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "../../../bd/design_1/ip/design_1_lmb_bram_0/sim/design_1_lmb_bram_0.v" \
 
 vcom -work axi_lite_ipif_v3_0_4 -93  \
@@ -114,33 +118,6 @@ vcom -work axi_uartlite_v2_0_31 -93  \
 vcom -work xil_defaultlib -93  \
 "../../../bd/design_1/ip/design_1_axi_uartlite_0_0/sim/design_1_axi_uartlite_0_0.vhd" \
 
-vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
-
-vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
-
-vlog -work axi_register_slice_v2_1_27  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
-
-vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
-
-vcom -work fifo_generator_v13_2_7 -93  \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.vhd" \
-
-vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
-
-vlog -work axi_data_fifo_v2_1_26  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
-
-vlog -work axi_crossbar_v2_1_28  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
-"../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
-
 vcom -work interrupt_control_v3_1_4 -93  \
 "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/a040/hdl/interrupt_control_v3_1_vh_rfs.vhd" \
 
@@ -165,17 +142,62 @@ vcom -work xil_defaultlib -93  \
 "../../../bd/design_1/ip/design_1_axi_bram_ctrl_0_1/sim/design_1_axi_bram_ctrl_0_1.vhd" \
 "../../../bd/design_1/ip/design_1_axi_uartlite_1_0/sim/design_1_axi_uartlite_1_0.vhd" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_clk_wiz.v" \
 "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.v" \
-"../../../bd/design_1/ip/design_1_hw0_0_0/sim/design_1_hw0_0_0.v" \
-"../../../bd/design_1/sim/design_1.v" \
 
-vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vcom -work xil_defaultlib -93  \
+"../../../bd/design_1/ip/design_1_axi_uartlite_3_0/sim/design_1_axi_uartlite_3_0.vhd" \
+"../../../bd/design_1/ip/design_1_axi_uartlite_4_0/sim/design_1_axi_uartlite_4_0.vhd" \
+"../../../bd/design_1/ip/design_1_axi_uartlite_5_0/sim/design_1_axi_uartlite_5_0.vhd" \
+"../../../bd/design_1/ip/design_1_axi_uartlite_6_0/sim/design_1_axi_uartlite_6_0.vhd" \
+
+vcom -work axi_intc_v4_1_17 -93  \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/802b/hdl/axi_intc_v4_1_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -93  \
+"../../../bd/design_1/ip/design_1_axi_intc_0_0/sim/design_1_axi_intc_0_0.vhd" \
+
+vlog -work xlconcat_v2_1_4  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../bd/design_1/ip/design_1_xlconcat_0_0/sim/design_1_xlconcat_0_0.v" \
+"../../../bd/design_1/ip/design_1_hw0_0_0/sim/design_1_hw0_0_0.v" \
+
+vlog -work generic_baseblocks_v2_1_0  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
+
+vlog -work axi_infrastructure_v1_1_0  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
+
+vlog -work axi_register_slice_v2_1_27  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+
+vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
+
+vcom -work fifo_generator_v13_2_7 -93  \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.vhd" \
+
+vlog -work fifo_generator_v13_2_7  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
+
+vlog -work axi_data_fifo_v2_1_26  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
+
+vlog -work axi_crossbar_v2_1_28  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
+"../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
+
+vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" \
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/7698" "+incdir+../../../../microBlaze1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" \
 "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+"../../../bd/design_1/sim/design_1.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

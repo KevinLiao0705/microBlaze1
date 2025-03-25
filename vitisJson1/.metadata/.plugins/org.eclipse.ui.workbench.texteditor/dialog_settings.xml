@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="transBram"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="transBram"/>
+			<item value="main"/>
+			<item value="testBram"/>
+			<item value="writeBram32"/>
+			<item value="transbram"/>
+			<item value="trans_bram"/>
+			<item value="wb"/>
+			<item value="write_bram"/>
+			<item value="bram"/>
+			<item value="wgSampl"/>
+			<item value="transB"/>
+			<item value="trans"/>
+			<item value="sspaModuleStatusAA"/>
+			<item value="485RXPRG"/>
+			<item value="RX485"/>
+		</list>
+		<list key="replacehistory">
+			<item value="t"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1494"/>
+		<item key="DIALOG_Y_ORIGIN" value="251"/>
+		<item key="DIALOG_WIDTH" value="296"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft JhengHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft JhengHei UI"/>
+	</section>
+</section>
