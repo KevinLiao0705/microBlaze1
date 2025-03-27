@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Wed Mar 26 19:08:29 2025
-| Host             : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+| Date             : Thu Mar 27 16:52:36 2025
+| Host             : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
 | Device           : xc7a200tfbg484-2
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.535        |
+| Total On-Chip Power (W)  | 0.618        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.398        |
-| Device Static (W)        | 0.137        |
+| Dynamic (W)              | 0.480        |
+| Device Static (W)        | 0.138        |
 | Effective TJA (C/W)      | 2.5          |
-| Max Ambient (C)          | 83.7         |
-| Junction Temperature (C) | 26.3         |
+| Max Ambient (C)          | 83.5         |
+| Junction Temperature (C) | 26.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,22 +52,22 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.031 |        8 |       --- |             --- |
-| Slice Logic              |     0.020 |    10381 |       --- |             --- |
-|   LUT as Logic           |     0.015 |     3613 |    133800 |            2.70 |
-|   Register               |     0.003 |     4578 |    269200 |            1.70 |
+| Clocks                   |     0.081 |        8 |       --- |             --- |
+| Slice Logic              |     0.033 |    41083 |       --- |             --- |
+|   LUT as Logic           |     0.027 |    12279 |    133800 |            9.18 |
+|   Register               |     0.003 |    21226 |    269200 |            7.88 |
 |   LUT as Distributed RAM |     0.001 |       64 |     46200 |            0.14 |
-|   CARRY4                 |    <0.001 |      210 |     33450 |            0.63 |
-|   F7/F8 Muxes            |    <0.001 |      116 |    133800 |            0.09 |
+|   CARRY4                 |    <0.001 |      232 |     33450 |            0.69 |
+|   F7/F8 Muxes            |    <0.001 |     4917 |    133800 |            3.67 |
 |   BUFG                   |    <0.001 |        4 |        32 |           12.50 |
-|   LUT as Shift Register  |    <0.001 |      135 |     46200 |            0.29 |
+|   LUT as Shift Register  |    <0.001 |      134 |     46200 |            0.29 |
 |   Others                 |    <0.001 |      719 |       --- |             --- |
-| Signals                  |     0.036 |     7312 |       --- |             --- |
+| Signals                  |     0.059 |    28255 |       --- |             --- |
 | Block RAM                |     0.012 |       32 |       365 |            8.77 |
 | PLL                      |     0.141 |        1 |        10 |           10.00 |
-| I/O                      |     0.303 |       82 |       285 |           28.77 |
-| Static Power             |     0.137 |          |           |                 |
-| Total                    |     0.680 |          |           |                 |
+| I/O                      |     0.299 |       82 |       285 |           28.77 |
+| Static Power             |     0.138 |          |           |                 |
+| Total                    |     0.763 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,10 +77,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.145 |       0.112 |      0.032 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.102 |       0.071 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.231 |       0.198 |      0.032 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.101 |       0.071 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco25    |       2.500 |     0.068 |       0.063 |      0.005 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.066 |       0.061 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -100,7 +100,7 @@ Table of Contents
 | User Input Data             | Confidence | Details                                                | Action                                                                                                             |
 +-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 | Design implementation state | High       | Design is routed                                       |                                                                                                                    |
-| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| Clock nodes activity        | Medium     | More than 5% of clocks are missing user specification  | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
 | Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                           |                                                                                                                    |
@@ -151,34 +151,18 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| design_1_wrapper              |     0.543 |
-|   design_1_i                  |     0.529 |
-|     axi_bram_ctrl_0           |     0.002 |
-|       U0                      |     0.002 |
-|     axi_intc_0                |     0.001 |
-|       U0                      |     0.001 |
-|     axi_timer_0               |     0.006 |
-|       U0                      |     0.006 |
-|     axi_uartlite_0            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_1            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_2            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_3            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_4            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_5            |     0.001 |
-|       U0                      |     0.001 |
-|     axi_uartlite_6            |     0.001 |
-|       U0                      |     0.001 |
+| design_1_wrapper              |     0.625 |
+|   design_1_i                  |     0.615 |
+|     axi_bram_ctrl_0           |     0.014 |
+|       U0                      |     0.014 |
+|     axi_timer_0               |     0.005 |
+|       U0                      |     0.005 |
 |     clk_wiz_1                 |     0.141 |
 |       inst                    |     0.141 |
-|     hw0_0                     |     0.323 |
-|       inst                    |     0.323 |
-|     microblaze_0              |     0.028 |
-|       U0                      |     0.028 |
+|     hw0_0                     |     0.408 |
+|       inst                    |     0.408 |
+|     microblaze_0              |     0.023 |
+|       U0                      |     0.023 |
 |     microblaze_0_axi_periph   |     0.002 |
 |       xbar                    |     0.002 |
 |     microblaze_0_local_memory |     0.013 |

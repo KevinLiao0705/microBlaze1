@@ -1,0 +1,64 @@
+2025-02-26T19:15:17.115097200255-19:15:17 **** Incremental Build of configuration Debug for project syncMain ****
+000-make all 
+000-'Building file: ../src/helloworld.c'
+000-'Invoking: MicroBlaze gcc compiler'
+000-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -IE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+000-In file included from ../src/helloworld.c:7:
+000/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h102-1-1#warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]1-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:102:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+000-  102 | #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+000-      |  ^~~~~~~
+000/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h103-1-1#warning Please refer the Standalone BSP UG647 for further details [-Wcpp]1-E:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bspinclude/include/xbasic_types.h:103:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+000-  103 | #warning  Please refer the Standalone BSP UG647 for further details
+000-      |  ^~~~~~~
+000-../src/helloworld.c: In function 'udIpcRxPrg':
+000/syncMain/src/helloworld.c506-1-1unused variable 'para3' [-Wunused-variable]1-../src/helloworld.c:506:21: warning: unused variable 'para3' [-Wunused-variable]
+000-  506 |                 u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+000-      |                     ^~~~~
+000/syncMain/src/helloworld.c505-1-1unused variable 'para2' [-Wunused-variable]1-../src/helloworld.c:505:21: warning: unused variable 'para2' [-Wunused-variable]
+000-  505 |                 u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+000-      |                     ^~~~~
+000/syncMain/src/helloworld.c504-1-1unused variable 'para1' [-Wunused-variable]1-../src/helloworld.c:504:21: warning: unused variable 'para1' [-Wunused-variable]
+000-  504 |                 u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+000-      |                     ^~~~~
+000/syncMain/src/helloworld.c503-1-1unused variable 'para0' [-Wunused-variable]1-../src/helloworld.c:503:21: warning: unused variable 'para0' [-Wunused-variable]
+000-  503 |                 u16 para0 = getBufferWord(&inx, udp->rxBuffer);
+000-      |                     ^~~~~
+000/syncMain/src/helloworld.c501-1-1unused variable 'cmdLen' [-Wunused-variable]1-../src/helloworld.c:501:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+000-  501 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+000-      |                     ^~~~~~
+000-../src/helloworld.c: In function 'main':
+000/syncMain/src/helloworld.c773-1-1unused variable 'uart0RxBuffer' [-Wunused-variable]1-../src/helloworld.c:773:12: warning: unused variable 'uart0RxBuffer' [-Wunused-variable]
+000-  773 |         u8 uart0RxBuffer[20];
+000-      |            ^~~~~~~~~~~~~
+000-At top level:
+000/syncMain/src/helloworld.c358-1-1'uart6Obj' defined but not used [-Wunused-variable]1uart6Obj../src/helloworld.c:358:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+000-  358 | static XUartLite uart6Obj;
+000-      |                  ^~~~~~~~
+000/syncMain/src/helloworld.c357-1-1'uart5Obj' defined but not used [-Wunused-variable]1uart5Obj../src/helloworld.c:357:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
+000-  357 | static XUartLite uart5Obj;
+000-      |                  ^~~~~~~~
+000/syncMain/src/helloworld.c356-1-1'uart4Obj' defined but not used [-Wunused-variable]1uart4Obj../src/helloworld.c:356:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
+000-  356 | static XUartLite uart4Obj;
+000-      |                  ^~~~~~~~
+000/syncMain/src/helloworld.c355-1-1'uart3Obj' defined but not used [-Wunused-variable]1uart3Obj../src/helloworld.c:355:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
+000-  355 | static XUartLite uart3Obj;
+000-      |                  ^~~~~~~~
+000/syncMain/src/helloworld.c354-1-1'uart2Obj' defined but not used [-Wunused-variable]1uart2Obj../src/helloworld.c:354:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
+000-  354 | static XUartLite uart2Obj;
+000-      |                  ^~~~~~~~
+000-'Finished building: ../src/helloworld.c'
+000-' '
+000-'Building target: syncMain.elf'
+000-'Invoking: MicroBlaze gcc linker'
+000-mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitis/syncMicroBlaze/export/syncMicroBlaze/sw/syncMicroBlaze/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "syncMain.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+000-'Finished building target: syncMain.elf'
+000-' '
+000-'Invoking: MicroBlaze Print Size'
+000-mb-size syncMain.elf  |tee "syncMain.elf.size"
+000-   text	   data	    bss	    dec	    hex	filename
+000-  19436	    548	  17848	  37832	   93c8	syncMain.elf
+000-'Finished building: syncMain.elf.size'
+000-' '
+00255-
+19:15:17 Build Finished (took 530ms)
+

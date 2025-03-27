@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Wed Mar 26 19:08:27 2025
-| Host         : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+| Date         : Thu Mar 27 16:52:23 2025
+| Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
 | Design       : design_1_wrapper
 | Device       : xc7a200tfbg484-2
@@ -50,487 +50,487 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#4 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#5 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#6 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#8 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#9 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#10 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#11 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#12 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#13 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#14 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#15 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#16 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf14b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#17 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#18 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#19 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#20 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#21 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#22 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#23 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#24 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#25 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#26 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#27 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#28 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#29 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#30 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#31 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#32 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf15b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#33 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#34 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#35 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#36 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#37 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#38 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#39 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#40 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#41 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#42 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#43 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#44 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#45 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#46 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#47 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#48 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/hostTxProc/txbuf5b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#49 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1PreDataGate_f__0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1PreDataGate_f_reg_i_2/O, cell design_1_i/hw0_0/inst/s1PreDataGate_f_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1PreDataGate_f is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1PreDataGate_f_reg_i_2/O, cell design_1_i/hw0_0/inst/s1PreDataGate_f_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#50 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#51 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#52 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#53 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#54 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#55 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#56 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#57 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#58 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#59 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#60 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#61 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#62 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#63 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#64 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#65 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf14b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#66 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#67 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#68 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#69 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#70 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#71 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#72 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#73 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#74 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#75 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#76 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#77 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#78 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#79 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#80 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#81 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf15b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#82 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#83 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[10]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#84 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[11]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#85 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[12]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#86 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[13]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#87 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[14]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#88 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[15]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#89 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#90 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#91 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[3]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#92 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[4]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#93 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[5]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#94 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[6]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#95 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[7]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#96 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[8]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#97 Warning
 Gated clock check  
-Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1_n_0 is a gated clock net sourced by a combinational pin design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1/O, cell design_1_i/hw0_0/inst/s1TxProc/txbuf5b_reg[9]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLIO-3#1 Warning
