@@ -1,0 +1,9 @@
+22:06:10 DEBUG : Logs will be stored at 'E:/kevin/myCode/microBlaze1/vitis/IDE.log'.
+22:06:11 INFO  : Registering command handlers for Vitis TCF services
+22:06:11 INFO  : Launching XSCT server: xsct.bat -n  -interactive E:\kevin\myCode\microBlaze1\vitis\temp_xsdb_launch_script.tcl
+22:06:12 INFO  : Platform repository initialization has completed.
+22:06:13 INFO  : XSCT server has started successfully.
+22:06:13 INFO  : plnx-install-location is set to ''
+22:06:15 INFO  : Successfully done setting XSCT server connection channel  
+22:06:15 INFO  : Successfully done query RDI_DATADIR 
+22:06:15 INFO  : Successfully done setting workspace for the tool. 
