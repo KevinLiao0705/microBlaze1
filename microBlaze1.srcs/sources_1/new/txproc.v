@@ -28,7 +28,6 @@ module TXPROC(
         input [15:0]                txData1_ib,
         input [15:0]                txData2_ib,
         input [15:0]                txData3_ib,
-        input [15:0]                txData4_ib,
         input                       txSyncClkEn_i,
         input                       txSyncClk_i,
         output                      txLoad_o,				
@@ -131,7 +130,7 @@ module TXPROC(
                     if(dataGateHTime==3)//6
                         txload_f<=1;
                     if(dataGateHTime>=4)begin
-                        if(txBitCnt < 224 )begin
+                        if(txBitCnt < 176 )begin
                             if(!txCon_i)
                                 txBitCnt<=txBitCnt+1;	
                             txBitClk_f<=1;
@@ -154,7 +153,7 @@ module TXPROC(
     end 
     //======================================================================    
     reg[4:0] txload_cnt;
-    reg[15:0] txd5;
+    //reg[15:0] txd5;
     reg[15:0] txd4;
     reg[15:0] txd3;
     reg[15:0] txd2;
@@ -175,8 +174,8 @@ module TXPROC(
     reg[15:0] txbuf11;
     reg[15:0] txbuf12;
     reg[15:0] txbuf13;
-    reg[15:0] txbuf14;
-    reg[15:0] txbuf15;
+    //reg[15:0] txbuf14;
+    //reg[15:0] txbuf15;
     
 
 
@@ -194,8 +193,8 @@ module TXPROC(
     reg[15:0] txbuf11b;
     reg[15:0] txbuf12b;
     reg[15:0] txbuf13b;
-    reg[15:0] txbuf14b;
-    reg[15:0] txbuf15b;
+    //reg[15:0] txbuf14b;
+    //reg[15:0] txbuf15b;
     reg txload2_f;
 
     
@@ -207,12 +206,10 @@ module TXPROC(
             txload_cnt<=5'b00000;
 			txd0[15:8]<=txData0_ib[15:8];
 			txd0[7:0]<=syncTxShiftTime;
-			//txd0<=txData0_ib;
 			txd1<=txData1_ib;
 			txd2<=txData2_ib;
 			txd3<=txData3_ib;
-			txd4<=txData4_ib;
-			txd5<=txData3_ib+txData4_ib;
+			txd4<=txData2_ib+txData3_ib;
 			txload2_f<=0;
 			
 		end			
@@ -221,16 +218,14 @@ module TXPROC(
                 txload_cnt<=txload_cnt+1;
             //============================        
 			if(txload_cnt==5'b00010)
-                txd5<=txd5+txd2;
+                txd4<=txd4+txd1;
             if(txload_cnt==5'b00100)
-                txd5<=txd5+txd1;
-			if(txload_cnt==5'b00110)
-                txd5<=txd5+txd0;
+                txd4<=txd4+txd0;
 			if(txload_cnt==5'b01000)begin
                 //txbuf0[15:0]<=16'b0101010101010101;
 			    //txbuf1[15:0]<=16'b0101010101010101;
-			    txbuf2[15:0]<=16'b0101010101010101;
-			    txbuf3[15:0]<=16'b0001110101010101;
+			    //txbuf2[15:0]<=16'b0101010101010101;
+			    txbuf3[15:0]<=16'b0101010100011101;
 			    //==================================
                 txbuf4[15:8]<={txd0[15],!txd0[15],txd0[14],!txd0[14],txd0[13],!txd0[13],txd0[12],!txd0[12]};
                 txbuf4[7:0]<={txd0[11],!txd0[11],txd0[10],!txd0[10],txd0[9],!txd0[9],txd0[8],!txd0[8]};
@@ -257,10 +252,10 @@ module TXPROC(
                 txbuf13[15:8]<={txd4[7],!txd4[7],txd4[6],!txd4[6],txd4[5],!txd4[5],txd4[4],!txd4[4]};
                 txbuf13[7:0]<={txd4[3],!txd4[3],txd4[2],!txd4[2],txd4[1],!txd4[1],txd4[0],!txd4[0]};
 			    //==================================
-                txbuf14[15:8]<={txd5[15],!txd5[15],txd5[14],!txd5[14],txd5[13],!txd5[13],txd5[12],!txd5[12]};
-                txbuf14[7:0]<={txd5[11],!txd5[11],txd5[10],!txd5[10],txd5[9],!txd5[9],txd5[8],!txd5[8]};
-                txbuf15[15:8]<={txd5[7],!txd5[7],txd5[6],!txd5[6],txd5[5],!txd5[5],txd5[4],!txd5[4]};
-                txbuf15[7:0]<={txd5[3],!txd5[3],txd5[2],!txd5[2],txd5[1],!txd5[1],txd5[0],!txd5[0]};
+                //txbuf14[15:8]<={txd5[15],!txd5[15],txd5[14],!txd5[14],txd5[13],!txd5[13],txd5[12],!txd5[12]};
+                //txbuf14[7:0]<={txd5[11],!txd5[11],txd5[10],!txd5[10],txd5[9],!txd5[9],txd5[8],!txd5[8]};
+                //txbuf15[15:8]<={txd5[7],!txd5[7],txd5[6],!txd5[6],txd5[5],!txd5[5],txd5[4],!txd5[4]};
+                //txbuf15[7:0]<={txd5[3],!txd5[3],txd5[2],!txd5[2],txd5[1],!txd5[1],txd5[0],!txd5[0]};
 			end
 			if(txload_cnt==5'b01010)
                 txload2_f<=1;
@@ -279,7 +274,7 @@ module TXPROC(
         if(txload2_f)begin
             //txbuf0b<=txbuf0;
             //txbuf1b<=txbuf1;
-            txbuf2b<=txbuf2;
+            //txbuf2b<=txbuf2;
             txbuf3b<=txbuf3;
             txbuf4b<=txbuf4;
             txbuf5b<=txbuf5;
@@ -291,15 +286,15 @@ module TXPROC(
             txbuf11b<=txbuf11;
             txbuf12b<=txbuf12;
             txbuf13b<=txbuf13;
-            txbuf14b<=txbuf14;
-            txbuf15b<=txbuf15;
+            //txbuf14b<=txbuf14;
+            //txbuf15b<=txbuf15;
             txData_f<=0;
         end
 		else begin	
-            txData_f<=txbuf2b[15];
+            txData_f<=txbuf3b[15];
             //txbuf0b<= {txbuf0b[14:0],txbuf1b[15]};
             //txbuf1b<= {txbuf1b[14:0],txbuf2b[15]};
-            txbuf2b<= {txbuf2b[14:0],txbuf3b[15]};
+            //txbuf2b<= {txbuf2b[14:0],txbuf3b[15]};
             txbuf3b<= {txbuf3b[14:0],txbuf4b[15]};
             txbuf4b<= {txbuf4b[14:0],txbuf5b[15]};
             txbuf5b<= {txbuf5b[14:0],txbuf6b[15]};
@@ -310,9 +305,9 @@ module TXPROC(
             txbuf10b<= {txbuf10b[14:0],txbuf11b[15]};
             txbuf11b<= {txbuf11b[14:0],txbuf12b[15]};
             txbuf12b<= {txbuf12b[14:0],txbuf13b[15]};
-            txbuf13b<= {txbuf13b[14:0],txbuf14b[15]};
-            txbuf14b<= {txbuf14b[14:0],txbuf15b[15]};
-            txbuf15b<= {txbuf15b[14:0],!txbuf15b[0]};
+            txbuf13b<= {txbuf13b[14:0],!txbuf13b[0]};
+            //txbuf14b<= {txbuf14b[14:0],txbuf15b[15]};
+            //txbuf15b<= {txbuf15b[14:0],!txbuf15b[0]};
 		end	
 	end
 	assign txDataClk_o=txBitClk_f;

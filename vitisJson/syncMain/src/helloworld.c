@@ -27,6 +27,7 @@ void uart1TxIntPrg(void *CallBackRef, unsigned int EventData);
 
 void intcDisconnect(u16 vecter);
 void transBram(void);
+void initBram(void);
 
 
 
@@ -154,15 +155,15 @@ typedef struct radarDataSt
 	/*
 	 array 0:mast, 1:sub1, 2:sub2, 3:ctr1, 4:ctr2, 5:drv1a, 6:drv1b, 7:drv2a, 8:drv2b
 	 *** slotId[3:0] ==>
-	 	 "none 				id=0;
-	 	 "�עޢѱ���Ҳ�",     	id=1;
-	 	 "�Ԣޢբϱ���Ҳ�",    id=2;
-	 	 "�עݱ���Ҳ�",       id=3;
-	 	 "�޿���R�Ҳ�",       id=4;
-	 	 "���ֶǿ�Ҳ�",     	id=5;
-	 	 "��Զǿ�Ҳ�	",     	id=6;
-	 	 "�y���q�H�Ҳ�",   		id=7;
-	 	 "SSPA�X�ʼҲ�",   	id=8;
+	 	 "none 			id=0;
+	 	 "ＩＰＣ控制模組",     	id=1;
+	 	 "ＦＰＧＡ控制模組",    id=2;
+	 	 "ＩＯ控制模組",       id=3;
+	 	 "邏輯分析模組",       id=4;
+	 	 "光纖傳輸模組",     	id=5;
+	 	 "ＲＦ傳輸模組	",     	id=6;
+	 	 "語音通信模組",   	id=7;
+	 	 "SSPA驅動模組",   	id=8;
 	  *** slotSerNo		7:4
 	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
       *** slotTestStatus 11:10 ==> 0:none, 1:PreTest, 2:testing;
@@ -182,27 +183,27 @@ typedef struct radarDataSt
      ctr2Meter mainStatus[21:20] 	==> 0:none, 1:warn up, 2:ready, 3:error
      //===
      ctr1 rfPulse detect flag[22] ==> 0:none  1:OK
-     xxxxxxxxx[23] 			==> 0:���� 1:�Ұ�
-     xxxxxxxxxxx[24] 			==> 0:���� 1:�Ұ�
-     ctr1 ���a�ߪi�Ұ�[25] 			==> 0:���� 1:�Ұ�
-     ctr1 ��氱��[26] 			==> 0:�ƫK 1:����
+     ctr1 電源啟動[23] 			==> 0:停止 1:啟動
+     ctr1 SSPA致能[24] 			==> 0:停止 1:啟動
+     ctr1 本地脈波啟動[25] 		==> 0:停止 1:啟動
+     ctr1 緊急停止[26] 			==> 0:備便 1:停止
      //===
      ctr2 rfPulse detect flag[27] ==> 0:none  1:OK
-     xxxxxxxxx[28] 			==> 0:���� 1:�Ұ�
-     xxxxxxxxxxx[29] 			==> 0:���� 1:�Ұ�
-     ctr2 ���a�ߪi�Ұ�[30] 			==> 0:���� 1:�Ұ�
-     ctr2 ��氱��[31] 			==> 0:�ƫK 1:����
+     ctr2 電源啟動[28] 			==> 0:停止 1:啟動
+     ctr2 SSPA致能[29] 			==> 0:停止 1:啟動
+     ctr2 本地脈波啟動[30] 		==> 0:停止 1:啟動
+     ctr2 緊急停止[31] 			==> 0:備便 1:停止
      //===
      */
     u32 systemStatus0;
     //=============================================
     /*
-    sub1 ���ֳs�u���A[0]		==> 0:���s�u, 1:���s�u
-    sub1 RF�s�u���A[1] 		==> 0:���s�u, 1:���s�u
-    sub2 ���ֳs�u���A[2] 		==> 0:���s�u, 1:���s�u
-    sub2 RF�s�u���A[3] 		==> 0:���s�u, 1:���s�u
-    ctr1 ���ݻ���[4]     	 	==> 0:����, 1:�}��
-    ctr2 ���ݻ���[5]      		==> 0:����, 1:�}��
+    sub1 光纖連線狀態[0]	==> 0:未連線, 1:未連線
+    sub1 RF連線狀態[1]          ==> 0:未連線, 1:未連線
+    sub2 光纖連線狀態[2] 	==> 0:未連線, 1:未連線
+    sub2 RF連線狀態[3]          ==> 0:未連線, 1:未連線
+    ctr1 遠端遙控[4]      ==> 0:關閉, 1:開啟
+    ctr2 遠端遙控[5]      ==> 0:關閉, 1:開啟
     mast spPulseExist[6]	==  0:none 1:exist
     ctr1 allSspaEnviSlatus[7] 		==> 0:OK, 1:Error
     ctr1 allSspaPowerSlatus[8] 		==> 0:OK, 1:Error
@@ -254,7 +255,7 @@ typedef struct radarDataSt
     u16 sspaPowerV32tAA[2][36];
     //=============================================
     /*
-     0:connect, 1:�P��, 2 �O�@Ĳ�o, 3:�u�@��L��, 4:�߼e�L��, 5:�ū׹L��, 6:�Ϯg�L��,
+     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高,
      */
     u8 sspaModuleStatusAA[2][36];
     u16 sspaModuleRfOutAA[2][36];
@@ -271,46 +272,47 @@ typedef struct radarDataSt
 
 
     /*=============================================================================
-    emulate �H������[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
+    emulate 信號模擬[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
     //
-    ctr1 ���ݻ���[2] ==> 0:disable 1:enable
-    ctr2 ���ݻ���[3] ==> 0:disable 1:enable
+    ctr1 遠端遙控[2] ==> 0:disable 1:enable
+    ctr2 遠端遙控[3] ==> 0:disable 1:enable
     //
-    mast �ߪi�ӷ�[4] ==> 0:SP�ߪi, 1:�����ߪi
-    sub1 �ߪi�ӷ�[5] ==> 0:�D���ߪi, 1:�����ߪi
-    sub2 �ߪi�ӷ�[6] ==> 0:�D���ߪi, 1:�����ߪi
-    ctr1 �ߪi�ӷ�[7] ==> 0:�P�B�ߪi, 1:�����ߪi
-    ctr2 �ߪi�ӷ�[8] ==> 0:�P�B�ߪi, 1:�����ߪi
+    mast 脈波來源[4] ==> 0:SP脈波, 1:本機脈波
+    sub1 脈波來源[5] ==> 0:主控脈波, 1:本機脈波
+    sub2 脈波來源[6] ==> 0:主控脈波, 1:本機脈波
+    ctr1 脈波來源[7] ==> 0:同步脈波, 1:本機脈波
+    ctr2 脈波來源[8] ==> 0:同步脈波, 1:本機脈波
     //
-    ctr1 �ԳƵu��[9] ==> 0:����, 1:�}��
-    ctr2 �ԳƵu��[10] ==> 0:����, 1:�}��
+    ctr1 戰備短路[9] ==> 0:關閉, 1:開啟
+    ctr2 戰備短路[10] ==> 0:關閉, 1:開啟
     //
-    ctr1 ��X�˸m[11] ==> 0:�ѽu, 1:���t��
-    ctr2 ��X�˸m[12] ==> 0:�ѽu, 1:���t��
+    ctr1 輸出裝置[11] ==> 0:天線, 1:假負載
+    ctr2 輸出裝置[12] ==> 0:天線, 1:假負載
     //
-   	mast �P�Ʊ�1�s�u�覡[14:13] ==> 0: ����, 1: �L�u, 2: �۰�
-   	mast �P�Ʊ�2�s�u�覡[16:15] ==> 0: ����, 1: �L�u, 2: �۰�
+   	mast 與副控1連線方式[14:13] ==> 0: 光纖, 1: 無線, 2: 自動
+   	mast 與副控2連線方式[16:15] ==> 0: 光纖, 1: 無線, 2: 自動
    	//
-   	mast �P�Ʊ�1�q�D[17] ==> 0:����, 1:�}��
-   	mast �P�Ʊ�2�q�D[18] ==> 0:����, 1:�}��:
+   	mast 與副控1通道[17] ==> 0:關閉, 1:開啟
+   	mast 與副控2通道[18] ==> 0:關閉, 1:開啟:
    	//
-    sub1 �P�D���s�u�覡 [20:19] ==> 0: ����, 1:�L�u, 2:�۰�
-    sub2 �P�D���s�u�覡 [22:21] ==> 0: ����, 1:�L�u, 2:�۰�
+    sub1 與主控連線方式 [20:19] ==> 0: 光纖, 1:無線, 2:自動
+    sub2 與主控連線方式 [22:21] ==> 0: 光纖, 1:無線, 2:自動
     //
-    sub1 �D���P�Ʊ�1�P�B�Ҧ� [23] ==> 0: �T�w�ɶ�����, 1:1588�P�B�l��
-    sub2 �D���P�Ʊ�2�P�B�Ҧ� [24] ==> 0: �T�w�ɶ�����, 1:1588�P�B�l��
+    sub1 主控與副控1同步模式 [23] ==> 0: 固定時間延時, 1:1588同步追蹤
+    sub2 主控與副控2同步模式 [24] ==> 0: 固定時間延時, 1:1588同步追蹤
 
-   	mast �P�Ʊ�1�y���q�D[25] ==> 0:����, 1:�}��
-   	mast �P�Ʊ�2�y���q�D[26] ==> 0:����, 1:�}��:
+   	mast 與副控1語音通道[25] ==> 0:關閉, 1:開啟
+   	mast 與副控2語音通道[26] ==> 0:關閉, 1:開啟:
 
-   	SSPA �O�@�}��[27] ==> 0:����, 1:�}��:
+   	SSPA 保護開關[27] ==> 0:關閉, 1:開啟:
 
    	fpgaId[31:28] ==> :
-
-
-
     */
     u32 systemFlag0;
+    /*
+    	[0]: microBlaze ready
+
+    */
     u32 systemFlag1;
     //===============================
     u8 sspaPowerV32OnDly;
@@ -638,7 +640,7 @@ void udIpcRxPrg(UartData *udp)
 		if(udp->txPara1==para1)
 			tickFatherTime=250;
 		if(fpgaId==3 || fpgaId==4){
-			if(cmd == 0x1000){//tickFather
+			if(cmd == 0x1000){//tickFather back
 				radarData.systemFlag0 = getBufferDword(&inx, udp->rxBuffer);
 				radarData.systemFlag1 = getBufferDword(&inx, udp->rxBuffer);
 				radarData.sspaPowerV32OnDly = getBufferByte(&inx, udp->rxBuffer);
@@ -661,10 +663,6 @@ void udIpcRxPrg(UartData *udp)
 				radarData.chRfTxChA[1] = getBufferByte(&inx, udp->rxBuffer);
 				radarData.chRfRxChA[0] = getBufferByte(&inx, udp->rxBuffer);
 				radarData.chRfRxChA[1] = getBufferByte(&inx, udp->rxBuffer);
-
-
-
-
 
 				//==============================================
 				radarData.pulseGenCh=getBufferByte(&inx, udp->rxBuffer);
@@ -792,10 +790,6 @@ void udIpcRxPrg(UartData *udp)
 						rs485_tx_slotId=0;
 						return;
 					}
-
-
-
-
 				}
 
 			}
@@ -917,23 +911,23 @@ void transBram(){
 	int debug;
 	bramAddr = 0;
 
-	writeBram32(radarData.systemStatus0);
-	writeBram32(radarData.systemStatus1);
-	writeBram32(radarData.systemFlag0);
-	writeBram32(radarData.systemFlag1);
+	writeBram32(radarData.systemStatus0);//mem[0]
+	writeBram32(radarData.systemStatus1);//mem[1]
+	writeBram32(radarData.systemFlag0);//mem[2]
+	writeBram32(radarData.systemFlag1);//mem[3]
 	//==================
 	ibuf=radarData.afterTrigTime;
 	ibuf+=radarData.preRfOutTime<<8;
 	ibuf+=radarData.preTrigTime<<16;
-	writeBram32(ibuf);
+	writeBram32(ibuf);//mem[4]
 	//===================
-	writeBram32(radarData.commTestPacks);
+	writeBram32(radarData.commTestPacks);//mem[5]
 	ibuf=radarData.vgTimeDelay;
 	ibuf+=radarData.chTimeFineTune<<16;
-	writeBram32(ibuf);
+	writeBram32(ibuf);//mem[6]
 	ibuf=radarData.chFiberDelay;
 	ibuf+=radarData.chRfDelay<<16;
-	writeBram32(ibuf);
+	writeBram32(ibuf);//mem[7]
 	//=================================
 	int sampleLen = 0;
 	int i=0;
@@ -1113,6 +1107,8 @@ u8 uart0TxBuffer[20];
 u8 first_f=1;
 u8 warnUpTime=10;
 
+
+//$main
 int main()
 {
 
@@ -1240,6 +1236,7 @@ int main()
 
 	udIpc.fptr = udIpcRxPrg;
 	ud485.fptr = ud485RxPrg;
+	initBram();
 	//loopStart
 
 
@@ -1828,5 +1825,40 @@ void uart1TxIntPrg(void *CallBackRef, unsigned int EventData)
 
 
 
+
+
+
+
+
+
+void initBram(){
+	bramAddr = 0;
+	writeBram32(0x00000000);//00 systemStatus0
+	writeBram32(0x00000000);//01 systemStatus1
+	writeBram32(0x00000010);//02 systemFlag0
+	writeBram32(0x00000001);//03 systemFlag1
+	writeBram32(0x00140a0a);//04 16:8:8 ,preTrigTime,  preRfoutTime  afterTrigTime,
+	writeBram32(0x00001000);//05 16:16, spare,commTestPacks
+	writeBram32(0x00002800);//06 12:20., chTimeFineTune,vgTimeDelay
+	writeBram32(0x00000000);//07 16:16 chRfTimeDelay,chFiberTimeDelay
+	writeBram32(0x00000000);//08 xx8:8 fgaId,sample end
+	writeBram32(0x00000400);//09 xx8:8 vgTimeDelaySub
+
+
+    /*
+    wgRepeatEnd<=ibuf[0][31:24];
+    wgRfFreq<=ibuf[0][23:16];
+    wgPulseWidth<=ibuf[0][15:0];
+    wgPulseFlag<=ibuf[1][31:24];
+    wgPri<=ibuf[1][23:0];
+    pulseGen datas addr 0x20 end 0x60
+    */
+	bramAddr = 32*4;
+    for(int i=0;i<32;i++){
+    	writeBram32(0x002b0064);//
+    	writeBram32(0x000003e8);//
+    }
+
+}
 
 

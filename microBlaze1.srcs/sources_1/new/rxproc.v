@@ -29,8 +29,7 @@ module RXPROC(
         output [15:0]               rxData0_ob,
         output [15:0]               rxData1_ob,
         output [15:0]               rxData2_ob,
-        output [15:0]               rxData3_ob,
-        output [15:0]               rxData4_ob
+        output [15:0]               rxData3_ob
     );
     
 
@@ -45,21 +44,18 @@ module RXPROC(
     reg[15:0] rxd2;
     reg[15:0] rxd3;
     reg[15:0] rxd4;
-    reg[15:0] rxd5;
     
     reg[15:0] rxd0b;
     reg[15:0] rxd1b;
     reg[15:0] rxd2b;
     reg[15:0] rxd3b;
     reg[15:0] rxd4b;
-    reg[15:0] rxd5b;
     
     
     reg[15:0] rxData0;
     reg[15:0] rxData1;
     reg[15:0] rxData2;
     reg[15:0] rxData3;
-    reg[15:0] rxData4;
     
 
     reg[15:0] rxbuf0;
@@ -99,7 +95,7 @@ module RXPROC(
 		    if(rxClkHTime<20)      
 				rxClkHTime<=rxClkHTime+1;
 			if(rxClkHTime==1)begin
-                if(rxHead!=16'b0001110101010101)
+                if(rxHead!=16'b0101010100011101)
                     rxClkHTime<=40;
                 if(rxd0!=rxd0b)
                     rxClkHTime<=40;
@@ -111,23 +107,20 @@ module RXPROC(
                     rxClkHTime<=40;
                 if(rxd4!=rxd4b)
                     rxClkHTime<=40;
-                if(rxd5!=rxd5b)
-                    rxClkHTime<=40;
+                //if(rxd5!=rxd5b)
+                //    rxClkHTime<=40;
                 rxchk<=rxd0+rxd1;
             end
 			if(rxClkHTime==3)
                 rxchk<=rxchk+rxd2;
             if(rxClkHTime==5)
                 rxchk<=rxchk+rxd3;
-            if(rxClkHTime==7)
-                rxchk<=rxchk+rxd4;
-			if(rxClkHTime==9 && rxchk==rxd5)begin
+			if(rxClkHTime==9 && rxchk==rxd4)begin
                 rxPackTime<=0;
                 rxData0<=rxd0;
                 rxData1<=rxd1;
                 rxData2<=rxd2;
                 rxData3<=rxd3;
-                rxData4<=rxd4;
             end	
 		end
 	end	 
@@ -152,10 +145,10 @@ module RXPROC(
         rxbuf11<={rxbuf11[14:0],rxbuf12[15]};
         //=====
         rxbuf12<={rxbuf12[14:0],rxbuf13[15]};
-        rxbuf13<={rxbuf13[14:0],rxbuf14[15]};
+        rxbuf13<={rxbuf13[14:0],rxData_i};
         //=====
-        rxbuf14<={rxbuf14[14:0],rxbuf15[15]};
-        rxbuf15<={rxbuf15[14:0],rxData_i};
+        //rxbuf14<={rxbuf14[14:0],rxbuf15[15]};
+        //rxbuf15<={rxbuf15[14:0],rxData_i};
         //========================
         rxHead[15:0]<=rxbuf3[15:0];
         
@@ -184,10 +177,10 @@ module RXPROC(
         rxd4[7:4]  <={rxbuf13[15], rxbuf13[13], rxbuf13[11], rxbuf13[9]};
         rxd4[3:0]  <={rxbuf13[7] , rxbuf13[5] , rxbuf13[3] , rxbuf13[1]};
         //========================
-        rxd5[15:12]<={rxbuf14[15], rxbuf14[13], rxbuf14[11], rxbuf14[9]};
-        rxd5[11:8] <={rxbuf14[7] , rxbuf14[5] , rxbuf14[3] , rxbuf14[1]};
-        rxd5[7:4]  <={rxbuf15[15], rxbuf15[13], rxbuf15[11], rxbuf15[9]};
-        rxd5[3:0]  <={rxbuf15[7] , rxbuf15[5] , rxbuf15[3] , rxbuf15[1]};
+        //rxd5[15:12]<={rxbuf14[15], rxbuf14[13], rxbuf14[11], rxbuf14[9]};
+        //rxd5[11:8] <={rxbuf14[7] , rxbuf14[5] , rxbuf14[3] , rxbuf14[1]};
+        //rxd5[7:4]  <={rxbuf15[15], rxbuf15[13], rxbuf15[11], rxbuf15[9]};
+        //rxd5[3:0]  <={rxbuf15[7] , rxbuf15[5] , rxbuf15[3] , rxbuf15[1]};
         //================================================================
         rxd0b[15:12]<={!rxbuf4[14], !rxbuf4[12], !rxbuf4[10], !rxbuf4[8]};
         rxd0b[11:8] <={!rxbuf4[6] , !rxbuf4[4] , !rxbuf4[2] , !rxbuf4[0]};
@@ -214,10 +207,10 @@ module RXPROC(
         rxd4b[7:4]  <={!rxbuf13[14], !rxbuf13[12], !rxbuf13[10], !rxbuf13[8]};
         rxd4b[3:0]  <={!rxbuf13[6] , !rxbuf13[4] , !rxbuf13[2] , !rxbuf13[0]};
         //========================
-        rxd5b[15:12]<={!rxbuf14[14], !rxbuf14[12], !rxbuf14[10], !rxbuf14[8]};
-        rxd5b[11:8] <={!rxbuf14[6] , !rxbuf14[4] , !rxbuf14[2] , !rxbuf14[0]};
-        rxd5b[7:4]  <={!rxbuf15[14], !rxbuf15[12], !rxbuf15[10], !rxbuf15[8]};
-        rxd5b[3:0]  <={!rxbuf15[6] , !rxbuf15[4] , !rxbuf15[2] , !rxbuf15[0]};
+        //rxd5b[15:12]<={!rxbuf14[14], !rxbuf14[12], !rxbuf14[10], !rxbuf14[8]};
+        //rxd5b[11:8] <={!rxbuf14[6] , !rxbuf14[4] , !rxbuf14[2] , !rxbuf14[0]};
+        //rxd5b[7:4]  <={!rxbuf15[14], !rxbuf15[12], !rxbuf15[10], !rxbuf15[8]};
+        //rxd5b[3:0]  <={!rxbuf15[6] , !rxbuf15[4] , !rxbuf15[2] , !rxbuf15[0]};
         //========================
 	end			
 	
@@ -262,7 +255,6 @@ module RXPROC(
 	assign rxData1_ob = rxData1;
 	assign rxData2_ob = rxData2;
 	assign rxData3_ob = rxData3;
-	assign rxData4_ob = rxData4;
 	assign rxPack_o = rxPack_f;
 	assign rxClk4m_o = rxClk4m_f;
 		
