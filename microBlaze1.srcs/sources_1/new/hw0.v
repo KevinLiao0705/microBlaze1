@@ -112,6 +112,7 @@ module hw0
     reg[31:0]   baseTimer;
     reg[31:0]   base160Timer;
 
+    reg[7:0]   hostSoundData;
 
     reg[RamDataWidth-1:0]             ramOutDataR;
     reg[RamDataWidth-1:0]             mem[RamDepth-1:0];
@@ -175,7 +176,12 @@ module hw0
     reg[19:0] hostVideoGateWidthTimeCnt;
     reg[19:0] hostVideoGateWidthTime;
     reg[19:0] wgRfoutTimeCnt;
+
+    reg hostLocal_f;
+    reg vgData_f;    
+    reg widthTable_f;    
     
+        
     reg hostVideoGate_f;
     reg[19:0] hostWgTrigGateDelayTime;
     reg[19:0] hostWgTrigGateWidthTimeCnt;
@@ -197,7 +203,7 @@ module hw0
     
     reg[31:0] hostAutoPreDataGateTimeCnt;
     reg hostAutoPreDataGate_f;
-    reg hostLocalPreDataGate_f;
+    reg localPreDataGate_f;
     reg hostSyncPreDataGate_f;
     reg hostPreDataGate_f;
     reg hostPreDataGate_ff;
@@ -257,18 +263,18 @@ module hw0
     reg[15:0] emuRfTxClk4mAdj;
     
     
-    reg[31:0] hostLocalPreDataGateTimeCnt;
-    reg[7:0] hostLocalWgSampleCnt; 
-    reg[7:0] hostLocalWgSampleEnd; 
-    reg[8:0] hostLocalWgSampleAddr; 
-    reg[4:0] hostLocalWgTblCh; 
+    reg[31:0] localPreDataGateTimeCnt;
+    reg[7:0] localWgSampleCnt; 
+    reg[7:0] localWgSampleEnd; 
+    reg[8:0] localWgSampleAddr; 
+    reg[4:0] localWgTblCh; 
     //==========================================
-    reg[7:0] hostLocalWgRepeatCnt;
-    reg[7:0] hostLocalWgRepeatEnd;//<=ibuf[0][31:24];
-    reg[7:0] hostLocalWgRfFreq;//<=ibuf[0][23:16];
-    reg[19:0] hostLocalWgPulseWidth;//<=ibuf[0][15:0];
-    reg[7:0] hostLocalWgPulseFlag;//<=ibuf[1][31:24];
-    reg[31:0] hostLocalWgPriTime;//<=ibuf[1][23:0];
+    reg[7:0] localWgRepeatCnt;
+    reg[7:0] localWgRepeatEnd;//<=ibuf[0][31:24];
+    reg[7:0] localWgRfFreq;//<=ibuf[0][23:16];
+    reg[19:0] localWgPulseWidth;//<=ibuf[0][15:0];
+    reg[7:0] localWgPulseFlag;//<=ibuf[1][31:24];
+    reg[31:0] localWgPriTime;//<=ibuf[1][23:0];
     reg[19:0] hostWgPulseWidth;
     reg[7:0] hostWgRfFreq;
     
@@ -285,7 +291,7 @@ module hw0
     reg[15:0] hostTxData1;
     reg[15:0] hostTxData2;
     reg[15:0] hostTxData3;
-    reg[7:0] hostTxSerial;
+    reg[6:0] hostTxSerial;
     
     reg[15:0] s1TxData0;
     reg[15:0] s1TxData1;
@@ -314,7 +320,7 @@ module hw0
         mem[5]=32'h0000_1000;//16:16, spare,commTestPacks
         mem[6]=32'h0000_2800;//12:20, chTimeFineTune,hostWgVideoGateDelayTime 
         mem[7]=32'h0000_0000;//16:16 chRfTimeDelay,chFiberTimeDelay
-        mem[8]=32'h0000_0001;//xx8:8 fgaId,sample end  0
+        mem[8]=32'h0000_1001;//xx8:8 fgaId,sample end  0
         mem[9]=32'h0000_0400;//12:20, xxx,wgTrigGateDelayTime-sub 
         mem[10]=32'h0000_0280;//12:20, chTimeFineTune,s1WgVideoGateDelayTime 
         
@@ -339,10 +345,10 @@ module hw0
         mem[34]=(4*256+43)*65536+50*10;
         mem[35]=0*65536*256+800*10;
         //===========================        
-        hostLocalPreDataGateTimeCnt=0;
-        hostLocalWgRepeatCnt=0;
-        hostLocalWgSampleCnt=0;
-        hostLocalWgPulseWidth=10*160;
+        localPreDataGateTimeCnt=0;
+        localWgRepeatCnt=0;
+        localWgSampleCnt=0;
+        localWgPulseWidth=10*160;
         hostSyncWgPulseWidth=10*160;
         hostPreDataGate_f=1;                
         hostPreDataGate_ff=1;                
@@ -379,7 +385,7 @@ module hw0
         
         
         hostVideoGateDelayTimeCnt=20'hfff00;
-        hostLocalPreDataGate_f=1;
+        localPreDataGate_f=1;
         hostVideoGate_f=0;
         //==================================
         s1VideoGateCommPathTime=0;
@@ -405,7 +411,7 @@ module hw0
 
     /*
     always @(posedge clk160m) begin
-        if(!hostLocalPreDataGate_f)begin
+        if(!localPreDataGate_f)begin
             commTimeCnt<=0;    
             commTime_f<=0;
             preHostS1RxGate_f=1;
@@ -463,7 +469,7 @@ module hw0
 // generate hostAutoPreDataGate 
 //===================================================
     always @(posedge clk160m) begin
-        if(hostAutoPreDataGateTimeCnt<20000)begin//125us
+        if(hostAutoPreDataGateTimeCnt<10400)begin//125us
             hostAutoPreDataGateTimeCnt<=hostAutoPreDataGateTimeCnt+1;
             if(hostAutoPreDataGateTimeCnt<preDataGateWidth)
                 hostAutoPreDataGate_f<=0;
@@ -475,54 +481,72 @@ module hw0
         end           
     end
     
+    reg[7:0] localWgPulseWidthTblInx;    
 //===================================================
-// generate hostLocalPreDataGate 
+/*
+        generate localPreDataGate_f,  localWgTblCh,  localWgPulseWidth, localWgRfFreq
+            localPreDataGate_f=low active 1us
+*/
 //===================================================
-     
     always @(posedge clk160m) begin
-        hostLocalPreDataGateTimeCnt<=hostLocalPreDataGateTimeCnt+1;
-        if(hostLocalPreDataGateTimeCnt<preDataGateWidth)
-            hostLocalPreDataGate_f<=0;
+        localPreDataGateTimeCnt<=localPreDataGateTimeCnt+1;
+        if(localPreDataGateTimeCnt<preDataGateWidth)
+            localPreDataGate_f<=0;
         else    
-            hostLocalPreDataGate_f<=1;
-        if(hostLocalPreDataGateTimeCnt<60*160)begin
-            if(hostLocalPreDataGateTimeCnt==0)
-                hostLocalWgSampleEnd<= mem[8][7:0];
-            if(hostLocalPreDataGateTimeCnt==2)
-                hostLocalWgSampleAddr<={hostLocalWgSampleCnt,1'b0};
-            if(hostLocalPreDataGateTimeCnt==3)begin
-                hostLocalWgSampleAddr<=hostLocalWgSampleAddr+32;
-                hostLocalWgTblCh<=hostLocalWgSampleAddr[4:0];
+            localPreDataGate_f<=1;
+        //===    
+        if(localPreDataGateTimeCnt<52*160)begin
+            if(localPreDataGateTimeCnt==0)
+                localWgSampleEnd<= mem[8][7:0];
+            if(localPreDataGateTimeCnt==2)
+                localWgSampleAddr<={localWgSampleCnt,1'b0};
+            if(localPreDataGateTimeCnt==3)begin
+                localWgSampleAddr<=localWgSampleAddr+32;
+                localWgTblCh<=localWgSampleAddr[4:0];
             end    
-            if(hostLocalPreDataGateTimeCnt==4)begin
-                hostLocalWgRepeatEnd<=mem[hostLocalWgSampleAddr][31:24];
-                hostLocalWgRfFreq<=mem[hostLocalWgSampleAddr][23:16];
-                hostLocalWgPulseWidth<={mem[hostLocalWgSampleAddr][15:0],4'b0000};//unit 0.1us
-                hostLocalWgSampleAddr<=hostLocalWgSampleAddr+1;
+            if(localPreDataGateTimeCnt==4)begin
+                localWgRepeatEnd<=mem[localWgSampleAddr][31:24];
+                localWgRfFreq<=mem[localWgSampleAddr][23:16];
+                localWgPulseWidthTblInx<=mem[localWgSampleAddr][4:0];
+                localWgSampleAddr<=localWgSampleAddr+1;
             end
-            if(hostLocalPreDataGateTimeCnt==5)begin
-                hostLocalWgPulseFlag<=mem[hostLocalWgSampleAddr][31:24];
-                hostLocalWgPriTime<={4'b0000,mem[hostLocalWgSampleAddr][23:0],4'b0000};
+            if(localPreDataGateTimeCnt==5)begin
+                localWgPulseFlag<=mem[localWgSampleAddr][31:24];
+                localWgPriTime<={4'b0000,mem[localWgSampleAddr][23:0],4'b0000};
+                localWgPulseWidth<=mem[localWgPulseWidthTblInx+96][15:0];
             end
-            if(hostLocalPreDataGateTimeCnt==6)begin
-                if(hostLocalWgRepeatCnt<hostLocalWgRepeatEnd)
-                    hostLocalWgRepeatCnt<=hostLocalWgRepeatCnt+1;
+            if(localPreDataGateTimeCnt==6)begin
+                if(localWgRepeatCnt<localWgRepeatEnd)
+                    localWgRepeatCnt<=localWgRepeatCnt+1;
                 else begin
-                    hostLocalWgRepeatCnt<=0;
-                    if(hostLocalWgSampleCnt<hostLocalWgSampleEnd)
-                        hostLocalWgSampleCnt<=hostLocalWgSampleCnt+1;
+                    localWgRepeatCnt<=0;
+                    if(localWgSampleCnt<localWgSampleEnd)
+                        localWgSampleCnt<=localWgSampleCnt+1;
                     else        
-                        hostLocalWgSampleCnt<=0;                        
+                        localWgSampleCnt<=0;                        
                 end
             end
         end
         else begin
-            if(hostLocalPreDataGateTimeCnt>=hostLocalWgPriTime)
-                hostLocalPreDataGateTimeCnt<=1;
+            if(localPreDataGateTimeCnt>=localWgPriTime)
+                localPreDataGateTimeCnt<=1;
         end
     end
-        
+    
 
+
+
+
+
+
+
+
+
+
+
+
+    
+    
 //===================================================
 // generate hostSyncPreDataGate 
 //===================================================
@@ -537,20 +561,34 @@ module hw0
     always @* 
     begin
         fpgaId=mem[8][15:8];
+        vgData_f=1;
+        widthTable_f=1;
+        hostLocal_f=1;
+        hostPreDataGate_f=localPreDataGate_f;
+        hostWgPulseWidth=localWgPulseWidth;
+        hostWgRfFreq=localWgRfFreq;
+        hostWgTblCh=localWgPulseWidthTblInx;
+        //=====================================
+        s1PreDataGate_f=s1SyncPreDataGate_f;
+        wgTrigGate_f=s1WgTrigGate_f;
+    
+    
+        /*    
+        fpgaId=mem[8][15:8];
         if(mem[3][0])begin//systemFlag1[0] microBlaze ready_f
             if(fpgaId==16)begin//test mode
-                hostPreDataGate_f=hostLocalPreDataGate_f;
+                hostPreDataGate_f=localPreDataGate_f;
                 hostWgPulseWidth=hostLocalWgPulseWidth;
-                hostWgRfFreq=hostLocalWgRfFreq;
-                hostWgTblCh=hostLocalWgTblCh;
+                hostWgRfFreq=localWgRfFreq;
+                hostWgTblCh=localWgTblCh;
                 s1PreDataGate_f=s1SyncPreDataGate_f;
             end
-            else if(mem[8][fpgaId]==0)begin//host
+            else if(fpgaId==0)begin//host
                 s1PreDataGate_f=1;
                 if(mem[2][4])begin//0:pulseSource from sp, 1:pulseSource from local
-                    hostPreDataGate_f=hostLocalPreDataGate_f;
-                    hostWgPulseWidth=hostLocalWgPulseWidth;
-                    hostWgRfFreq=hostLocalWgRfFreq;
+                    hostPreDataGate_f=localPreDataGate_f;
+                    hostWgPulseWidth=localWgPulseWidth;
+                    hostWgRfFreq=localWgRfFreq;
                     hostWgTblCh=hostLocalWgTblCh;
                 end    
                 else begin    
@@ -561,30 +599,14 @@ module hw0
                 end
             end    
 
-            if(mem[8][15:8]==1)begin//host
-                s1PreDataGate_f=1;
-                if(mem[2][4])begin//0:pulseSource from sp, 1:pulseSource from local
-                    hostPreDataGate_f=hostLocalPreDataGate_f;
-                    hostWgPulseWidth=hostLocalWgPulseWidth;
-                    hostWgRfFreq=hostLocalWgRfFreq;
-                    hostWgTblCh=hostLocalWgTblCh;
-                end    
-                else begin    
-                    hostPreDataGate_f=hostSyncPreDataGate_f;
-                    hostWgPulseWidth=hostSyncWgPulseWidth;
-                    hostWgRfFreq=hostSyncWgRfFreq;
-                    hostWgTblCh=hostSyncWgTblCh;
-                end
+            if(fpgaId==1)begin//host
             end    
-
-            
-            
-                
         end
         else begin
             hostPreDataGate_f=1;
             s1PreDataGate_f=1;
-        end                    
+        end
+        */                    
     end
 
 
@@ -604,14 +626,32 @@ module hw0
             if(!hostPreDataGate_ff)begin//L2h
                 hostVideoGateWidthTime<=hostWgPulseWidth;
                 /*
-                                    tx_data0[15:9]= serialCnt,[7:0] pretrigOffsetTime[7:0]
-                                    tx_data1[15:0] = cmdData  & statusData  0xfxxx=command  0xxxx  value 
-                                    tx_data2[15:0] = soundData:chFlag:chFreq  8:3:5
-                                    tx_data3[15:0] = chWidth:commDelay 5:11
-                                   */
-                hostTxData0<={hostTxSerial,8'h00};
-                hostTxData2[4:0]=hostWgRfFreq;
-                hostTxData3[15:11]=hostWgTblCh;
+                                    txData0 [1:7:9] vgData_f,serialCnt,pretrigOffsetTime
+                                        vgData=0:commData
+                                        vgData=1:vgData
+                                    txData1[15:0] = cmdData  & statusData 
+                                        0x0000~efff: status  data
+                                        0xf000~ff00: command  data
+                                    txData2[8:3:5] = soundData:flags,chFreq
+                                        flags[2]=widthTable_f
+                                        flags[1]=hostLocal_f
+                                    if(vgData=0)
+                                        txData3[5:11] = xxxxx:commDelay
+                                    if(vgData=1)
+                                        if(widthTable_f=1
+                                            txData3[5:11] = chWidth:commDelay
+                                        else    
+                                            txData3[15:0] = pulseWidth(unit 0.1s)
+                              */
+                hostTxData0<={vgData_f,hostTxSerial,8'h00};
+                hostTxData1[15:0]<=16'h0000;
+                hostTxData2[15:8]<=hostSoundData;
+                hostTxData2[7]<=widthTable_f;
+                hostTxData2[6]<=hostLocal_f;
+                hostTxData2[5]<=0;
+                hostTxData2[4:0]<=hostWgRfFreq;
+                hostTxData3[15:11]<=hostWgTblCh;
+                hostTxData3[10:0]<=11'b000_0000_0000;
                 hostTxSerial<=hostTxSerial+1;
             end
             hostPreDataGate_ff<=hostPreDataGate_f;
@@ -624,7 +664,7 @@ module hw0
         if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
             hostVideoGate_f<=0;
         //====    
-        if(hostVideoGateDelayTimeCnt<12800)begin//120us
+        if(hostVideoGateDelayTimeCnt<12800)begin//80us
             hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
             if(hostVideoGateDelayTimeCnt==0)
                 hostVideoGateDelayTime<=mem[6][19:0];
@@ -634,8 +674,6 @@ module hw0
                 hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][31:16],4'b0000};
             if(hostVideoGateDelayTimeCnt==3)
                 hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][15:8],4'b0000};
-                
-                
             if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
                 hostWgTrigGate_f<=1;
                 hostWgTrigGateWidthTimeCnt<=1;
@@ -647,22 +685,6 @@ module hw0
         end
     end    
 
-
-//===================================================
-// generate s1LocalPreDataGate 
-//===================================================
-    always @(posedge clk160m) begin
-        if(s1LocalPreDataGateTimeCnt<20000)begin
-            s1LocalPreDataGateTimeCnt<=s1LocalPreDataGateTimeCnt+1;
-            if(s1LocalPreDataGateTimeCnt<preDataGateWidth)
-                s1LocalPreDataGate_f<=0;
-            else
-                s1LocalPreDataGate_f<=1;            
-        end        
-        else begin       
-            s1LocalPreDataGateTimeCnt<=0;
-        end           
-    end    
 
 
 //===================================================
@@ -688,54 +710,11 @@ module hw0
     end    
     
     
-//===================================================
-// generate s1PreDataGate 
-//===================================================
-    always @* 
-    begin
-        if(mem[3][0])begin//systemFlag1[0] microBlaze ready_f
-            if(mem[8][15:8]==0)begin//host
-                s1PreDataGate_f=s1SyncPreDataGate_f;
-            end
-            else if(mem[8][15:8]==1)begin//sub1
-                if(mem[2][5])//0:sub1PulseSource from sp, 1:sub1PulseSource from local
-                    s1PreDataGate_f=s1SyncPreDataGate_f;
-                else    
-                    s1PreDataGate_f=s1LocalPreDataGate_f;
-            end
-            else if(mem[8][15:8]==2)begin//sub2
-                if(mem[2][6])//0:sub2PulseSource from sp, 1:sub2PulseSource from local
-                    s1PreDataGate_f=s1SyncPreDataGate_f;
-                else    
-                    s1PreDataGate_f=s1LocalPreDataGate_f;
-            end
-            else if(mem[8][15:8]==3)begin//ctr11
-                if(mem[2][7])//0:ctr1PulseSource from sp, 1:ctr1PulseSource from local
-                    s1PreDataGate_f=s1SyncPreDataGate_f;
-                else    
-                    s1PreDataGate_f=s1LocalPreDataGate_f;
-            end
-            else if(mem[8][15:8]==4)begin//ctr2
-                if(mem[2][8])//0:ctr2PulseSource from sp, 1:ctr2PulseSource from local
-                    s1PreDataGate_f=s1SyncPreDataGate_f;
-                else    
-                    s1PreDataGate_f=s1LocalPreDataGate_f;
-            end
-            else begin
-                s1PreDataGate_f=s1SyncPreDataGate_f;
-            end    
-        end
-        else
-            s1PreDataGate_f=1;                
-    end
     
     
     
     
     
-//===================================================
-// generate s1WgTrigGate_f and s1VideoGate_f 
-//===================================================
 
 //===================================================
 // generate s1WgTrigGate_f and s1VideoGate_f 
@@ -754,12 +733,9 @@ module hw0
                     s1VideoGateWidthTime<=s1LocalWgPulseWidth;
                 else    
                     s1VideoGateWidthTime<=s1SyncWgPulseWidth;
-                    
                 s1TxData0<={hostTxSerial,8'h00};
                 s1TxData2[4:0]=hostWgRfFreq;
                 s1TxData3[15:11]=hostWgTblCh;
-                    
-                    
             end
             s1PreDataGate_ff<=s1PreDataGate_f;
         end
@@ -794,17 +770,6 @@ module hw0
 
 
     
-//===================================================
-// generate wgTrig_f 
-//===================================================
-    always @* 
-    begin
-        if(mem[8][15:8]==0)
-            //wgTrigGate_f=hostWgTrigGate_f;
-            wgTrigGate_f=s1WgTrigGate_f;
-        else    
-            wgTrigGate_f=s1WgTrigGate_f;
-    end
     
     
     reg [3:0] wgBaseTimeCnt;    
@@ -921,8 +886,8 @@ module hw0
             laChR[8] = s1PreDataGate_f;
             laChR[9] = s1WgTrigGate_f;
             laChR[10] = s1VideoGate_f;
-            laChR[11] = hostS1RxClk4m_w;
-            laChR[12] = hostS1RxPack_w;
+            laChR[11] = s1RxPack_w;
+            laChR[12] = s1RxClk4m_w;
             laChR[14] = hostS1RxGate_f;
             laChR[13] = commTime_f;
         end  

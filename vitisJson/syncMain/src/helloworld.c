@@ -1832,19 +1832,22 @@ void uart1TxIntPrg(void *CallBackRef, unsigned int EventData)
 
 
 void initBram(){
+	int ibuf=0;
 	bramAddr = 0;
 	writeBram32(0x00000000);//00 systemStatus0
 	writeBram32(0x00000000);//01 systemStatus1
 	writeBram32(0x00000010);//02 systemFlag0
 	writeBram32(0x00000001);//03 systemFlag1
-	writeBram32(0x00140a0a);//04 16:8:8 ,preTrigTime,  preRfoutTime  afterTrigTime,
-	writeBram32(0x00001000);//05 16:16, spare,commTestPacks
-	writeBram32(0x00002800);//06 12:20., chTimeFineTune,vgTimeDelay
+	writeBram32(0x000a0a0a);//04 16:8:8 ,preTrigTime,  preRfoutTime  afterTrigTime,
+	writeBram32(0x00000000);//05 16:16, spare,commTestPacks
+	ibuf=0x2580;
+	writeBram32(ibuf);//06 12:20., chTimeFineTune,vgTimeDelay
 	writeBram32(0x00000000);//07 16:16 chRfTimeDelay,chFiberTimeDelay
-	writeBram32(0x00000000);//08 xx8:8 fgaId,sample end
-	writeBram32(0x00000400);//09 xx8:8 vgTimeDelaySub
-
-
+	writeBram32(0x00001000);//08 xx8:8 fgaId,sample end
+	writeBram32(0x00000221);//09 12:20 wgPulseTimeDelay(vg sub)
+	//=============================================
+	ibuf=ibuf-0x1f93;
+	writeBram32(ibuf);//10 12:20 s1VgTimeDelay
     /*
     wgRepeatEnd<=ibuf[0][31:24];
     wgRfFreq<=ibuf[0][23:16];
@@ -1855,9 +1858,20 @@ void initBram(){
     */
 	bramAddr = 32*4;
     for(int i=0;i<32;i++){
-    	writeBram32(0x002b0064);//
+    	writeBram32(0x002b0000);//
+    	//writeBram32(0x000007d0);//
     	writeBram32(0x000003e8);//
     }
+	bramAddr = 96*4;
+	ibuf=100;
+
+    for(int i=0;i<32;i++){
+    	writeBram32(ibuf);//low byte = local width, high byte = sync width;
+    	ibuf+=10;
+    }
+
+
+
 
 }
 
