@@ -136,7 +136,6 @@ typedef struct _uartDataSt
 	u8 endTx_f;
 	u8 txStart_f;
 
-
 	void (*fptr)(struct _uartDataSt *);
 
 } UartData;
@@ -444,6 +443,7 @@ u32 nowTime=0;
 u32 timerBuf = 0;
 u32 timerFlag = 0;
 int bramAddr = 0;
+int intBramAddr = 0;
 int shTime=0;
 u8 revData;
 
@@ -468,7 +468,14 @@ u32 preLoopTime=0;
 u32 maxLoopTime=0;
 u8 intrFlag=0;
 u32 debugCnt=0;
+u32 debugBuf0=0;
 u8 tickFatherTime=0;
+
+u32 rmem[10];
+u32 preRmem0;
+u32 debugMem[16];
+u8 debugMemCnt=0;
+
 
 void simple_delay(int simple_delay);
 void encmst(UartData *ud, u8 uch, int enc);
@@ -476,6 +483,7 @@ void encmstW(UartData *ud, u16 uw);
 void enc_mystm(UartData *ud);
 void txUart2(UartData *ud);
 void txUart0(UartData *ud);
+void loadTickFather();
 void tickFather();
 
 void timerPrg0();
@@ -492,7 +500,7 @@ void rs485TxLoadRequest(UartData *udp);
 int chkUartTxEmpty(u32 baseAddr);
 void uartByteDec(UartData *udp,u8 revData);
 void uartRxChk(UartData *udp);
-
+void timer0InterruptPrg(void *CallbackRef);
 
 
 u16 getBufferDword(int *inxp, u8 *buf)
@@ -1138,6 +1146,7 @@ int main()
 
 
 	// initial timer ========================================
+	/*
 	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
 	if(status)
 		errorPrg("timer0Obj Initial Error",status);
@@ -1145,6 +1154,26 @@ int main()
 	XTmrCtr_Start(&timer0Obj, 0);
 	XTmrCtr_SetOptions(&timer0Obj, 1, XTC_AUTO_RELOAD_OPTION); // enable auto load
 	XTmrCtr_Start(&timer0Obj, 1);
+	*/
+    //initial timer ========================================
+	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
+	if(status)
+		errorPrg("timer0Obj Initial Error",status);
+    //set timer option
+    XTmrCtr_SetOptions(&timer0Obj, 0,XTC_INT_MODE_OPTION |    //enable interrupt
+                                     XTC_AUTO_RELOAD_OPTION | //enable auto load
+                                     XTC_DOWN_COUNT_OPTION);  //dec counter
+    //set timer value
+    XTmrCtr_SetResetValue(&timer0Obj, 0, 8000);//200mhz-5ns
+    //set callback process
+    XTmrCtr_SetHandler(&timer0Obj, (XTmrCtr_Handler)timer0InterruptPrg,(void*)TIMER0_BASEADDR);
+    //start timer
+    XTmrCtr_Start(&timer0Obj, 0);
+    XTmrCtr_SetOptions(&timer0Obj, 1,XTC_AUTO_RELOAD_OPTION);//enable auto load
+    XTmrCtr_Start(&timer0Obj, 1);
+
+
+
 	// initial uart0 ========================================
 	status = XUartLite_Initialize(&uart0Obj, uart0DeviceId);
 	if(status)
@@ -1153,7 +1182,7 @@ int main()
 	if(status)
 		errorPrg("uart0Obj Test Error",status);
 	XUartLite_EnableInterrupt(&uart0Obj);
-	XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
+	//XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
 	XUartLite_SetRecvHandler(&uart0Obj, uart0RxIntPrg,&uart0Obj);
 	//==========
 	status = XUartLite_Initialize(&uart1Obj, uart1DeviceId);
@@ -1163,7 +1192,7 @@ int main()
 	if(status)
 		errorPrg("uart1Obj Test Error",status);
 	XUartLite_EnableInterrupt(&uart1Obj);
-	XUartLite_SetSendHandler(&uart1Obj, uart1TxIntPrg,&uart1Obj);
+	//XUartLite_SetSendHandler(&uart1Obj, uart1TxIntPrg,&uart1Obj);
 	XUartLite_SetRecvHandler(&uart1Obj, uart1RxIntPrg,&uart1Obj);
 
 
@@ -1186,11 +1215,19 @@ int main()
 			       (void *)&uart1Obj);
 	if(status)
 		errorPrg("intc1Obj connect to uart1 Error",status);
-
-
 	//==============================================================
+	status = XIntc_Connect(&intc0Obj, timer0IntVecter,(XInterruptHandler)XTmrCtr_InterruptHandler,
+			       (void *)&timer0Obj);
+	if(status)
+		errorPrg("intc1Obj connect to uart1 Error",status);
+	//==============================================================
+
+
+
 	XIntc_Enable(&intc0Obj, uart0IntVecter);
 	XIntc_Enable(&intc0Obj, uart1IntVecter);
+	XIntc_Enable(&intc0Obj, timer0IntVecter);
+
 	status = XIntc_Start(&intc0Obj, XIN_REAL_MODE);
 	if(status)
 		errorPrg("intc0Obj start Error",status);
@@ -1252,7 +1289,6 @@ int main()
 				maxLoopTime=loopTime;
 		}
 		preLoopTime=nowTime;
-		//first_f=0;
 
 
 		timerFlag = nowTime ^ timerBuf;
@@ -1278,11 +1314,10 @@ int main()
 
 
 		if(radarData.fpgaId==3 || radarData.fpgaId==4){
-			//uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
 			uartRxChk(&udIpc);
 			uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
-
-			slotInfPrg();
+			//=====================
+			//slotInfPrg();
 			uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
 			uartRxChk(&ud485);
 
@@ -1307,8 +1342,12 @@ int main()
 			//uartRxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//to drv1
 			//uartTxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//
 		}
+		//====================
 
 
+
+
+		//================
 		continue;
 
 
@@ -1401,12 +1440,16 @@ int uartTxPrg(UartData *udp, u32 baseAddr)
 	return 1;
 	*/
 
+
 	if (!udp->txLen)
 		return 0;
 	if (XUartLite_IsTransmitFull(baseAddr))
 		return 0;
+
 	u8 data = udp->txTmp[udp->txCnt];
 	XUartLite_WriteReg(baseAddr, XUL_TX_FIFO_OFFSET, data);
+
+
 	udp->txCnt++;
 
 	if (udp->txCnt >= udp->txLen)
@@ -1426,7 +1469,7 @@ int chkUartTxEmpty(u32 baseAddr)
 
 
 
-// 200mhx 163.83us
+// 200mhx 203.83us
 void timerPrg0()
 {
 	u8 buf=0;
@@ -1460,9 +1503,12 @@ void timerPrg0()
 		if(tickFatherTime<50)
 			return;
 		tickFatherTime=0;
-		tickFather();
+		loadTickFather();
 	}
 	if(shTime==2){
+		tickFather();
+	}
+	if(shTime==3){
 		//slotInfPrg();
 	}
 
@@ -1491,7 +1537,6 @@ void timerPrg3()
 
 	outFlag ^= 0x82;
 	outFlag |= 0x05;
-
 	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
 	if(warnUpTime){
@@ -1523,6 +1568,15 @@ int readBram32()
 	bramAddr += 4;
 	return data;
 }
+
+
+int intReadBram32()
+{
+	int data = Xil_In32(BRAM_CTR0_BASEADDR + intBramAddr);
+	intBramAddr += 4;
+	return data;
+}
+
 
 // return err_f;
 int testBram(int addr, int len)
@@ -1646,7 +1700,7 @@ void loadUtxBufferL(UartData *udp, u32 dword)
 
 
 
-void tickFather(){
+void loadTickFather(){
 	int ibuf;
 	int fpgaId=radarData.fpgaId;
 	if(fpgaId==3 || fpgaId == 4){
@@ -1730,14 +1784,21 @@ void tickFather(){
 		udIpc.txPackItemCnt1++;
 		//====================================
 		udIpc.txBufferLen = inx;
-		enc_mystm(&udIpc);
-		udIpc.txStart_f = 1;
-		udIpc.endTxFifo_f = 0;
+		//enc_mystm(&udIpc);
+		//udIpc.txStart_f = 1;
+		//udIpc.endTxFifo_f = 0;
 
 	}
 
+}
 
-
+void tickFather(){
+	if(udIpc.txBufferLen==0)
+		return;
+	enc_mystm(&udIpc);
+	udIpc.txStart_f = 1;
+	udIpc.endTxFifo_f = 0;
+	udIpc.txBufferLen=0;
 }
 
 void rs485TxLoadRequest(UartData *udp)
@@ -1842,16 +1903,19 @@ void initBram(){
 	writeBram32(0x00000000);//05 16:16, spare,commTestPacks
 	ibuf=0x2580;
 	writeBram32(ibuf);//06 12:20., chTimeFineTune,vgTimeDelay
-	writeBram32(0x00000000);//07 16:16 chRfTimeDelay,chFiberTimeDelay
+	writeBram32(0x00100010);//07 16:16 chRfTimeDelay,chFiberTimeDelay
 	writeBram32(0x00001000);//08 xx8:8 fgaId,sample end
 	writeBram32(0x00000221);//09 12:20 wgPulseTimeDelay(vg sub)
 	//=============================================
 	ibuf=ibuf-0x1f93;
-	writeBram32(ibuf);//10 12:20 s1VgTimeDelay
+	writeBram32(ibuf);//10 12:20 xxx,s1VgTimeDelay
+	writeBram32(0x3ce8);//11 12:20 xxx,commBaseTime  3de8
+
+
     /*
     wgRepeatEnd<=ibuf[0][31:24];
     wgRfFreq<=ibuf[0][23:16];
-    wgPulseWidth<=ibuf[0][15:0];
+    wgPulseWidth<=ibuf[0][4:0];tblInx
     wgPulseFlag<=ibuf[1][31:24];
     wgPri<=ibuf[1][23:0];
     pulseGen datas addr 0x20 end 0x60
@@ -1863,11 +1927,10 @@ void initBram(){
     	writeBram32(0x000003e8);//
     }
 	bramAddr = 96*4;
-	ibuf=100;
-
+	ibuf=150*16;
     for(int i=0;i<32;i++){
     	writeBram32(ibuf);//low byte = local width, high byte = sync width;
-    	ibuf+=10;
+    	ibuf+=160;
     }
 
 
@@ -1876,3 +1939,26 @@ void initBram(){
 }
 
 
+
+
+void timer0InterruptPrg(void *CallbackRef){
+	int ibuf;
+	intBramAddr = 0*4;
+	ibuf = intReadBram32();
+	if(ibuf==preRmem0)
+		return;
+	int ib=preRmem0+0x0100;
+	ib=ib^ibuf;
+	ib&=0x7f00;
+	if(ib!=0){
+		debugBuf0++;
+		//outFlag ^= 0x10;
+		//XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+	}
+	preRmem0=ibuf;
+	rmem[0]=ibuf;
+	rmem[1] = intReadBram32();
+	rmem[2] = intReadBram32();
+
+
+}
