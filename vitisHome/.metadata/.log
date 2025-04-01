@@ -16722,3 +16722,148 @@ org.eclipse.core.runtime.CoreException: Corrupted database: syncMain_system.1742
 
 !ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 10:03:25.984
 !MESSAGE XSCT command with result: [disconnect tcfchan#55], Result: [null, ]. Thread: Thread-2603
+!SESSION 2025-03-31 22:11:15.058 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-03-31 22:11:31.173
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.478
+!MESSAGE Failed to open C/C++ index file E:\kevin\myCode\microBlaze1\vitisHome\.metadata\.plugins\org.eclipse.cdt.core\syncBlaze.1742911921672.pdom - rebuilding the index
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: syncBlaze.1742911921672.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:318)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:298)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:513)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:123)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:458)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:439)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:414)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:390)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:590)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.479
+!MESSAGE Corrupted database: syncBlaze.1742911921672.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.479
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: syncBlaze.1742911921672.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:318)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:298)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:513)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:123)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:458)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:439)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:414)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:398)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:590)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.479
+!MESSAGE Corrupted database: syncBlaze.1742911921672.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.501
+!MESSAGE Failed to open C/C++ index file E:\kevin\myCode\microBlaze1\vitisHome\.metadata\.plugins\org.eclipse.cdt.core\syncMain.1742911965957.pdom - rebuilding the index
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: syncMain.1742911965957.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:318)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:298)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:513)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:123)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:458)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:439)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:414)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:390)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:590)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.501
+!MESSAGE Corrupted database: syncMain.1742911965957.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.502
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: syncMain.1742911965957.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:318)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:298)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:513)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getLinkageID(PDOMLinkage.java:123)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.readLinkages(PDOM.java:458)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.loadDatabase(PDOM.java:439)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.<init>(PDOM.java:414)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:64)
+	at org.eclipse.cdt.internal.core.pdom.WritablePDOM.<init>(WritablePDOM.java:59)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.getOrCreatePDOM(PDOMManager.java:398)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:590)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.502
+!MESSAGE Corrupted database: syncMain.1742911965957.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.531
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: syncMain_system.1742911965957.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:318)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:298)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:545)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:531)
+	at org.eclipse.cdt.internal.core.pdom.db.DBProperties$DBProperty.search(DBProperties.java:225)
+	at org.eclipse.cdt.internal.core.pdom.db.DBProperties.getProperty(DBProperties.java:63)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.getProperty(PDOM.java:1474)
+	at org.eclipse.cdt.internal.core.pdom.PDOMManager.createIndexer(PDOMManager.java:618)
+	at org.eclipse.cdt.internal.core.pdom.PDOMSetupJob.run(PDOMSetupJob.java:58)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2025-03-31 22:11:31.533
+!MESSAGE Corrupted database: syncMain_system.1742911965957.pdom
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-03-31 22:11:34.098
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-03-31 22:11:34.098
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-03-31 22:11:34.099
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:34.999
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-2: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:35.006
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:35.007
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-9
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.413
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-2: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.413
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-9
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.415
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.415
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-2: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.422
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, D:/vitis/Vitis/2022.2/data]. Thread: Worker-2: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.422
+!MESSAGE XSCT Command: [setws E:/kevin/myCode/microBlaze1/vitisHome], Thread: Thread-18
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-03-31 22:11:37.423
+!MESSAGE XSCT command with result: [setws E:/kevin/myCode/microBlaze1/vitisHome], Result: [null, ]. Thread: Thread-18

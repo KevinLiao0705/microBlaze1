@@ -10,11 +10,9 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source design_1_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1002.129 ; gain = 97.152
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx202202/Vivado/2022.2/data/ip'.
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1046.918 ; gain = 44.789
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/vitis/Vivado/2022.2/data/ip'.
 Command: read_checkpoint -auto_incremental -incremental E:/kevin/myCode/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from E:/kevin/myCode/microBlaze1/microBlaze1.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -25,51 +23,51 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg484-2
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 28036
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 1468
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/vitis/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1910.645 ; gain = 410.879
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1911.008 ; gain = 411.656
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [E:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_gpio_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_intc_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_intc_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_intc_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_intc_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_timer_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_timer_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_timer_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_bram_ctrl_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_bram_ctrl_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_bram_ctrl_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_gpio_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_gpio_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_intc_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_intc_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_intc_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_intc_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_timer_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_timer_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_timer_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'generateout0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:533]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:533]
 WARNING: [Synth 8-7071] port 'pwm0' of module 'design_1_axi_timer_0_0' is unconnected for instance 'axi_timer_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:533]
 WARNING: [Synth 8-7023] instance 'axi_timer_0' of module 'design_1_axi_timer_0_0' has 26 connections declared, but only 23 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:533]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_0_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_3_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_3_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_3_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_3_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_4_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_4_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_4_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_4_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_5_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_5_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_5_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_5_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_6_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_6_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_6_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_axi_uartlite_6_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_hw0_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_hw0_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_1' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_1' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_0_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_3_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_3_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_3_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_3_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_4_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_4_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_4_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_4_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_5_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_5_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_5_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_5_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_6_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_6_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_6_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_axi_uartlite_6_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_hw0_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_hw0_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_mdm_1_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_mdm_1_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_microblaze_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'design_1_microblaze_0_0' is unconnected for instance 'microblaze_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:761]
 WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'design_1_microblaze_0_0' has 52 connections declared, but only 51 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:761]
 INFO: [Synth 8-6157] synthesizing module 'design_1_microblaze_0_axi_periph_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1122]
@@ -80,8 +78,8 @@ INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1UTB3Y5' (0#1) [
 INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_7ANRHB' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3194]
 INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_7ANRHB' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3194]
 INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1W07O72' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3326]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_auto_pc_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3541]
 WARNING: [Synth 8-7071] port 'm_axi_awqos' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3541]
 WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'design_1_auto_pc_0' is unconnected for instance 'auto_pc' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:3541]
@@ -106,32 +104,32 @@ INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_AVFHLX' [e:/kevin/myC
 INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_AVFHLX' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4520]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_1RZP34U' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4886]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_1RZP34U' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4886]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_xbar_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_xbar_0_stub.v:5]
 WARNING: [Synth 8-689] width (12) of port connection 'm_axi_arprot' does not match port width (36) of module 'design_1_xbar_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2891]
 WARNING: [Synth 8-689] width (12) of port connection 'm_axi_awprot' does not match port width (36) of module 'design_1_xbar_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:2895]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_microblaze_0_axi_periph_0' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1122]
 INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4652]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_dlmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_dlmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_dlmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_dlmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4798]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'design_1_dlmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4798]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_ilmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_bram_if_cntlr_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_bram_if_cntlr_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_ilmb_v10_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ilmb_v10_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_ilmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'design_1_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4844]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'design_1_ilmb_v10_0' has 25 connections declared, but only 24 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4844]
-INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_lmb_bram_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_lmb_bram_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_lmb_bram_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_lmb_bram_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4869]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'design_1_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4869]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'design_1_lmb_bram_0' has 16 connections declared, but only 14 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4869]
 INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_1K0VQXK' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:4652]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_1_100M_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_1_100M_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-37292-DESKTOP-V5UHSH2/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_clk_wiz_1_100M_0' [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_clk_wiz_1_100M_0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/.Xil/Vivado-2212-DESKTOP-3AU9R2V/realtime/design_1_rst_clk_wiz_1_100M_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1101]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1101]
 WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'design_1_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 8 given [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/synth/design_1.v:1101]
@@ -243,18 +241,18 @@ WARNING: [Synth 8-7129] Port In106[0] in module xlconcat_v2_1_4_xlconcat is eith
 WARNING: [Synth 8-7129] Port In107[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2014.418 ; gain = 515.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2014.418 ; gain = 515.066
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2014.418 ; gain = 515.066
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.067 . Memory (MB): peak = 2016.406 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 2014.418 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -315,26 +313,26 @@ Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/dont_touc
 Finished Parsing XDC File [E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2016.406 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2017.527 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2016.406 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2017.527 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_0' at clock pin 's_axi_aclk' is different from the actual clock period '6.250', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'design_1_i/axi_gpio_1' at clock pin 's_axi_aclk' is different from the actual clock period '6.250', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '6.250', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/vitis/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2017.930 ; gain = 518.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2017.930 ; gain = 518.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -409,10 +407,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/rst_clk_wiz_1_100M. (c
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/xlconcat_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/hw0_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2017.930 ; gain = 518.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2017.930 ; gain = 518.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -435,25 +433,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2016.406 ; gain = 516.641
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2017.930 ; gain = 518.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2027.809 ; gain = 528.043
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2019.277 ; gain = 519.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2027.809 ; gain = 528.043
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2019.277 ; gain = 519.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2036.906 ; gain = 537.141
+Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2028.156 ; gain = 528.805
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -471,37 +469,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -568,16 +566,16 @@ Report Cell Usage:
 |26    |OBUF                        |    49|
 +------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 27 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 2038.680 ; gain = 538.914
-Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2038.680 ; gain = 538.914
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 2033.734 ; gain = 530.871
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2033.734 ; gain = 534.383
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.040 . Memory (MB): peak = 2050.730 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 2045.824 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2057.004 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2056.027 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
@@ -585,9 +583,7 @@ Synth Design complete, checksum: 9bfdb67c
 INFO: [Common 17-83] Releasing license: Synthesis
 111 Infos, 127 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 2057.004 ; gain = 993.059
-INFO: [Common 17-600] The following parameters have non-default value.
-general.maxThreads
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2056.027 ; gain = 989.996
 INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Mar 31 17:28:51 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  1 06:44:02 2025...

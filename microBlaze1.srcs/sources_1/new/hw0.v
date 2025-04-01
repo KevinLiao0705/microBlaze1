@@ -217,8 +217,9 @@ module hw0
     reg s1PreDataGate_f;
     reg s1PreDataGate_ff;
 
-    reg[15:0] commTimeCnt;
-    reg commTime_f;
+    reg[15:0] hostPreDataGateHTimeCnt;
+    reg[15:0] hostS1RxGateHTimeCnt;
+    
     reg preHostS1RxGate_f;
     reg[15:0] hostS1RxGateDelayTimeCnt;
     reg[15:0] hostS1RxGateTimeCnt;
@@ -402,34 +403,54 @@ module hw0
 
 
     
+reg[23:0] hostRealTimeCnt;
+//===================================================
+// generate hostRealTime 
+    always @(posedge clk160m) begin
+        hostRealTimeCnt<=hostRealTimeCnt+1;
+    end
+//===================================================
 
 
 
+reg[23:0] preTxTime[1:0];
+reg[15:0] commTime;
 
 //===============================================
-// host  get comm delay time
-
-    /*
     always @(posedge clk160m) begin
-        if(!localPreDataGate_f)begin
-            commTimeCnt<=0;    
-            commTime_f<=0;
-            preHostS1RxGate_f=1;
+        if(!hostPreDataGate_f)begin
+            hostPreDataGateHTimeCnt<=0;    
         end    
         else begin
-            if(!commTimeCnt[15])begin
-                commTimeCnt<=commTimeCnt+1;
-                if(commTimeCnt==0)
-                    commTime_f<=1;
-                if(preHostS1RxGate_f)begin
-                    if(!hostS1RxGate_f)
-                        commTime_f<=0;    
-                end   
-                preHostS1RxGate_f<=hostS1RxGate_f;//low act
+            if(!hostPreDataGateHTimeCnt[15])begin
+                hostPreDataGateHTimeCnt<=hostPreDataGateHTimeCnt+1;
+                if(hostPreDataGateHTimeCnt==0)begin
+                    preTxTime[hostTxSerial[0]]=hostRealTimeCnt;
+                end
+            end
+        end
+    end
+    
+    always @(posedge clk160m) begin
+        if(!hostS1RxGate_f)begin
+            hostS1RxGateHTimeCnt<=0;    
+        end    
+        else begin
+            if(!hostS1RxGateHTimeCnt[15])begin
+                hostS1RxGateHTimeCnt<=hostS1RxGateHTimeCnt+1;
+                if(hostS1RxGateHTimeCnt==0)begin
+                    commTime=hostRealTimeCnt-preTxTime[hostS1RxData0_wb[8]];
+                end
+                if(hostS1RxGateHTimeCnt==1)begin
+                    rmem[0]={hostS1RxData1_wb,hostS1RxData0_wb};
+                    rmem[1]={hostS1RxData3_wb,hostS1RxData2_wb};
+                    rmem[2]=commTime;
+                    
+                end
             end
         end
     end  
-    */  
+      
 //===============================================
 
 
@@ -448,11 +469,11 @@ module hw0
             hostS1RxGateTimeCnt<=hostS1RxGateTimeCnt+1;
             if(hostS1RxGateTimeCnt==160)//1us
                 hostS1RxGate_f<=1;
-            if(hostS1RxGateDelayTimeCnt<19200)begin//120us
+            if(hostS1RxGateDelayTimeCnt<16'hff00)begin
                 hostS1RxGateDelayTimeCnt<=hostS1RxGateDelayTimeCnt+1;
-                if(hostS1RxGateDelayTimeCnt==160)begin
+                if(hostS1RxGateDelayTimeCnt==320)begin
                     hostS1RxGate_f<=0;
-                    hostS1RxGateTimeCnt<=0;
+                    hostS1RxGateTimeCnt<=1;
                 end   
             end
         end
@@ -647,12 +668,11 @@ module hw0
                 hostTxData1[15:0]<=16'h0000;
                 hostTxData2[15:8]<=hostSoundData;
                 hostTxData2[7]<=widthTable_f;
-                hostTxData2[6]<=hostLocal_f;
+                hostTxData2[6]<=0;
                 hostTxData2[5]<=0;
                 hostTxData2[4:0]<=hostWgRfFreq;
                 hostTxData3[15:11]<=hostWgTblCh;
                 hostTxData3[10:0]<=11'b000_0000_0000;
-                hostTxSerial<=hostTxSerial+1;
             end
             hostPreDataGate_ff<=hostPreDataGate_f;
         end
@@ -677,6 +697,7 @@ module hw0
             if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
                 hostWgTrigGate_f<=1;
                 hostWgTrigGateWidthTimeCnt<=1;
+                hostTxSerial<=hostTxSerial+1;
             end   
             if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
                 hostVideoGate_f<=1;
@@ -686,7 +707,8 @@ module hw0
     end    
 
 
-
+    reg[15:0] s1StatusData;
+    reg[7:0] s1SoundData;
 //===================================================
 // generate s1SyncPreDataGate 
 //===================================================
@@ -694,6 +716,10 @@ module hw0
         if(s1RxPack_w)begin
             s1SyncRespDelayTimeCnt<={8'b0000_0000,s1RxData0_wb[7:0]};//<<debug    
             s1SyncPreDataGate_f<=1;
+            s1TxData0<=s1RxData0_wb;
+            s1TxData1<=s1StatusData;
+            s1TxData2[15:8]<=s1SoundData;
+            s1TxData3[15:0]<=0;
         end    
         else begin
             s1SyncPreDataGateTimeCnt<=s1SyncPreDataGateTimeCnt+1;
@@ -703,7 +729,7 @@ module hw0
                 s1SyncRespDelayTimeCnt<=s1SyncRespDelayTimeCnt+1;
                 if(s1SyncRespDelayTimeCnt==s1SyncRespDelayTime)begin
                     s1SyncPreDataGate_f<=0;
-                    s1SyncPreDataGateTimeCnt<=0;
+                    s1SyncPreDataGateTimeCnt<=1;
                 end   
             end
         end
@@ -733,9 +759,6 @@ module hw0
                     s1VideoGateWidthTime<=s1LocalWgPulseWidth;
                 else    
                     s1VideoGateWidthTime<=s1SyncWgPulseWidth;
-                s1TxData0<={hostTxSerial,8'h00};
-                s1TxData2[4:0]=hostWgRfFreq;
-                s1TxData3[15:11]=hostWgTblCh;
             end
             s1PreDataGate_ff<=s1PreDataGate_f;
         end
@@ -888,8 +911,7 @@ module hw0
             laChR[10] = s1VideoGate_f;
             laChR[11] = s1RxPack_w;
             laChR[12] = s1RxClk4m_w;
-            laChR[14] = hostS1RxGate_f;
-            laChR[13] = commTime_f;
+            laChR[13] = hostS1RxGate_f;
         end  
     end
     
