@@ -136,7 +136,6 @@ typedef struct _uartDataSt
 	u8 endTx_f;
 	u8 txStart_f;
 
-
 	void (*fptr)(struct _uartDataSt *);
 
 } UartData;
@@ -156,14 +155,14 @@ typedef struct radarDataSt
 	 array 0:mast, 1:sub1, 2:sub2, 3:ctr1, 4:ctr2, 5:drv1a, 6:drv1b, 7:drv2a, 8:drv2b
 	 *** slotId[3:0] ==>
 	 	 "none 			id=0;
-	 	 "ＩＰＣ控制模組",     	id=1;
-	 	 "ＦＰＧＡ控制模組",    id=2;
-	 	 "ＩＯ控制模組",       id=3;
-	 	 "邏輯分析模組",       id=4;
-	 	 "光纖傳輸模組",     	id=5;
-	 	 "ＲＦ傳輸模組	",     	id=6;
-	 	 "語音通信模組",   	id=7;
-	 	 "SSPA驅動模組",   	id=8;
+	 	 "�עޢѱ���Ҳ�",     	id=1;
+	 	 "�Ԣޢբϱ���Ҳ�",    id=2;
+	 	 "�עݱ���Ҳ�",       id=3;
+	 	 "�޿���R�Ҳ�",       id=4;
+	 	 "���ֶǿ�Ҳ�",     	id=5;
+	 	 "��Զǿ�Ҳ�	",     	id=6;
+	 	 "�y���q�H�Ҳ�",   	id=7;
+	 	 "SSPA�X�ʼҲ�",   	id=8;
 	  *** slotSerNo		7:4
 	  *** slotStatus	9:8 ==> 0:none, 1:ready, 2:error 3:warn up
       *** slotTestStatus 11:10 ==> 0:none, 1:PreTest, 2:testing;
@@ -183,27 +182,27 @@ typedef struct radarDataSt
      ctr2Meter mainStatus[21:20] 	==> 0:none, 1:warn up, 2:ready, 3:error
      //===
      ctr1 rfPulse detect flag[22] ==> 0:none  1:OK
-     ctr1 電源啟動[23] 			==> 0:停止 1:啟動
-     ctr1 SSPA致能[24] 			==> 0:停止 1:啟動
-     ctr1 本地脈波啟動[25] 		==> 0:停止 1:啟動
-     ctr1 緊急停止[26] 			==> 0:備便 1:停止
+     ctr1 �q���Ұ�[23] 			==> 0:���� 1:�Ұ�
+     ctr1 SSPA�P��[24] 			==> 0:���� 1:�Ұ�
+     ctr1 ���a�ߪi�Ұ�[25] 		==> 0:���� 1:�Ұ�
+     ctr1 ��氱��[26] 			==> 0:�ƫK 1:����
      //===
      ctr2 rfPulse detect flag[27] ==> 0:none  1:OK
-     ctr2 電源啟動[28] 			==> 0:停止 1:啟動
-     ctr2 SSPA致能[29] 			==> 0:停止 1:啟動
-     ctr2 本地脈波啟動[30] 		==> 0:停止 1:啟動
-     ctr2 緊急停止[31] 			==> 0:備便 1:停止
+     ctr2 �q���Ұ�[28] 			==> 0:���� 1:�Ұ�
+     ctr2 SSPA�P��[29] 			==> 0:���� 1:�Ұ�
+     ctr2 ���a�ߪi�Ұ�[30] 		==> 0:���� 1:�Ұ�
+     ctr2 ��氱��[31] 			==> 0:�ƫK 1:����
      //===
      */
     u32 systemStatus0;
     //=============================================
     /*
-    sub1 光纖連線狀態[0]	==> 0:未連線, 1:未連線
-    sub1 RF連線狀態[1]          ==> 0:未連線, 1:未連線
-    sub2 光纖連線狀態[2] 	==> 0:未連線, 1:未連線
-    sub2 RF連線狀態[3]          ==> 0:未連線, 1:未連線
-    ctr1 遠端遙控[4]      ==> 0:關閉, 1:開啟
-    ctr2 遠端遙控[5]      ==> 0:關閉, 1:開啟
+    sub1 ���ֳs�u���A[0]	==> 0:���s�u, 1:���s�u
+    sub1 RF�s�u���A[1]          ==> 0:���s�u, 1:���s�u
+    sub2 ���ֳs�u���A[2] 	==> 0:���s�u, 1:���s�u
+    sub2 RF�s�u���A[3]          ==> 0:���s�u, 1:���s�u
+    ctr1 ���ݻ���[4]      ==> 0:����, 1:�}��
+    ctr2 ���ݻ���[5]      ==> 0:����, 1:�}��
     mast spPulseExist[6]	==  0:none 1:exist
     ctr1 allSspaEnviSlatus[7] 		==> 0:OK, 1:Error
     ctr1 allSspaPowerSlatus[8] 		==> 0:OK, 1:Error
@@ -255,7 +254,7 @@ typedef struct radarDataSt
     u16 sspaPowerV32tAA[2][36];
     //=============================================
     /*
-     0:connect, 1:致能, 2 保護觸發, 3:工作比過高, 4:脈寬過高, 5:溫度過高, 6:反射過高,
+     0:connect, 1:�P��, 2 �O�@Ĳ�o, 3:�u�@��L��, 4:�߼e�L��, 5:�ū׹L��, 6:�Ϯg�L��,
      */
     u8 sspaModuleStatusAA[2][36];
     u16 sspaModuleRfOutAA[2][36];
@@ -272,39 +271,39 @@ typedef struct radarDataSt
 
 
     /*=============================================================================
-    emulate 信號模擬[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
+    emulate �H������[1:0] ==> 0:no ,1:syncSet emulate, 2:vitis emulate.
     //
-    ctr1 遠端遙控[2] ==> 0:disable 1:enable
-    ctr2 遠端遙控[3] ==> 0:disable 1:enable
+    ctr1 ���ݻ���[2] ==> 0:disable 1:enable
+    ctr2 ���ݻ���[3] ==> 0:disable 1:enable
     //
-    mast 脈波來源[4] ==> 0:SP脈波, 1:本機脈波
-    sub1 脈波來源[5] ==> 0:主控脈波, 1:本機脈波
-    sub2 脈波來源[6] ==> 0:主控脈波, 1:本機脈波
-    ctr1 脈波來源[7] ==> 0:同步脈波, 1:本機脈波
-    ctr2 脈波來源[8] ==> 0:同步脈波, 1:本機脈波
+    mast �ߪi�ӷ�[4] ==> 0:SP�ߪi, 1:�����ߪi
+    sub1 �ߪi�ӷ�[5] ==> 0:�D���ߪi, 1:�����ߪi
+    sub2 �ߪi�ӷ�[6] ==> 0:�D���ߪi, 1:�����ߪi
+    ctr1 �ߪi�ӷ�[7] ==> 0:�P�B�ߪi, 1:�����ߪi
+    ctr2 �ߪi�ӷ�[8] ==> 0:�P�B�ߪi, 1:�����ߪi
     //
-    ctr1 戰備短路[9] ==> 0:關閉, 1:開啟
-    ctr2 戰備短路[10] ==> 0:關閉, 1:開啟
+    ctr1 �ԳƵu��[9] ==> 0:����, 1:�}��
+    ctr2 �ԳƵu��[10] ==> 0:����, 1:�}��
     //
-    ctr1 輸出裝置[11] ==> 0:天線, 1:假負載
-    ctr2 輸出裝置[12] ==> 0:天線, 1:假負載
+    ctr1 ��X�˸m[11] ==> 0:�ѽu, 1:���t��
+    ctr2 ��X�˸m[12] ==> 0:�ѽu, 1:���t��
     //
-   	mast 與副控1連線方式[14:13] ==> 0: 光纖, 1: 無線, 2: 自動
-   	mast 與副控2連線方式[16:15] ==> 0: 光纖, 1: 無線, 2: 自動
+   	mast �P�Ʊ�1�s�u�覡[14:13] ==> 0: ����, 1: �L�u, 2: �۰�
+   	mast �P�Ʊ�2�s�u�覡[16:15] ==> 0: ����, 1: �L�u, 2: �۰�
    	//
-   	mast 與副控1通道[17] ==> 0:關閉, 1:開啟
-   	mast 與副控2通道[18] ==> 0:關閉, 1:開啟:
+   	mast �P�Ʊ�1�q�D[17] ==> 0:����, 1:�}��
+   	mast �P�Ʊ�2�q�D[18] ==> 0:����, 1:�}��:
    	//
-    sub1 與主控連線方式 [20:19] ==> 0: 光纖, 1:無線, 2:自動
-    sub2 與主控連線方式 [22:21] ==> 0: 光纖, 1:無線, 2:自動
+    sub1 �P�D���s�u�覡 [20:19] ==> 0: ����, 1:�L�u, 2:�۰�
+    sub2 �P�D���s�u�覡 [22:21] ==> 0: ����, 1:�L�u, 2:�۰�
     //
-    sub1 主控與副控1同步模式 [23] ==> 0: 固定時間延時, 1:1588同步追蹤
-    sub2 主控與副控2同步模式 [24] ==> 0: 固定時間延時, 1:1588同步追蹤
+    sub1 �D���P�Ʊ�1�P�B�Ҧ� [23] ==> 0: �T�w�ɶ�����, 1:1588�P�B�l��
+    sub2 �D���P�Ʊ�2�P�B�Ҧ� [24] ==> 0: �T�w�ɶ�����, 1:1588�P�B�l��
 
-   	mast 與副控1語音通道[25] ==> 0:關閉, 1:開啟
-   	mast 與副控2語音通道[26] ==> 0:關閉, 1:開啟:
+   	mast �P�Ʊ�1�y���q�D[25] ==> 0:����, 1:�}��
+   	mast �P�Ʊ�2�y���q�D[26] ==> 0:����, 1:�}��:
 
-   	SSPA 保護開關[27] ==> 0:關閉, 1:開啟:
+   	SSPA �O�@�}��[27] ==> 0:����, 1:�}��:
 
    	fpgaId[31:28] ==> :
     */
@@ -444,6 +443,7 @@ u32 nowTime=0;
 u32 timerBuf = 0;
 u32 timerFlag = 0;
 int bramAddr = 0;
+int intBramAddr = 0;
 int shTime=0;
 u8 revData;
 
@@ -468,7 +468,14 @@ u32 preLoopTime=0;
 u32 maxLoopTime=0;
 u8 intrFlag=0;
 u32 debugCnt=0;
+u32 debugBuf0=0;
 u8 tickFatherTime=0;
+
+u32 rmem[10];
+u32 preRmem0;
+u32 debugMem[16];
+u8 debugMemCnt=0;
+
 
 void simple_delay(int simple_delay);
 void encmst(UartData *ud, u8 uch, int enc);
@@ -476,6 +483,7 @@ void encmstW(UartData *ud, u16 uw);
 void enc_mystm(UartData *ud);
 void txUart2(UartData *ud);
 void txUart0(UartData *ud);
+void loadTickFather();
 void tickFather();
 
 void timerPrg0();
@@ -492,7 +500,7 @@ void rs485TxLoadRequest(UartData *udp);
 int chkUartTxEmpty(u32 baseAddr);
 void uartByteDec(UartData *udp,u8 revData);
 void uartRxChk(UartData *udp);
-
+void timer0InterruptPrg(void *CallbackRef);
 
 
 u16 getBufferDword(int *inxp, u8 *buf)
@@ -1138,6 +1146,7 @@ int main()
 
 
 	// initial timer ========================================
+	/*
 	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
 	if(status)
 		errorPrg("timer0Obj Initial Error",status);
@@ -1145,6 +1154,26 @@ int main()
 	XTmrCtr_Start(&timer0Obj, 0);
 	XTmrCtr_SetOptions(&timer0Obj, 1, XTC_AUTO_RELOAD_OPTION); // enable auto load
 	XTmrCtr_Start(&timer0Obj, 1);
+	*/
+    //initial timer ========================================
+	status=XTmrCtr_Initialize(&timer0Obj, timer0DeviceId);
+	if(status)
+		errorPrg("timer0Obj Initial Error",status);
+    //set timer option
+    XTmrCtr_SetOptions(&timer0Obj, 0,XTC_INT_MODE_OPTION |    //enable interrupt
+                                     XTC_AUTO_RELOAD_OPTION | //enable auto load
+                                     XTC_DOWN_COUNT_OPTION);  //dec counter
+    //set timer value
+    XTmrCtr_SetResetValue(&timer0Obj, 0, 8000);//200mhz-5ns
+    //set callback process
+    XTmrCtr_SetHandler(&timer0Obj, (XTmrCtr_Handler)timer0InterruptPrg,(void*)TIMER0_BASEADDR);
+    //start timer
+    XTmrCtr_Start(&timer0Obj, 0);
+    XTmrCtr_SetOptions(&timer0Obj, 1,XTC_AUTO_RELOAD_OPTION);//enable auto load
+    XTmrCtr_Start(&timer0Obj, 1);
+
+
+
 	// initial uart0 ========================================
 	status = XUartLite_Initialize(&uart0Obj, uart0DeviceId);
 	if(status)
@@ -1153,7 +1182,7 @@ int main()
 	if(status)
 		errorPrg("uart0Obj Test Error",status);
 	XUartLite_EnableInterrupt(&uart0Obj);
-	XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
+	//XUartLite_SetSendHandler(&uart0Obj, uart0TxIntPrg,&uart0Obj);
 	XUartLite_SetRecvHandler(&uart0Obj, uart0RxIntPrg,&uart0Obj);
 	//==========
 	status = XUartLite_Initialize(&uart1Obj, uart1DeviceId);
@@ -1163,7 +1192,7 @@ int main()
 	if(status)
 		errorPrg("uart1Obj Test Error",status);
 	XUartLite_EnableInterrupt(&uart1Obj);
-	XUartLite_SetSendHandler(&uart1Obj, uart1TxIntPrg,&uart1Obj);
+	//XUartLite_SetSendHandler(&uart1Obj, uart1TxIntPrg,&uart1Obj);
 	XUartLite_SetRecvHandler(&uart1Obj, uart1RxIntPrg,&uart1Obj);
 
 
@@ -1186,11 +1215,19 @@ int main()
 			       (void *)&uart1Obj);
 	if(status)
 		errorPrg("intc1Obj connect to uart1 Error",status);
-
-
 	//==============================================================
+	status = XIntc_Connect(&intc0Obj, timer0IntVecter,(XInterruptHandler)XTmrCtr_InterruptHandler,
+			       (void *)&timer0Obj);
+	if(status)
+		errorPrg("intc1Obj connect to uart1 Error",status);
+	//==============================================================
+
+
+
 	XIntc_Enable(&intc0Obj, uart0IntVecter);
 	XIntc_Enable(&intc0Obj, uart1IntVecter);
+	XIntc_Enable(&intc0Obj, timer0IntVecter);
+
 	status = XIntc_Start(&intc0Obj, XIN_REAL_MODE);
 	if(status)
 		errorPrg("intc0Obj start Error",status);
@@ -1252,7 +1289,6 @@ int main()
 				maxLoopTime=loopTime;
 		}
 		preLoopTime=nowTime;
-		//first_f=0;
 
 
 		timerFlag = nowTime ^ timerBuf;
@@ -1278,11 +1314,10 @@ int main()
 
 
 		if(radarData.fpgaId==3 || radarData.fpgaId==4){
-			//uartRxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
 			uartRxChk(&udIpc);
 			uartTxPrg(&udIpc, XPAR_UARTLITE_0_BASEADDR);
-
-			slotInfPrg();
+			//=====================
+			//slotInfPrg();
 			uartTxPrg(&ud485, XPAR_UARTLITE_1_BASEADDR);
 			uartRxChk(&ud485);
 
@@ -1307,8 +1342,12 @@ int main()
 			//uartRxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//to drv1
 			//uartTxPrg(&udFiber7, XPAR_UARTLITE_6_BASEADDR);//
 		}
+		//====================
 
 
+
+
+		//================
 		continue;
 
 
@@ -1401,12 +1440,16 @@ int uartTxPrg(UartData *udp, u32 baseAddr)
 	return 1;
 	*/
 
+
 	if (!udp->txLen)
 		return 0;
 	if (XUartLite_IsTransmitFull(baseAddr))
 		return 0;
+
 	u8 data = udp->txTmp[udp->txCnt];
 	XUartLite_WriteReg(baseAddr, XUL_TX_FIFO_OFFSET, data);
+
+
 	udp->txCnt++;
 
 	if (udp->txCnt >= udp->txLen)
@@ -1426,7 +1469,7 @@ int chkUartTxEmpty(u32 baseAddr)
 
 
 
-// 200mhx 163.83us
+// 200mhx 203.83us
 void timerPrg0()
 {
 	u8 buf=0;
@@ -1460,9 +1503,12 @@ void timerPrg0()
 		if(tickFatherTime<50)
 			return;
 		tickFatherTime=0;
-		tickFather();
+		loadTickFather();
 	}
 	if(shTime==2){
+		tickFather();
+	}
+	if(shTime==3){
 		//slotInfPrg();
 	}
 
@@ -1491,7 +1537,6 @@ void timerPrg3()
 
 	outFlag ^= 0x82;
 	outFlag |= 0x05;
-
 	XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
 	//print("\ntimerPrg3");
 	if(warnUpTime){
@@ -1523,6 +1568,15 @@ int readBram32()
 	bramAddr += 4;
 	return data;
 }
+
+
+int intReadBram32()
+{
+	int data = Xil_In32(BRAM_CTR0_BASEADDR + intBramAddr);
+	intBramAddr += 4;
+	return data;
+}
+
 
 // return err_f;
 int testBram(int addr, int len)
@@ -1646,7 +1700,7 @@ void loadUtxBufferL(UartData *udp, u32 dword)
 
 
 
-void tickFather(){
+void loadTickFather(){
 	int ibuf;
 	int fpgaId=radarData.fpgaId;
 	if(fpgaId==3 || fpgaId == 4){
@@ -1730,14 +1784,21 @@ void tickFather(){
 		udIpc.txPackItemCnt1++;
 		//====================================
 		udIpc.txBufferLen = inx;
-		enc_mystm(&udIpc);
-		udIpc.txStart_f = 1;
-		udIpc.endTxFifo_f = 0;
+		//enc_mystm(&udIpc);
+		//udIpc.txStart_f = 1;
+		//udIpc.endTxFifo_f = 0;
 
 	}
 
+}
 
-
+void tickFather(){
+	if(udIpc.txBufferLen==0)
+		return;
+	enc_mystm(&udIpc);
+	udIpc.txStart_f = 1;
+	udIpc.endTxFifo_f = 0;
+	udIpc.txBufferLen=0;
 }
 
 void rs485TxLoadRequest(UartData *udp)
@@ -1842,16 +1903,20 @@ void initBram(){
 	writeBram32(0x00000000);//05 16:16, spare,commTestPacks
 	ibuf=0x2580;
 	writeBram32(ibuf);//06 12:20., chTimeFineTune,vgTimeDelay
-	writeBram32(0x00000000);//07 16:16 chRfTimeDelay,chFiberTimeDelay
+	writeBram32(0x01100110);//07 16:16 chRfTimeDelay,chFiberTimeDelay
 	writeBram32(0x00001000);//08 xx8:8 fgaId,sample end
 	writeBram32(0x00000221);//09 12:20 wgPulseTimeDelay(vg sub)
 	//=============================================
-	ibuf=ibuf-0x1f93;
-	writeBram32(ibuf);//10 12:20 s1VgTimeDelay
+	ibuf=ibuf-0x1fa3;
+	writeBram32(ibuf);//10 12:20 xxx,s1VgTimeDelay
+	//writeBram32(0x3ce8);//11 12:20 xxx,commBaseTime  3de8
+	writeBram32(0x3ce5);//11 12:20 xxx,commBaseTime  3de8
+
+
     /*
     wgRepeatEnd<=ibuf[0][31:24];
     wgRfFreq<=ibuf[0][23:16];
-    wgPulseWidth<=ibuf[0][15:0];
+    wgPulseWidth<=ibuf[0][4:0];tblInx
     wgPulseFlag<=ibuf[1][31:24];
     wgPri<=ibuf[1][23:0];
     pulseGen datas addr 0x20 end 0x60
@@ -1861,13 +1926,13 @@ void initBram(){
     	writeBram32(0x002b0000);//
     	//writeBram32(0x000007d0);//
     	writeBram32(0x000003e8);//
+    	//writeBram32(0x00002710);//
     }
 	bramAddr = 96*4;
-	ibuf=100;
-
+	ibuf=10*160;
     for(int i=0;i<32;i++){
     	writeBram32(ibuf);//low byte = local width, high byte = sync width;
-    	ibuf+=10;
+    	ibuf+=160;
     }
 
 
@@ -1876,3 +1941,27 @@ void initBram(){
 }
 
 
+
+
+void timer0InterruptPrg(void *CallbackRef){
+	int ibuf;
+	intBramAddr = 0*4;
+	ibuf = intReadBram32();
+	if(ibuf==preRmem0)
+		return;
+	int ib=preRmem0+0x0100;
+	ib=ib^ibuf;
+	ib&=0x7f00;
+	if(ib!=0){
+		debugBuf0++;
+		//outFlag ^= 0x10;
+		//XGpio_DiscreteWrite(&gpOutAObj, 1, outFlag);
+	}
+	preRmem0=ibuf;
+	rmem[0]=ibuf;
+	rmem[1] = intReadBram32();
+	rmem[2] = intReadBram32();
+	rmem[3] = intReadBram32();
+
+
+}

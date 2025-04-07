@@ -438,17 +438,18 @@ reg s1Inhibit_f;
         end    
         else begin
             hostPreDataGate_f<=1;
+            
             if(!hostAutoPreDataGateWaitCnt[23])begin
                 hostAutoPreDataGateWaitCnt<=hostAutoPreDataGateWaitCnt+1;
             end
             if(hostAutoPreDataGateWaitCnt>=10000)begin
                 hostAutoPreDataGateTimeCnt<=hostAutoPreDataGateTimeCnt+1;
-                if(hostAutoPreDataGateTimeCnt>=10000)
+                if(hostAutoPreDataGateTimeCnt>=20000)
                     hostAutoPreDataGateTimeCnt<=0;
-                if(hostAutoPreDataGateTimeCnt<=160)begin
+                if(hostAutoPreDataGateTimeCnt<=preDataGateWidth)begin
                     hostAutoPreDataGate_f=0;
-                    hostInhibit_f<=1;
-                    hostPreDataGate_f<=0;
+                    //hostInhibit_f<=1;
+                    //hostPreDataGate_f<=0;
                 end    
                 else    
                     hostAutoPreDataGate_f=1;
@@ -457,6 +458,8 @@ reg s1Inhibit_f;
                 hostAutoPreDataGateTimeCnt=1;
                 hostAutoPreDataGate_f=1;
             end
+            
+            
         end
     end
 
@@ -527,7 +530,7 @@ reg s1Inhibit_f;
         end    
         else begin
             hostS1RxGateTimeCnt<=hostS1RxGateTimeCnt+1;
-            if(hostS1RxGateTimeCnt==160)//1us
+            if(hostS1RxGateTimeCnt==preDataGateWidth)//1us
                 hostS1RxGate_f<=1;
             if(hostS1RxGateDelayTimeCnt<16'hff00)begin
                 hostS1RxGateDelayTimeCnt<=hostS1RxGateDelayTimeCnt+1;
@@ -562,7 +565,7 @@ reg s1Inhibit_f;
             localPreDataGate_f<=1;
         //===    
         if(localPreDataGateTimeCnt<52*160)begin
-            if(localPreDataGateTimeCnt==0)
+            if(localPreDataGateTimeCnt==1)
                 localWgSampleEnd<= mem[8][7:0];
             if(localPreDataGateTimeCnt==2)
                 localWgSampleAddr<={localWgSampleCnt,1'b0};
@@ -686,7 +689,7 @@ reg s1Inhibit_f;
     always @(posedge clk160m) begin
         if(!hostPreDataGate_f)begin
             if(hostPreDataGate_ff)begin//H2L
-                hostVideoGateDelayTimeCnt<=0;
+                hostVideoGateDelayTimeCnt<=1;
                 hostVideoGate_f<=0;
                 hostVideoGateDelayTime<=20'hfff00;
             end
@@ -710,20 +713,20 @@ reg s1Inhibit_f;
         //====    
         hostWgTrigGateWidthTimeCnt<=hostWgTrigGateWidthTimeCnt+1;
         hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
-        if(hostWgTrigGateWidthTimeCnt==160)
+        if(hostWgTrigGateWidthTimeCnt==preDataGateWidth)
             hostWgTrigGate_f<=0;
         if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
             hostVideoGate_f<=0;
         //====    
         if(hostVideoGateDelayTimeCnt<12800)begin//80us
             hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
-            if(hostVideoGateDelayTimeCnt==0)
-                hostVideoGateDelayTime<=mem[6][19:0];
             if(hostVideoGateDelayTimeCnt==1)
-                hostWgTrigGateDelayTime<=hostVideoGateDelayTime-mem[9][19:0];
+                hostVideoGateDelayTime<=mem[6][19:0];
             if(hostVideoGateDelayTimeCnt==2)
-                hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+                hostWgTrigGateDelayTime<=hostVideoGateDelayTime-mem[9][19:0];
             if(hostVideoGateDelayTimeCnt==3)
+                hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+            if(hostVideoGateDelayTimeCnt==4)
                 hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][15:8],4'b0000};
             if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
                 if(!hostInhibit_f)
@@ -809,20 +812,20 @@ reg s1Inhibit_f;
         //====    
         s1WgTrigGateWidthTimeCnt<=s1WgTrigGateWidthTimeCnt+1;
         s1VideoGateWidthTimeCnt<=s1VideoGateWidthTimeCnt+1;
-        if(s1WgTrigGateWidthTimeCnt==160)
+        if(s1WgTrigGateWidthTimeCnt==preDataGateWidth)
             s1WgTrigGate_f<=0;
         if(s1VideoGateWidthTimeCnt==s1VideoGateWidthTime)
             s1VideoGate_f<=0;
         //====    
         if(s1VideoGateDelayTimeCnt<12800)begin//120us
             s1VideoGateDelayTimeCnt<=s1VideoGateDelayTimeCnt+1;
-            if(s1VideoGateDelayTimeCnt==0)
-                s1VideoGateDelayTime<=mem[10][19:0];
             if(s1VideoGateDelayTimeCnt==1)
-                s1WgTrigGateDelayTime<=s1VideoGateDelayTime-mem[9][19:0];
+                s1VideoGateDelayTime<=mem[10][19:0];
             if(s1VideoGateDelayTimeCnt==2)
-                s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+                s1WgTrigGateDelayTime<=s1VideoGateDelayTime-mem[9][19:0];
             if(s1VideoGateDelayTimeCnt==3)
+                s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+            if(s1VideoGateDelayTimeCnt==4)
                 s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][15:8],4'b0000};
             if(s1VideoGateDelayTimeCnt==s1WgTrigGateDelayTime)begin
                 if(!s1Inhibit_f)
@@ -943,21 +946,21 @@ reg s1Inhibit_f;
     always @* 
     begin
         if(laGroup == 3'b000)begin
-            laChR[0] = hostPreDataGate_f;
-            laChR[1] = hostWgTrigGate_f;
-            laChR[2] = hostVideoGate_f;
-            laChR[3] = hostTxData_w;
-            laChR[4] = wgDataBit;
-            laChR[5] = wgClk;
-            laChR[6] = wgTrig_f;
-            laChR[7] = wgRfout;
+            laChR[0] = hostWgPreDataGate_f;
+            laChR[1] = hostAutoPreDataGate_f;
+            laChR[2] = hostPreDataGate_f;
+            laChR[3] = hostVideoGate_f;
+            laChR[4] = s1VideoGate_f;
+            laChR[5] = wgRfout;;
+            laChR[6] = hostTxData_w;
+            laChR[7] = s1TxData_w; 
             //===========================
-            laChR[8] = hostWgPreDataGate_f;;
-            laChR[9] = hostWgPreDataGate_f;;
-            laChR[10] = s1VideoGate_f;
-            laChR[11] = s1TxData_w;
-            laChR[12] = s1RxClk4m_w;
-            laChR[13] = hostS1RxGate_f;
+            laChR[8] = hostWgPreDataGate_f;
+            laChR[9] = s1SyncPreDataGate_f;
+            //laChR[10] = s1VideoGate_f;
+            //laChR[11] = s1TxData_w;
+            //laChR[12] = s1RxClk4m_w;
+            //laChR[13] = hostS1RxGate_f;
         end  
     end
     
