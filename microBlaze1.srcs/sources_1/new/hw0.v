@@ -173,7 +173,7 @@ module hw0
     reg[19:0] hostVideoGateDelayTimeCnt;
     reg[19:0] hostVideoGateDelayTime;
     reg[19:0] hostVideoGateWidthTimeCnt;
-    reg[19:0] hostVideoGateWidthTime;
+    //reg[19:0] hostVideoGateWidthTime;
     reg[19:0] wgRfoutTimeCnt;
 
     reg hostLocal_f;
@@ -382,7 +382,7 @@ module hw0
         //==================================
         //hostWgTrigGateDelayTime=70*160;
         //hostVideoGateDelayTime=76*160;
-        hostVideoGateWidthTime=10*160;
+        //hostVideoGateWidthTime=10*160;
         //==================================
         
         
@@ -485,9 +485,9 @@ reg [23:0] wgActWaitTimeCnt;
         if(wgActWaitTimeCnt>=mem[12][15:0])begin
             wgActWidthTimeCnt<=wgActWidthTimeCnt+1;
             if(wgActWidthTimeCnt==1)begin
-                //wgActTimeCnt<=0;
-                //hostInhibit_f<=1;
-                //preTxTime[hostTxSerial[0]]<=hostRealTimeCnt;
+                wgActTimeCnt<=0;
+                hostInhibit_f<=1;
+                preTxTime[hostTxSerial[0]]<=hostRealTimeCnt;
             end
             if(wgActWidthTimeCnt>=mem[12][31:15])
                 wgActWidthTimeCnt<=1;    
@@ -719,6 +719,16 @@ reg[7:0] hostVideoGateTimeCnt;
             hostVideoGateTimeCnt<=1;
             hostVideoGateDelayTimeCnt<=1;
             hostInhibitTrig_f<=hostInhibit_f;
+            //=========================================
+            hostTxData0<={vgData_f,hostTxSerial,8'h00};
+            hostTxData1[15:0]<=16'h0000;
+            hostTxData2[15:8]<=hostSoundData;
+            hostTxData2[7]<=widthTable_f;
+            hostTxData2[6]<=hostInhibit_f;
+            hostTxData2[5]<=0;
+            hostTxData2[4:0]<=hostWgRfFreq;
+            hostTxData3[15:11]<=hostWgTblCh;
+            hostTxData3[10:0]<=commDelayTime[11:1];
         end
         else begin
             if(hostVideoGateTimeCnt<=16)begin
@@ -731,7 +741,7 @@ reg[7:0] hostVideoGateTimeCnt;
             hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
             if(hostWgTrigGateWidthTimeCnt==mem[8][31:16])
                 hostWgTrigGate_f<=0;
-            if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
+            if(hostVideoGateWidthTimeCnt==hostWgPulseWidth)
                 hostVideoGate_f<=0;
             if(hostVideoGateDelayTimeCnt<12800)begin//80us
                 hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
@@ -956,7 +966,7 @@ reg[7:0] hostVideoGateTimeCnt;
                         wgDataBit <= 0;
                         trigStartTime<=mem[4][31:16]+24;
                         if(mem[8][15:8]==0)
-                            wgRfoutEndTime<=hostVideoGateWidthTime;
+                            wgRfoutEndTime<=hostWgPulseWidth;
                         else    
                             wgRfoutEndTime<=s1VideoGateWidthTime;
                     end    
