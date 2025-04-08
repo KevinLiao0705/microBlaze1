@@ -99,17 +99,22 @@ module TXPROC(
     //input clk160m_i,preVideoGate_i
     //output clk4m,txload_f
         
+    reg preDataGate_f;        
     always @(posedge clk160m_i) begin
         if(!preDataGate_i)begin
-            txBitCnt<=10'b0000000000;
-            dataGateHTime<=5'b00000;
-            clk4mHCnt<=5'b00000;
-            clk4mLCnt<=5'b00000;
-            txload_f<=1'b0;	
-            txBitClk_f<=1'b0;
-            syncTxShiftTime<=8'b00000000;
+            if(preDataGate_f)begin
+                txBitCnt<=10'b0000000000;
+                dataGateHTime<=5'b00000;
+                clk4mHCnt<=5'b00000;
+                clk4mLCnt<=5'b00000;
+                txload_f<=1'b0;	
+                txBitClk_f<=1'b0;
+                syncTxShiftTime<=8'b00000000;
+            end
+            preDataGate_f<=preDataGate_i;
         end
         else begin
+            preDataGate_f<=preDataGate_i;
             syncTxShiftTime<=syncTxShiftTime+1;
             if(!txSync4mClk)begin
                 clk4mHCnt<=0;

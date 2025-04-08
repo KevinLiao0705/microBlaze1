@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="debugBuf0"/>
+		<item key="selection" value="txPackItemCnt1"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
-		<item key="incremental" value="false"/>
+		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="txPackItemCnt1"/>
+			<item value="tickFather"/>
+			<item value="slotInfPrg"/>
+			<item value="main"/>
+			<item value="rmem"/>
 			<item value="initia"/>
 			<item value="debugBuf0"/>
 			<item value="debugCnt"/>
@@ -15,14 +20,9 @@
 			<item value="bramAddr"/>
 			<item value="transBram"/>
 			<item value="readBram32"/>
-			<item value="rmem"/>
 			<item value="timer0InterruptPrg"/>
 			<item value="uart1IntVecter"/>
 			<item value="timer0ntVecter"/>
-			<item value="main"/>
-			<item value="tickFather"/>
-			<item value="mainLoop"/>
-			<item value="enc_mystm"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

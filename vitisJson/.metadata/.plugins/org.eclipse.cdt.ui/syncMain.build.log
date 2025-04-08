@@ -1,4 +1,4 @@
-19:04:01 **** Incremental Build of configuration Debug for project syncMain ****
+17:31:30 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -61,9 +61,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisJson/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  30324	    548	  18000	  48872	   bee8	syncMain.elf
+  31468	    548	  18000	  50016	   c360	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
 
-19:04:01 Build Finished (took 605ms)
+17:31:30 Build Finished (took 607ms)
 

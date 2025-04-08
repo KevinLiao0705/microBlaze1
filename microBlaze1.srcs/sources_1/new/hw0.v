@@ -170,7 +170,6 @@ module hw0
     //reg[6:0] waveBufInx1;
     reg[2:0] laGroup;
     //===================================
-    reg[15:0] preDataGateWidth;//unit 160m
     reg[19:0] hostVideoGateDelayTimeCnt;
     reg[19:0] hostVideoGateDelayTime;
     reg[19:0] hostVideoGateWidthTimeCnt;
@@ -221,7 +220,6 @@ module hw0
     reg s1PreDataGate_f;
     reg s1PreDataGate_ff;
 
-    reg[15:0] hostPreDataGateHTimeCnt;
     reg[15:0] hostS1RxGateHTimeCnt;
     
     reg preHostS1RxGate_f;
@@ -325,7 +323,7 @@ module hw0
         mem[5]=32'h0000_1000;//16:16, spare,commTestPacks
         mem[6]=32'h0000_2580;//12:20, xxx,hostWgVideoGateDelayTime 
         mem[7]=32'h0100_0100;//16:16 chRfTimeDelay,chFiberTimeDelay
-        mem[8]=32'h0000_1000;//xx8:8 fgaId,sample end  0
+        mem[8]=32'h00a0_1000;//xx8:8 fgaId,sample end  0
         mem[9]=32'h0000_0221;//12:20, xxx,wgTrigGateDelayTime-sub 
         mem[10]=32'h0000_05ed;//12:20, xxx,s1WgVideoGateDelayTime 
         mem[11]=32'h0000_3ce8;//12:20, xxx,baseCommTime//3de8 
@@ -382,7 +380,6 @@ module hw0
         //==================================
         laGroup=0;        
         //==================================
-        preDataGateWidth=160;
         //hostWgTrigGateDelayTime=70*160;
         //hostVideoGateDelayTime=76*160;
         hostVideoGateWidthTime=10*160;
@@ -429,6 +426,8 @@ reg s1SyncInhibit_f;
 reg s1Inhibit_f;
 
 //===============================================
+
+/*
     always @(posedge clk160m) begin
         if(!hostWgPreDataGate_f)begin
             hostAutoPreDataGateWaitCnt<=0;
@@ -438,7 +437,6 @@ reg s1Inhibit_f;
         end    
         else begin
             hostPreDataGate_f<=1;
-            
             if(!hostAutoPreDataGateWaitCnt[23])begin
                 hostAutoPreDataGateWaitCnt<=hostAutoPreDataGateWaitCnt+1;
             end
@@ -446,10 +444,10 @@ reg s1Inhibit_f;
                 hostAutoPreDataGateTimeCnt<=hostAutoPreDataGateTimeCnt+1;
                 if(hostAutoPreDataGateTimeCnt>=20000)
                     hostAutoPreDataGateTimeCnt<=0;
-                if(hostAutoPreDataGateTimeCnt<=preDataGateWidth)begin
+                if(hostAutoPreDataGateTimeCnt<=mem[8][31:16])begin
                     hostAutoPreDataGate_f=0;
-                    //hostInhibit_f<=1;
-                    //hostPreDataGate_f<=0;
+                    hostInhibit_f<=1;
+                    hostPreDataGate_f<=0;
                 end    
                 else    
                     hostAutoPreDataGate_f=1;
@@ -458,26 +456,47 @@ reg s1Inhibit_f;
                 hostAutoPreDataGateTimeCnt=1;
                 hostAutoPreDataGate_f=1;
             end
-            
-            
         end
     end
-
-
-
+*/
+reg hostWgPreDataGate_ff;
+reg [23:0] wgActTimeCnt;
+reg [23:0] wgActWidthTimeCnt;
+reg [23:0] wgActWaitTimeCnt;
+//===============================================
     always @(posedge clk160m) begin
-        if(!hostPreDataGate_f)begin
-            hostPreDataGateHTimeCnt<=0;    
-        end    
-        else begin
-            if(!hostPreDataGateHTimeCnt[15])begin
-                hostPreDataGateHTimeCnt<=hostPreDataGateHTimeCnt+1;
-                if(hostPreDataGateHTimeCnt==0)begin
-                    preTxTime[hostTxSerial[0]]<=hostRealTimeCnt;
-                end
+        if(!wgActTimeCnt[23])
+            wgActTimeCnt<=wgActTimeCnt+1;
+        if(!wgActWaitTimeCnt[23])
+            wgActWaitTimeCnt<=wgActTimeCnt+1;
+        if(!hostWgPreDataGate_f)begin
+            if(hostWgPreDataGate_ff)begin//H2L
+                wgActWaitTimeCnt<=0;
+                wgActWidthTimeCnt<=1;
+                wgActTimeCnt<=0;
+                hostInhibit_f<=0;
+                preTxTime[hostTxSerial[0]]<=hostRealTimeCnt;
             end
+            hostWgPreDataGate_ff<=hostWgPreDataGate_f;
+        end
+        else begin
+            hostWgPreDataGate_ff<=hostWgPreDataGate_f;
+        end
+        if(wgActWaitTimeCnt>=mem[12][15:0])begin
+            wgActWidthTimeCnt<=wgActWidthTimeCnt+1;
+            if(wgActWidthTimeCnt==1)begin
+                //wgActTimeCnt<=0;
+                //hostInhibit_f<=1;
+                //preTxTime[hostTxSerial[0]]<=hostRealTimeCnt;
+            end
+            if(wgActWidthTimeCnt>=mem[12][31:15])
+                wgActWidthTimeCnt<=1;    
         end
     end
+
+
+
+
     
     always @(posedge clk160m) begin
         if(!hostS1RxGate_f)begin
@@ -510,6 +529,13 @@ reg s1Inhibit_f;
                             commDelayTime<=commDelayTime-1;
                     end
                 end
+                if(hostS1RxGateHTimeCnt==4)begin
+                    rmem[4]<=commDelayTime;
+                end
+                
+                
+                
+                
             end
         end
     end  
@@ -530,7 +556,7 @@ reg s1Inhibit_f;
         end    
         else begin
             hostS1RxGateTimeCnt<=hostS1RxGateTimeCnt+1;
-            if(hostS1RxGateTimeCnt==preDataGateWidth)//1us
+            if(hostS1RxGateTimeCnt==mem[8][31:16])//1us
                 hostS1RxGate_f<=1;
             if(hostS1RxGateDelayTimeCnt<16'hff00)begin
                 hostS1RxGateDelayTimeCnt<=hostS1RxGateDelayTimeCnt+1;
@@ -559,7 +585,7 @@ reg s1Inhibit_f;
 //===================================================
     always @(posedge clk160m) begin
         localPreDataGateTimeCnt<=localPreDataGateTimeCnt+1;
-        if(localPreDataGateTimeCnt<preDataGateWidth)
+        if(localPreDataGateTimeCnt<mem[8][31:16])
             localPreDataGate_f<=0;
         else    
             localPreDataGate_f<=1;
@@ -682,10 +708,56 @@ reg s1Inhibit_f;
         */                    
     end
 
-
+reg hostInhibitTrig_f;
 //===================================================
 // generate hostWgTrigGate_f and hostVideoGate_f 
 //===================================================
+reg[7:0] hostVideoGateTimeCnt;
+    always @(posedge clk160m) begin
+        if(wgActTimeCnt==0)begin
+            hostPreDataGate_f<=0;
+            hostVideoGateTimeCnt<=1;
+            hostVideoGateDelayTimeCnt<=1;
+            hostInhibitTrig_f<=hostInhibit_f;
+        end
+        else begin
+            if(hostVideoGateTimeCnt<=16)begin
+                hostVideoGateTimeCnt<=hostVideoGateTimeCnt+1;
+            end
+            else
+                hostPreDataGate_f<=1;
+            //====================================
+            hostWgTrigGateWidthTimeCnt<=hostWgTrigGateWidthTimeCnt+1;
+            hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
+            if(hostWgTrigGateWidthTimeCnt==mem[8][31:16])
+                hostWgTrigGate_f<=0;
+            if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
+                hostVideoGate_f<=0;
+            if(hostVideoGateDelayTimeCnt<12800)begin//80us
+                hostVideoGateDelayTimeCnt<=hostVideoGateDelayTimeCnt+1;
+                if(hostVideoGateDelayTimeCnt==1)
+                    hostVideoGateDelayTime<=mem[6][19:0];
+                if(hostVideoGateDelayTimeCnt==2)
+                    hostWgTrigGateDelayTime<=hostVideoGateDelayTime-mem[9][19:0];
+                if(hostVideoGateDelayTimeCnt==3)
+                    hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+                if(hostVideoGateDelayTimeCnt==4)
+                    hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][15:8],4'b0000};
+                if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
+                    if(!hostInhibitTrig_f)
+                        hostWgTrigGate_f<=1;
+                    hostWgTrigGateWidthTimeCnt<=1;
+                    hostTxSerial<=hostTxSerial+1;
+                end   
+                if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
+                    if(!hostInhibitTrig_f)
+                        hostVideoGate_f<=1;
+                    hostVideoGateWidthTimeCnt<=1;
+                end   
+            end
+        end
+    end
+/*
     always @(posedge clk160m) begin
         if(!hostPreDataGate_f)begin
             if(hostPreDataGate_ff)begin//H2L
@@ -707,13 +779,15 @@ reg s1Inhibit_f;
                 hostTxData2[4:0]<=hostWgRfFreq;
                 hostTxData3[15:11]<=hostWgTblCh;
                 hostTxData3[10:0]<=commDelayTime[11:1];
+                hostInhibitTrig_f<=hostInhibit_f;
+                
             end
             hostPreDataGate_ff<=hostPreDataGate_f;
         end
         //====    
         hostWgTrigGateWidthTimeCnt<=hostWgTrigGateWidthTimeCnt+1;
         hostVideoGateWidthTimeCnt<=hostVideoGateWidthTimeCnt+1;
-        if(hostWgTrigGateWidthTimeCnt==preDataGateWidth)
+        if(hostWgTrigGateWidthTimeCnt==mem[8][31:16])
             hostWgTrigGate_f<=0;
         if(hostVideoGateWidthTimeCnt==hostVideoGateWidthTime)
             hostVideoGate_f<=0;
@@ -729,18 +803,20 @@ reg s1Inhibit_f;
             if(hostVideoGateDelayTimeCnt==4)
                 hostWgTrigGateDelayTime<=hostWgTrigGateDelayTime-{mem[4][15:8],4'b0000};
             if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
-                if(!hostInhibit_f)
+                if(!hostInhibitTrig_f)
                     hostWgTrigGate_f<=1;
                 hostWgTrigGateWidthTimeCnt<=1;
                 hostTxSerial<=hostTxSerial+1;
             end   
             if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
-                if(!hostInhibit_f)
+                if(!hostInhibitTrig_f)
                     hostVideoGate_f<=1;
                 hostVideoGateWidthTimeCnt<=1;
             end   
         end
-    end    
+    end
+*/    
+        
 
 
     reg[15:0] s1StatusData;
@@ -761,6 +837,7 @@ reg s1Inhibit_f;
                     s1TxData2[15:8]<=s1SoundData;
                     s1TxData3[15:0]<=0;
                     s1VideoGateCommPathTime={9'b000000000,s1RxData3_wb[10:0]};
+                    rmem[5]={9'b000000000,s1RxData3_wb[10:0]};
                     s1SyncInhibit_f<=s1RxData2_wb[6];
                     s1SyncWgPulseWidth<=mem[s1TxData3[15:11]+96][15:0];
                 end
@@ -770,7 +847,7 @@ reg s1Inhibit_f;
         else begin
             s1RxPackHTimeCnt<=0;
             s1SyncPreDataGateTimeCnt<=s1SyncPreDataGateTimeCnt+1;
-            if(s1SyncPreDataGateTimeCnt==preDataGateWidth)//1us
+            if(s1SyncPreDataGateTimeCnt==mem[8][31:16])//1us
                 s1SyncPreDataGate_f<=1;
             if(s1SyncRespDelayTimeCnt<19200)begin//120us
                 s1SyncRespDelayTimeCnt<=s1SyncRespDelayTimeCnt+1;
@@ -812,7 +889,7 @@ reg s1Inhibit_f;
         //====    
         s1WgTrigGateWidthTimeCnt<=s1WgTrigGateWidthTimeCnt+1;
         s1VideoGateWidthTimeCnt<=s1VideoGateWidthTimeCnt+1;
-        if(s1WgTrigGateWidthTimeCnt==preDataGateWidth)
+        if(s1WgTrigGateWidthTimeCnt==mem[8][31:16])
             s1WgTrigGate_f<=0;
         if(s1VideoGateWidthTimeCnt==s1VideoGateWidthTime)
             s1VideoGate_f<=0;
