@@ -528,6 +528,9 @@ reg [23:0] wgActWaitTimeCnt;
                         if(commDelayTime>commDeltaTime)
                             commDelayTime<=commDelayTime-1;
                     end
+                    else
+                        commDelayTime<=0;
+                    
                 end
                 if(hostS1RxGateHTimeCnt==4)begin
                     rmem[4]<=commDelayTime;
@@ -882,7 +885,7 @@ reg[7:0] hostVideoGateTimeCnt;
     always @(posedge clk160m) begin
         if(!s1PreDataGate_f)begin
             if(s1PreDataGate_ff)begin//H2L
-                s1VideoGateDelayTimeCnt<=s1VideoGateCommPathTime;
+                s1VideoGateDelayTimeCnt<=1;
                 s1VideoGate_f<=0;
             end
             s1PreDataGate_ff<=s1PreDataGate_f;
@@ -909,10 +912,12 @@ reg[7:0] hostVideoGateTimeCnt;
             if(s1VideoGateDelayTimeCnt==1)
                 s1VideoGateDelayTime<=mem[10][19:0];
             if(s1VideoGateDelayTimeCnt==2)
-                s1WgTrigGateDelayTime<=s1VideoGateDelayTime-mem[9][19:0];
+                s1VideoGateDelayTime<=s1VideoGateDelayTime-s1VideoGateCommPathTime;
             if(s1VideoGateDelayTimeCnt==3)
-                s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+                s1WgTrigGateDelayTime<=s1VideoGateDelayTime-mem[9][19:0];
             if(s1VideoGateDelayTimeCnt==4)
+                s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][31:16],4'b0000};
+            if(s1VideoGateDelayTimeCnt==5)
                 s1WgTrigGateDelayTime<=s1WgTrigGateDelayTime-{mem[4][15:8],4'b0000};
             if(s1VideoGateDelayTimeCnt==s1WgTrigGateDelayTime)begin
                 if(!s1Inhibit_f)
@@ -1080,6 +1085,38 @@ assign laCh[15:0]=laChR[15:0];
 //===============================================
 
 
+reg[31:0] s1EmuRxDataBuf0;
+reg[31:0] s1EmuRxDataBuf1;
+reg[31:0] s1EmuRxDataBuf2;
+reg[31:0] s1EmuRxDataBuf3;
+//===================================================
+// generate s1EmuRxDataBuf
+//===================================================
+    always @(posedge clk160m) begin
+        s1EmuRxDataBuf0<={s1EmuRxDataBuf0[30:0],hostTxData_w};
+        s1EmuRxDataBuf1<={s1EmuRxDataBuf1[30:0],s1EmuRxDataBuf0[31]};
+        s1EmuRxDataBuf2<={s1EmuRxDataBuf2[30:0],s1EmuRxDataBuf1[31]};
+        s1EmuRxDataBuf3<={s1EmuRxDataBuf3[30:0],s1EmuRxDataBuf2[31]};
+    end    
+//===============================================
+
+
+reg[31:0] hostEmuRxDataBuf0;
+reg[31:0] hostEmuRxDataBuf1;
+reg[31:0] hostEmuRxDataBuf2;
+reg[31:0] hostEmuRxDataBuf3;
+//===================================================
+// generate hostEmuRxDataBuf
+//===================================================
+    always @(posedge clk160m) begin
+        hostEmuRxDataBuf0<={hostEmuRxDataBuf0[30:0],s1TxData_w};
+        hostEmuRxDataBuf1<={hostEmuRxDataBuf1[30:0],hostEmuRxDataBuf0[31]};
+        hostEmuRxDataBuf2<={hostEmuRxDataBuf2[30:0],hostEmuRxDataBuf1[31]};
+        hostEmuRxDataBuf3<={hostEmuRxDataBuf3[30:0],hostEmuRxDataBuf2[31]};
+    end    
+//===============================================
+
+
 
 //===================================================
 // tx process
@@ -1127,7 +1164,7 @@ TXPROC hostTxProc(
     RXPROC hostS1RxProc(
         .clk160m_i(clk160m),
         //.rxData_i(emuRxDataBuf[31]),
-        .rxData_i(s1TxData_w),
+        .rxData_i(hostEmuRxDataBuf3[31]),
         .rxClk4m_o(hostS1RxClk4m_w),
         .rxPack_o(hostS1RxPack_w),  //1us high
         .rxData0_ob(hostS1RxData0_wb),
@@ -1139,7 +1176,7 @@ TXPROC hostTxProc(
     RXPROC s1RxProc(
         .clk160m_i(clk160m),
         //.rxData_i(emuRxDataBuf[31]),
-        .rxData_i(hostTxData_w),
+        .rxData_i(s1EmuRxDataBuf3[31]),
         .rxClk4m_o(s1RxClk4m_w),
         .rxPack_o(s1RxPack_w),  //1us high
         .rxData0_ob(s1RxData0_wb),
