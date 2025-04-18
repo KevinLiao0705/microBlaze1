@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Wed Apr  9 16:30:28 2025
+//Date        : Thu Apr 17 11:09:58 2025
 //Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -56,7 +56,7 @@ module design_1
   output fibTx5;
   output fibTx7;
   output [3:0]fibTxA;
-  input [7:0]gpInA;
+  input [9:0]gpInA;
   output [7:0]gpOutA;
   input gpsPps;
   input [13:0]hdfiA;
@@ -106,7 +106,7 @@ module design_1
   wire fibRx5_1;
   wire fibRx7_1;
   wire [3:0]fibRxA_1;
-  wire [7:0]gpio_io_i_0_1;
+  wire [9:0]gpInA_1;
   wire gpsPps_1;
   wire [13:0]hdfiA_1;
   wire [7:0]hw0_0_dfOutN;
@@ -409,8 +409,8 @@ module design_1
   assign fibTx5 = axi_uartlite_5_tx;
   assign fibTx7 = axi_uartlite_6_tx;
   assign fibTxA[3:0] = hw0_0_fibTxA;
+  assign gpInA_1 = gpInA[9:0];
   assign gpOutA[7:0] = axi_gpio_0_gpio_io_o;
-  assign gpio_io_i_0_1 = gpInA[7:0];
   assign gpsPps_1 = gpsPps;
   assign hdfiA_1 = hdfiA[13:0];
   assign hdfoA[7:0] = hw0_0_hdfoA;
@@ -488,7 +488,7 @@ module design_1
         .s_axi_wstrb(microblaze_0_axi_periph_M01_AXI_WSTRB),
         .s_axi_wvalid(microblaze_0_axi_periph_M01_AXI_WVALID));
   design_1_axi_gpio_1_0 axi_gpio_1
-       (.gpio_io_i(gpio_io_i_0_1),
+       (.gpio_io_i(gpInA_1),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(microblaze_0_axi_periph_M02_AXI_ARADDR[8:0]),
         .s_axi_aresetn(rst_clk_wiz_1_100M_peripheral_aresetn),

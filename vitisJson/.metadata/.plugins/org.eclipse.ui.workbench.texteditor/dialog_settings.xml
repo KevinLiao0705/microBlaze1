@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="txPackItemCnt1"/>
+		<item key="selection" value="gpsData"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="txPackItemCnt1"/>
+			<item value="gpsData"/>
+			<item value="ad"/>
+			<item value="gpsDataLen"/>
+			<item value="==6"/>
+			<item value="gps"/>
+			<item value="gpsDataA"/>
+			<item value="radarDataA"/>
+			<item value="loadTickFather"/>
 			<item value="tickFather"/>
-			<item value="slotInfPrg"/>
-			<item value="main"/>
-			<item value="rmem"/>
-			<item value="initia"/>
-			<item value="debugBuf0"/>
-			<item value="debugCnt"/>
-			<item value="first_f"/>
-			<item value="bramAddr"/>
-			<item value="transBram"/>
-			<item value="readBram32"/>
-			<item value="timer0InterruptPrg"/>
-			<item value="uart1IntVecter"/>
-			<item value="timer0ntVecter"/>
+			<item value="sspaPowerExistAA"/>
+			<item value="&lt;&lt;debug"/>
+			<item value="selfTest"/>
+			<item value="selfTestCnt"/>
+			<item value="timerPrg0"/>
+			<item value="timerPrg2"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

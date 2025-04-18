@@ -166,6 +166,7 @@ typedef struct radarDataSt
 		  *** slotSerNo			7:4
 		  *** slotStatus		9:8 ==> 0:none, 1:ready, 2:error 3:warn up
 	      *** slotTestStatus 	11:10 ==> 0:none, 1:PreTest, 2:testing;
+	      *** slotTestStatusId 	15:12 ==>
 	      */
     u16 slotDataAA[9][12];
     /*=================================================
@@ -195,15 +196,6 @@ typedef struct radarDataSt
      */
 
     u32 systemStatus0;
-    //=============================================
-    /*
-    sub1 ���ֳs�u���A[0]	==> 0:���s�u, 1:���s�u
-    sub1 RF�s�u���A[1]          ==> 0:���s�u, 1:���s�u
-    sub2 ���ֳs�u���A[2] 	==> 0:���s�u, 1:���s�u
-    sub2 RF�s�u���A[3]          ==> 0:���s�u, 1:���s�u
-    ctr1 ���ݻ���[4]      ==> 0:����, 1:�}��
-    ctr2 ���ݻ���[5]      ==> 0:����, 1:�}��
-    mast spPulseExist[6]	==  0:none 1:exist
     /*=================================================
     sub1 光纖連線狀態[0]	==> 0:未連線, 1:未連線
     sub1 RF連線狀態[1]          ==> 0:未連線, 1:未連線
@@ -325,6 +317,8 @@ typedef struct radarDataSt
 	u8 attenuator;
 	u8 sspaPowerExistAA[2][5];
 	u8 sspaModuleExistAA[2][5];
+	u8 gpsDataLen;
+	u8 gpsDataA[64];
 
 	u16 preTrigTime;
 	u8 preRfOutTime;
@@ -481,7 +475,10 @@ u32 rmem[10];
 u32 preRmem0;
 u32 debugMem[16];
 u8 debugMemCnt=0;
-
+u16 no485RxTimeA[12];
+u8 slotAdr=0;
+u8 selfTest_f=1;
+u16 selfTestCnt=0;
 
 void simple_delay(int simple_delay);
 void encmst(UartData *ud, u8 uch, int enc);
@@ -557,6 +554,22 @@ void ud485RxPrg(UartData *udp)
 		return;
 	if(cmd==0x1000){
 		radarData.slotDataAA[radarData.fpgaId][serialId]=para0;//slotStatus
+		no485RxTimeA[serialId]=0;
+		if((para0&15)==5){//fiber
+			return;
+		}
+		if((para0&15)==6){//RF
+			if(para3){
+				radarData.gpsDataLen=para3*2;
+				for(int i=0;i<para3;i++){
+					radarData.gpsDataA[i*2]=getBufferByte(&inx, udp->rxBuffer);
+					radarData.gpsDataA[i*2+1]=getBufferByte(&inx, udp->rxBuffer);
+				}
+			}
+			return;
+		}
+
+
 		if((para0&15)==8){//sspaDriver
 			u8 itemCnt=(para0>>4)&15;
 			if(itemCnt>=10)
@@ -804,6 +817,34 @@ void udIpcRxPrg(UartData *udp)
 						rs485_tx_slotId=0;
 						return;
 					}
+					if(para2==0x2008){//selfTestStartAll
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
+						radarData.slotDataAA[radarData.fpgaId][slotAdr]|=0x0400;
+						return;
+					}
+					if(para2==0x2009){//selfTestStopAll
+						rs485_cmd=para2;
+						rs485_tx_slotId=0;
+						radarData.slotDataAA[radarData.fpgaId][slotAdr] &= 0xf3ff;
+						return;
+					}
+					if(para2==0x200a){//selfTestSlot
+						rs485_cmd=para2;
+						rs485_cmd_para0=para3;
+						rs485_tx_slotId=0;
+						if(para3==slotAdr){
+							radarData.slotDataAA[radarData.fpgaId][slotAdr] &= (0xf3ff);
+							radarData.slotDataAA[radarData.fpgaId][slotAdr] |= (0x0800);
+							selfTest_f=1;
+							selfTestCnt=0;
+						}
+						return;
+					}
+
+
+
+
 				}
 
 			}
@@ -1302,7 +1343,7 @@ int main()
 
 
 
-		if (timerFlag & 0x00008000) // 163.84s
+		if (timerFlag & 0x00008000) // 163.84us
 			timerPrg0();
 		if (timerFlag & 0x01000000) //
 			timerPrg2();
@@ -1493,12 +1534,18 @@ void timerPrg0()
 		if(inFlag&0x200)
 			buf |=0x08;
 		buf=3;//<<debug
-		if(radarData.fpgaId==buf)
-			return;
+		slotAdr=(inFlag>>4)&15;
+		slotAdr=11;//<<debug
+		//if(radarData.fpgaId==buf)
+		//	return;
 		radarData.fpgaId=buf;
 		radarData.systemStatus0 &= (3<<(radarData.fpgaId*2))^0xffffffff;
-		radarData.systemStatus0 |= (1<<(radarData.fpgaId*2));
-
+		radarData.systemStatus0 |= (2<<(radarData.fpgaId*2));
+		if(slotAdr<12){
+			radarData.slotDataAA[radarData.fpgaId][slotAdr]&=0xfc00;
+			radarData.slotDataAA[radarData.fpgaId][slotAdr]|=0x0102;
+			no485RxTimeA[slotAdr]=0;
+		}
 
 		return;
 	}
@@ -1515,7 +1562,12 @@ void timerPrg0()
 		tickFather();
 	}
 	if(shTime==3){
-		//slotInfPrg();
+		for(int i=0;i<12;i++){
+			no485RxTimeA[i]=no485RxTimeA[i]+1;
+			if(no485RxTimeA[i]>500)
+				radarData.slotDataAA[radarData.fpgaId][i]=0;
+
+		}
 	}
 
 
@@ -1535,6 +1587,15 @@ void timerPrg2()
 		debugCnt++;
 		if(debugCnt>10)
 			first_f=0;
+		if(selfTest_f){
+			selfTestCnt++;
+			if(selfTestCnt==20){
+				radarData.slotDataAA[radarData.fpgaId][slotAdr] &= (0xf3ff);
+				selfTest_f=0;
+			}
+
+		}
+
 }
 
 // 250mhx 67.108ms
@@ -1784,8 +1845,22 @@ void loadTickFather(){
 			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
 			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
 		}
+		//====================================
+		//gps data
+		if(radarData.gpsDataLen){
+			udIpc.txBuffer[inx++]=0xad;
+			udIpc.txBuffer[inx++]=radarData.gpsDataLen;
+			for(int i=0;i<radarData.gpsDataLen;i++){
+				udIpc.txBuffer[inx++]=radarData.gpsDataA[i];
+			}
+		}
 		udIpc.txBuffer[inx++]=0xcd;//check end
 		//====================================
+
+
+
+
+
 		udIpc.txPackItemCnt0++;
 		udIpc.txPackItemCnt1++;
 		//====================================

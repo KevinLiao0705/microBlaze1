@@ -186,6 +186,16 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
 set_property PACKAGE_PIN AB18 [get_ports {gpInA[3]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
 
+
+# iob68  sw1_3
+set_property PACKAGE_PIN V20 [get_ports {gpInA[8]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[8]}]
+
+# iob69sw1_4
+set_property PACKAGE_PIN Y19 [get_ports {gpInA[9]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[9]}]
+
+
 # ioA36 ledR
 set_property PACKAGE_PIN R14 [get_ports {gpOutA[0]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[0]}]

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Apr  9 16:30:30 2025" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 17 11:09:59 2025" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a200t" NAME="design_1" PACKAGE="fbg484" SPEEDGRADE="-2"/>
 
@@ -12,11 +12,6 @@
     <PORT DIR="O" NAME="rs485Di" SIGIS="undef" SIGNAME="axi_uartlite_1_tx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_1" PORT="tx"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="7" NAME="gpInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="7" NAME="gpOutA" RIGHT="0" SIGIS="undef" SIGNAME="axi_gpio_0_gpio_io_o">
@@ -157,6 +152,11 @@
     <PORT DIR="O" NAME="uartIpcRx2" SIGIS="undef" SIGNAME="axi_uartlite_2_tx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_2" PORT="tx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="9" NAME="gpInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_i"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1166,7 +1166,7 @@
             <REGISTER NAME="GPIO_DATA">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-1 AXI GPIO Data register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x0"/>
-              <PROPERTY NAME="SIZE" VALUE="8"/>
+              <PROPERTY NAME="SIZE" VALUE="10"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1179,14 +1179,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="10"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="GPIO_TRI">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-1 AXI GPIO 3-State Control register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x4"/>
-              <PROPERTY NAME="SIZE" VALUE="8"/>
+              <PROPERTY NAME="SIZE" VALUE="10"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -1199,7 +1199,7 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="10"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
@@ -1330,7 +1330,7 @@
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_GPIO_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_GPIO_WIDTH" VALUE="10"/>
         <PARAMETER NAME="C_GPIO2_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_ALL_INPUTS" VALUE="1"/>
         <PARAMETER NAME="C_ALL_INPUTS_2" VALUE="0"/>
@@ -1446,7 +1446,7 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
+        <PORT DIR="I" LEFT="9" NAME="gpio_io_i" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="gpInA"/>
           </CONNECTIONS>

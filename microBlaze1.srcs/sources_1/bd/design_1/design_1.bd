@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x7A04AEB32B329EA9",
+      "boundary_crc": "0x1080DDE71D9803DD",
       "device": "xc7a200tfbg484-2",
       "gen_directory": "../../../../microBlaze1.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -61,11 +61,6 @@
       },
       "rs485Di": {
         "direction": "O"
-      },
-      "gpInA": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
       },
       "gpOutA": {
         "direction": "O",
@@ -196,6 +191,11 @@
       },
       "uartIpcRx2": {
         "direction": "O"
+      },
+      "gpInA": {
+        "direction": "I",
+        "left": "9",
+        "right": "0"
       }
     },
     "components": {
@@ -415,7 +415,7 @@
             "value": "1"
           },
           "C_GPIO_WIDTH": {
-            "value": "8"
+            "value": "10"
           }
         }
       },
@@ -2519,7 +2519,7 @@
           "hw0_0/fibRxA"
         ]
       },
-      "gpio_io_i_0_1": {
+      "gpInA_1": {
         "ports": [
           "gpInA",
           "axi_gpio_1/gpio_io_i"
