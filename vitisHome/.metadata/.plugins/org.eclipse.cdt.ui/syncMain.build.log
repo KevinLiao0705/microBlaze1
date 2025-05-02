@@ -1,4 +1,4 @@
-23:13:23 **** Incremental Build of configuration Debug for project syncMain ****
+15:23:53 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -11,45 +11,30 @@ E:/kevin/myCode/microBlaze1/vitisHome/syncBlaze/export/syncBlaze/sw/syncBlaze/st
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'ud485RxPrg':
-../src/helloworld.c:547:13: warning: unused variable 'para3' [-Wunused-variable]
-  547 |         u16 para3 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:582:13: warning: unused variable 'para2' [-Wunused-variable]
+  582 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:546:13: warning: unused variable 'para2' [-Wunused-variable]
-  546 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:581:13: warning: unused variable 'para1' [-Wunused-variable]
+  581 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:545:13: warning: unused variable 'para1' [-Wunused-variable]
-  545 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
-      |             ^~~~~
-../src/helloworld.c:542:13: warning: unused variable 'len' [-Wunused-variable]
-  542 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:578:13: warning: unused variable 'len' [-Wunused-variable]
+  578 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:636:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  636 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:696:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  696 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'transBram':
-../src/helloworld.c:919:13: warning: unused variable 'debug' [-Wunused-variable]
-  919 |         int debug;
+../src/helloworld.c:1022:13: warning: unused variable 'debug' [-Wunused-variable]
+ 1022 |         int debug;
       |             ^~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:1123:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
- 1123 |         int ibuf;
+../src/helloworld.c:1226:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
+ 1226 |         int ibuf;
       |             ^~~~
 At top level:
-../src/helloworld.c:424:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  424 | static XUartLite uart6Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:423:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
-  423 | static XUartLite uart5Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:422:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
-  422 | static XUartLite uart4Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:421:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
-  421 | static XUartLite uart3Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:420:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
-  420 | static XUartLite uart2Obj;
+../src/helloworld.c:443:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+  443 | static XUartLite uart6Obj;
       |                  ^~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -61,9 +46,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisHome/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  31472	    548	  17996	  50016	   c360	syncMain.elf
+  38800	    552	  43424	  82776	  14358	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
 
-23:13:23 Build Finished (took 410ms)
+15:23:53 Build Finished (took 406ms)
 
