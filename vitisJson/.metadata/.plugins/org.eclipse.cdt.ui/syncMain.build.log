@@ -1,4 +1,4 @@
-10:57:37 **** Incremental Build of configuration Debug for project syncMain ****
+16:18:14 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -11,42 +11,42 @@ E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/st
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'ud485RxPrg':
-../src/helloworld.c:560:13: warning: unused variable 'para2' [-Wunused-variable]
-  560 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:582:13: warning: unused variable 'para2' [-Wunused-variable]
+  582 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:559:13: warning: unused variable 'para1' [-Wunused-variable]
-  559 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:581:13: warning: unused variable 'para1' [-Wunused-variable]
+  581 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:556:13: warning: unused variable 'len' [-Wunused-variable]
-  556 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:578:13: warning: unused variable 'len' [-Wunused-variable]
+  578 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~
+../src/helloworld.c: In function 'udUartRxPrg':
+../src/helloworld.c:689:12: warning: unused variable 'ibuf' [-Wunused-variable]
+  689 |         u8 ibuf;
+      |            ^~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:674:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  674 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:712:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  712 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'transBram':
-../src/helloworld.c:1002:13: warning: unused variable 'debug' [-Wunused-variable]
- 1002 |         int debug;
+../src/helloworld.c:1038:13: warning: unused variable 'debug' [-Wunused-variable]
+ 1038 |         int debug;
       |             ^~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:1206:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
- 1206 |         int ibuf;
+../src/helloworld.c:1242:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
+ 1242 |         int ibuf;
+      |             ^~~~
+../src/helloworld.c: In function 'loadTickDrv':
+../src/helloworld.c:1871:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1871 |         int ibuf;
+      |             ^~~~
+../src/helloworld.c: In function 'loadTickMeter':
+../src/helloworld.c:1934:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1934 |         int ibuf;
       |             ^~~~
 At top level:
-../src/helloworld.c:435:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  435 | static XUartLite uart6Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:434:18: warning: 'uart5Obj' defined but not used [-Wunused-variable]
-  434 | static XUartLite uart5Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:433:18: warning: 'uart4Obj' defined but not used [-Wunused-variable]
-  433 | static XUartLite uart4Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:432:18: warning: 'uart3Obj' defined but not used [-Wunused-variable]
-  432 | static XUartLite uart3Obj;
-      |                  ^~~~~~~~
-../src/helloworld.c:431:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
-  431 | static XUartLite uart2Obj;
+../src/helloworld.c:443:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
+  443 | static XUartLite uart6Obj;
       |                  ^~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -58,9 +58,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisJson/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  36500	    552	  18220	  55272	   d7e8	syncMain.elf
+  36696	    552	  43416	  80664	  13b18	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
 
-10:57:37 Build Finished (took 533ms)
+16:18:15 Build Finished (took 1s.70ms)
 

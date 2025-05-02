@@ -1644,8 +1644,6 @@ void timerPrg0()
 		}
 		return;
 	}
-
-
 	if(shTime==1){
 		if(udIpc.txLen)
 			tickFatherTime=0;
@@ -1866,148 +1864,43 @@ void loadUtxBufferL(UartData *udp, u32 dword)
 
 
 
-
-void loadTickDrv(){
-	int ibuf;
-	int fpgaId=radarData.fpgaId;
-	udUart[0].txSerialCnt++;
-	udUart[0].txDeiceId = myDeviceId;
-	udUart[0].txSerialId = mySerialId;
-	udUart[0].txGroupId=0xab00;
-	udUart[0].txCmd = 0x1000;	//tick
-	udUart[0].txPara0 =fpgaId;
-	udUart[0].txPara1 = udIpc.txSerialCnt;
-	udUart[0].txPara2 = 0;
-	udUart[0].txPara3 = 0;
-	udUart[0].txBufferLen = 0;
-	//
-	int inx=0;
-	for(int i=0;i<12;i++){
-		udUart[0].txBuffer[inx++]=radarData.slotDataAA[0][i]&255;
-		udUart[0].txBuffer[inx++]=radarData.slotDataAA[0][i]>>8;
-	}
-	//
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
-
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
-
-
-	if(udUart[0].txPackItemCnt0>=36)
-		udUart[0].txPackItemCnt0=0;
-	udUart[0].txBuffer[inx++]=0xab;
-	udUart[0].txBuffer[inx++]=udIpc.txPackItemCnt0;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerStatusAA[0][udIpc.txPackItemCnt0];
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50vAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50vAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50iAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50iAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50tAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV50tAA[0][udIpc.txPackItemCnt0]>>8;
-
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32vAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32vAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32iAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32iAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32tAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaPowerV32tAA[0][udIpc.txPackItemCnt0]>>8;
-
-	udUart[0].txBuffer[inx++]=radarData.sspaModuleStatusAA[0][udIpc.txPackItemCnt0];
-	udUart[0].txBuffer[inx++]=radarData.sspaModuleRfOutAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaModuleRfOutAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txBuffer[inx++]=radarData.sspaModuleTemprAA[0][udIpc.txPackItemCnt0]&255;
-	udUart[0].txBuffer[inx++]=radarData.sspaModuleTemprAA[0][udIpc.txPackItemCnt0]>>8;
-	udUart[0].txPackItemCnt0++;
-	//===================================
-	udUart[0].txBuffer[inx++]=0xcd;//check end
-	udUart[0].txBufferLen = inx;
-}
-
-
-
-void loadTickMeter(){
-	int ibuf;
-	int fpgaId=radarData.fpgaId;
-	udUart[0].txSerialCnt++;
-	udUart[0].txDeiceId = myDeviceId;
-	udUart[0].txSerialId = mySerialId;
-	udUart[0].txGroupId=0xab00;
-	udUart[0].txCmd = 0x1000;	//tick
-	udUart[0].txPara0 =fpgaId;
-	udUart[0].txPara1 = udIpc.txSerialCnt;
-	udUart[0].txPara2 = 0;
-	udUart[0].txPara3 = 0;
-	udUart[0].txBufferLen = 0;
-	//
-	int inx=0;
-	//
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
-
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
-	udUart[0].txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
-
-
-	//=============================================
-	udUart[0].txBuffer[inx++]=0xaa;
-	udUart[0].txBuffer[inx++]=12;
-	for(int i=0;i<6;i++){
-		udUart[0].txBuffer[inx++]=radarData.meterStatusAA[0][i]&255;
-		udUart[0].txBuffer[inx++]=radarData.meterStatusAA[0][i]>>8;
-	}
-	//==============================================
-	udUart[0].txBuffer[inx++]=0xcd;//check end
-	udUart[0].txBufferLen = inx;
-}
-
-
 void loadTickIpc(){
 	int ibuf;
 	int fpgaId=radarData.fpgaId;
 
-
-	udIpc.txSerialCnt++;
-	udIpc.txDeiceId = myDeviceId;
-	udIpc.txSerialId = mySerialId;
-	udIpc.txGroupId=0xab00;
-	udIpc.txCmd = 0x1000;	//tick
-	udIpc.txPara0 =fpgaId;
-	udIpc.txPara1 = udIpc.txSerialCnt;
-	udIpc.txPara2 = 0;
-	udIpc.txPara3 = 0;
-	udIpc.txBufferLen = 0;
-	//
-	int inx=0;
-	for(int i=0;i<12;i++){
-		udIpc.txBuffer[inx++]=radarData.slotDataAA[0][i]&255;
-		udIpc.txBuffer[inx++]=radarData.slotDataAA[0][i]>>8;
-	}
-	//
-	udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
-
-	udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
-	udIpc.txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
-
-
 	if(fpgaId==0){
+		udIpc.txSerialCnt++;
+		udIpc.txDeiceId = myDeviceId;
+		udIpc.txSerialId = mySerialId;
+		udIpc.txGroupId=0xab00;
+		udIpc.txCmd = 0x1000;	//tick
+		udIpc.txPara0 =fpgaId;
+		udIpc.txPara1 = udIpc.txSerialCnt;
+		udIpc.txPara2 = 0;
+		udIpc.txPara3 = 0;
+		udIpc.txBufferLen = 0;
+		//
+		int inx=0;
+		for(int i=0;i<12;i++){
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]&255;
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]>>8;
+		}
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
+
+		//====================================
 		//gps data
 		for(int i=0;i<3;i++){
 			if(radarData.gpsDataLen[i]){
-				udIpc.txBuffer[inx++]=i+0xad;
+				udIpc.txBuffer[inx++]=i+173;
 				udIpc.txBuffer[inx++]=radarData.gpsDataLen[i];
 				for(int j=0;j<radarData.gpsDataLen[i];j++){
 					udIpc.txBuffer[inx++]=radarData.gpsDataA[i][j];
@@ -2015,31 +1908,48 @@ void loadTickIpc(){
 			}
 			udIpc.txBuffer[inx++]=0;
 		}
-		//view datas
-		if(udIpc.txPackItemCnt1>=1)
-			udIpc.txPackItemCnt1=0;
-		udIpc.txBuffer[inx++]=0xac;
-		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt1;
-		bramAddr = udIpc.txPackItemCnt1*8*4;
-		for(int i=0;i<8;i++){
-			ibuf = readBram32();
-			udIpc.txBuffer[inx++]=ibuf&255;
-			udIpc.txBuffer[inx++]=(ibuf>>8)&255;
-			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
-			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
-		}
+		udIpc.txBuffer[inx++]=0xcd;//check end
+		//====================================
+		udIpc.txPackItemCnt0++;
 		udIpc.txPackItemCnt1++;
 		//====================================
-		udIpc.txBuffer[inx++]=0xcd;//check end
 		udIpc.txBufferLen = inx;
 		return;
 	}
 
 
 	if(fpgaId==1 || fpgaId==2){
+		udIpc.txSerialCnt++;
+		udIpc.txDeiceId = myDeviceId;
+		udIpc.txSerialId = mySerialId;
+		udIpc.txGroupId=0xab00;
+		udIpc.txCmd = 0x1000;	//tick
+		udIpc.txPara0 =fpgaId;
+		udIpc.txPara1 = udIpc.txSerialCnt;
+		udIpc.txPara2 = 0;
+		udIpc.txPara3 = 0;
+		udIpc.txBufferLen = 0;
+		//
+		int inx=0;
+		for(int i=0;i<12;i++){
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]&255;
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]>>8;
+		}
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
+
+		//====================================
 		//gps data
 		if(radarData.gpsDataLen[fpgaId]){
-			udIpc.txBuffer[inx++]=fpgaId+0xad;
+			udIpc.txBuffer[inx++]=fpgaId+173;
 			udIpc.txBuffer[inx++]=radarData.gpsDataLen[fpgaId];
 			for(int j=0;j<radarData.gpsDataLen[fpgaId];j++){
 				udIpc.txBuffer[inx++]=radarData.gpsDataA[fpgaId][j];
@@ -2047,64 +1957,83 @@ void loadTickIpc(){
 		}
 		udIpc.txBuffer[inx++]=0;
 		//====================================
-		//view datas
-		if(udIpc.txPackItemCnt1>=1)
-			udIpc.txPackItemCnt1=0;
-		udIpc.txBuffer[inx++]=0xac;
-		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt1;
-		bramAddr = udIpc.txPackItemCnt1*8*4;
-		for(int i=0;i<8;i++){
-			ibuf = readBram32();
-			udIpc.txBuffer[inx++]=ibuf&255;
-			udIpc.txBuffer[inx++]=(ibuf>>8)&255;
-			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
-			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
-		}
+		udIpc.txBuffer[inx++]=0xcd;//check end
+		udIpc.txPackItemCnt0++;
 		udIpc.txPackItemCnt1++;
 		//====================================
-		udIpc.txBuffer[inx++]=0xcd;//check end
 		udIpc.txBufferLen = inx;
 		return;
+
 	}
+
+
 	if(fpgaId==3 || fpgaId == 4){
-		//=============================================
+		udIpc.txSerialCnt++;
+		udIpc.txDeiceId = myDeviceId;
+		udIpc.txSerialId = mySerialId;
+		udIpc.txGroupId=0xab00;
+		udIpc.txCmd = 0x1000;	//tick
+		udIpc.txPara0 =fpgaId;
+		udIpc.txPara1 = udIpc.txSerialCnt;
+		udIpc.txPara2 = 0;
+		udIpc.txPara3 = 0;
+		udIpc.txBufferLen = 0;
+		//
+		int inx=0;
+		for(int i=0;i<12;i++){
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]&255;
+			udIpc.txBuffer[inx++]=radarData.slotDataAA[fpgaId][i]>>8;
+		}
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus0>>24)&255;
+
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.systemStatus1>>24)&255;
+
+
 		udIpc.txBuffer[inx++]=0xaa;
 		udIpc.txBuffer[inx++]=16;
-		udIpc.txBuffer[inx++]=(radarData.enviStatusA[0])&255;
-		udIpc.txBuffer[inx++]=(radarData.enviStatusA[0]>>8)&255;
-		udIpc.txBuffer[inx++]=(radarData.enviStatusA[0]>>16)&255;
-		udIpc.txBuffer[inx++]=(radarData.enviStatusA[0]>>24)&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3])&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>8)&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>16)&255;
+		udIpc.txBuffer[inx++]=(radarData.enviStatusA[fpgaId-3]>>24)&255;
+
 		for(int i=0;i<6;i++){
-			udIpc.txBuffer[inx++]=radarData.meterStatusAA[0][i]&255;
-			udIpc.txBuffer[inx++]=radarData.meterStatusAA[0][i]>>8;
+			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]&255;
+			udIpc.txBuffer[inx++]=radarData.meterStatusAA[fpgaId-3][i]>>8;
 		}
-		//==============================================
+
+
+
 		if(udIpc.txPackItemCnt0>=36)
 			udIpc.txPackItemCnt0=0;
 		udIpc.txBuffer[inx++]=0xab;
 		udIpc.txBuffer[inx++]=udIpc.txPackItemCnt0;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerStatusAA[0][udIpc.txPackItemCnt0];
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[0][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerStatusAA[fpgaId-3][udIpc.txPackItemCnt0];
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50vAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50iAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV50tAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
 
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[0][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32vAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32iAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaPowerV32tAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
 
-		udIpc.txBuffer[inx++]=radarData.sspaModuleStatusAA[0][udIpc.txPackItemCnt0];
-		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[0][udIpc.txPackItemCnt0]&255;
-		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[0][udIpc.txPackItemCnt0]>>8;
-		udIpc.txPackItemCnt0++;
-
+		udIpc.txBuffer[inx++]=radarData.sspaModuleStatusAA[fpgaId-3][udIpc.txPackItemCnt0];
+		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleRfOutAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt0]&255;
+		udIpc.txBuffer[inx++]=radarData.sspaModuleTemprAA[fpgaId-3][udIpc.txPackItemCnt0]>>8;
 		//===================================
 		if(udIpc.txPackItemCnt1>=1)
 			udIpc.txPackItemCnt1=0;
@@ -2118,11 +2047,31 @@ void loadTickIpc(){
 			udIpc.txBuffer[inx++]=(ibuf>>16)&255;
 			udIpc.txBuffer[inx++]=(ibuf>>24)&255;
 		}
-		udIpc.txPackItemCnt1++;
+		//====================================
+		//gps data
+		if(radarData.gpsDataLen[fpgaId-2]){
+			udIpc.txBuffer[inx++]=171+fpgaId;
+			udIpc.txBuffer[inx++]=radarData.gpsDataLen[fpgaId-2];
+			for(int i=0;i<radarData.gpsDataLen[fpgaId-2];i++){
+				udIpc.txBuffer[inx++]=radarData.gpsDataA[fpgaId-2][i];
+			}
+		}
+		udIpc.txBuffer[inx++]=0;
 		//====================================
 		udIpc.txBuffer[inx++]=0xcd;//check end
 		//====================================
+
+
+
+
+
+		udIpc.txPackItemCnt0++;
+		udIpc.txPackItemCnt1++;
+		//====================================
 		udIpc.txBufferLen = inx;
+		//enc_mystm(&udIpc);
+		//udIpc.txStart_f = 1;
+		//udIpc.endTxFifo_f = 0;
 
 	}
 

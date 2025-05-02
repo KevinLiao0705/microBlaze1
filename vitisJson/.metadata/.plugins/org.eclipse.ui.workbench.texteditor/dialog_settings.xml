@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="systemStatus"/>
+		<item key="selection" value="mainLoop"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="systemStatus"/>
+			<item value="mainLoop"/>
+			<item value="loadT"/>
+			<item value="loop"/>
 			<item value="loadTickFather"/>
-			<item value="loadTickFaterh"/>
-			<item value="&lt;&lt;debi"/>
-			<item value="gpsData"/>
-			<item value="ad"/>
-			<item value="gpsDataLen"/>
-			<item value="==6"/>
-			<item value="gps"/>
-			<item value="gpsDataA"/>
-			<item value="radarDataA"/>
 			<item value="tickFather"/>
-			<item value="sspaPowerExistAA"/>
-			<item value="&lt;&lt;debug"/>
-			<item value="selfTest"/>
+			<item value="rs485TxLoadRequest"/>
+			<item value="endTxFifo_"/>
+			<item value="uartTxPrg"/>
+			<item value="XPAR_UARTLITE_0_BASEADDR"/>
+			<item value="intrFlag"/>
+			<item value="timerPrg0"/>
+			<item value="udUartRxPrg"/>
+			<item value="ud485RxPrg"/>
+			<item value="udUartPrg"/>
+			<item value="systemStatus"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

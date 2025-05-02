@@ -11220,3 +11220,234 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.]. Thread: Worker-142: Laun
 
 !ENTRY com.xilinx.sdk.utils 0 0 2025-04-29 11:59:23.632
 !MESSAGE XSCT command with result: [disconnect tcfchan#2], Result: [null, ]. Thread: Thread-326
+!SESSION 2025-05-02 10:19:53.936 -----------------------------------------------
+eclipse.buildId=2022.2
+java.version=11.0.11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_TW
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2025-05-02 10:24:11.185
+!MESSAGE Plug-in 'org.eclipse.ui.editors' contributed an invalid Menu Extension (Path: 'navigate' is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-05-02 10:24:17.529
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-05-02 10:24:17.529
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-05-02 10:24:17.529
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:19.843
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-25
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:19.843
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-5: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:19.843
+!MESSAGE XSCT Command: [plnx-install-path  ; ::scw::scw_mode gui], Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:19.858
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-25
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:19.858
+!MESSAGE XSCT Command: [setws E:/kevin/myCode/microBlaze1/vitisJson], Thread: Thread-25
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:26.313
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-5: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:26.313
+!MESSAGE XSCT command with result: [plnx-install-path  ; ::scw::scw_mode gui], Result: [null, ]. Thread: Thread-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:26.313
+!MESSAGE XSCT command with result: [setws E:/kevin/myCode/microBlaze1/vitisJson], Result: [null, ]. Thread: Thread-25
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:26.313
+!MESSAGE XSCT Command: [set query_var1 $::env(RDI_DATADIR)], Thread: Worker-5: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:24:26.345
+!MESSAGE XSCT command with result: [set query_var1 $::env(RDI_DATADIR)], Result: [null, d:/Xilinx202202/Vitis/2022.2/data]. Thread: Worker-5: Initializing s/w repositories
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:55.896
+!MESSAGE XSCT Command: [::hsi::utils::openhw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.108
+!MESSAGE XSCT command with result: [::hsi::utils::openhw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.112
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.114
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.114
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.125
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 10:31:56.126
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.130
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:31:56.131
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdx.core 1 0 2025-05-02 10:31:57.388
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.168
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.170
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.171
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.189
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 10:34:13.189
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.190
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:34:13.191
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-1: Build Project
+
+!ENTRY com.xilinx.sdx.core 1 0 2025-05-02 10:34:13.444
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.232
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.234
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.235
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.249
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 10:35:14.251
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.253
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:14.254
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-7: Build Project
+
+!ENTRY com.xilinx.sdx.core 1 0 2025-05-02 10:35:14.501
+!MESSAGE Build step failed, canceling full build chain.
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.596
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.598
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.598
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.600
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 10:35:52.600
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.612
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 10:35:52.614
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-2: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.207
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.230
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.231
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.234
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 15:20:48.235
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.236
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:20:48.237
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-40: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.653
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.655
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.655
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.660
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 15:26:30.660
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.661
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 15:26:30.662
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-38: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.311
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Thread: Worker-37: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.314
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss ], Result: [null, ]. Thread: Worker-37: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.314
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-37: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.318
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/hw/design_1_wrapper.xsa E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, {"procname": "microblaze_0",
+"osname": "standalone",
+"osver": "8.0",
+}]. Thread: Worker-37: Build Project
+
+!ENTRY com.xilinx.sdk.utils 1 0 2025-05-02 16:18:14.318
+!MESSAGE Generating MD5 hash for file: E:\kevin\myCode\microBlaze1\vitisJson\syncBlaze\export\syncBlaze\sw\syncBlaze\standalone_domain\system.mss ...
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.319
+!MESSAGE XSCT Command: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Thread: Worker-37: Build Project
+
+!ENTRY com.xilinx.sdk.utils 0 0 2025-05-02 16:18:14.319
+!MESSAGE XSCT command with result: [::hsi::utils::closesw E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/system.mss], Result: [null, ]. Thread: Worker-37: Build Project
