@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Apr  9 16:33:19 2025
+// Date        : Fri May  9 17:18:40 2025
 // Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0_stub.v
@@ -15,9 +15,10 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "hw0,Vivado 2022.2" *)
 module design_1_hw0_0_0(ramClk, ramAddr, ramInData, ramOutData, ramWe, 
-  ramEn, ramRstp, sysClk, clk160m, resetN, gpsPps, ledV3, ledV4, rfInA, rfOutA, fibTxA, fibRxA, hdfiA, hdfoA, 
-  laCh, dfInP, dfInN, dfOutP, dfOutN)
-/* synthesis syn_black_box black_box_pad_pin="ramClk,ramAddr[12:0],ramInData[31:0],ramOutData[31:0],ramWe[3:0],ramEn,ramRstp,sysClk,clk160m,resetN,gpsPps,ledV3,ledV4,rfInA[11:0],rfOutA[3:0],fibTxA[3:0],fibRxA[3:0],hdfiA[13:0],hdfoA[7:0],laCh[15:0],dfInP[15:0],dfInN[15:0],dfOutP[7:0],dfOutN[7:0]" */;
+  ramEn, ramRstp, sysClk, clk160m, resetN, gpsPps, ledV3, ledV4, rfInA, rfOutA, fibTxA, fibRxA, fibTxB1, 
+  fibTxB3, fibTxB5, fibTxB7, fibRxB1, fibRxB3, fibRxB5, fibRxB7, hdfiA, hdfoA, laCh, dfInP, dfInN, dfOutP, 
+  dfOutN)
+/* synthesis syn_black_box black_box_pad_pin="ramClk,ramAddr[12:0],ramInData[31:0],ramOutData[31:0],ramWe[3:0],ramEn,ramRstp,sysClk,clk160m,resetN,gpsPps,ledV3,ledV4,rfInA[11:0],rfOutA[3:0],fibTxA[3:0],fibRxA[3:0],fibTxB1,fibTxB3,fibTxB5,fibTxB7,fibRxB1,fibRxB3,fibRxB5,fibRxB7,hdfiA[13:0],hdfoA[7:0],laCh[15:0],dfInP[15:0],dfInN[15:0],dfOutP[7:0],dfOutN[7:0]" */;
   input ramClk;
   input [12:0]ramAddr;
   input [31:0]ramInData;
@@ -35,6 +36,14 @@ module design_1_hw0_0_0(ramClk, ramAddr, ramInData, ramOutData, ramWe,
   output [3:0]rfOutA;
   output [3:0]fibTxA;
   input [3:0]fibRxA;
+  input fibTxB1;
+  input fibTxB3;
+  input fibTxB5;
+  input fibTxB7;
+  input fibRxB1;
+  input fibRxB3;
+  input fibRxB5;
+  input fibRxB7;
   input [13:0]hdfiA;
   output [7:0]hdfoA;
   output [15:0]laCh;

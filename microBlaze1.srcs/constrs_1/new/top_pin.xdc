@@ -178,11 +178,11 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[0]}]
 set_property PACKAGE_PIN AB16 [get_ports {gpInA[1]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[1]}]
 
-# ioA34  sw1_0
+# ioA34  sw1_1
 set_property PACKAGE_PIN AB17 [get_ports {gpInA[2]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
 
-# ioA35 sw1_1
+# ioA35 sw1_2
 set_property PACKAGE_PIN AB18 [get_ports {gpInA[3]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
 

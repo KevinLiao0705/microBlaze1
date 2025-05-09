@@ -539,6 +539,9 @@
         "xci_path": "ip\\design_1_axi_uartlite_6_0\\design_1_axi_uartlite_6_0.xci",
         "inst_hier_path": "axi_uartlite_6",
         "parameters": {
+          "C_BAUDRATE": {
+            "value": "460800"
+          },
           "C_S_AXI_ACLK_FREQ_HZ": {
             "value": "160000000"
           },
@@ -2189,6 +2192,30 @@
             "left": "3",
             "right": "0"
           },
+          "fibTxB1": {
+            "direction": "I"
+          },
+          "fibTxB3": {
+            "direction": "I"
+          },
+          "fibTxB5": {
+            "direction": "I"
+          },
+          "fibTxB7": {
+            "direction": "I"
+          },
+          "fibRxB1": {
+            "direction": "I"
+          },
+          "fibRxB3": {
+            "direction": "I"
+          },
+          "fibRxB5": {
+            "direction": "I"
+          },
+          "fibRxB7": {
+            "direction": "I"
+          },
           "hdfiA": {
             "direction": "I",
             "left": "13",
@@ -2425,7 +2452,8 @@
       "axi_uartlite_3_tx": {
         "ports": [
           "axi_uartlite_3/tx",
-          "fibTx1"
+          "fibTx1",
+          "hw0_0/fibTxB1"
         ]
       },
       "axi_uartlite_4_interrupt": {
@@ -2437,7 +2465,8 @@
       "axi_uartlite_4_tx": {
         "ports": [
           "axi_uartlite_4/tx",
-          "fibTx3"
+          "fibTx3",
+          "hw0_0/fibTxB3"
         ]
       },
       "axi_uartlite_5_interrupt": {
@@ -2449,7 +2478,8 @@
       "axi_uartlite_5_tx": {
         "ports": [
           "axi_uartlite_5/tx",
-          "fibTx5"
+          "fibTx5",
+          "hw0_0/fibTxB5"
         ]
       },
       "axi_uartlite_6_interrupt": {
@@ -2461,7 +2491,8 @@
       "axi_uartlite_6_tx": {
         "ports": [
           "axi_uartlite_6/tx",
-          "fibTx7"
+          "fibTx7",
+          "hw0_0/fibTxB7"
         ]
       },
       "clk_wiz_1_clk_out2": {
@@ -2492,25 +2523,29 @@
       "fibRx1_1": {
         "ports": [
           "fibRx1",
-          "axi_uartlite_3/rx"
+          "axi_uartlite_3/rx",
+          "hw0_0/fibRxB1"
         ]
       },
       "fibRx3_1": {
         "ports": [
           "fibRx3",
-          "axi_uartlite_4/rx"
+          "axi_uartlite_4/rx",
+          "hw0_0/fibRxB3"
         ]
       },
       "fibRx5_1": {
         "ports": [
           "fibRx5",
-          "axi_uartlite_5/rx"
+          "axi_uartlite_5/rx",
+          "hw0_0/fibRxB5"
         ]
       },
       "fibRx7_1": {
         "ports": [
           "fibRx7",
-          "axi_uartlite_6/rx"
+          "axi_uartlite_6/rx",
+          "hw0_0/fibRxB7"
         ]
       },
       "fibRxA_1": {

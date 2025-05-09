@@ -4,8 +4,8 @@
 -- Date        : Tue Mar 25 14:57:54 2025
 -- Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_axi_uartlite_6_0 -prefix
---               design_1_axi_uartlite_6_0_ design_1_axi_uartlite_6_0_stub.vhdl
--- Design      : design_1_axi_uartlite_6_0
+--               design_1_axi_uartlite_6_0_ design_1_axi_uartlite_0_0_stub.vhdl
+-- Design      : design_1_axi_uartlite_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tfbg484-2
 -- --------------------------------------------------------------------------------

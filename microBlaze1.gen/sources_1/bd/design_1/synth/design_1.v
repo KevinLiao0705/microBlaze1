@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Thu Apr 17 11:09:58 2025
+//Date        : Fri May  9 17:16:06 2025
 //Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -727,7 +727,15 @@ module design_1
         .dfOutN(hw0_0_dfOutN),
         .dfOutP(hw0_0_dfOutP),
         .fibRxA(fibRxA_1),
+        .fibRxB1(fibRx1_1),
+        .fibRxB3(fibRx3_1),
+        .fibRxB5(fibRx5_1),
+        .fibRxB7(fibRx7_1),
         .fibTxA(hw0_0_fibTxA),
+        .fibTxB1(axi_uartlite_3_tx),
+        .fibTxB3(axi_uartlite_4_tx),
+        .fibTxB5(axi_uartlite_5_tx),
+        .fibTxB7(axi_uartlite_6_tx),
         .gpsPps(gpsPps_1),
         .hdfiA(hdfiA_1),
         .hdfoA(hw0_0_hdfoA),

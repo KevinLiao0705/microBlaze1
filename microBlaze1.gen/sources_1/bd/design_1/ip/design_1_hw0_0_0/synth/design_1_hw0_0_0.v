@@ -73,6 +73,14 @@ module design_1_hw0_0_0 (
   rfOutA,
   fibTxA,
   fibRxA,
+  fibTxB1,
+  fibTxB3,
+  fibTxB5,
+  fibTxB7,
+  fibRxB1,
+  fibRxB3,
+  fibRxB5,
+  fibRxB7,
   hdfiA,
   hdfoA,
   laCh,
@@ -101,6 +109,14 @@ input wire [11 : 0] rfInA;
 output wire [3 : 0] rfOutA;
 output wire [3 : 0] fibTxA;
 input wire [3 : 0] fibRxA;
+input wire fibTxB1;
+input wire fibTxB3;
+input wire fibTxB5;
+input wire fibTxB7;
+input wire fibRxB1;
+input wire fibRxB3;
+input wire fibRxB5;
+input wire fibRxB7;
 input wire [13 : 0] hdfiA;
 output wire [7 : 0] hdfoA;
 output wire [15 : 0] laCh;
@@ -131,6 +147,14 @@ output wire [7 : 0] dfOutN;
     .rfOutA(rfOutA),
     .fibTxA(fibTxA),
     .fibRxA(fibRxA),
+    .fibTxB1(fibTxB1),
+    .fibTxB3(fibTxB3),
+    .fibTxB5(fibTxB5),
+    .fibTxB7(fibTxB7),
+    .fibRxB1(fibRxB1),
+    .fibRxB3(fibRxB3),
+    .fibRxB5(fibRxB5),
+    .fibRxB7(fibRxB7),
     .hdfiA(hdfiA),
     .hdfoA(hdfoA),
     .laCh(laCh),

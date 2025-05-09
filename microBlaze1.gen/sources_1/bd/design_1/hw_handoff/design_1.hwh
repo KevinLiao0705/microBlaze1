@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Apr 17 11:09:59 2025" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  9 17:16:08 2025" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a200t" NAME="design_1" PACKAGE="fbg484" SPEEDGRADE="-2"/>
 
@@ -97,6 +97,7 @@
     <PORT DIR="I" NAME="fibRx1" SIGIS="undef" SIGNAME="External_Ports_fibRx1">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_3" PORT="rx"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibRxB1"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="fibTx1" SIGIS="undef" SIGNAME="axi_uartlite_3_tx">
@@ -107,6 +108,7 @@
     <PORT DIR="I" NAME="fibRx3" SIGIS="undef" SIGNAME="External_Ports_fibRx3">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_4" PORT="rx"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibRxB3"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="fibTx3" SIGIS="undef" SIGNAME="axi_uartlite_4_tx">
@@ -117,6 +119,7 @@
     <PORT DIR="I" NAME="fibRx5" SIGIS="undef" SIGNAME="External_Ports_fibRx5">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_5" PORT="rx"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibRxB5"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="fibTx5" SIGIS="undef" SIGNAME="axi_uartlite_5_tx">
@@ -127,6 +130,7 @@
     <PORT DIR="I" NAME="fibRx7" SIGIS="undef" SIGNAME="External_Ports_fibRx7">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_6" PORT="rx"/>
+        <CONNECTION INSTANCE="hw0_0" PORT="fibRxB7"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" NAME="fibTx7" SIGIS="undef" SIGNAME="axi_uartlite_6_tx">
@@ -5164,6 +5168,7 @@
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_3_tx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="fibTx1"/>
+            <CONNECTION INSTANCE="hw0_0" PORT="fibTxB1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5535,6 +5540,7 @@
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_4_tx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="fibTx3"/>
+            <CONNECTION INSTANCE="hw0_0" PORT="fibTxB3"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5906,6 +5912,7 @@
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_5_tx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="fibTx5"/>
+            <CONNECTION INSTANCE="hw0_0" PORT="fibTxB5"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6155,7 +6162,7 @@
         <PARAMETER NAME="C_S_AXI_ACLK_FREQ_HZ" VALUE="160000000"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_BAUDRATE" VALUE="9600"/>
+        <PARAMETER NAME="C_BAUDRATE" VALUE="460800"/>
         <PARAMETER NAME="C_DATA_BITS" VALUE="8"/>
         <PARAMETER NAME="C_USE_PARITY" VALUE="0"/>
         <PARAMETER NAME="C_ODD_PARITY" VALUE="0"/>
@@ -6277,6 +6284,7 @@
         <PORT DIR="O" NAME="tx" SIGIS="undef" SIGNAME="axi_uartlite_6_tx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="fibTx7"/>
+            <CONNECTION INSTANCE="hw0_0" PORT="fibTxB7"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7070,6 +7078,46 @@
         <PORT DIR="I" LEFT="3" NAME="fibRxA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_fibRxA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="fibRxA"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibTxB1" SIGIS="undef" SIGNAME="axi_uartlite_3_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uartlite_3" PORT="tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibTxB3" SIGIS="undef" SIGNAME="axi_uartlite_4_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uartlite_4" PORT="tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibTxB5" SIGIS="undef" SIGNAME="axi_uartlite_5_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uartlite_5" PORT="tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibTxB7" SIGIS="undef" SIGNAME="axi_uartlite_6_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_uartlite_6" PORT="tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibRxB1" SIGIS="undef" SIGNAME="External_Ports_fibRx1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibRx1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibRxB3" SIGIS="undef" SIGNAME="External_Ports_fibRx3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibRx3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibRxB5" SIGIS="undef" SIGNAME="External_Ports_fibRx5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibRx5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="fibRxB7" SIGIS="undef" SIGNAME="External_Ports_fibRx7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="fibRx7"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfiA">
