@@ -1057,14 +1057,14 @@ reg[7:0] hostPreDataGateTimeCnt;
             //===========================
         end
         if(mem[5][18:16] == 3'b001)begin
-            laChR[0] = hostVideoGate_f;
-            laChR[1] = s1VideoGate_f;
-            laChR[2] = hostWgTrigGate_f;
-            laChR[3] = s1WgTrigGate_f;
-            laChR[4] = wgDataBit;
-            laChR[5] = wgClk;
-            laChR[6] = wgTrig_f;
-            laChR[7] = wgRfout; 
+            laChR[0] = hostWgTrigGate_f;
+            laChR[1] = s1WgTrigGate_f;
+            laChR[2] = wgDataBit;
+            laChR[3] = wgClk;
+            laChR[4] = wgTrig_f;
+            laChR[5] = wgRfout; 
+            laChR[6] = hostVideoGate_f;
+            laChR[7] = s1VideoGate_f;
             //===========================
         end  
         

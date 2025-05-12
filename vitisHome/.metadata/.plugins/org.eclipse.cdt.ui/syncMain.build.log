@@ -1,4 +1,4 @@
-15:23:53 **** Incremental Build of configuration Debug for project syncMain ****
+15:23:42 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -11,32 +11,49 @@ E:/kevin/myCode/microBlaze1/vitisHome/syncBlaze/export/syncBlaze/sw/syncBlaze/st
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'ud485RxPrg':
-../src/helloworld.c:582:13: warning: unused variable 'para2' [-Wunused-variable]
-  582 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:589:13: warning: unused variable 'para2' [-Wunused-variable]
+  589 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:581:13: warning: unused variable 'para1' [-Wunused-variable]
-  581 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:588:13: warning: unused variable 'para1' [-Wunused-variable]
+  588 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:578:13: warning: unused variable 'len' [-Wunused-variable]
-  578 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:585:13: warning: unused variable 'len' [-Wunused-variable]
+  585 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~
+../src/helloworld.c: In function 'udUartRxPrg':
+../src/helloworld.c:657:12: warning: unused variable 'ibuf' [-Wunused-variable]
+  657 |         u8 ibuf;
+      |            ^~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:696:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  696 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:680:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  680 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'transBram':
-../src/helloworld.c:1022:13: warning: unused variable 'debug' [-Wunused-variable]
- 1022 |         int debug;
+../src/helloworld.c:1086:13: warning: unused variable 'debug' [-Wunused-variable]
+ 1086 |         int debug;
       |             ^~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:1226:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
- 1226 |         int ibuf;
+../src/helloworld.c:1313:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
+ 1313 |         int ibuf;
+      |             ^~~~
+../src/helloworld.c: In function 'loadTickDrv':
+../src/helloworld.c:1913:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1913 |         int ibuf;
+      |             ^~~~
+../src/helloworld.c: In function 'loadTickMeter':
+../src/helloworld.c:1976:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1976 |         int ibuf;
       |             ^~~~
 At top level:
-../src/helloworld.c:443:18: warning: 'uart6Obj' defined but not used [-Wunused-variable]
-  443 | static XUartLite uart6Obj;
+../src/helloworld.c:438:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
+  438 | static XUartLite uart2Obj;
       |                  ^~~~~~~~
 'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -IE:/kevin/myCode/microBlaze1/vitisHome/syncBlaze/export/syncBlaze/sw/syncBlaze/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
 ' '
 'Building target: syncMain.elf'
 'Invoking: MicroBlaze gcc linker'
@@ -46,9 +63,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisHome/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  38800	    552	  43424	  82776	  14358	syncMain.elf
+  35612	    552	  43428	  79592	  136e8	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
 
-15:23:53 Build Finished (took 406ms)
+15:23:43 Build Finished (took 593ms)
 

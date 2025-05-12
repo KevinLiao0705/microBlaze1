@@ -62,3 +62,6 @@ platform generate
 platform active {syncBlaze}
 platform config -updatehw {E:/kevin/myCode/microBlaze1/design_1_wrapper.xsa}
 platform generate -domains 
+platform active {syncBlaze}
+platform config -updatehw {E:/kevin/myCode/microBlaze1/design_1_wrapper.xsa}
+platform generate -domains 
