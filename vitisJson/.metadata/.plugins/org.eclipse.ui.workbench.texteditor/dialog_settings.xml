@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="chFiberDelay"/>
+		<item key="selection" value="mem[2]"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="chFiberDelay"/>
+			<item value="mem[2]"/>
 			<item value="transBram"/>
+			<item value="mem[8"/>
+			<item value="initB"/>
+			<item value="PreDataGateOn_f"/>
+			<item value="SpPreDataGateOn_f"/>
+			<item value="chFiberDelay"/>
 			<item value="view"/>
 			<item value="tick"/>
 			<item value="trans"/>
@@ -18,11 +23,6 @@
 			<item value="sub2RxOn_f"/>
 			<item value="fpgaId"/>
 			<item value="2003"/>
-			<item value="pulseGenCh"/>
-			<item value="transBram_f"/>
-			<item value="2005"/>
-			<item value="chTimeFineTune"/>
-			<item value="vgTimeDelay"/>
 		</list>
 		<list key="replacehistory">
 			<item value="udp-&gt;"/>

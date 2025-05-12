@@ -1,6 +1,6 @@
 Nothing to build in platform 'syncBlaze'
 
-17:30:26 **** Incremental Build of configuration Debug for project syncMain ****
+17:59:27 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -35,16 +35,16 @@ E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/st
  1086 |         int debug;
       |             ^~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:1313:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
- 1313 |         int ibuf;
+../src/helloworld.c:1327:13: warning: variable 'ibuf' set but not used [-Wunused-but-set-variable]
+ 1327 |         int ibuf;
       |             ^~~~
 ../src/helloworld.c: In function 'loadTickDrv':
-../src/helloworld.c:1913:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 1913 |         int ibuf;
+../src/helloworld.c:1927:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1927 |         int ibuf;
       |             ^~~~
 ../src/helloworld.c: In function 'loadTickMeter':
-../src/helloworld.c:1976:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 1976 |         int ibuf;
+../src/helloworld.c:1990:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1990 |         int ibuf;
       |             ^~~~
 At top level:
 ../src/helloworld.c:438:18: warning: 'uart2Obj' defined but not used [-Wunused-variable]
@@ -65,6 +65,6 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisJson/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  35612	    552	  43428	  79592	  136e8	syncMain.elf
+  35752	    552	  43424	  79728	  13770	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
