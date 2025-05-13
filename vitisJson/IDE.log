@@ -10354,3 +10354,12 @@ con
 
 17:59:47 INFO  : Launch script is exported to file 'E:\kevin\myCode\microBlaze1\vitisJson\syncMain_system\_ide\scripts\systemdebugger_syncmain_system_standalone.tcl'
 18:19:17 INFO  : Disconnected from the channel tcfchan#13.
+16:51:44 DEBUG : Logs will be stored at 'E:/kevin/myCode/microBlaze1/vitisJson/IDE.log'.
+16:51:45 INFO  : Launching XSCT server: xsct.bat -n  -interactive E:\kevin\myCode\microBlaze1\vitisJson\temp_xsdb_launch_script.tcl
+16:51:48 INFO  : XSCT server has started successfully.
+16:51:48 INFO  : Successfully done setting XSCT server connection channel  
+16:51:48 INFO  : plnx-install-location is set to ''
+16:51:48 INFO  : Successfully done setting workspace for the tool. 
+16:51:49 INFO  : Registering command handlers for Vitis TCF services
+16:51:50 INFO  : Platform repository initialization has completed.
+16:52:00 INFO  : Successfully done query RDI_DATADIR 
