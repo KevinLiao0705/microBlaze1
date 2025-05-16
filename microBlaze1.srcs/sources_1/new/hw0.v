@@ -242,7 +242,15 @@ module hw0
     wire[15:0] hostS1RxData1_wb;
     wire[15:0] hostS1RxData2_wb;
     wire[15:0] hostS1RxData3_wb;
-    wire[15:0] hostS1RxData4_wb;
+    wire hostS2RxClk4m_w;
+    wire hostS2RxPack_w;
+    wire[15:0] hostS2RxData0_wb;
+    wire[15:0] hostS2RxData1_wb;
+    wire[15:0] hostS2RxData2_wb;
+    wire[15:0] hostS2RxData3_wb;
+    
+    
+    
     
     wire s1RxClk4m_w;
     wire s1RxPack_w;
@@ -255,9 +263,15 @@ module hw0
     
     reg[15:0] laChR;
     
-    wire hostTxLoad_w;
-    wire hostTxDataClk_w;
-    wire hostTxData_w;
+    wire hostS1TxLoad_w;
+    wire hostS1TxDataClk_w;
+    wire hostS1TxData_w;
+    wire hostS2TxLoad_w;
+    wire hostS2TxDataClk_w;
+    wire hostS2TxData_w;
+    
+    
+    
     wire s1TxLoad_w;
     wire s1TxDataClk_w;
     wire s1TxData_w;
@@ -296,10 +310,17 @@ module hw0
 
     reg[15:0] s1SyncWgPulseWidth;//
     
-    reg[15:0] hostTxData0;
-    reg[15:0] hostTxData1;
-    reg[15:0] hostTxData2;
-    reg[15:0] hostTxData3;
+    reg[15:0] hostS1TxData0;
+    reg[15:0] hostS1TxData1;
+    reg[15:0] hostS1TxData2;
+    reg[15:0] hostS1TxData3;
+    
+    reg[15:0] hostS2TxData0;
+    reg[15:0] hostS2TxData1;
+    reg[15:0] hostS2TxData2;
+    reg[15:0] hostS2TxData3;
+    
+    
     reg[6:0] hostTxSerial;
     
     reg[15:0] s1TxData0;
@@ -312,6 +333,12 @@ module hw0
     reg s1RxBit;
     
     reg[23:0] realTimeCnt;
+    reg txCon_f;
+    reg txSyncClkEn_f;
+    reg hostS1TxSyncClk;
+    reg hostS2TxSyncClk;
+    reg hostS1RxIn_f;
+    reg hostS2RxIn_f;
     integer      i ;  
   
 
@@ -412,7 +439,11 @@ initialize
         s1VideoGate_f=0;
         s1SyncRespDelayTime=656;
         //===================================
-        commDelayTime=16;        
+        commDelayTime=16;
+        txCon_f=0;
+        txSyncClkEn_f=0;
+        hostS1TxSyncClk=0;        
+        hostS2TxSyncClk=0;        
     end
 
 
@@ -725,20 +756,20 @@ reg[15:0] hostCommandData;
             hostPreDataGateTimeCnt<=1;
             hostTxSerial<=hostTxSerial+1;
             //=========================================
-            hostTxData0<={vgData_f,hostTxSerial,8'h00};
-            hostTxData1[15:0]<=hostCommandData;
-            hostTxData2[15:8]<=hostSoundData;
-            hostTxData2[7]<=0;
-            hostTxData2[6]<=hostInhibit_f;
-            hostTxData2[5]<=mem[2][27];
-            hostTxData2[4:0]<=hostWgRfFreq;
+            hostS1TxData0<={vgData_f,hostTxSerial,8'h00};
+            hostS1TxData1[15:0]<=hostCommandData;
+            hostS1TxData2[15:8]<=hostSoundData;
+            hostS1TxData2[7]<=0;
+            hostS1TxData2[6]<=hostInhibit_f;
+            hostS1TxData2[5]<=mem[2][27];
+            hostS1TxData2[4:0]<=hostWgRfFreq;
             //==========================================
             if(hostInhibit_f)begin
-                hostTxData3[15:11]<=5'b0000;
-                hostTxData3[10:0]<=commDelayTime[11:1];
+                hostS1TxData3[15:11]<=5'b0000;
+                hostS1TxData3[10:0]<=commDelayTime[11:1];
             end
             else
-                hostTxData3[15:0]=hostWgPulseWidth;
+                hostS1TxData3[15:0]=hostWgPulseWidth;
         end
         else begin
             if(hostPreDataGateTimeCnt<=16)begin
@@ -879,6 +910,8 @@ reg s1Inhibit_f;
         s1PreDataGate_f=s1SyncPreDataGate_f;
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
+        hostS1RxIn_f=s1TxData_w;
+        hostS2RxIn_f=s1TxData_w;
         
     end
 
@@ -1136,7 +1169,7 @@ output:
             laChR[3] = s1WgTrigGate_f;
             laChR[4] = hostVideoGate_f;
             laChR[5] = s1VideoGate_f;
-            laChR[6] = hostTxData_w;
+            laChR[6] = hostS1TxData_w;
             laChR[7] = s1SyncPreDataGate_f;
             //===========================
         end
@@ -1189,7 +1222,7 @@ reg[31:0] s1EmuRxDataBuf[3:0];
 // generate s1EmuRxDataBuf
 //===================================================
     always @(posedge clk160m) begin
-        s1EmuRxDataBuf[0]<={s1EmuRxDataBuf[0][30:0],hostTxData_w};
+        s1EmuRxDataBuf[0]<={s1EmuRxDataBuf[0][30:0],hostS1TxData_w};
         s1EmuRxDataBuf[1]<={s1EmuRxDataBuf[1][30:0],s1EmuRxDataBuf[0][31]};
         s1EmuRxDataBuf[2]<={s1EmuRxDataBuf[2][30:0],s1EmuRxDataBuf[1][31]};
         s1EmuRxDataBuf[3]<={s1EmuRxDataBuf[3][30:0],s1EmuRxDataBuf[2][31]};
@@ -1215,30 +1248,68 @@ reg[31:0] hostEmuRxDataBuf[3:0];
 // tx process
 /*
     tx_data0[15:9]= serialCnt,[7:0] pretrigOffsetTime[7:0]
-    tx_data1[15:0] = cmdData  & statusData  0xfxxx=command  0xxxx  value 
+    tx_data1[15:0] = cmdData  & statusData  0b1xxx...=command  0b0xxx---  value 
     tx_data2[15:0] = soundData:chFlag:chFreq  8:3:5
-    tx_data3[15:0] = chWidth:commDelay 5:11
+    tx_data3[15:0] = chWidth:commDelay 5:11 or pulse width
 */
 //===================================================
-TXPROC hostTxProc(
+    TXPROC hostS1TxProc(
         .clk160m_i(clk160m),
         .preDataGate_i(hostPreDataGate_f),
-        .txCon_i(0),
-        .txData0_ib(hostTxData0),
-        .txData1_ib(hostTxData1),
-        .txData2_ib(hostTxData2),
-        .txData3_ib(hostTxData3),
-        .txSyncClkEn_i(0),
-        .txSyncClk_i(0),
-        .txLoad_o(hostTxLoad_w),				
-        .txData_o(hostTxData_w),				
-        .txDataClk_o(hostTxDataClk_w)				
+        .txCon_i(txCon_f),
+        .txData0_ib(hostS1TxData0),
+        .txData1_ib(hostS1TxData1),
+        .txData2_ib(hostS1TxData2),
+        .txData3_ib(hostS1TxData3),
+        .txSyncClkEn_i(txSyncClkEn_f),
+        .txSyncClk_i(hostS1TxSyncClk),
+        .txLoad_o(hostS1TxLoad_w),				
+        .txData_o(hostS1TxData_w),				
+        .txDataClk_o(hostS1TxDataClk_w)				
     );
+
+    TXPROC hostS2TxProc(
+        .clk160m_i(clk160m),
+        .preDataGate_i(hostPreDataGate_f),
+        .txCon_i(txCon_f),
+        .txData0_ib(hostS2TxData0),
+        .txData1_ib(hostS2TxData1),
+        .txData2_ib(hostS2TxData2),
+        .txData3_ib(hostS2TxData3),
+        .txSyncClkEn_i(txSyncClkEn_f),
+        .txSyncClk_i(hostS2TxSyncClk),
+        .txLoad_o(hostS2TxLoad_w),				
+        .txData_o(hostS2TxData_w),				
+        .txDataClk_o(hostS2TxDataClk_w)				
+    );
+
+    RXPROC hostS1RxProc(
+        .clk160m_i(clk160m),
+        .rxData_i(hostS1RxIn_f),
+        .rxClk4m_o(hostS1RxClk4m_w),
+        .rxPack_o(hostS1RxPack_w),  //1us high
+        .rxData0_ob(hostS1RxData0_wb),
+        .rxData1_ob(hostS1RxData1_wb),
+        .rxData2_ob(hostS1RxData2_wb),
+        .rxData3_ob(hostS1RxData3_wb)
+    );
+    RXPROC hostS2RxProc(
+        .clk160m_i(clk160m),
+        .rxData_i(hostS1RxIn_f),
+        .rxClk4m_o(hostS2RxClk4m_w),
+        .rxPack_o(hostS2RxPack_w),  //1us high
+        .rxData0_ob(hostS2RxData0_wb),
+        .rxData1_ob(hostS2RxData1_wb),
+        .rxData2_ob(hostS2RxData2_wb),
+        .rxData3_ob(hostS2RxData3_wb)
+    );
+
+
 
     TXPROC s1TxProc(
         .clk160m_i(clk160m),
         .preDataGate_i(s1PreDataGate_f),
-        .txCon_i(0),
+        .txCon_i(txCon_f),
         .txData0_ib(s1TxData0),
         .txData1_ib(s1TxData1),
         .txData2_ib(s1TxData2),
@@ -1251,25 +1322,9 @@ TXPROC hostTxProc(
     );
 
 
-//===================================================
-// rx process
-//===================================================
-    RXPROC hostS1RxProc(
-        .clk160m_i(clk160m),
-        .rxData_i(s1TxData_w),
-        //.rxData_i(hostEmuRxDataBuf[3][31]),
-        //.rxData_i(hostS1RxBit),
-        .rxClk4m_o(hostS1RxClk4m_w),
-        .rxPack_o(hostS1RxPack_w),  //1us high
-        .rxData0_ob(hostS1RxData0_wb),
-        .rxData1_ob(hostS1RxData1_wb),
-        .rxData2_ob(hostS1RxData2_wb),
-        .rxData3_ob(hostS1RxData3_wb)
-    );
-    //
     RXPROC s1RxProc(
         .clk160m_i(clk160m),
-        .rxData_i(hostTxData_w),
+        .rxData_i(hostS1TxData_w),
         //.rxData_i(s1EmuRxDataBuf[3][31]),
         //.rxData_i(s1RxBit),
         .rxClk4m_o(s1RxClk4m_w),
