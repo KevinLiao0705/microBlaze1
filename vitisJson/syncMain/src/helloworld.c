@@ -1147,14 +1147,23 @@ void transBram(){
 	//=========================================
 	u8 pusleSourceFrom=0	;//0=sp, 1:local
 	u8 emuSpSignal=1		;//0=off 1:on
+	u8 segmentInx=0;		;//0 host 1:sync:2:ctr:3:endPoint
+	u8 hostS1RxFrom=0;		;//0:rf 1:fiber 2:emu:
+	u8 hostS2RxFrom=0;		;//0:rf 1:fiber 2:emu:
+	u8 s1RxFrom=0;			;//0:rf 1:fiber 2:emu:
+	u8 emuDelay=0;			;//
 
 	ibuf=radiationOn_f<<0;
 	ibuf+=localPreDataGateOn_f<<1;
 	ibuf+=emuSpPreDataGateOn_f<<2;
 	ibuf+=syncRxOn_f<<3;
-
 	ibuf+=pusleSourceFrom<<4;
 	ibuf+=emuSpSignal<<5;
+	ibuf+=segmentInx<<6;
+	ibuf+=hostS1RxFrom<<8;
+	ibuf+=hostS2RxFrom<<10;
+	ibuf+=s1RxFrom<<12;
+	ibuf+=emuDelay<<14;
 
 
 	ibuf+=0<<29;//emuRxBufByte

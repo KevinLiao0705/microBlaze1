@@ -312,16 +312,16 @@ typedef struct radarDataSt
     sub1 主控與副控1同步模式 [23] ==> 0: 固定時間延時, 1:1588同步追蹤
     sub2 主控與副控2同步模式 [24] ==> 0: 固定時間延時, 1:1588同步追蹤
 
-   	mast �P�Ʊ�1�y���q�D[25] ==> 0:����, 1:�}��
-   	mast �P�Ʊ�2�y���q�D[26] ==> 0:����, 1:�}��:
+   	mast 副控1語音頻道[25] ==> 0:關閉, 1:開啟
+   	mast 副控2語音頻道[26] ==> 0:關閉, 1:開啟
 
-   	SSPA �O�@�}��[27] ==> 0:����, 1:�}��:
+   	SSPA module protect flag[27] ==> 0:off, 1:on:
 
    	fpgaId[31:28] ==> :
     */
     u32 systemFlag0;
     /*
-    	[0]: microBlaze ready
+    [0]: microBlaze ready
 
     */
     u32 systemFlag1;
@@ -511,7 +511,7 @@ u8 transBram_f=0;
 //===========================
 u8 radiationOn_f=0;
 u8 localPreDataGateOn_f=0;
-u8 spPreDataGateOn_f=0;
+u8 emuSpPreDataGateOn_f=0;
 u8 syncRxOn_f=0;
 //============================
 
@@ -849,13 +849,12 @@ void udIpcRxPrg(UartData *udp)
 				}
 
 				if(para2==0x2004){//radiation on
-					int sh=25+(fpgaId-3)*5;
 					radarData.systemStatus0 |= 1<<25;
 					radarData.pulseGenCh=para3&255;
 
 					radiationOn_f=1;
 					localPreDataGateOn_f=1;
-					spPreDataGateOn_f=0;
+					emuSpPreDataGateOn_f=0;
 					syncRxOn_f=1;
 
 					transBram();
@@ -867,11 +866,10 @@ void udIpcRxPrg(UartData *udp)
 					return;
 				}
 				if(para2==0x2005){//radiation off
-					int sh=25+(fpgaId-3)*5;
 					radarData.systemStatus0 &= (1<<25)^0xffffffff;
 					radiationOn_f=0;
 					localPreDataGateOn_f=0;
-					spPreDataGateOn_f=0;
+					emuSpPreDataGateOn_f=0;
 					syncRxOn_f=0;
 					transBram();
 					rs485_cmd=para2;
@@ -879,7 +877,6 @@ void udIpcRxPrg(UartData *udp)
 					return;
 				}
 				if(para2==0x2006){//emergency on
-					int sh=26+(fpgaId-3)*5;
 					radarData.systemStatus0 |= 1<<26;
 					for(int i=0;i<36;i++){
 						radarData.sspaPowerStatusAA[0][i] &= 0xef;
@@ -887,14 +884,13 @@ void udIpcRxPrg(UartData *udp)
 					for(int i=0;i<36;i++){
 						radarData.sspaModuleStatusAA[0][i] &= 0xfd;
 					}
-					sh=25+(fpgaId-3)*5;
-					radarData.systemStatus0 &= (1<<sh)^0xffffffff;
+					radarData.systemStatus0 &= (1<<25)^0xffffffff;
 					rs485_cmd=para2;
 					rs485_tx_slotId=0;
 
 					radiationOn_f=0;
 					localPreDataGateOn_f=0;
-					spPreDataGateOn_f=0;
+					emuSpPreDataGateOn_f=0;
 					syncRxOn_f=0;
 					transBram();
 
@@ -1076,10 +1072,10 @@ void initBram(){
     	writeBram32(0x00002710);//
     }
 	bramAddr = 96*4;
-	ibuf=20*160;
+	ibuf=10*100;
     for(int i=0;i<32;i++){
     	writeBram32(ibuf);//low byte = local width, high byte = sync width;
-    	ibuf+=160;
+    	ibuf+=100;
     }
 
 }
@@ -1140,27 +1136,45 @@ void transBram(){
 	bramAddr = 8 * 4;
 	ibuf=sampleLen - 1;
 	ibuf+=radarData.fpgaId<<8;
-	ibuf+=16<<16;//preDataGateWidth
+	ibuf+=160<<16;//preDataGateWidth
 	writeBram32(ibuf);
 	//=========================================
 	writeBram32(0x00000191);//09 12:20 wgPulseTimeDelay(vg sub)
-	ibuf=ibuf-0x1f16;
+	ibuf=radarData.vgTimeDelay-0x1f16;
 	writeBram32(ibuf);//10 12:20 xxx,s1VgTimeDelay
 	writeBram32(0x3beb);//11 12:20 xxx,commBaseTime  3de8
-	writeBram32(0x27103020);//12 16:16 hostAutoPreDataPri,hostAutoDelayTime
+	writeBram32(0x27102710);//12 16:16 hostAutoPreDataPri,hostAutoDelayTime
 	//=========================================
+	u8 pusleSourceFrom=0	;//0=sp, 1:local
+	u8 emuSpSignal=1		;//0=off 1:on
+	u8 syncBack=1;
+
 	ibuf=radiationOn_f<<0;
 	ibuf+=localPreDataGateOn_f<<1;
-	ibuf+=spPreDataGateOn_f<<2;
+	ibuf+=emuSpPreDataGateOn_f<<2;
 	ibuf+=syncRxOn_f<<3;
+	ibuf+=pusleSourceFrom<<4;
+	ibuf+=emuSpSignal<<5;
+	ibuf+=syncBack<<6;
+
+
+
+	ibuf+=0<<29;//emuRxBufByte
+	ibuf+=0<<24;//emuRxBufBit
 	writeBram32(ibuf);//13 setFlag
 
 
+	ibuf=0x002b0000;
+	writeBram32(ibuf);//14 sp emu txcode0
+	ibuf=0x00002710;
+	writeBram32(ibuf);//15 sp emu txcode1
 
 
-	bramAddr = 15 * 4;//ram change flag
+
+
+	bramAddr = 31 * 4;//ram change flag
 	ibuf = readBram32();
-	bramAddr = 15 * 4;
+	bramAddr = 31 * 4;
 	writeBram32(ibuf + 1);
 	transBram_f=0;
 
