@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param general.maxThreads 16
 set_param chipscope.maxJobs 4
 set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -117,9 +116,6 @@ set_property used_in_implementation false [get_files -all e:/kevin/myCode/microB
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_1_0/design_1_axi_uartlite_1_0.xdc]
-set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_3_0/design_1_axi_uartlite_3_0.xdc]
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_4_0/design_1_axi_uartlite_4_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_4_0/design_1_axi_uartlite_4_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_uartlite_4_0/design_1_axi_uartlite_4_0.xdc]

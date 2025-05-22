@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="trans"/>
+		<item key="selection" value="laGroupCh"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="true"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="laGroupCh"/>
+			<item value="uart"/>
+			<item value="lac"/>
+			<item value="lach"/>
+			<item value="uart6RxIntPrg"/>
+			<item value="mainLoop"/>
+			<item value="loadTickTest"/>
+			<item value="loadF"/>
 			<item value="trans"/>
 			<item value="mem[2]"/>
 			<item value="transBram"/>
@@ -15,14 +23,6 @@
 			<item value="initB"/>
 			<item value="PreDataGateOn_f"/>
 			<item value="SpPreDataGateOn_f"/>
-			<item value="chFiberDelay"/>
-			<item value="view"/>
-			<item value="tick"/>
-			<item value="radiationOn_f"/>
-			<item value="localPreDataGateOn_f"/>
-			<item value="sub2RxOn_f"/>
-			<item value="fpgaId"/>
-			<item value="2003"/>
 		</list>
 		<list key="replacehistory">
 			<item value="udp-&gt;"/>

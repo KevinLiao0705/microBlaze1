@@ -39,7 +39,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2f8a22fb</spirit:value>
+            <spirit:value>c2a605af</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -52,7 +52,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2f8a22fb</spirit:value>
+            <spirit:value>c2a605af</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -322,10 +322,10 @@
       <spirit:port>
         <spirit:name>fibTxB1</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -557,7 +557,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>RamDepth</spirit:name>
         <spirit:displayName>Ramdepth</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.RamDepth">2048</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.RamDepth">256</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -594,7 +594,7 @@
     <spirit:parameter>
       <spirit:name>RamDepth</spirit:name>
       <spirit:displayName>Ramdepth</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RamDepth">2048</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.RamDepth">256</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -616,7 +616,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2025-05-16T08:06:00Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2025-05-22T11:49:25Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2022.2</xilinx:xilinxVersion>
