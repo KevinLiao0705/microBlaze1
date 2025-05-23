@@ -7,7 +7,8 @@
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2022.2"
+      "tool_version": "2022.2",
+      "validated": "true"
     },
     "design_tree": {
       "microblaze_0_local_memory": {
@@ -123,8 +124,24 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sysClk50m",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -2085,10 +2102,38 @@
             "direction": "I"
           },
           "sysClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "160000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "clk160m": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "160000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_1_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "resetN": {
             "type": "rst",
@@ -2152,6 +2197,23 @@
           },
           "fibRxB7": {
             "direction": "I"
+          },
+          "inpChk0": {
+            "direction": "I"
+          },
+          "inpChk1": {
+            "direction": "I"
+          },
+          "inpChk2": {
+            "direction": "I"
+          },
+          "inpChk3": {
+            "direction": "I"
+          },
+          "inpChkA": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
           },
           "hdfiA": {
             "direction": "I",
@@ -2329,7 +2391,8 @@
       "axi_gpio_0_gpio_io_o": {
         "ports": [
           "axi_gpio_0/gpio_io_o",
-          "gpOutA"
+          "gpOutA",
+          "hw0_0/inpChkA"
         ]
       },
       "axi_timer_0_interrupt": {
@@ -2347,7 +2410,8 @@
       "axi_uartlite_0_tx": {
         "ports": [
           "axi_uartlite_0/tx",
-          "uartIpcRxH"
+          "uartIpcRxH",
+          "hw0_0/inpChk2"
         ]
       },
       "axi_uartlite_1_interrupt": {
@@ -2359,7 +2423,8 @@
       "axi_uartlite_1_tx": {
         "ports": [
           "axi_uartlite_1/tx",
-          "rs485Di"
+          "rs485Di",
+          "hw0_0/inpChk0"
         ]
       },
       "axi_uartlite_2_interrupt": {
@@ -2598,7 +2663,8 @@
       "rs485Ro": {
         "ports": [
           "rs485Ro",
-          "axi_uartlite_1/rx"
+          "axi_uartlite_1/rx",
+          "hw0_0/inpChk1"
         ]
       },
       "rst_clk_wiz_1_100M_bus_struct_reset": {
@@ -2659,7 +2725,8 @@
       "uartIpcTxH_1": {
         "ports": [
           "uartIpcTxH",
-          "axi_uartlite_0/rx"
+          "axi_uartlite_0/rx",
+          "hw0_0/inpChk3"
         ]
       },
       "xlconcat_0_dout": {

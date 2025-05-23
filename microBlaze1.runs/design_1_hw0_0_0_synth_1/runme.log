@@ -1,0 +1,784 @@
+
+*** Running vivado
+    with args -log design_1_hw0_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_hw0_0_0.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source design_1_hw0_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx202202/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_hw0_0_0
+Command: synth_design -top design_1_hw0_0_0 -part xc7a200tfbg484-2 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tfbg484-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 44528
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+CRITICAL WARNING: [Synth 8-9339] data object 'txEnd_f' is already declared [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v:104]
+INFO: [Synth 8-6826] previous declaration of 'txEnd_f' is from here [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v:96]
+CRITICAL WARNING: [Synth 8-11152] second declaration of 'txEnd_f' is ignored [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v:104]
+WARNING: [Synth 8-9400] empty statement in sequential block [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1373]
+CRITICAL WARNING: [Synth 8-9339] data object 'hostS2TxData_w' is already declared [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1523]
+INFO: [Synth 8-6826] previous declaration of 'hostS2TxData_w' is from here [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1522]
+CRITICAL WARNING: [Synth 8-11152] second declaration of 'hostS2TxData_w' is ignored [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1523]
+INFO: [Synth 8-11241] undeclared symbol 'hostS2TxEnd_w', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1537]
+INFO: [Synth 8-11241] undeclared symbol 'a_snd_clk', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1690]
+INFO: [Synth 8-11241] undeclared symbol 'a_snd_tx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1699]
+INFO: [Synth 8-11241] undeclared symbol 'b_snd_clk', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1708]
+INFO: [Synth 8-11241] undeclared symbol 'b_snd_tx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1717]
+INFO: [Synth 8-11241] undeclared symbol 'aSndRx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1729]
+INFO: [Synth 8-11241] undeclared symbol 'bSndRx', assumed default net type 'wire' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1739]
+WARNING: [Synth 8-6901] identifier 'ramOutDataR' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:148]
+WARNING: [Synth 8-6901] identifier 'localPreDataGateTimeCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:189]
+WARNING: [Synth 8-6901] identifier 'localWgPriTime' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:190]
+WARNING: [Synth 8-6901] identifier 'localPreDataGateOn_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:191]
+WARNING: [Synth 8-6901] identifier 'localWgRepeatCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:192]
+WARNING: [Synth 8-6901] identifier 'localWgRepeatEnd' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:193]
+WARNING: [Synth 8-6901] identifier 'localWgSampleCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:194]
+WARNING: [Synth 8-6901] identifier 'localWgSampleEnd' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:195]
+WARNING: [Synth 8-6901] identifier 'wgActTimeCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:196]
+WARNING: [Synth 8-6901] identifier 'hostPreDataGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:197]
+WARNING: [Synth 8-6901] identifier 's1SyncWgPulseWidth' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:199]
+WARNING: [Synth 8-6901] identifier 's1PreDataGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:200]
+WARNING: [Synth 8-6901] identifier 's1PreDataGate_ff' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:201]
+WARNING: [Synth 8-6901] identifier 'wgClk_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:202]
+WARNING: [Synth 8-6901] identifier 'wgDataBit_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:203]
+WARNING: [Synth 8-6901] identifier 'wgTrig_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:204]
+WARNING: [Synth 8-6901] identifier 'wgRfout_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:205]
+WARNING: [Synth 8-6901] identifier 'wgTrigGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:206]
+WARNING: [Synth 8-6901] identifier 'wgTimeClk' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:207]
+WARNING: [Synth 8-6901] identifier 'hostVideoGateDelayTimeCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:209]
+WARNING: [Synth 8-6901] identifier 'localPreDataGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:210]
+WARNING: [Synth 8-6901] identifier 'hostVideoGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:211]
+WARNING: [Synth 8-6901] identifier 's1VideoGateDelayTimeCnt' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:213]
+WARNING: [Synth 8-6901] identifier 's1SyncPreDataGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:214]
+WARNING: [Synth 8-6901] identifier 's1VideoGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:215]
+WARNING: [Synth 8-6901] identifier 's1SyncRespDelayTime' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:216]
+WARNING: [Synth 8-6901] identifier 's1CommDelayTime' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:218]
+WARNING: [Synth 8-6901] identifier 'memSaveBuf1' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:220]
+WARNING: [Synth 8-6901] identifier 'hostS1TxEnd_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:228]
+WARNING: [Synth 8-6901] identifier 'hostS1TxEnd_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:232]
+WARNING: [Synth 8-6901] identifier 'hostS1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:233]
+WARNING: [Synth 8-6901] identifier 'hostS1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:237]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_pack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:299]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_data0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:302]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_data1_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:303]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_data2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:304]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_data3_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:305]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_pack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:308]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_pack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:311]
+WARNING: [Synth 8-6901] identifier 'memSaveBuf1' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:322]
+WARNING: [Synth 8-6901] identifier 'memSaveBuf1' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:323]
+WARNING: [Synth 8-6901] identifier 's1SyncPreDataGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:475]
+WARNING: [Synth 8-6901] identifier 's1SyncInhibit_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:476]
+WARNING: [Synth 8-6901] identifier 's1WgTrigGate_f' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:477]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:489]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:491]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:493]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:504]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:506]
+WARNING: [Synth 8-6901] identifier 'hostEmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:508]
+WARNING: [Synth 8-6901] identifier 'hostS1TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:516]
+WARNING: [Synth 8-6901] identifier 's1EmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:518]
+WARNING: [Synth 8-6901] identifier 's1EmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:520]
+WARNING: [Synth 8-6901] identifier 's1EmuRxDataBuf' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:522]
+WARNING: [Synth 8-6901] identifier 'hostS1TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:572]
+WARNING: [Synth 8-6901] identifier 'hostS2TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:573]
+WARNING: [Synth 8-6901] identifier 'hostS1TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:574]
+WARNING: [Synth 8-6901] identifier 'hostS2TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:575]
+WARNING: [Synth 8-6901] identifier 'hostTxSerial' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:627]
+WARNING: [Synth 8-6901] identifier 'hostTxSerial' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:642]
+WARNING: [Synth 8-6901] identifier 's1CommDelayTime' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:756]
+WARNING: [Synth 8-6901] identifier 's2CommDelayTime' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:758]
+WARNING: [Synth 8-6901] identifier 'hostS1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:791]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:792]
+WARNING: [Synth 8-6901] identifier 'hostS2RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:824]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:825]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:871]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:872]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData1_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:887]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:887]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData3_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:888]
+WARNING: [Synth 8-6901] identifier 'hostS1RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:888]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:945]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData1_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:952]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:952]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData3_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:953]
+WARNING: [Synth 8-6901] identifier 'hostS2RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:953]
+WARNING: [Synth 8-6901] identifier 's1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1051]
+WARNING: [Synth 8-6901] identifier 's1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1055]
+WARNING: [Synth 8-6901] identifier 's1RxData0_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1057]
+WARNING: [Synth 8-6901] identifier 's1RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1061]
+WARNING: [Synth 8-6901] identifier 's1RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1062]
+WARNING: [Synth 8-6901] identifier 's1RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1063]
+WARNING: [Synth 8-6901] identifier 's1RxData2_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1064]
+WARNING: [Synth 8-6901] identifier 's1RxData3_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1065]
+WARNING: [Synth 8-6901] identifier 's1RxData3_wb' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1068]
+WARNING: [Synth 8-6901] identifier 'hostS1TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1267]
+WARNING: [Synth 8-6901] identifier 'hostS1TxData_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1283]
+WARNING: [Synth 8-6901] identifier 's1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1288]
+WARNING: [Synth 8-6901] identifier 'hostS1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1289]
+WARNING: [Synth 8-6901] identifier 'hostS2RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1290]
+WARNING: [Synth 8-6901] identifier 'hostS1RxClk4m_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1300]
+WARNING: [Synth 8-6901] identifier 's1RxClk4m_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1301]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_clk_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1368]
+WARNING: [Synth 8-6901] identifier 'rxSysData1_pack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1369]
+WARNING: [Synth 8-6901] identifier 'hostS1TxEnd_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1370]
+WARNING: [Synth 8-6901] identifier 'hostS1RxPack_w' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1371]
+WARNING: [Synth 8-6901] identifier 'ramOutDataR' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1409]
+WARNING: [Synth 8-6901] identifier 'baseTimer' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1410]
+WARNING: [Synth 8-6901] identifier 'base160Timer' is used before its declaration [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1411]
+INFO: [Common 17-14] Message 'Synth 8-6901' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1877.141 ; gain = 410.703
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_hw0_0_0' [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/synth/design_1_hw0_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'hw0' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:22]
+WARNING: [Synth 8-6090] variable 'hostS1TxCnt' is written by both blocking and non-blocking assignments, entire logic could be removed [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:239]
+WARNING: [Synth 8-6090] variable 'wgData' is written by both blocking and non-blocking assignments, entire logic could be removed [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1074]
+WARNING: [Synth 8-6090] variable 'wgData' is written by both blocking and non-blocking assignments, entire logic could be removed [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1075]
+INFO: [Synth 8-6157] synthesizing module 'TXPROC' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'TXPROC' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txproc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RXPROC' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxproc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'RXPROC' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxproc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'TXSYSDATA' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txData.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'TXSYSDATA' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txData.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RXSYSDATA' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxSysData.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'RXSYSDATA' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxSysData.v:23]
+INFO: [Synth 8-6157] synthesizing module 'OBUFDS' [D:/Xilinx202202/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90676]
+INFO: [Synth 8-6155] done synthesizing module 'OBUFDS' (0#1) [D:/Xilinx202202/Vivado/2022.2/scripts/rt/data/unisim_comp.v:90676]
+INFO: [Synth 8-6157] synthesizing module 'IBUFDS' [D:/Xilinx202202/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFDS' (0#1) [D:/Xilinx202202/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71342]
+INFO: [Synth 8-6155] done synthesizing module 'hw0' (0#1) [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_hw0_0_0' (0#1) [e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/synth/design_1_hw0_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf0_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxproc.v:130]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf1_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxproc.v:130]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf2_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxproc.v:131]
+WARNING: [Synth 8-6014] Unused sequential element txBitCnt_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/txData.v:92]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf0_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxSysData.v:130]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf1_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxSysData.v:130]
+WARNING: [Synth 8-6014] Unused sequential element rxbuf2_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/rxSysData.v:131]
+WARNING: [Synth 8-6014] Unused sequential element txDataTimeCnt_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:251]
+WARNING: [Synth 8-6014] Unused sequential element testTxBuf_reg[3] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:255]
+WARNING: [Synth 8-6014] Unused sequential element testTxBuf_reg[2] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:255]
+WARNING: [Synth 8-6014] Unused sequential element testTxBuf_reg[1] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:255]
+WARNING: [Synth 8-6014] Unused sequential element testTxBuf_reg[0] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:255]
+WARNING: [Synth 8-6014] Unused sequential element testPreData_f_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:261]
+WARNING: [Synth 8-6014] Unused sequential element localWgSampleChg_f_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:376]
+WARNING: [Synth 8-6014] Unused sequential element localPreDataGateOn_f_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:389]
+WARNING: [Synth 8-6014] Unused sequential element localWgFlag_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:407]
+WARNING: [Synth 8-6014] Unused sequential element spEmuWgFlag_reg was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:449]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[255] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[254] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[253] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[252] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[251] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[250] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[249] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[248] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[247] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[246] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[245] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[244] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[243] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[242] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[241] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[240] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[239] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[238] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[237] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[236] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[235] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[234] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[233] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[232] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[231] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[230] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[229] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[228] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[227] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[226] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[225] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[224] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[223] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[222] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[221] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[220] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[219] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[218] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[217] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[216] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[215] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[214] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[213] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[212] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[211] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[210] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[209] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[208] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[207] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[206] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[205] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[204] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[203] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[202] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[201] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[200] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[199] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[198] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[197] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[196] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[195] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[194] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[193] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[192] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[191] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[190] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[189] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[188] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[187] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[186] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[185] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[184] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[183] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[182] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[181] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[180] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[179] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[178] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[177] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[176] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[175] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[174] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+WARNING: [Synth 8-6014] Unused sequential element mem_reg[173] was removed.  [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1440]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3848] Net bmem[255] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[254] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[253] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[252] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[251] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[250] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[249] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[248] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[247] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[246] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[245] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[244] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[243] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[242] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[241] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[240] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[239] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[238] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[237] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[236] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[235] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[234] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[233] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[232] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[231] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[230] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[229] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[228] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[227] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[226] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[225] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[224] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[223] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[222] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[221] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[220] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[219] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[218] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[217] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[216] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[215] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[214] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[213] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[212] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[211] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[210] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[209] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[208] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[207] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[206] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[205] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[204] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[203] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[202] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[201] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[200] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[199] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[198] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[197] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[196] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[195] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[194] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[193] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[192] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[191] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[190] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[189] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[188] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[187] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[186] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[185] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[184] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[183] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[182] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[181] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[180] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[179] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[178] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[177] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[176] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[175] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[174] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[173] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[172] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[171] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[170] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[169] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[168] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[167] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[166] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[165] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[164] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[163] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[162] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[161] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[160] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[159] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[158] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[157] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+WARNING: [Synth 8-3848] Net bmem[156] in module/entity hw0 does not have driver. [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:128]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-7129] Port txCon_i in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[7] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[6] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[5] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[4] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[3] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[2] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[1] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port txData0_ib[0] in module TXPROC is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramAddr[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramAddr[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramRstp in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port resetN in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gpsPps in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[1] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[0] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[15] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[14] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[13] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[12] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInP[2] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[15] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[14] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[13] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[12] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[11] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[10] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[9] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[8] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[7] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[6] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[5] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[4] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[3] in module hw0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dfInN[2] in module hw0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2053.555 ; gain = 587.117
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2053.555 ; gain = 587.117
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2053.555 ; gain = 587.117
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.177 . Memory (MB): peak = 2053.555 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2143.902 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 8 instances were transformed.
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 8 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.200 . Memory (MB): peak = 2145.051 ; gain = 1.148
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx202202/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tfbg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'hostWgPreDataGate_f_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:549]
+WARNING: [Synth 8-327] inferring latch for variable 'rf2TxData_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:573]
+WARNING: [Synth 8-327] inferring latch for variable 'rf1TxData_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:572]
+WARNING: [Synth 8-327] inferring latch for variable 'fib1TxData_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:574]
+WARNING: [Synth 8-327] inferring latch for variable 'fib2TxData_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:575]
+WARNING: [Synth 8-327] inferring latch for variable 'fib3TxData_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:581]
+WARNING: [Synth 8-327] inferring latch for variable 'laChR_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:1261]
+WARNING: [Synth 8-327] inferring latch for variable 'hostS2RxIn_f_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:497]
+WARNING: [Synth 8-327] inferring latch for variable 'hostS1RxIn_f_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:482]
+WARNING: [Synth 8-327] inferring latch for variable 'hostWgRfFreq_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:551]
+WARNING: [Synth 8-327] inferring latch for variable 'hostWgPulseWidth_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:550]
+WARNING: [Synth 8-327] inferring latch for variable 's1RxIn_f_reg' [E:/kevin/myCode/microBlaze1/microBlaze1.srcs/sources_1/new/hw0.v:511]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 2     
+	   2 Input   24 Bit       Adders := 4     
+	   3 Input   24 Bit       Adders := 9     
+	   3 Input   20 Bit       Adders := 3     
+	   2 Input   20 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 7     
+	   2 Input   14 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 11    
+	   2 Input    9 Bit       Adders := 5     
+	   2 Input    8 Bit       Adders := 11    
+	   2 Input    6 Bit       Adders := 19    
+	   2 Input    5 Bit       Adders := 17    
+	   2 Input    4 Bit       Adders := 1     
++---XORs : 
+	   2 Input      6 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 222   
+	               28 Bit    Registers := 1     
+	               24 Bit    Registers := 8     
+	               20 Bit    Registers := 10    
+	               16 Bit    Registers := 231   
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 7     
+	                9 Bit    Registers := 5     
+	                8 Bit    Registers := 19    
+	                6 Bit    Registers := 14    
+	                5 Bit    Registers := 13    
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 62    
++---Muxes : 
+	   3 Input   32 Bit        Muxes := 1     
+	   5 Input   32 Bit        Muxes := 3     
+	   4 Input   32 Bit        Muxes := 2     
+	   2 Input   28 Bit        Muxes := 2     
+	   2 Input   24 Bit        Muxes := 10    
+	   4 Input   24 Bit        Muxes := 2     
+	   6 Input   24 Bit        Muxes := 1     
+	   4 Input   23 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 8     
+	   3 Input   20 Bit        Muxes := 2     
+	   4 Input   20 Bit        Muxes := 1     
+	   3 Input   16 Bit        Muxes := 9     
+	   2 Input   16 Bit        Muxes := 154   
+	   2 Input   10 Bit        Muxes := 8     
+	   2 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 448   
+	   3 Input    8 Bit        Muxes := 1     
+	  13 Input    8 Bit        Muxes := 1     
+	   4 Input    8 Bit        Muxes := 1     
+	   3 Input    6 Bit        Muxes := 7     
+	   2 Input    6 Bit        Muxes := 18    
+	   2 Input    5 Bit        Muxes := 8     
+	   2 Input    4 Bit        Muxes := 3     
+	   4 Input    2 Bit        Muxes := 8     
+	   2 Input    2 Bit        Muxes := 4     
+	   4 Input    1 Bit        Muxes := 18    
+	   3 Input    1 Bit        Muxes := 15    
+	   2 Input    1 Bit        Muxes := 166   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port rfOutA[2] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfOutA[0] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[7] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[6] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[5] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[4] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[3] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[2] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[1] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port hdfoA[0] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[15] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[14] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[13] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[12] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[11] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[10] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[9] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port laCh[8] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramAddr[1] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramAddr[0] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ramRstp in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port resetN in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port gpsPps in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[11] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[9] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[8] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[5] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[3] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rfInA[2] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[7] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[6] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[5] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[4] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[2] in module design_1_hw0_0_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inpChkA[1] in module design_1_hw0_0_0 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-----------------+---------------+-----------+----------------------+--------------+
+|Module Name      | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++-----------------+---------------+-----------+----------------------+--------------+
+|design_1_hw0_0_0 | preTxTime_reg | Implied   | 2 x 24               | RAM32M x 12  | 
++-----------------+---------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++-----------------+---------------+-----------+----------------------+--------------+
+|Module Name      | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++-----------------+---------------+-----------+----------------------+--------------+
+|design_1_hw0_0_0 | preTxTime_reg | Implied   | 2 x 24               | RAM32M x 12  | 
++-----------------+---------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:53 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-----------------+----------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name      | RTL Name                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-----------------+----------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|design_1_hw0_0_0 | inst/hostEmuRxDataBuf_reg[1][31] | 64     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|design_1_hw0_0_0 | inst/hostEmuRxDataBuf_reg[2][31] | 32     | 2     | NO           | NO                 | YES               | 0      | 2       | 
+|design_1_hw0_0_0 | inst/s1EmuRxDataBuf_reg[1][31]   | 64     | 1     | NO           | NO                 | YES               | 0      | 2       | 
+|design_1_hw0_0_0 | inst/s1EmuRxDataBuf_reg[2][31]   | 32     | 2     | NO           | NO                 | YES               | 0      | 2       | 
++-----------------+----------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY4  |   451|
+|2     |LUT1    |   821|
+|3     |LUT2    |   829|
+|4     |LUT3    |   513|
+|5     |LUT4    |  1016|
+|6     |LUT5    |   332|
+|7     |LUT6    |  2118|
+|8     |MUXF7   |   468|
+|9     |MUXF8   |    90|
+|10    |RAM32M  |    12|
+|11    |SRLC32E |     8|
+|12    |FDRE    | 10238|
+|13    |FDSE    |    50|
+|14    |LD      |    39|
+|15    |IBUFDS  |     2|
+|16    |OBUFDS  |     8|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 77 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:46 ; elapsed = 00:00:54 . Memory (MB): peak = 2145.051 ; gain = 587.117
+Synthesis Optimization Complete : Time (s): cpu = 00:00:58 ; elapsed = 00:00:58 . Memory (MB): peak = 2145.051 ; gain = 678.613
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.129 . Memory (MB): peak = 2145.051 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1070 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2145.051 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 59 instances were transformed.
+  LD => LDCE: 38 instances
+  LD => LDCE (inverted pins: G): 1 instance 
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+
+Synth Design complete, checksum: 4da4e12c
+INFO: [Common 17-83] Releasing license: Synthesis
+52 Infos, 417 Warnings, 4 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:05 . Memory (MB): peak = 2145.051 ; gain = 1108.715
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_hw0_0_0_synth_1/design_1_hw0_0_0.dcp' has been generated.
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Coretcl 2-1174] Renamed 9 cell refs.
+INFO: [Common 17-1381] The checkpoint 'E:/kevin/myCode/microBlaze1/microBlaze1.runs/design_1_hw0_0_0_synth_1/design_1_hw0_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_hw0_0_0_utilization_synth.rpt -pb design_1_hw0_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri May 23 17:48:43 2025...

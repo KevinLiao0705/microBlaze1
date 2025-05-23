@@ -32,6 +32,7 @@ module TXPROC(
         input                       txSyncClk_i,
         output                      txLoad_o,				
         output                      txData_o,				
+        output                      txEnd_o,				
         output                      txDataClk_o				
 
     );
@@ -99,23 +100,9 @@ module TXPROC(
     //input clk160m_i,preVideoGate_i
     //output clk4m,txload_f
         
-    reg preDataGate_f;        
+    reg preDataGate_f;
+    reg txEnd_f;        
     always @(posedge clk160m_i) begin
-        if(!preDataGate_i)begin
-            if(preDataGate_f)begin
-                txBitCnt<=10'b0000000000;
-                dataGateHTime<=5'b00000;
-                clk4mHCnt<=5'b00000;
-                clk4mLCnt<=5'b00000;
-                txload_f<=1'b0;	
-                txBitClk_f<=1'b0;
-                syncTxShiftTime<=8'b00000000;
-            end
-            preDataGate_f<=preDataGate_i;
-        end
-        else begin
-            preDataGate_f<=preDataGate_i;
-            syncTxShiftTime<=syncTxShiftTime+1;
             if(!txSync4mClk)begin
                 clk4mHCnt<=0;
                 if(clk4mLCnt<20)
@@ -134,30 +121,38 @@ module TXPROC(
                         dataGateHTime<=dataGateHTime+1;
                     if(dataGateHTime==3)//6
                         txload_f<=1;
+                    txBitClk_f<=1;
                     if(dataGateHTime>=4)begin
-                        if(txBitCnt < 176 )begin
-                            if(!txCon_i)
-                                txBitCnt<=txBitCnt+1;	
-                            txBitClk_f<=1;
-                            txEndTimeCnt<=0;
-                            txEnd_f<=0;    						    
-						end 
-						else begin
-						    if(!txEndTimeCnt[15])begin
-                                txEndTimeCnt<=txEndTimeCnt+1;
-                                if(txEndTimeCnt<txEndTime)
-                                    txEnd_f<=1;
-                                else
-                                    txEnd_f<=0;    						    
-						    end      
-						end 
+                        if(!txBitCnt[9])
+                            txBitCnt<=txBitCnt+1;
+                        if(txBitCnt==176)
+                            txEnd_f<=1;
+                        if(txBitCnt==177)
+                            txEnd_f<=0;
 					end
 			     end		
-			 end		 
+		      end		 
+    
+    
+        if(!preDataGate_i)begin
+            if(preDataGate_f)begin
+                txBitCnt<=10'b0000000000;
+                dataGateHTime<=5'b00000;
+                clk4mHCnt<=5'b00000;
+                clk4mLCnt<=5'b00000;
+                txload_f<=1'b0;	
+                txEnd_f<=0;
+                syncTxShiftTime<=8'b00000000;
+            end
+            preDataGate_f<=preDataGate_i;
+        end
+        else begin
+            preDataGate_f<=preDataGate_i;
+            syncTxShiftTime<=syncTxShiftTime+1;
         end
     end 
     //======================================================================    
-    reg[4:0] txload_cnt;
+    reg[7:0] txload_cnt;
     //reg[15:0] txd5;
     reg[15:0] txd4;
     reg[15:0] txd3;
@@ -208,25 +203,22 @@ module TXPROC(
     //output vgout_en_f,txbuf0-13,vg_tim
     always @(posedge clk160m_i) begin
         if(txload_f==0)begin
-            txload_cnt<=5'b00000;
-			txd0[15:8]<=txData0_ib[15:8];
+            txload_cnt<=0;
 			txd0[7:0]<=syncTxShiftTime;
-			txd1<=txData1_ib;
-			txd2<=txData2_ib;
-			txd3<=txData3_ib;
-			txd4<=txData2_ib+txData3_ib;
-			txload2_f<=0;
-			
+            txd0[15:8]<=txData0_ib[15:8];
+            txd1<=txData1_ib;
+            txd2<=txData2_ib;
+            txd3<=txData3_ib;
+            txd4<=txData2_ib+txData3_ib;
 		end			
 		else begin	
-            if(txload_cnt<20)
+            if(!txload_cnt[7])
                 txload_cnt<=txload_cnt+1;
-            //============================        
-			if(txload_cnt==5'b00010)
+			if(txload_cnt==2)
                 txd4<=txd4+txd1;
-            if(txload_cnt==5'b00100)
+            if(txload_cnt==4)
                 txd4<=txd4+txd0;
-			if(txload_cnt==5'b01000)begin
+			if(txload_cnt==6)begin
                 //txbuf0[15:0]<=16'b0101010101010101;
 			    //txbuf1[15:0]<=16'b0101010101010101;
 			    //txbuf2[15:0]<=16'b0101010101010101;
@@ -262,8 +254,8 @@ module TXPROC(
                 //txbuf15[15:8]<={txd5[7],!txd5[7],txd5[6],!txd5[6],txd5[5],!txd5[5],txd5[4],!txd5[4]};
                 //txbuf15[7:0]<={txd5[3],!txd5[3],txd5[2],!txd5[2],txd5[1],!txd5[1],txd5[0],!txd5[0]};
 			end
-			if(txload_cnt==5'b01010)
-                txload2_f<=1;
+			if(txload_cnt==8)
+                txload2_f<=!txload2_f;
         end			
     end
     //======================================================================    
@@ -275,49 +267,58 @@ module TXPROC(
     //input txbuf0-13,clk4m,txload_f,reset_n
     //output txData_f
     reg txData_f;
-    always @(posedge txBitClk_f or posedge txload2_f) begin
+    reg txload2_ff;
+    //always @(posedge txBitClk_f or posedge txload2_f) begin
+    always @(posedge txBitClk_f) begin
+        txData_f<=txbuf3b[15];
+        txbuf3b<= {txbuf3b[14:0],txbuf4b[15]};
+        txbuf4b<= {txbuf4b[14:0],txbuf5b[15]};
+        txbuf5b<= {txbuf5b[14:0],txbuf6b[15]};
+        txbuf6b<= {txbuf6b[14:0],txbuf7b[15]};
+        txbuf7b<= {txbuf7b[14:0],txbuf8b[15]};
+        txbuf8b<= {txbuf8b[14:0],txbuf9b[15]};
+        txbuf9b<= {txbuf9b[14:0],txbuf10b[15]};
+        txbuf10b<= {txbuf10b[14:0],txbuf11b[15]};
+        txbuf11b<= {txbuf11b[14:0],txbuf12b[15]};
+        txbuf12b<= {txbuf12b[14:0],txbuf13b[15]};
+        txbuf13b<= {txbuf13b[14:0],!txbuf13b[0]};
         if(txload2_f)begin
-            //txbuf0b<=txbuf0;
-            //txbuf1b<=txbuf1;
-            //txbuf2b<=txbuf2;
-            txbuf3b<=txbuf3;
-            txbuf4b<=txbuf4;
-            txbuf5b<=txbuf5;
-            txbuf6b<=txbuf6;
-            txbuf7b<=txbuf7;
-            txbuf8b<=txbuf8;
-            txbuf9b<=txbuf9;
-            txbuf10b<=txbuf10;
-            txbuf11b<=txbuf11;
-            txbuf12b<=txbuf12;
-            txbuf13b<=txbuf13;
-            //txbuf14b<=txbuf14;
-            //txbuf15b<=txbuf15;
-            txData_f<=0;
+            if(!txload2_ff)begin
+                txbuf3b<=txbuf3;
+                txbuf4b<=txbuf4;
+                txbuf5b<=txbuf5;
+                txbuf6b<=txbuf6;
+                txbuf7b<=txbuf7;
+                txbuf8b<=txbuf8;
+                txbuf9b<=txbuf9;
+                txbuf10b<=txbuf10;
+                txbuf11b<=txbuf11;
+                txbuf12b<=txbuf12;
+                txbuf13b<=txbuf13;
+            end
+            txload2_ff<=txload2_f;
         end
-		else begin	
-            txData_f<=txbuf3b[15];
-            //txbuf0b<= {txbuf0b[14:0],txbuf1b[15]};
-            //txbuf1b<= {txbuf1b[14:0],txbuf2b[15]};
-            //txbuf2b<= {txbuf2b[14:0],txbuf3b[15]};
-            txbuf3b<= {txbuf3b[14:0],txbuf4b[15]};
-            txbuf4b<= {txbuf4b[14:0],txbuf5b[15]};
-            txbuf5b<= {txbuf5b[14:0],txbuf6b[15]};
-            txbuf6b<= {txbuf6b[14:0],txbuf7b[15]};
-            txbuf7b<= {txbuf7b[14:0],txbuf8b[15]};
-            txbuf8b<= {txbuf8b[14:0],txbuf9b[15]};
-            txbuf9b<= {txbuf9b[14:0],txbuf10b[15]};
-            txbuf10b<= {txbuf10b[14:0],txbuf11b[15]};
-            txbuf11b<= {txbuf11b[14:0],txbuf12b[15]};
-            txbuf12b<= {txbuf12b[14:0],txbuf13b[15]};
-            txbuf13b<= {txbuf13b[14:0],!txbuf13b[0]};
-            //txbuf14b<= {txbuf14b[14:0],txbuf15b[15]};
-            //txbuf15b<= {txbuf15b[14:0],!txbuf15b[0]};
-		end	
+        else begin
+            if(txload2_ff)begin
+                txbuf3b<=txbuf3;
+                txbuf4b<=txbuf4;
+                txbuf5b<=txbuf5;
+                txbuf6b<=txbuf6;
+                txbuf7b<=txbuf7;
+                txbuf8b<=txbuf8;
+                txbuf9b<=txbuf9;
+                txbuf10b<=txbuf10;
+                txbuf11b<=txbuf11;
+                txbuf12b<=txbuf12;
+                txbuf13b<=txbuf13;
+            end
+            txload2_ff<=txload2_f;
+        end            
 	end
 	assign txDataClk_o=txBitClk_f;
 	assign txData_o=txData_f;
 	assign txLoad_o=txload_f;
+	assign txEnd_o=txEnd_f;
 	
 	//clk4m_out=txBitClk;
     

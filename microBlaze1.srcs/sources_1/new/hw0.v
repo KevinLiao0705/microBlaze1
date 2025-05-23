@@ -87,7 +87,12 @@ module hw0
         input wire fibRxB7,    		
             		
         
+        input wire inpChk0,    		
+        input wire inpChk1,    		
+        input wire inpChk2,    		
+        input wire inpChk3,    		
         
+        input wire [7:0] inpChkA,
 
         
         //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
@@ -127,6 +132,7 @@ module hw0
     //==========================
     wire s1TxLoad_w;
     wire s1TxData_w;
+    wire s1TxEnd_w;
     wire s1TxDataClk_w;
     wire txSysData1_load_w;
     wire txSysData1_clk_w;
@@ -214,12 +220,29 @@ initialize
         memSaveBuf1=0;
     end
 
-
-
-
+    reg hostS1TxEnd_ff;
+    reg[15:0] hostS1TxCnt;
+    reg hostS1RxPack_ff;
+    reg[15:0] hostS1RxCnt;
+    always @(posedge clk160m) begin
+        if(hostS1TxEnd_w)begin
+            if(!hostS1TxEnd_ff)
+                hostS1TxCnt<=hostS1TxCnt+1;
+        end
+        hostS1TxEnd_ff<=hostS1TxEnd_w;
+        if(hostS1RxPack_w)begin        
+            if(!hostS1RxPack_ff)
+                hostS1RxCnt<=hostS1RxCnt+1;
+        end
+        hostS1RxPack_ff<=hostS1RxPack_w;
+        if(hostS1TxCnt==1000)begin
+            hostS1TxCnt=1;
+            rmem[6][15:0]<=hostS1RxCnt;
+            hostS1RxCnt<=0;
+        end    
+    end
 /*===========================================================
 txData test
-
 =============================================================*/
     reg[23:0] txDataTimeCnt;
     reg[15:0] testTxBuf[3:0];
@@ -229,10 +252,10 @@ txData test
         if(txDataTimeCnt>=160000)
             txDataTimeCnt<=1;
         if(txDataTimeCnt==1)begin
-            testTxBuf[0]=16'h1234;    
-            testTxBuf[1]=16'h5678;    
-            testTxBuf[2]=16'h9abc;    
-            testTxBuf[3]=16'hdef0;    
+            testTxBuf[0]<=16'h1234;    
+            testTxBuf[1]<=16'h5678;    
+            testTxBuf[2]<=16'h9abc;    
+            testTxBuf[3]<=16'hdef0;    
         end            
         if(txDataTimeCnt==2)
             testPreData_f<=0;
@@ -240,7 +263,55 @@ txData test
             testPreData_f<=1;
     end
     
+/*===========================================================
+checkTxSys
+=============================================================*/
+    reg[31:0] txSysDataChgBuf;
+    reg[15:0] txSysData[3:0];
+    reg txSysPreData_f;
+    reg[15:0] txSysPreDataTimeCnt;
+    always @(posedge clk160m) begin
+        if(!txSysPreDataTimeCnt[15])
+            txSysPreDataTimeCnt<=txSysPreDataTimeCnt+1;
+        if(txSysPreDataTimeCnt==160)
+            txSysPreData_f<=1;
+        if(txSysPreDataTimeCnt==12800)
+            rmem[32]<=txSysDataChgBuf;    
+        txSysPreDataTimeCnt<=txSysPreDataTimeCnt+1;    
+        if(mem[98]!=txSysDataChgBuf)begin
+            txSysDataChgBuf<=mem[98];
+            txSysData[0]<=mem[96][15:0];
+            txSysData[1]<=mem[96][31:16];
+            txSysData[2]<=mem[97][15:0];
+            txSysData[3]<=mem[97][31:16];
+            txSysPreData_f<=0;
+            txSysPreDataTimeCnt<=0;
+        end
+    end
 
+
+/*===========================================================
+checkRxSys
+=============================================================*/
+    reg rxSysData1_pack_ff;
+    reg[31:0] rxSysData1_chg_buf;
+    always @(posedge clk160m) begin
+        if(rxSysData1_pack_w)begin
+            if(!rxSysData1_pack_ff)begin
+                rmem[33]<=rxSysData1_chg_buf;                   
+                rmem[34][15:0]<=rxSysData1_data0_wb;                   
+                rmem[34][31:16]<=rxSysData1_data1_wb;                   
+                rmem[35][15:0]<=rxSysData1_data2_wb;                   
+                rmem[35][31:16]<=rxSysData1_data3_wb;                   
+                rxSysData1_chg_buf<=rxSysData1_chg_buf+1;
+            end
+            rxSysData1_pack_ff<=rxSysData1_pack_w;
+        end                   
+        else
+            rxSysData1_pack_ff<=rxSysData1_pack_w;                   
+    end
+
+        
     
 /*===========================================================
 generate real time cnt
@@ -397,6 +468,7 @@ output:
     reg hostS2RxIn_f;
     reg s1RxIn_f;
     reg fibTxB1_f;
+    reg rxSysData1_in_f;
     always @* 
     begin
         fpgaId=bmem[8][15:8];
@@ -404,7 +476,7 @@ output:
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
-        
+        rxSysData1_in_f=fibRxB1;
         //===================================
         if(bmem[13][9:8]==0)//hostS1RxFrom
             hostS1RxIn_f=rfInA[4];
@@ -435,11 +507,11 @@ output:
             if(bmem[13][15:14]==3)
                 hostS2RxIn_f=hostEmuRxDataBuf[3][31];
         end        
-        if(bmem[13][13:12]==0)//s2RxFrom
+        if(bmem[13][13:12]==0)//s1RxFrom
             s1RxIn_f=rfInA[4];
-        if(bmem[13][13:12]==1)//s2RxFrom
+        if(bmem[13][13:12]==1)//s1RxFrom
             s1RxIn_f=fibRxA[0];
-        if(bmem[13][13:12]==2)begin//s2RxFrom
+        if(bmem[13][13:12]==2)begin//s1RxFrom
             if(bmem[13][15:14]==0)//emuDelay
                 s1RxIn_f=hostS1TxData_w;
             if(bmem[13][15:14]==1)
@@ -782,6 +854,8 @@ output:
     rmem[4:0]
 =============================================================*/
     reg[23:0] s1CommTime;
+    reg[23:0] s1CommTime0;
+    reg[23:0] s1CommTime1;
     reg[15:0] hostS1RxGateHTimeCnt;
     reg[23:0] s1CommDeltaTime;
     reg[23:0] s1CommDelayTime;
@@ -794,21 +868,29 @@ output:
                 hostS1RxGateHTimeCnt<=hostS1RxGateHTimeCnt+1;
                 if(hostInhibit_f)begin
                     if(hostS1RxGateHTimeCnt==0)begin
-                        s1CommTime<=realTimeCnt-preTxTime[hostS1RxData0_wb[8]];
-                        rmem[4]<=realTimeCnt-preTxTime[hostS1RxData0_wb[8]];
+                        s1CommTime0<=realTimeCnt-preTxTime[hostS1RxData0_wb[8]];
+                        s1CommTime1<=realTimeCnt-preTxTime[!hostS1RxData0_wb[8]];
                     end
                     if(hostS1RxGateHTimeCnt==1)begin
+                        if(s1CommTime0>=s1CommTime1)
+                            s1CommTime<=s1CommTime0;
+                        else    
+                            s1CommTime<=s1CommTime1;
+                    end 
+                    
+                    if(hostS1RxGateHTimeCnt==2)begin
+                        rmem[4]<=s1CommTime;
                         if(s1CommTime<15595)
                             s1CommTime<=15595;
                     end
-                    if(hostS1RxGateHTimeCnt==2)begin
-                        //rmem[0]<={hostS1RxData1_wb,hostS1RxData0_wb};
-                        //rmem[1]<={hostS1RxData3_wb,hostS1RxData2_wb};
+                    if(hostS1RxGateHTimeCnt==3)begin
+                        rmem[0]<={hostS1RxData1_wb,hostS1RxData0_wb};
+                        rmem[1]<={hostS1RxData3_wb,hostS1RxData2_wb};
                         rmem[2]<=s1CommTime;
                         rmem[3]<=s1CommTime-bmem[11][15:0];
                         s1CommDeltaTime<=s1CommTime-bmem[11][15:0];
                     end
-                    if(hostS1RxGateHTimeCnt==3)begin
+                    if(hostS1RxGateHTimeCnt==4)begin
                         if(bmem[13][9:8]==0)//hostS1RxFrom
                             s1CommDeltaTime<=s1CommDeltaTime-bmem[7][31:16];// rf delay
                         if(bmem[13][9:8]==1)//hostS1RxFrom
@@ -816,7 +898,7 @@ output:
                         if(bmem[13][9:8]==2)//hostS1RxFrom
                             s1CommDeltaTime<=s1CommDeltaTime-256;
                     end                
-                    if(hostS1RxGateHTimeCnt==4)begin
+                    if(hostS1RxGateHTimeCnt==5)begin
                         if(!s1CommDeltaTime[23])begin
                             if(s1CommDelayTime<s1CommDeltaTime)
                                 s1CommDelayTime<=s1CommDelayTime+1;
@@ -826,7 +908,7 @@ output:
                         else
                             s1CommDelayTime<=0;
                     end
-                    if(hostS1RxGateHTimeCnt==5)begin
+                    if(hostS1RxGateHTimeCnt==6)begin
                         rmem[5]<=s1CommDelayTime;
                     end
                 end
@@ -1282,11 +1364,11 @@ output:
             laChR[0] = txSysData1_load_w;
             laChR[1] = txSysData1_clk_w;
             laChR[2] = txSysData1_data_w;
-            laChR[3] = testPreData_f;;
-            laChR[4] = fibTxB5;
-            laChR[5] = fibRxB5; 
-            laChR[6] = fibTxB7;
-            laChR[7] = fibRxB7;
+            laChR[3] = rxSysData1_in_f;;
+            laChR[4] = rxSysData1_clk_w;
+            laChR[5] = rxSysData1_pack_w; 
+            laChR[6] = hostS1TxEnd_w;
+            laChR[7] = hostS1RxPack_w;
             //===========================
         end  
         
@@ -1294,14 +1376,25 @@ output:
             laChR[0] = a_snd_clk;
             laChR[1] = a_snd_tx;
             laChR[2] = aSndRx;
-            laChR[3] = 0;
-            laChR[4] = b_snd_clk;
-            laChR[5] = b_snd_tx;
-            laChR[6] = bSndRx;
+            laChR[3] = b_snd_clk;
+            laChR[4] = b_snd_tx;
+            laChR[5] = bSndRx;
+            laChR[6] = 0;
             laChR[7] = 0;
             //===========================
         end  
         
+        if(bmem[5][19:16] == 4'b1011)begin
+            laChR[0] = inpChk0;
+            laChR[1] = inpChk1;
+            laChR[2] = inpChkA[3];
+            laChR[3] = inpChk2;
+            laChR[4] = inpChk3;
+            laChR[5] = 0;
+            laChR[6] = 0;
+            laChR[7] = 0;
+            //===========================
+        end  
         
     
     
@@ -1407,6 +1500,7 @@ assign fibTxB1=fibTxB1_f;
 //===================================================
     wire hostS1TxLoad_w;
     wire hostS1TxData_w;
+    wire hostS1TxEnd_w;
     wire hostS1TxDataClk_w;
     TXPROC hostS1TxProc(
         .clk160m_i(clk160m),
@@ -1420,10 +1514,12 @@ assign fibTxB1=fibTxB1_f;
         .txSyncClk_i(rfInA[0]),
         .txLoad_o(hostS1TxLoad_w),				
         .txData_o(hostS1TxData_w),				
+        .txEnd_o(hostS1TxEnd_w),				
         .txDataClk_o(hostS1TxDataClk_w)				
     );
 
     wire hostS2TxLoad_w;
+    wire hostS2TxData_w;
     wire hostS2TxData_w;
     wire hostS2TxDataClk_w;
     TXPROC hostS2TxProc(
@@ -1438,6 +1534,7 @@ assign fibTxB1=fibTxB1_f;
         .txSyncClk_i(rfInA[6]),
         .txLoad_o(hostS2TxLoad_w),				
         .txData_o(hostS2TxData_w),				
+        .txEnd_o(hostS2TxEnd_w),				
         .txDataClk_o(hostS2TxDataClk_w)				
     );
 
@@ -1489,6 +1586,7 @@ assign fibTxB1=fibTxB1_f;
         .txSyncClk_i(0),
         .txLoad_o(s1TxLoad_w),				
         .txData_o(s1TxData_w),				
+        .txEnd_o(s1TxEnd_w),				
         .txDataClk_o(s1TxDataClk_w)				
     );
 
@@ -1514,15 +1612,35 @@ assign fibTxB1=fibTxB1_f;
 
     TXSYSDATA txSysData1(
         .clk160m_i(clk160m),
-        .preDataGate_i(testPreData_f),
-        .txData0_ib(testTxBuf[0]),
-        .txData1_ib(testTxBuf[1]),
-        .txData2_ib(testTxBuf[2]),
-        .txData3_ib(testTxBuf[3]),
+        .preDataGate_i(txSysPreData_f),
+        .txData0_ib(txSysData[0]),
+        .txData1_ib(txSysData[1]),
+        .txData2_ib(txSysData[2]),
+        .txData3_ib(txSysData[3]),
         .txLoad_o(txSysData1_load_w),				
         .txClk_o(txSysData1_clk_w),				
         .txData_o(txSysData1_data_w)				
     );
+
+    wire rxSysData1_clk_w;
+    wire rxSysData1_pack_w;
+    wire[15:0] rxSysData1_data0_wb;
+    wire[15:0] rxSysData1_data1_wb;
+    wire[15:0] rxSysData1_data2_wb;
+    wire[15:0] rxSysData1_data3_wb;
+    
+    
+RXSYSDATA rxSysData1(
+        .clk160m_i(clk160m),
+        .rxData_i(rxSysData1_in_f),
+        .rxClk4m_o(rxSysData1_clk_w),
+        .rxPack_o(rxSysData1_pack_w),  //1us high
+        .rxData0_ob(rxSysData1_data0_wb),
+        .rxData1_ob(rxSysData1_data1_wb),
+        .rxData2_ob(rxSysData1_data2_wb),
+        .rxData3_ob(rxSysData1_data3_wb)
+    );
+
 
 //===================================================
 // defential output buffers

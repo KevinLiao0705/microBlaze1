@@ -66,6 +66,27 @@ module TXSYSDATA(
     //output clk4m,txload_f
     reg preDataGate_f;    
     always @(posedge clk160m_i) begin
+        if(!txSync4mClk)begin
+            clk4mHCnt<=0;
+            if(clk4mLCnt<20)
+                clk4mLCnt<=clk4mLCnt+1;
+            if(clk4mLCnt==8)begin
+                txload_f<=0;
+                txBitClk_f<=0;
+            end 	
+        end 
+        else begin
+            clk4mLCnt<=0;
+            if(clk4mHCnt<20)
+                clk4mHCnt<=clk4mHCnt+1;
+            if(clk4mHCnt==8)begin
+                 txBitClk_f<=1;
+                if(dataGateHTime<20)
+                    dataGateHTime<=dataGateHTime+1;
+                if(dataGateHTime==3)//6
+                    txload_f<=1;
+            end
+        end
         if(!preDataGate_i)begin
             if(preDataGate_f)begin
                 txBitCnt<=10'b0000000000;
@@ -73,35 +94,14 @@ module TXSYSDATA(
                 clk4mHCnt<=5'b00000;
                 clk4mLCnt<=5'b00000;
                 txload_f<=1'b0;	
-                txBitClk_f<=1'b0;
             end
             preDataGate_f<=preDataGate_i;
         end
         else begin
             preDataGate_f<=preDataGate_i;
-            if(!txSync4mClk)begin
-                clk4mHCnt<=0;
-                if(clk4mLCnt<20)
-                    clk4mLCnt<=clk4mLCnt+1;
-                if(clk4mLCnt==8)begin
-				    txload_f<=0;
-					txBitClk_f<=0;
-				end 	
-            end 
-            else begin
-                clk4mLCnt<=0;
-                if(clk4mHCnt<20)
-                    clk4mHCnt<=clk4mHCnt+1;
-                if(clk4mHCnt==8)begin
-                    if(dataGateHTime<20)
-                        dataGateHTime<=dataGateHTime+1;
-                    if(dataGateHTime==3)//6
-                        txload_f<=1;
-                    if(dataGateHTime>=4)
-                        txBitClk_f<=1;
-			     end		
-			 end		 
         end
+        
+            		 
     end 
     
     
