@@ -1,8 +1,8 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Fri May 23 17:48:41 2025
-// Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
+// Date        : Sat May 24 17:50:16 2025
+// Host        : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_hw0_0_0/design_1_hw0_0_0_sim_netlist.v
 // Design      : design_1_hw0_0_0
@@ -46396,7 +46396,6 @@ module design_1_hw0_0_0_hw0
   wire \s1EmuRxDataBuf_reg_n_0_[1][31] ;
   wire \s1EmuRxDataBuf_reg_n_0_[2][31] ;
   wire \s1EmuRxDataBuf_reg_n_0_[3][31] ;
-  wire s1PreDataGate_ff;
   wire [15:8]s1RxData0_wb;
   wire [7:0]s1RxData2_wb;
   wire [11:0]s1RxData3_wb;
@@ -46474,6 +46473,7 @@ module design_1_hw0_0_0_hw0
   wire s1SyncPreDataGate_f_i_2_n_0;
   wire s1SyncPreDataGate_f_i_4_n_0;
   wire s1SyncPreDataGate_f_reg_n_0;
+  wire s1SyncPreDataGate_ff;
   wire \s1SyncRespDelayTimeCnt[0]_i_3_n_0 ;
   wire [14:0]s1SyncRespDelayTimeCnt_reg;
   wire [5:0]s1SyncRfFreq;
@@ -122416,14 +122416,6 @@ module design_1_hw0_0_0_hw0
         .D(\s1EmuRxDataBuf_reg[3][30]_srl31_n_0 ),
         .Q(\s1EmuRxDataBuf_reg_n_0_[3][31] ),
         .R(1'b0));
-  FDRE #(
-    .INIT(1'b1)) 
-    s1PreDataGate_ff_reg
-       (.C(clk160m),
-        .CE(1'b1),
-        .D(s1SyncPreDataGate_f_reg_n_0),
-        .Q(s1PreDataGate_ff),
-        .R(1'b0));
   (* XILINX_LEGACY_PRIM = "LD" *) 
   (* XILINX_TRANSFORM_PINMAP = "VCC:GE GND:CLR" *) 
   LDCE #(
@@ -122773,6 +122765,14 @@ module design_1_hw0_0_0_hw0
         .CE(1'b1),
         .D(s1RxProc_n_3),
         .Q(s1SyncPreDataGate_f_reg_n_0),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    s1SyncPreDataGate_ff_reg
+       (.C(clk160m),
+        .CE(1'b1),
+        .D(s1SyncPreDataGate_f_reg_n_0),
+        .Q(s1SyncPreDataGate_ff),
         .R(1'b0));
   LUT4 #(
     .INIT(16'h15FF)) 
@@ -123165,7 +123165,7 @@ module design_1_hw0_0_0_hw0
     \s1VideoGateDelayTimeCnt[14]_i_1 
        (.I0(s1SyncInhibit_f),
         .I1(s1SyncPreDataGate_f_reg_n_0),
-        .I2(s1PreDataGate_ff),
+        .I2(s1SyncPreDataGate_ff),
         .O(s1VideoGateDelayTimeCnt));
   LUT6 #(
     .INIT(64'h070707070707070F)) 
@@ -124176,7 +124176,7 @@ module design_1_hw0_0_0_hw0
         .I2(s1VideoGate_f10_out),
         .I3(s1SyncInhibit_f),
         .I4(s1SyncPreDataGate_f_reg_n_0),
-        .I5(s1PreDataGate_ff),
+        .I5(s1SyncPreDataGate_ff),
         .O(s1VideoGate_f_i_1_n_0));
   LUT4 #(
     .INIT(16'h1001)) 

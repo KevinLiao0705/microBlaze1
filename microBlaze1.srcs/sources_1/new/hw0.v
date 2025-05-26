@@ -197,8 +197,8 @@ initialize
         hostPreDataGate_f=1;                
         //===
         s1SyncWgPulseWidth=10*10;
-        s1PreDataGate_f=1;                
-        s1PreDataGate_ff=1;                
+        s1SyncPreDataGate_f=1;                
+        s1SyncPreDataGate_ff=1;                
         wgClk_f=0;
         wgDataBit_f=0;
         wgTrig_f=1;
@@ -458,12 +458,11 @@ output:
     end
 
 //===================================================
-// generate preDataGate_f and datas 
+// switch pin 
 //===================================================
     reg[3:0] fpgaId;
     reg s1Inhibit_f;
     reg wgTrigGate_f;
-    reg s1PreDataGate_f;
     reg hostS1RxIn_f;
     reg hostS2RxIn_f;
     reg s1RxIn_f;
@@ -472,7 +471,6 @@ output:
     always @* 
     begin
         fpgaId=bmem[8][15:8];
-        s1PreDataGate_f=s1SyncPreDataGate_f;
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
@@ -568,16 +566,16 @@ output:
         //input wire [11:0] rfInA,
         //output [3:0] fibTxA,    		
         //input   wire [3:0] fibRxA,
-        if(bmem[13][7:6]==0)begin//host
+        if(bmem[13][7:6]==0)begin//host  segmentInx
             rf1TxData=hostS1TxData_w;
             rf2TxData=hostS2TxData_w;
             fib1TxData=hostS1TxData_w;
             fib2TxData=hostS2TxData_w;
         end
-        if(bmem[13][7:6]==1)begin//sync
+        if(bmem[13][7:6]==1)begin//sub
             rf1TxData=s1TxData_w;
             fib1TxData=s1TxData_w;
-            fib2TxData=s1RxIn_f;
+            fib2TxData=s1RxIn_f;//data through
             fib3TxData=s1RxIn_f;
             fib4TxData=s1RxIn_f;
         end
@@ -1102,7 +1100,7 @@ output:
 purpose:
     generate s1WgTrigGate_f and s1VideoGate_f
 input:
-    s1PreDataGate_f
+    s1SyncPreDataGate_f
     bmem[10][19:0] s1VgTimeDelay
     bmem[9][19:0] wgPulseTimeDelay(vg sub)
     bmem[4][31:16] preTrigTime
@@ -1113,7 +1111,7 @@ output:
 =============================================================*/
     reg[19:0] s1VideoGateDelayTimeCnt;
     reg[19:0] s1VideoGateWidthTime;
-    reg s1PreDataGate_ff;
+    reg s1SyncPreDataGate_ff;
     reg s1VideoGate_f;
     reg[19:0] s1WgTrigGateWidthTimeCnt;
     reg s1WgTrigGate_f;
@@ -1124,18 +1122,18 @@ output:
     always @(posedge clk160m) begin
         if(s1VideoGateDelayTimeCnt<12800)//80usus
             s1VideoGateDelayTimeCnt<=s1VideoGateDelayTimeCnt+1;
-        if(!s1PreDataGate_f)begin
-            if(s1PreDataGate_ff)begin//H2L
+        if(!s1SyncPreDataGate_f)begin
+            if(s1SyncPreDataGate_ff)begin//H2L
                 if(!s1Inhibit_f)begin
                     s1VideoGateDelayTimeCnt<=1;
                     s1VideoGate_f<=0;
                     s1VideoGateWidthTime<=s1SyncWgPulseWidth;
                 end    
             end
-            s1PreDataGate_ff<=s1PreDataGate_f;
+            s1SyncPreDataGate_ff<=s1SyncPreDataGate_f;
         end  
         else begin
-            s1PreDataGate_ff<=s1PreDataGate_f;
+            s1SyncPreDataGate_ff<=s1SyncPreDataGate_f;
         end
         //====    
         s1WgTrigGateWidthTimeCnt<=s1WgTrigGateWidthTimeCnt+1;
@@ -1576,7 +1574,7 @@ assign fibTxB1=fibTxB1_f;
 
     TXPROC s1TxProc(
         .clk160m_i(clk160m),
-        .preDataGate_i(s1PreDataGate_f),
+        .preDataGate_i(s1SyncPreDataGate_f),
         .txCon_i(bmem[13][16]),
         .txData0_ib(s1TxData0),
         .txData1_ib(s1TxData1),

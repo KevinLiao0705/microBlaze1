@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="mySerialId"/>
+		<item key="selection" value="slotDataAA"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="slotDataAA"/>
+			<item value="radarData.fpgaId"/>
+			<item value="fpgaId"/>
+			<item value="mainLoop"/>
+			<item value="main"/>
+			<item value="bram"/>
+			<item value="trans"/>
+			<item value="tramsBra"/>
+			<item value="tramsBra,"/>
 			<item value="mySerialId"/>
 			<item value="deviceId"/>
 			<item value="udIpcRxPrg"/>
-			<item value="mainLoop"/>
 			<item value="ud485"/>
 			<item value="uart2RxIntPrg"/>
 			<item value="uart1RxIntPrg"/>
-			<item value="uart1RxPrg"/>
-			<item value="udUart"/>
-			<item value="udIpc"/>
-			<item value="uart1oBJ"/>
-			<item value="uart0DeviceId"/>
-			<item value="udFiber1"/>
-			<item value="2008"/>
-			<item value="200d"/>
 		</list>
 		<list key="replacehistory">
 		</list>

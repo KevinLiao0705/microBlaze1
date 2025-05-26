@@ -1,8 +1,8 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Fri May 23 17:48:39 2025
--- Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
+-- Date        : Sat May 24 17:50:15 2025
+-- Host        : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 --               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_hw0_0_0_sim_netlist.vhdl
 -- Design      : design_1_hw0_0_0
@@ -59634,7 +59634,6 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_hw0 is
   signal \s1EmuRxDataBuf_reg_n_0_[1][31]\ : STD_LOGIC;
   signal \s1EmuRxDataBuf_reg_n_0_[2][31]\ : STD_LOGIC;
   signal \s1EmuRxDataBuf_reg_n_0_[3][31]\ : STD_LOGIC;
-  signal s1PreDataGate_ff : STD_LOGIC;
   signal s1RxData0_wb : STD_LOGIC_VECTOR ( 15 downto 8 );
   signal s1RxData2_wb : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal s1RxData3_wb : STD_LOGIC_VECTOR ( 11 downto 0 );
@@ -59712,6 +59711,7 @@ architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_hw0 is
   signal s1SyncPreDataGate_f_i_2_n_0 : STD_LOGIC;
   signal s1SyncPreDataGate_f_i_4_n_0 : STD_LOGIC;
   signal s1SyncPreDataGate_f_reg_n_0 : STD_LOGIC;
+  signal s1SyncPreDataGate_ff : STD_LOGIC;
   signal \s1SyncRespDelayTimeCnt[0]_i_3_n_0\ : STD_LOGIC;
   signal s1SyncRespDelayTimeCnt_reg : STD_LOGIC_VECTOR ( 14 downto 0 );
   signal s1SyncRfFreq : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -163435,17 +163435,6 @@ rxSysData1_pack_ff_reg: unisim.vcomponents.FDRE
       Q => \s1EmuRxDataBuf_reg_n_0_[3][31]\,
       R => '0'
     );
-s1PreDataGate_ff_reg: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '1'
-    )
-        port map (
-      C => clk160m,
-      CE => '1',
-      D => s1SyncPreDataGate_f_reg_n_0,
-      Q => s1PreDataGate_ff,
-      R => '0'
-    );
 s1RxIn_f_reg: unisim.vcomponents.LDCE
     generic map(
       INIT => '0'
@@ -163930,6 +163919,17 @@ s1SyncPreDataGate_f_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => s1RxProc_n_3,
       Q => s1SyncPreDataGate_f_reg_n_0,
+      R => '0'
+    );
+s1SyncPreDataGate_ff_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '1'
+    )
+        port map (
+      C => clk160m,
+      CE => '1',
+      D => s1SyncPreDataGate_f_reg_n_0,
+      Q => s1SyncPreDataGate_ff,
       R => '0'
     );
 \s1SyncRespDelayTimeCnt[0]_i_3\: unisim.vcomponents.LUT4
@@ -164468,7 +164468,7 @@ s1TxProc: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_TXPROC_3
         port map (
       I0 => s1SyncInhibit_f,
       I1 => s1SyncPreDataGate_f_reg_n_0,
-      I2 => s1PreDataGate_ff,
+      I2 => s1SyncPreDataGate_ff,
       O => s1VideoGateDelayTimeCnt
     );
 \s1VideoGateDelayTimeCnt[14]_i_2\: unisim.vcomponents.LUT6
@@ -165938,7 +165938,7 @@ s1VideoGate_f_i_1: unisim.vcomponents.LUT6
       I2 => s1VideoGate_f10_out,
       I3 => s1SyncInhibit_f,
       I4 => s1SyncPreDataGate_f_reg_n_0,
-      I5 => s1PreDataGate_ff,
+      I5 => s1SyncPreDataGate_ff,
       O => s1VideoGate_f_i_1_n_0
     );
 s1VideoGate_f_i_10: unisim.vcomponents.LUT4
