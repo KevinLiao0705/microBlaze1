@@ -1,4 +1,4 @@
-19:28:19 **** Incremental Build of configuration Debug for project syncMain ****
+17:57:19 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -11,52 +11,52 @@ E:/kevin/myCode/microBlaze1/vitisJson/syncBlaze/export/syncBlaze/sw/syncBlaze/st
   103 | #warning  Please refer the Standalone BSP UG647 for further details
       |  ^~~~~~~
 ../src/helloworld.c: In function 'ud485RxPrg':
-../src/helloworld.c:606:29: warning: unused variable 'kkk' [-Wunused-variable]
-  606 |                         int kkk=serialId;
+../src/helloworld.c:615:29: warning: unused variable 'kkk' [-Wunused-variable]
+  615 |                         int kkk=serialId;
       |                             ^~~
-../src/helloworld.c:596:13: warning: unused variable 'para2' [-Wunused-variable]
-  596 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:605:13: warning: unused variable 'para2' [-Wunused-variable]
+  605 |         u16 para2 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:595:13: warning: unused variable 'para1' [-Wunused-variable]
-  595 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:604:13: warning: unused variable 'para1' [-Wunused-variable]
+  604 |         u16 para1 = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~~~
-../src/helloworld.c:592:13: warning: unused variable 'len' [-Wunused-variable]
-  592 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:601:13: warning: unused variable 'len' [-Wunused-variable]
+  601 |         u16 len = getBufferWord(&inx, udp->rxBuffer);
       |             ^~~
 ../src/helloworld.c: In function 'udUartRxPrg':
-../src/helloworld.c:668:12: warning: unused variable 'ibuf' [-Wunused-variable]
-  668 |         u8 ibuf;
+../src/helloworld.c:677:12: warning: unused variable 'ibuf' [-Wunused-variable]
+  677 |         u8 ibuf;
       |            ^~~~
 ../src/helloworld.c: In function 'udIpcRxPrg':
-../src/helloworld.c:691:21: warning: unused variable 'cmdLen' [-Wunused-variable]
-  691 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
+../src/helloworld.c:700:21: warning: unused variable 'cmdLen' [-Wunused-variable]
+  700 |                 u16 cmdLen = getBufferWord(&inx, udp->rxBuffer);
       |                     ^~~~~~
 ../src/helloworld.c: In function 'transBram':
-../src/helloworld.c:1115:13: warning: unused variable 'debug' [-Wunused-variable]
- 1115 |         int debug;
+../src/helloworld.c:1127:13: warning: unused variable 'debug' [-Wunused-variable]
+ 1127 |         int debug;
       |             ^~~~~
 ../src/helloworld.c: In function 'main':
-../src/helloworld.c:1370:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 1370 |         int ibuf;
+../src/helloworld.c:1385:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 1385 |         int ibuf;
       |             ^~~~
 ../src/helloworld.c: In function 'memTxPrg':
-../src/helloworld.c:1636:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
- 1636 |                 return 0;
+../src/helloworld.c:1651:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
+ 1651 |                 return 0;
       |                        ^
-../src/helloworld.c:1627:6: note: declared here
- 1627 | void memTxPrg(UartData *udp){
+../src/helloworld.c:1642:6: note: declared here
+ 1642 | void memTxPrg(UartData *udp){
       |      ^~~~~~~~
 ../src/helloworld.c: In function 'loadTickDrv':
-../src/helloworld.c:2109:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 2109 |         int ibuf;
+../src/helloworld.c:2131:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 2131 |         int ibuf;
       |             ^~~~
 ../src/helloworld.c: In function 'loadTickMeter':
-../src/helloworld.c:2172:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 2172 |         int ibuf;
+../src/helloworld.c:2194:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 2194 |         int ibuf;
       |             ^~~~
 ../src/helloworld.c: In function 'loadTickTest':
-../src/helloworld.c:2212:13: warning: unused variable 'ibuf' [-Wunused-variable]
- 2212 |         int ibuf;
+../src/helloworld.c:2234:13: warning: unused variable 'ibuf' [-Wunused-variable]
+ 2234 |         int ibuf;
       |             ^~~~
 'Finished building: ../src/helloworld.c'
 ' '
@@ -68,9 +68,9 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisJson/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  36700	    540	  43144	  80384	  13a00	syncMain.elf
+  36748	    540	  42280	  79568	  136d0	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '
 
-19:28:19 Build Finished (took 534ms)
+17:57:19 Build Finished (took 534ms)
 

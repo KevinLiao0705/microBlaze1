@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="chFiberDelay"/>
+		<item key="selection" value="loadTickDrv"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="chFiberDelay"/>
+			<item value="sspaPowerStatusAA"/>
+			<item value="loadTickDrv"/>
+			<item value="sspaModuleStatusAA"/>
+			<item value="sspaPowerExistAA"/>
+			<item value="2000"/>
+			<item value="sspaPower"/>
+			<item value="sspaModuleTemprAA"/>
+			<item value="meterStatusAA"/>
+			<item value="enviStatusA"/>
+			<item value="enviStatus"/>
+			<item value="fpgaId"/>
 			<item value="transBram"/>
-			<item value="freq"/>
-			<item value="mySerialId"/>
-			<item value="loadTick"/>
-			<item value="udUartRx"/>
-			<item value="mainLoop"/>
-			<item value="para0"/>
-			<item value="outFlag"/>
-			<item value="fptr"/>
-			<item value="udUartRxPrg"/>
-			<item value="udUart"/>
-			<item value="udUart0"/>
-			<item value="memRx"/>
-			<item value="memTxPrg"/>
+			<item value="laGroupCh"/>
+			<item value="fiber"/>
+			<item value="chFiberDelay"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

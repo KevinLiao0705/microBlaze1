@@ -468,6 +468,7 @@ output:
     reg s1RxIn_f;
     reg fibTxB1_f;
     reg rxSysData1_in_f;
+    reg chDelay;
     always @* 
     begin
         fpgaId=bmem[8][15:8];
@@ -476,6 +477,17 @@ output:
         fibTxB1_f=txSysData1_data_w;
         rxSysData1_in_f=fibRxB1;
         //===================================
+        if(fpgaId==0)//
+            chDelay=0;
+        if(fpgaId==1)//
+            chDelay=bmem[16][7:0];
+        if(fpgaId==2)//
+            chDelay=bmem[16][15:8];
+        if(fpgaId==3)//
+            chDelay=bmem[16][23:16];
+        if(fpgaId==4)//
+            chDelay=bmem[16][31:24];
+        //==============================    
         if(bmem[13][9:8]==0)//hostS1RxFrom
             hostS1RxIn_f=rfInA[4];
         if(bmem[13][9:8]==1)//hostS1RxFrom
@@ -897,6 +909,11 @@ output:
                             s1CommDeltaTime<=s1CommDeltaTime-256;
                     end                
                     if(hostS1RxGateHTimeCnt==5)begin
+                        s1CommDeltaTime<=s1CommDeltaTime-chDelay;
+                    end                
+                    
+                    
+                    if(hostS1RxGateHTimeCnt==6)begin
                         if(!s1CommDeltaTime[23])begin
                             if(s1CommDelayTime<s1CommDeltaTime)
                                 s1CommDelayTime<=s1CommDelayTime+1;
@@ -906,7 +923,7 @@ output:
                         else
                             s1CommDelayTime<=0;
                     end
-                    if(hostS1RxGateHTimeCnt==6)begin
+                    if(hostS1RxGateHTimeCnt==7)begin
                         rmem[5]<=s1CommDelayTime;
                     end
                 end
