@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="loadTickDrv"/>
+		<item key="selection" value="fpgaId"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="fpgaId"/>
+			<item value="udIpc"/>
+			<item value="fogaUd"/>
+			<item value="hdfo"/>
+			<item value="meterChDelay"/>
+			<item value="trans"/>
 			<item value="sspaPowerStatusAA"/>
 			<item value="loadTickDrv"/>
 			<item value="sspaModuleStatusAA"/>
@@ -17,12 +23,6 @@
 			<item value="sspaModuleTemprAA"/>
 			<item value="meterStatusAA"/>
 			<item value="enviStatusA"/>
-			<item value="enviStatus"/>
-			<item value="fpgaId"/>
-			<item value="transBram"/>
-			<item value="laGroupCh"/>
-			<item value="fiber"/>
-			<item value="chFiberDelay"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

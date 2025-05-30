@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue May 27 15:17:43 2025
+| Date         : Fri May 30 14:48:38 2025
 | Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
 | Design       : design_1_wrapper
@@ -23,16 +23,18 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 1043
-+-----------+------------------+--------------------------------+------------+
-| Rule      | Severity         | Description                    | Violations |
-+-----------+------------------+--------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 1000       |
-| LUTAR-1   | Warning          | LUT drives async reset alert   | 1          |
-| TIMING-9  | Warning          | Unknown CDC Logic              | 1          |
-| TIMING-20 | Warning          | Non-clocked latch              | 40         |
-| LATCH-1   | Advisory         | Existing latches in the design | 1          |
-+-----------+------------------+--------------------------------+------------+
+             Violations found: 1072
++-----------+------------------+----------------------------------+------------+
+| Rule      | Severity         | Description                      | Violations |
++-----------+------------------+----------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell      | 1000       |
+| HPDR-1    | Warning          | Port pin direction inconsistency | 3          |
+| HPDR-2    | Warning          | Port pin INOUT inconsistency     | 24         |
+| LUTAR-1   | Warning          | LUT drives async reset alert     | 1          |
+| TIMING-9  | Warning          | Unknown CDC Logic                | 1          |
+| TIMING-20 | Warning          | Non-clocked latch                | 42         |
+| LATCH-1   | Advisory         | Existing latches in the design   | 1          |
++-----------+------------------+----------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -5036,6 +5038,141 @@ Non-clocked sequential cell
 The clock pin design_1_i/hw0_0/inst/rxSysData1/rxd1_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
+HPDR-1#1 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) hdfioA[0] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA[0]) connected to this Port, but both were not found.
+Related violations: <none>
+
+HPDR-1#2 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) hdfioA[2] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA[2]) connected to this Port, but both were not found.
+Related violations: <none>
+
+HPDR-1#3 Warning
+Port pin direction inconsistency  
+Hierarchical port(pin) hdfioA[6] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA[6]) connected to this Port, but both were not found.
+Related violations: <none>
+
+HPDR-2#1 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[10] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[10]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#2 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[11] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[11]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#3 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[12] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[12]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#4 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[13] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[13]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#5 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[1]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#6 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[2] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[2]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#7 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[3] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[3]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#8 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[4]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#9 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[5]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#10 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[6] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[6]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#11 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[7] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[7]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#12 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[8] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[8]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#13 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hdfioA[9] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (hdfioA_OBUF[9]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#14 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[10] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[10]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#15 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[11] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[11]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#16 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[12] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[12]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#17 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[13] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[13]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#18 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[1] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[1]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#19 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[3] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[3]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#20 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[4] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[4]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#21 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[5] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[5]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#22 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[7] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[7]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#23 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[8] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[8]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
+HPDR-2#24 Warning
+Port pin INOUT inconsistency  
+Hierarchical port(pin) design_1_i/hw0_0/hdfioA[9] direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (design_1_i/hw0_0/hdfioA[9]) connected to this hierarchical pin/port, but both were not found.
+Related violations: <none>
+
 LUTAR-1#1 Warning
 LUT drives async reset alert  
 LUT cell design_1_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/sel_n_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/mdm_1/U0/MDM_Core_I1/JTAG_CONTROL_I/sel_n_reg/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
@@ -5068,187 +5205,197 @@ Related violations: <none>
 
 TIMING-20#5 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostS1RxIn_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostS1RxIn_f_reg/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hdfiooA_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hdfiooA_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#6 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostS2RxIn_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostS2RxIn_f_reg/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hdfiooA_reg[6] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hdfiooA_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#7 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPreDataGate_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPreDataGate_f_reg/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostS1RxIn_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostS1RxIn_f_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#8 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[0]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostS2RxIn_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostS2RxIn_f_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#9 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[10] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[10]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPreDataGate_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPreDataGate_f_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#10 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[11] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[11]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#11 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[12] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[12]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[10] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#12 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[13] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[13]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[11] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#13 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[14] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[14]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[12] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#14 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[15] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[15]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[13] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#15 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[1]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[14] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#16 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[2]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[15] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#17 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[3]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#18 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[4]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#19 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[5]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#20 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[6] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[6]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#21 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[7] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[7]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#22 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[8] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[8]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[6] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#23 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[9] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[9]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[7] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#24 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[0]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[8] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#25 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[1]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgPulseWidth_reg[9] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgPulseWidth_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#26 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[2]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#27 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[3]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#28 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[4]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#29 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[5]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#30 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[0]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#31 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[1]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/hostWgRfFreq_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/hostWgRfFreq_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#32 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[2]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[0] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#33 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[3]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[1] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#34 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[4]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[2] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#35 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[5]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[3] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#36 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[6] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[6]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[4] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#37 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/laChR_reg[7] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[7]/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[5] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#38 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/rf1TxData_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/rf1TxData_reg/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[6] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#39 Warning
 Non-clocked latch  
-The latch design_1_i/hw0_0/inst/rf2TxData_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/rf2TxData_reg/G is not reached by a timing clock
+The latch design_1_i/hw0_0/inst/laChR_reg[7] cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/laChR_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#40 Warning
+Non-clocked latch  
+The latch design_1_i/hw0_0/inst/rf1TxData_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/rf1TxData_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#41 Warning
+Non-clocked latch  
+The latch design_1_i/hw0_0/inst/rf2TxData_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/rf2TxData_reg/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#42 Warning
 Non-clocked latch  
 The latch design_1_i/hw0_0/inst/s1RxIn_f_reg cannot be properly analyzed as its control pin design_1_i/hw0_0/inst/s1RxIn_f_reg/G is not reached by a timing clock
 Related violations: <none>
 
 LATCH-1#1 Advisory
 Existing latches in the design  
-There are 40 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+There are 42 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

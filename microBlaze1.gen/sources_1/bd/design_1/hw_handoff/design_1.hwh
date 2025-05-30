@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue May 27 15:11:16 2025" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May 30 14:43:02 2025" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a200t" NAME="design_1" PACKAGE="fbg484" SPEEDGRADE="-2"/>
 
@@ -60,11 +60,7 @@
         <CONNECTION INSTANCE="hw0_0" PORT="rfInA"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfiA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="hw0_0" PORT="hdfiA"/>
-      </CONNECTIONS>
-    </PORT>
+    <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef"/>
     <PORT DIR="I" LEFT="15" NAME="dfInP" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInP">
       <CONNECTIONS>
         <CONNECTION INSTANCE="hw0_0" PORT="dfInP"/>
@@ -162,6 +158,11 @@
     <PORT DIR="I" LEFT="9" NAME="gpInA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_gpInA">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_gpio_1" PORT="gpio_io_i"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" LEFT="13" NAME="hdfioA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfioA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="hw0_0" PORT="hdfioA"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -6776,11 +6777,6 @@
             <CONNECTION INSTANCE="axi_gpio_0" PORT="gpio_io_o"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="13" NAME="hdfiA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfiA">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="hdfiA"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="O" LEFT="7" NAME="hdfoA" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_hdfoA">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="hdfoA"/>
@@ -6789,6 +6785,11 @@
         <PORT DIR="O" LEFT="15" NAME="laCh" RIGHT="0" SIGIS="undef" SIGNAME="hw0_0_laCh">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="laCh"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="IO" LEFT="13" NAME="hdfioA" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_hdfioA">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="hdfioA"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="dfInP" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_dfInP">

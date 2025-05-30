@@ -179,19 +179,23 @@ set_property PACKAGE_PIN AB16 [get_ports {gpInA[1]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[1]}]
 
 # ioA34  sw1_1
+set_property PULLUP TRUE [get_ports {gpInA[2]}]
 set_property PACKAGE_PIN AB17 [get_ports {gpInA[2]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
 
 # ioA35 sw1_2
+set_property PULLUP TRUE [get_ports {gpInA[3]}]
 set_property PACKAGE_PIN AB18 [get_ports {gpInA[3]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
 
 
 # iob68  sw1_3
+set_property PULLUP TRUE [get_ports {gpInA[8]}]
 set_property PACKAGE_PIN V20 [get_ports {gpInA[8]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[8]}]
 
 # iob69sw1_4
+set_property PULLUP TRUE [get_ports {gpInA[9]}]
 set_property PACKAGE_PIN Y19 [get_ports {gpInA[9]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[9]}]
 
@@ -309,60 +313,60 @@ set_property IOSTANDARD LVCMOS25 [get_ports {hdfoA[7]}]
 
 #############################################################################################
 # ioB0 spFreqCh0
-set_property PACKAGE_PIN G15 [get_ports {hdfiA[0]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[0]}]
+set_property PACKAGE_PIN G15 [get_ports {hdfioA[0]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[0]}]
 
 # ioB1 spFreqCh1
-set_property PACKAGE_PIN G18 [get_ports {hdfiA[1]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[1]}]
+set_property PACKAGE_PIN G18 [get_ports {hdfioA[1]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[1]}]
 
 # ioB2 spFreqCh2
-set_property PACKAGE_PIN H15 [get_ports {hdfiA[2]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[2]}]
+set_property PACKAGE_PIN H15 [get_ports {hdfioA[2]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[2]}]
 
 # ioB3 spFreqCh3
-set_property PACKAGE_PIN H17 [get_ports {hdfiA[3]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[3]}]
+set_property PACKAGE_PIN H17 [get_ports {hdfioA[3]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[3]}]
 
 # ioB4 spFreqCh4
-set_property PACKAGE_PIN J17 [get_ports {hdfiA[4]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[4]}]
+set_property PACKAGE_PIN J17 [get_ports {hdfioA[4]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[4]}]
 
 # ioB5 spFreqCh5
-set_property PACKAGE_PIN J19 [get_ports {hdfiA[5]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[5]}]
+set_property PACKAGE_PIN J19 [get_ports {hdfioA[5]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[5]}]
 
 # ioB6 spInhib
-set_property PACKAGE_PIN J15 [get_ports {hdfiA[6]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[6]}]
+set_property PACKAGE_PIN J15 [get_ports {hdfioA[6]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[6]}]
 
 # ioB7 spPreTrig
-set_property PACKAGE_PIN K14 [get_ports {hdfiA[7]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[7]}]
+set_property PACKAGE_PIN K14 [get_ports {hdfioA[7]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[7]}]
 
 # ioB8 spGate
-set_property PACKAGE_PIN L15 [get_ports {hdfiA[8]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[8]}]
+set_property PACKAGE_PIN L15 [get_ports {hdfioA[8]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[8]}]
 
 # ioB9 spPulseWidthCh0
-set_property PACKAGE_PIN L19 [get_ports {hdfiA[9]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[9]}]
+set_property PACKAGE_PIN L19 [get_ports {hdfioA[9]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[9]}]
 
 # ioB10 spPulseWidthCh1
-set_property PACKAGE_PIN M18 [get_ports {hdfiA[10]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[10]}]
+set_property PACKAGE_PIN M18 [get_ports {hdfioA[10]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[10]}]
 
 # ioB11 spPulseWidthCh2
-set_property PACKAGE_PIN H20 [get_ports {hdfiA[11]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[11]}]
+set_property PACKAGE_PIN H20 [get_ports {hdfioA[11]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[11]}]
 
 # ioB12 spPulseWidthCh3
-set_property PACKAGE_PIN J21 [get_ports {hdfiA[12]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[12]}]
+set_property PACKAGE_PIN J21 [get_ports {hdfioA[12]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[12]}]
 
 # ioB13 spPulseWidthCh4
-set_property PACKAGE_PIN K21 [get_ports {hdfiA[13]}]
-set_property IOSTANDARD LVCMOS25 [get_ports {hdfiA[13]}]
+set_property PACKAGE_PIN K21 [get_ports {hdfioA[13]}]
+set_property IOSTANDARD LVCMOS25 [get_ports {hdfioA[13]}]
 
 
 ############################################################################################

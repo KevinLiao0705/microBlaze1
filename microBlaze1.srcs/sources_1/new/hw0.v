@@ -95,11 +95,13 @@ module hw0
         input wire [7:0] inpChkA,
 
         
-        //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
-        input   wire    [13:0]  hdfiA,
         output [7:0]            hdfoA,    		
         output [15:0]        laCh,
-        //==================================================    		
+        //==================================================
+        //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
+        inout [13:0] hdfioA,        
+        
+            		
         /*
                     0:. aSndRx, 1:bSndRx
                     2: spFreqCh0, 3: spFreqCh1,  4: spFreqCh2, 5: spFreqCh3, 6: spFreqCh4, 7: spFreqCh5
@@ -137,6 +139,8 @@ module hw0
     wire txSysData1_load_w;
     wire txSysData1_clk_w;
     wire txSysData1_data_w;
+    reg[13:0] hdfioDirA;
+    reg[13:0] hdfiooA;
     integer      i ;  
   
 
@@ -218,6 +222,9 @@ initialize
         s1CommDelayTime=16;
         txSyncClkEn_f=0;
         memSaveBuf1=0;
+        hdfioDirA=0;
+        hdfiooA=0;
+        fpgaId=4'b1111;
     end
 
     reg hostS1TxEnd_ff;
@@ -469,39 +476,57 @@ output:
     reg fibTxB1_f;
     reg rxSysData1_in_f;
     reg chDelay;
+    reg[7:0] hdfoR;
     always @* 
     begin
         fpgaId=bmem[8][15:8];
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
-        rxSysData1_in_f=fibRxB1;
         //===================================
-        if(fpgaId==0)//
+        hdfoR=bmem[17][7:0];
+        if(fpgaId==0)//mast
             chDelay=0;
-        if(fpgaId==1)//
+        if(fpgaId==1)//sub
             chDelay=bmem[16][7:0];
-        if(fpgaId==2)//
+        if(fpgaId==2)//ctr
             chDelay=bmem[16][15:8];
-        if(fpgaId==3)//
+        if(fpgaId==3)//drv
             chDelay=bmem[16][23:16];
-        if(fpgaId==4)//
+        if(fpgaId==15)//mter
             chDelay=bmem[16][31:24];
-        //==============================    
-        if(bmem[13][9:8]==0)//hostS1RxFrom
-            hostS1RxIn_f=rfInA[4];
-        if(bmem[13][9:8]==1)//hostS1RxFrom
-            hostS1RxIn_f=fibRxA[0];
-        if(bmem[13][9:8]==2)begin//hostS1RxFrom
-            if(bmem[13][15:14]==0)//emuDelay
-                hostS1RxIn_f=s1TxData_w;
-            if(bmem[13][15:14]==1)
-                hostS1RxIn_f=hostEmuRxDataBuf[1][31];
-            if(bmem[13][15:14]==2)
-                hostS1RxIn_f=hostEmuRxDataBuf[2][31];
-            if(bmem[13][15:14]==3)
-                hostS1RxIn_f=hostEmuRxDataBuf[3][31];
+            
+        if(fpgaId==15)begin//mter
+            hdfioDirA[0]=1;
+            hdfioDirA[2]=1;
+            hdfioDirA[6]=1;
+            hdfiooA[2]=txSysData1_data_w;
+            hdfiooA[6]=s1VideoGate_f;
+            rxSysData1_in_f=hdfioA[3];
+            hostS1RxIn_f=hdfioA[1];
         end
+        else begin
+            hdfioDirA=0;
+            rxSysData1_in_f=fibRxB1;
+            //=================
+            if(bmem[13][9:8]==0)//hostS1RxFrom
+                hostS1RxIn_f=rfInA[4];
+            if(bmem[13][9:8]==1)//hostS1RxFrom
+                hostS1RxIn_f=fibRxA[0];
+            if(bmem[13][9:8]==2)begin//hostS1RxFrom
+                if(bmem[13][15:14]==0)//emuDelay
+                    hostS1RxIn_f=s1TxData_w;
+                if(bmem[13][15:14]==1)
+                    hostS1RxIn_f=hostEmuRxDataBuf[1][31];
+                if(bmem[13][15:14]==2)
+                    hostS1RxIn_f=hostEmuRxDataBuf[2][31];
+                if(bmem[13][15:14]==3)
+                    hostS1RxIn_f=hostEmuRxDataBuf[3][31];
+            end
+        end    
+            
+            
+        //==============================    
         //========================        
         if(bmem[13][11:10]==0)//hostS2RxFrom
             hostS2RxIn_f=rfInA[10];
@@ -556,9 +581,9 @@ output:
     
     always @* begin
         if(bmem[13][5:4]==0)begin //sp
-            hostWgPreDataGate_f=hdfiA[7];
-            hostWgPulseWidth=bmem[hdfiA[13:9]+96][15:0];//unit 0.1us
-            hostWgRfFreq={hdfiA[6],7'b0000000};
+            hostWgPreDataGate_f=hdfioA[7];
+            hostWgPulseWidth=bmem[hdfioA[13:9]+96][15:0];//unit 0.1us
+            hostWgRfFreq={hdfioA[6],7'b0000000};
             hostWgFlag=spEmuWgFlag;
         end
         if(bmem[13][5:4]==1)begin //local
@@ -1317,25 +1342,25 @@ output:
             //===========================
         end  
         if(bmem[5][19:16] == 4'b0100)begin
-            laChR[0] = hdfiA[0];
-            laChR[1] = hdfiA[1];
-            laChR[2] = hdfiA[2];
-            laChR[3] = hdfiA[3];
-            laChR[4] = hdfiA[4];
-            laChR[5] = hdfiA[5]; 
-            laChR[6] = hdfiA[7];
-            laChR[7] = hdfiA[8];
+            laChR[0] = hdfioA[0];
+            laChR[1] = hdfioA[1];
+            laChR[2] = hdfioA[2];
+            laChR[3] = hdfioA[3];
+            laChR[4] = hdfioA[4];
+            laChR[5] = hdfioA[5]; 
+            laChR[6] = hdfioA[7];
+            laChR[7] = hdfioA[8];
             //===========================
         end  
         if(bmem[5][19:16] == 4'b0101)begin
-            laChR[0] = hdfiA[9];
-            laChR[1] = hdfiA[10];
-            laChR[2] = hdfiA[11];
-            laChR[3] = hdfiA[12];
-            laChR[4] = hdfiA[13];
-            laChR[5] = hdfiA[6]; 
-            laChR[6] = hdfiA[7];
-            laChR[7] = hdfiA[8];
+            laChR[0] = hdfioA[9];
+            laChR[1] = hdfioA[10];
+            laChR[2] = hdfioA[11];
+            laChR[3] = hdfioA[12];
+            laChR[4] = hdfioA[13];
+            laChR[5] = 0; 
+            laChR[6] = 0;
+            laChR[7] = 0;
             //===========================
         end
         
@@ -1400,12 +1425,45 @@ output:
         end  
         
         if(bmem[5][19:16] == 4'b1011)begin
-            laChR[0] = inpChk0;
-            laChR[1] = inpChk1;
-            laChR[2] = inpChkA[3];
-            laChR[3] = inpChk2;
-            laChR[4] = inpChk3;
+            laChR[0] = inpChk0;     //rs485Di fpga->485
+            laChR[1] = inpChk1;     //rs485Ro 485->fpga
+            laChR[2] = inpChkA[3];  //rs485De fpga->485
+            laChR[3] = inpChk2;     //ipcRx  fpga->ipc
+            laChR[4] = inpChk3;     //ipcTx  ipc->fpda
             laChR[5] = 0;
+            laChR[6] = 0;
+            laChR[7] = 0;
+            //===========================
+        end  
+        if(bmem[5][19:16] == 4'b1100)begin
+            laChR[0] = hdfoR[0];
+            laChR[1] = hdfoR[1];
+            laChR[2] = hdfoR[2];
+            laChR[3] = hdfoR[3];
+            laChR[4] = hdfoR[4];
+            laChR[5] = hdfoR[5];
+            laChR[6] = hdfoR[6];
+            laChR[7] = hdfoR[7];
+            //===========================
+        end  
+        if(bmem[5][19:16] == 4'b1101)begin
+            laChR[0] = hdfioA[0];
+            laChR[1] = hdfioA[1];
+            laChR[2] = hdfioA[2];
+            laChR[3] = hdfioA[3];
+            laChR[4] = hdfioA[4];
+            laChR[5] = hdfioA[5];
+            laChR[6] = hdfioA[6];
+            laChR[7] = hdfioA[7];
+            //===========================
+        end  
+        if(bmem[5][19:16] == 4'b1110)begin
+            laChR[0] = hdfioA[8];
+            laChR[1] = hdfioA[9];
+            laChR[2] = hdfioA[10];
+            laChR[3] = hdfioA[11];
+            laChR[4] = hdfioA[12];
+            laChR[5] = hdfioA[3];
             laChR[6] = 0;
             laChR[7] = 0;
             //===========================
@@ -1434,6 +1492,21 @@ assign rfOutA[1]=rf1TxData;
 assign rfOutA[3]=rf2TxData;
 assign fibTxB1=fibTxB1_f;
 
+assign hdfioA[0] = hdfioDirA[0] ? hdfiooA[0] : 1'bZ ;
+assign hdfioA[1] = hdfioDirA[1] ? hdfiooA[1] : 1'bZ ;
+assign hdfioA[2] = hdfioDirA[2] ? hdfiooA[2] : 1'bZ ;
+assign hdfioA[3] = hdfioDirA[3] ? hdfiooA[3] : 1'bZ ;
+assign hdfioA[4] = hdfioDirA[4] ? hdfiooA[4] : 1'bZ ;
+assign hdfioA[5] = hdfioDirA[5] ? hdfiooA[5] : 1'bZ ;
+assign hdfioA[6] = hdfioDirA[6] ? hdfiooA[6] : 1'bZ ;
+assign hdfioA[7] = hdfioDirA[7] ? hdfiooA[7] : 1'bZ ;
+assign hdfioA[8] = hdfioDirA[8] ? hdfiooA[8] : 1'bZ ;
+assign hdfioA[9] = hdfioDirA[9] ? hdfiooA[9] : 1'bZ ;
+assign hdfioA[10] = hdfioDirA[10] ? hdfiooA[10] : 1'bZ ;
+assign hdfioA[11] = hdfioDirA[11] ? hdfiooA[11] : 1'bZ ;
+assign hdfioA[12] = hdfioDirA[12] ? hdfiooA[12] : 1'bZ ;
+assign hdfioA[13] = hdfioDirA[13] ? hdfiooA[13] : 1'bZ ;
+
 
 //===================================================
 // timer cnt 
@@ -1446,6 +1519,7 @@ assign fibTxB1=fibTxB1_f;
     always @(posedge clk160m)begin
         base160Timer <= base160Timer + 1'b1;
     end
+      
 //===================================================
 // ram process 
 //===================================================
@@ -1535,7 +1609,7 @@ assign fibTxB1=fibTxB1_f;
 
     wire hostS2TxLoad_w;
     wire hostS2TxData_w;
-    wire hostS2TxData_w;
+    wire hostS2TxEnd_w;
     wire hostS2TxDataClk_w;
     TXPROC hostS2TxProc(
         .clk160m_i(clk160m),

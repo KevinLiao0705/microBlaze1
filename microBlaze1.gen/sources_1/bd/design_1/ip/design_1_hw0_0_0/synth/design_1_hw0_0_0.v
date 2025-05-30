@@ -86,9 +86,9 @@ module design_1_hw0_0_0 (
   inpChk2,
   inpChk3,
   inpChkA,
-  hdfiA,
   hdfoA,
   laCh,
+  hdfioA,
   dfInP,
   dfInN,
   dfOutP,
@@ -127,9 +127,9 @@ input wire inpChk1;
 input wire inpChk2;
 input wire inpChk3;
 input wire [7 : 0] inpChkA;
-input wire [13 : 0] hdfiA;
 output wire [7 : 0] hdfoA;
 output wire [15 : 0] laCh;
+inout wire [13 : 0] hdfioA;
 input wire [15 : 0] dfInP;
 input wire [15 : 0] dfInN;
 output wire [7 : 0] dfOutP;
@@ -170,9 +170,9 @@ output wire [7 : 0] dfOutN;
     .inpChk2(inpChk2),
     .inpChk3(inpChk3),
     .inpChkA(inpChkA),
-    .hdfiA(hdfiA),
     .hdfoA(hdfoA),
     .laCh(laCh),
+    .hdfioA(hdfioA),
     .dfInP(dfInP),
     .dfInN(dfInN),
     .dfOutP(dfOutP),

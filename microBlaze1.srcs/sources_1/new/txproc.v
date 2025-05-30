@@ -101,7 +101,6 @@ module TXPROC(
     //output clk4m,txload_f
         
     reg preDataGate_f;
-    reg txEnd_f;        
     always @(posedge clk160m_i) begin
             if(!txSync4mClk)begin
                 clk4mHCnt<=0;

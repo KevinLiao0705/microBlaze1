@@ -358,6 +358,7 @@ typedef struct radarDataSt
 	u8 ctrChDelay;
 	u8 drvChDelay;
 	u8 meterChDelay;
+	u8 hdfo;
 	//=============================
 	u8 pulseGenCh;
 	u8 pulseGenDatasA[8*32];
@@ -1227,8 +1228,10 @@ void transBram(){
 	ibuf=ibuf*256+radarData.drvChDelay;
 	ibuf=ibuf*256+radarData.ctrChDelay;
 	ibuf=ibuf*256+radarData.subChDelay;
-	writeBram32(ibuf);//16 sp emu txcode0
+	writeBram32(ibuf);//16
 
+	ibuf=radarData.hdfo;
+	writeBram32(ibuf);//17
 
 	memSaveBuf++;
 	bramAddr = 31 * 4;//ram change flag

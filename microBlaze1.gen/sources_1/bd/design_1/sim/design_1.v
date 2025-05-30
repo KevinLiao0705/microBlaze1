@@ -1,7 +1,7 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Tue May 27 15:11:15 2025
+//Date        : Fri May 30 14:43:01 2025
 //Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -29,6 +29,7 @@ module design_1
     gpOutA,
     gpsPps,
     hdfiA,
+    hdfioA,
     hdfoA,
     laCh,
     ledV3,
@@ -60,6 +61,7 @@ module design_1
   output [7:0]gpOutA;
   input gpsPps;
   input [13:0]hdfiA;
+  inout [13:0]hdfioA;
   output [7:0]hdfoA;
   output [15:0]laCh;
   output ledV3;
@@ -74,6 +76,7 @@ module design_1
   input uartIpcTx2;
   input uartIpcTxH;
 
+  wire [13:0]Net;
   wire [12:0]axi_bram_ctrl_0_bram_addr_a;
   wire axi_bram_ctrl_0_bram_clk_a;
   wire axi_bram_ctrl_0_bram_en_a;
@@ -696,7 +699,7 @@ module design_1
         .fibTxB5(axi_uartlite_5_tx),
         .fibTxB7(axi_uartlite_6_tx),
         .gpsPps(gpsPps_1),
-        .hdfiA(hdfiA_1),
+        .hdfioA(hdfioA[13:0]),
         .hdfoA(hw0_0_hdfoA),
         .inpChk0(axi_uartlite_1_tx),
         .inpChk1(rs485Ro),

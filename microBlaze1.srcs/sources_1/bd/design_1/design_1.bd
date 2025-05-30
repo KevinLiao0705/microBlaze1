@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1080DDE71D9803DD",
+      "boundary_crc": "0xF2342E4446D4F725",
       "device": "xc7a200tfbg484-2",
       "gen_directory": "../../../../microBlaze1.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -194,6 +194,11 @@
       "gpInA": {
         "direction": "I",
         "left": "9",
+        "right": "0"
+      },
+      "hdfioA": {
+        "direction": "IO",
+        "left": "13",
         "right": "0"
       }
     },
@@ -2215,11 +2220,6 @@
             "left": "7",
             "right": "0"
           },
-          "hdfiA": {
-            "direction": "I",
-            "left": "13",
-            "right": "0"
-          },
           "hdfoA": {
             "direction": "O",
             "left": "7",
@@ -2228,6 +2228,11 @@
           "laCh": {
             "direction": "O",
             "left": "15",
+            "right": "0"
+          },
+          "hdfioA": {
+            "direction": "IO",
+            "left": "13",
             "right": "0"
           },
           "dfInP": {
@@ -2352,6 +2357,12 @@
       }
     },
     "nets": {
+      "Net": {
+        "ports": [
+          "hdfioA",
+          "hw0_0/hdfioA"
+        ]
+      },
       "axi_bram_ctrl_0_bram_addr_a": {
         "ports": [
           "axi_bram_ctrl_0/bram_addr_a",
@@ -2556,8 +2567,7 @@
       },
       "hdfiA_1": {
         "ports": [
-          "hdfiA",
-          "hw0_0/hdfiA"
+          "hdfiA"
         ]
       },
       "hw0_0_dfOutN": {
