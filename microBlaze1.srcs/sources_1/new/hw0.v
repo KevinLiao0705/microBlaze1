@@ -225,6 +225,7 @@ initialize
         hdfioDirA=0;
         hdfiooA=0;
         fpgaId=4'b1111;
+        bmem[8][11:8]=4'b1111;
     end
 
     reg hostS1TxEnd_ff;
@@ -479,7 +480,7 @@ output:
     reg[7:0] hdfoR;
     always @* 
     begin
-        fpgaId=bmem[8][15:8];
+        fpgaId=bmem[8][11:8];
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
@@ -500,7 +501,7 @@ output:
             hdfioDirA[0]=1;
             hdfioDirA[2]=1;
             hdfioDirA[6]=1;
-            hdfiooA[2]=txSysData1_data_w;
+            //hdfiooA[2]=txSysData1_data_w;
             hdfiooA[6]=s1VideoGate_f;
             rxSysData1_in_f=hdfioA[3];
             hostS1RxIn_f=hdfioA[1];
@@ -1492,13 +1493,21 @@ assign rfOutA[1]=rf1TxData;
 assign rfOutA[3]=rf2TxData;
 assign fibTxB1=fibTxB1_f;
 
+
+wire test1;
+
+assign hdfioA[2] =  test1;
+assign hdfioA[6] =  test1;
+assign test1=realTimeCnt[24];
+
+    
 assign hdfioA[0] = hdfioDirA[0] ? hdfiooA[0] : 1'bZ ;
 assign hdfioA[1] = hdfioDirA[1] ? hdfiooA[1] : 1'bZ ;
-assign hdfioA[2] = hdfioDirA[2] ? hdfiooA[2] : 1'bZ ;
+//assign hdfioA[2] = hdfioDirA[2] ? hdfiooA[2] : 1'bZ ;
 assign hdfioA[3] = hdfioDirA[3] ? hdfiooA[3] : 1'bZ ;
 assign hdfioA[4] = hdfioDirA[4] ? hdfiooA[4] : 1'bZ ;
 assign hdfioA[5] = hdfioDirA[5] ? hdfiooA[5] : 1'bZ ;
-assign hdfioA[6] = hdfioDirA[6] ? hdfiooA[6] : 1'bZ ;
+//assign hdfioA[6] = hdfioDirA[6] ? hdfiooA[6] : 1'bZ ;
 assign hdfioA[7] = hdfioDirA[7] ? hdfiooA[7] : 1'bZ ;
 assign hdfioA[8] = hdfioDirA[8] ? hdfiooA[8] : 1'bZ ;
 assign hdfioA[9] = hdfioDirA[9] ? hdfiooA[9] : 1'bZ ;

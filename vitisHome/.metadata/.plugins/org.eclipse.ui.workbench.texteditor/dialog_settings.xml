@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="slotDataAA"/>
+		<item key="selection" value="mainLoop"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="mainLoop"/>
+			<item value="loadTickTest"/>
+			<item value="udUart[0]"/>
+			<item value="memTxPrg"/>
+			<item value="fpgaId"/>
+			<item value="transBram"/>
 			<item value="slotDataAA"/>
 			<item value="radarData.fpgaId"/>
-			<item value="fpgaId"/>
-			<item value="mainLoop"/>
 			<item value="main"/>
 			<item value="bram"/>
 			<item value="trans"/>
@@ -19,10 +23,6 @@
 			<item value="tramsBra,"/>
 			<item value="mySerialId"/>
 			<item value="deviceId"/>
-			<item value="udIpcRxPrg"/>
-			<item value="ud485"/>
-			<item value="uart2RxIntPrg"/>
-			<item value="uart1RxIntPrg"/>
 		</list>
 		<list key="replacehistory">
 		</list>
