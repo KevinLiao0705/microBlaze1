@@ -77,9 +77,9 @@ module hw0
         input   wire [3:0] fibRxA,
 
         output fibTxB1,    		
-        input wire fibTxB3,    		
-        input wire fibTxB5,    		
-        input wire fibTxB7,
+        output fibTxB3,    		
+        output fibTxB5,    		
+        output fibTxB7,
         
         input wire fibRxB1,    		
         input wire fibRxB3,    		
@@ -94,12 +94,12 @@ module hw0
         
         input wire [7:0] inpChkA,
 
-        
+        output wgRfOut,
         output [7:0]            hdfoA,    		
         output [15:0]        laCh,
         //==================================================
         //[5:0]:spFreqCh[5:0], 6:spInhib, 7:spPreTrig, 8:spGate,[13:9]:spPulseWidthCh[4:0]   
-        inout [13:0] hdfioA,        
+        input [13:0] hdfioA,        
         
             		
         /*
@@ -330,7 +330,7 @@ generate real time cnt
         if(memSaveBuf1!=mem[31])begin
             memSaveBuf1<=mem[31];
             for(i=0;i<96;i=i+1)begin
-                bmem[i]=mem[i];
+                bmem[i]<=mem[i];
             end    
         end        
     end
@@ -481,6 +481,7 @@ output:
     always @* 
     begin
         fpgaId=bmem[8][11:8];
+        rmem[36]=fpgaId;
         s1Inhibit_f=s1SyncInhibit_f;
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
@@ -502,9 +503,8 @@ output:
             hdfioDirA[2]=1;
             hdfioDirA[6]=1;
             //hdfiooA[2]=txSysData1_data_w;
-            hdfiooA[6]=s1VideoGate_f;
+            //hdfiooA[6]=s1VideoGate_f;
             rxSysData1_in_f=hdfioA[3];
-            hostS1RxIn_f=hdfioA[1];
         end
         else begin
             hdfioDirA=0;
@@ -557,6 +557,8 @@ output:
             if(bmem[13][15:14]==3)
                 s1RxIn_f=s1EmuRxDataBuf[3][31];
         end        
+        if(bmem[13][13:12]==3)//s1RxFrom
+            s1RxIn_f=hdfioA[1];
         
         
     end
@@ -604,26 +606,32 @@ output:
         //input wire [11:0] rfInA,
         //output [3:0] fibTxA,    		
         //input   wire [3:0] fibRxA,
-        if(bmem[13][7:6]==0)begin//host  segmentInx
+        if(bmem[13][7:6]==0)begin//syncTxMode
             rf1TxData=hostS1TxData_w;
             rf2TxData=hostS2TxData_w;
             fib1TxData=hostS1TxData_w;
             fib2TxData=hostS2TxData_w;
+            fib3TxData=hostS1TxData_w;
+            fib4TxData=hostS2TxData_w;
         end
         if(bmem[13][7:6]==1)begin//sub
             rf1TxData=s1TxData_w;
             fib1TxData=s1TxData_w;
             fib2TxData=s1RxIn_f;//data through
-            fib3TxData=s1RxIn_f;
-            fib4TxData=s1RxIn_f;
+            fib3TxData=s1RxIn_f;//data through
+            fib4TxData=s1RxIn_f;//data through
         end
         if(bmem[13][7:6]==2)begin//ctr
-            fib1TxData=s1RxIn_f;
-            fib2TxData=s1RxIn_f;
-            fib3TxData=s1RxIn_f;
-            fib4TxData=s1RxIn_f;
+            fib1TxData=s1RxIn_f;//data through
+            fib2TxData=s1RxIn_f;//data through
+            fib3TxData=s1RxIn_f;//data through
+            fib4TxData=s1RxIn_f;//data through
         end
         if(bmem[13][7:6]==3)begin//endPoint
+            fib1TxData=hostS1TxData_w;
+            fib2TxData=hostS1TxData_w;
+            fib3TxData=hostS1TxData_w;
+            fib4TxData=hostS1TxData_w;
         end
     end
     
@@ -729,7 +737,7 @@ output:
                 if(hostVideoGateDelayTimeCnt==hostWgTrigGateDelayTime)begin
                     hostWgTrigGate_f<=1;
                     hostWgTrigGateWidthTimeCnt<=1;
-                    hostVideoGatePulseWidth={hostWgPulseWidth,4'b0000};    
+                    hostVideoGatePulseWidth<={hostWgPulseWidth,4'b0000};    
                 end   
                 if(hostVideoGateDelayTimeCnt==hostVideoGateDelayTime)begin
                     hostVideoGate_f<=1;
@@ -794,8 +802,8 @@ output:
                 hostS2TxData3[10:0]<=s2CommDelayTime[11:1];
             end
             else begin
-                hostS1TxData3[15:0]=hostWgPulseWidth;
-                hostS2TxData3[15:0]=hostWgPulseWidth;
+                hostS1TxData3[15:0]<=hostWgPulseWidth;
+                hostS2TxData3[15:0]<=hostWgPulseWidth;
             end    
         end
         else begin
@@ -1086,6 +1094,7 @@ output:
     reg[15:0] s1SyncRespDelayTimeCnt;
     reg[15:0] s1SyncRespDelayTime;
     reg[15:0] s1SyncPreDataGateTimeCnt;
+    reg[7:0] testBuf;
     
     
     always @(posedge clk160m) begin
@@ -1103,16 +1112,20 @@ output:
                     s1SyncSspaProtect_f<=s1RxData2_wb[6];
                     s1SyncRfFreq<=s1RxData2_wb[5:0];
                     if(s1RxData2_wb[7])begin
-                        s1VideoGateCommPathTime={9'b000000000,s1RxData3_wb[10:0]};
+                        //s1VideoGateCommPathTime<={9'b000000000,s1RxData3_wb[10:0]};
+                        s1VideoGateCommPathTime<=0;
+
                     end    
-                    else    
+                    else begin    
                         s1SyncWgPulseWidth<={s1RxData3_wb[15:0],4'b0000};
+                        testBuf[0]=!testBuf[0];
+                    end    
                 end
                 if(s1RxPackHTimeCnt==1)begin
                     wgData[23:23]<=s1SyncSspaProtect_f;
                     wgData[22:16]<=7'b000_0000;
                     wgData[15:8]<={2'b00,s1SyncRfFreq};
-                    wgData[7:6]=2'b11;
+                    wgData[7:6]<=2'b11;
                     wgData[5:0]<=s1SyncRfFreq ^ 6'b11_1111;
                 end
             end
@@ -1125,8 +1138,10 @@ output:
             if(s1SyncRespDelayTimeCnt<19200)begin//120us
                 s1SyncRespDelayTimeCnt<=s1SyncRespDelayTimeCnt+1;
                 if(s1SyncRespDelayTimeCnt==s1SyncRespDelayTime)begin
-                    s1SyncPreDataGate_f<=0;
-                    s1SyncPreDataGateTimeCnt<=1;
+                    if(!s1SyncInhibit_f)begin
+                        s1SyncPreDataGate_f<=0;
+                        s1SyncPreDataGateTimeCnt<=1;
+                    end    
                 end   
             end
         end
@@ -1359,7 +1374,7 @@ output:
             laChR[2] = hdfioA[11];
             laChR[3] = hdfioA[12];
             laChR[4] = hdfioA[13];
-            laChR[5] = 0; 
+            laChR[5] = wgRfOut; 
             laChR[6] = 0;
             laChR[7] = 0;
             //===========================
@@ -1469,6 +1484,17 @@ output:
             laChR[7] = 0;
             //===========================
         end  
+        if(bmem[5][19:16] == 4'b1111)begin
+            laChR[0] = 0;
+            laChR[1] = 0;
+            laChR[2] = 0;
+            laChR[3] = 0;
+            laChR[4] = s1RxIn_f;
+            laChR[5] = s1RxPack_w; 
+            laChR[6] = testBuf[0];
+            laChR[7] = s1WgTrigGate_f;
+            //===========================
+        end  
         
     
     
@@ -1492,30 +1518,15 @@ assign fibTxA[3]=fib4TxData;
 assign rfOutA[1]=rf1TxData;
 assign rfOutA[3]=rf2TxData;
 assign fibTxB1=fibTxB1_f;
+assign fibTxB3=fibTxB1_f;
+assign fibTxB5=fibTxB1_f;
+assign fibTxB7=fibTxB1_f;
+assign wgRfOut=wgRfout_f;
 
 
-wire test1;
 
-assign hdfioA[2] =  test1;
-assign hdfioA[6] =  test1;
-assign test1=realTimeCnt[24];
 
     
-assign hdfioA[0] = hdfioDirA[0] ? hdfiooA[0] : 1'bZ ;
-assign hdfioA[1] = hdfioDirA[1] ? hdfiooA[1] : 1'bZ ;
-//assign hdfioA[2] = hdfioDirA[2] ? hdfiooA[2] : 1'bZ ;
-assign hdfioA[3] = hdfioDirA[3] ? hdfiooA[3] : 1'bZ ;
-assign hdfioA[4] = hdfioDirA[4] ? hdfiooA[4] : 1'bZ ;
-assign hdfioA[5] = hdfioDirA[5] ? hdfiooA[5] : 1'bZ ;
-//assign hdfioA[6] = hdfioDirA[6] ? hdfiooA[6] : 1'bZ ;
-assign hdfioA[7] = hdfioDirA[7] ? hdfiooA[7] : 1'bZ ;
-assign hdfioA[8] = hdfioDirA[8] ? hdfiooA[8] : 1'bZ ;
-assign hdfioA[9] = hdfioDirA[9] ? hdfiooA[9] : 1'bZ ;
-assign hdfioA[10] = hdfioDirA[10] ? hdfiooA[10] : 1'bZ ;
-assign hdfioA[11] = hdfioDirA[11] ? hdfiooA[11] : 1'bZ ;
-assign hdfioA[12] = hdfioDirA[12] ? hdfiooA[12] : 1'bZ ;
-assign hdfioA[13] = hdfioDirA[13] ? hdfiooA[13] : 1'bZ ;
-
 
 //===================================================
 // timer cnt 
@@ -1551,16 +1562,16 @@ assign hdfioA[13] = hdfioDirA[13] ? hdfiooA[13] : 1'bZ ;
     reg emuRfTxClk4m;
     reg[15:0] emuRfTxClk4mAdj;
     always @(posedge clk160m) begin
-        emuRfTxClk4mAdj=emuRfTxClk4mAdj+1;
+        emuRfTxClk4mAdj<=emuRfTxClk4mAdj+1;
         if(emuRfTxClkTimeCnt<19)begin
             if(emuRfTxClk4mAdj<50000)
-                emuRfTxClkTimeCnt=emuRfTxClkTimeCnt+1;
+                emuRfTxClkTimeCnt<=emuRfTxClkTimeCnt+1;
             else
-                emuRfTxClk4mAdj=0;     
+                emuRfTxClk4mAdj<=0;     
         end    
         else begin    
-            emuRfTxClkTimeCnt=0;
-            emuRfTxClk4m=emuRfTxClk4m^1;
+            emuRfTxClkTimeCnt<=0;
+            emuRfTxClk4m<=emuRfTxClk4m^1;
         end    
     end    
 //===================================================

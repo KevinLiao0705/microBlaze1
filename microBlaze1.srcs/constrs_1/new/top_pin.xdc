@@ -179,23 +179,23 @@ set_property PACKAGE_PIN AB16 [get_ports {gpInA[1]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[1]}]
 
 # ioA34  sw1_1
-set_property PULLUP TRUE [get_ports {gpInA[2]}]
+#set_property PULLUP TRUE [get_ports {gpInA[2]}]
 set_property PACKAGE_PIN AB17 [get_ports {gpInA[2]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[2]}]
 
 # ioA35 sw1_2
-set_property PULLUP TRUE [get_ports {gpInA[3]}]
+#set_property PULLUP TRUE [get_ports {gpInA[3]}]
 set_property PACKAGE_PIN AB18 [get_ports {gpInA[3]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[3]}]
 
 
 # iob68  sw1_3
-set_property PULLUP TRUE [get_ports {gpInA[8]}]
+#set_property PULLUP TRUE [get_ports {gpInA[8]}]
 set_property PACKAGE_PIN V20 [get_ports {gpInA[8]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[8]}]
 
 # iob69sw1_4
-set_property PULLUP TRUE [get_ports {gpInA[9]}]
+#set_property PULLUP TRUE [get_ports {gpInA[9]}]
 set_property PACKAGE_PIN Y19 [get_ports {gpInA[9]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[9]}]
 
@@ -219,6 +219,11 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[2]}]
 # ioA39 rs485De
 set_property PACKAGE_PIN AA19 [get_ports {gpOutA[3]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpOutA[3]}]
+
+# ioA41 wfRfOut
+set_property PACKAGE_PIN U5 [get_ports {wgRfOut}]
+set_property IOSTANDARD LVCMOS25 [get_ports {wgRfOut}]
+
 
 # ioA44
 set_property PACKAGE_PIN AA3 [get_ports {gpOutA[4]}]

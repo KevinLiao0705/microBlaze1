@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sun Jun  1 00:07:55 2025
-| Host         : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+| Date         : Fri Jun  6 17:02:34 2025
+| Host         : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
 | Device       : xc7a200tfbg484-2
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   83 |     0 |          0 |       285 | 29.12 |
+| Bonded IOB                  |   97 |     0 |          0 |       285 | 34.04 |
 | Bonded IPADs                |    0 |     0 |          0 |        14 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |         8 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |        10 |  0.00 |
@@ -152,7 +152,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | OBUF     |   49 |                  IO |
-| IBUF     |   34 |                  IO |
+| IBUF     |   48 |                  IO |
 +----------+------+---------------------+
 
 
@@ -173,9 +173,6 @@ Warning! LUT value is adjusted to account for LUT combining.
 | design_1_dlmb_v10_0           |    1 |
 | design_1_dlmb_bram_if_cntlr_0 |    1 |
 | design_1_clk_wiz_1_0          |    1 |
-| design_1_axi_uartlite_6_0     |    1 |
-| design_1_axi_uartlite_5_0     |    1 |
-| design_1_axi_uartlite_4_0     |    1 |
 | design_1_axi_uartlite_1_0     |    1 |
 | design_1_axi_uartlite_0_1     |    1 |
 | design_1_axi_uartlite_0_0     |    1 |

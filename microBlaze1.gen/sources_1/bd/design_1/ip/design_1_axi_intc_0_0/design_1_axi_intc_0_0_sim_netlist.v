@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu May 22 17:53:56 2025
+// Date        : Mon Jun  2 14:43:10 2025
 // Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/kevin/myCode/microBlaze1/microBlaze1.gen/sources_1/bd/design_1/ip/design_1_axi_intc_0_0/design_1_axi_intc_0_0_sim_netlist.v
@@ -92,7 +92,7 @@ module design_1_axi_intc_0_0
   GND GND
        (.G(\<const0> ));
   (* C_ADDR_WIDTH = "32" *) 
-  (* C_ASYNC_INTR = "32'b11111111111111111111111100001000" *) 
+  (* C_ASYNC_INTR = "32'b11111111111111111111111101111000" *) 
   (* C_CASCADE_MASTER = "0" *) 
   (* C_DISABLE_SYNCHRONIZERS = "0" *) 
   (* C_ENABLE_ASYNC = "0" *) 
@@ -1294,7 +1294,7 @@ module design_1_axi_intc_0_0_address_decoder
         .O(\INCLUDE_DPHASE_TIMER.dpto_cnt_reg[3]_0 ));
 endmodule
 
-(* C_ADDR_WIDTH = "32" *) (* C_ASYNC_INTR = "32'b11111111111111111111111100001000" *) (* C_CASCADE_MASTER = "0" *) 
+(* C_ADDR_WIDTH = "32" *) (* C_ASYNC_INTR = "32'b11111111111111111111111101111000" *) (* C_CASCADE_MASTER = "0" *) 
 (* C_DISABLE_SYNCHRONIZERS = "0" *) (* C_ENABLE_ASYNC = "0" *) (* C_EN_CASCADE_MODE = "0" *) 
 (* C_FAMILY = "artix7" *) (* C_HAS_CIE = "1" *) (* C_HAS_FAST = "0" *) 
 (* C_HAS_ILR = "0" *) (* C_HAS_IPR = "1" *) (* C_HAS_IVR = "1" *) 
@@ -2269,12 +2269,15 @@ module design_1_axi_intc_0_0_intc_core
   wire \INTR_DETECT_GEN[3].EDGE_DETECT_GEN.hw_intr[3]_i_1_n_0 ;
   wire \INTR_DETECT_GEN[3].EDGE_DETECT_GEN.hw_intr_reg ;
   wire \INTR_DETECT_GEN[3].EDGE_DETECT_GEN.intr_d1 ;
+  (* async_reg = "true" *) wire [0:1]\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff ;
   wire \INTR_DETECT_GEN[4].EDGE_DETECT_GEN.hw_intr[4]_i_1_n_0 ;
   wire \INTR_DETECT_GEN[4].EDGE_DETECT_GEN.hw_intr_reg ;
   wire \INTR_DETECT_GEN[4].EDGE_DETECT_GEN.intr_d1 ;
+  (* async_reg = "true" *) wire [0:1]\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff ;
   wire \INTR_DETECT_GEN[5].EDGE_DETECT_GEN.hw_intr[5]_i_1_n_0 ;
   wire \INTR_DETECT_GEN[5].EDGE_DETECT_GEN.hw_intr_reg ;
   wire \INTR_DETECT_GEN[5].EDGE_DETECT_GEN.intr_d1 ;
+  (* async_reg = "true" *) wire [0:1]\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff ;
   wire \INTR_DETECT_GEN[6].EDGE_DETECT_GEN.hw_intr[6]_i_1_n_0 ;
   wire \INTR_DETECT_GEN[6].EDGE_DETECT_GEN.hw_intr_reg ;
   wire \INTR_DETECT_GEN[6].EDGE_DETECT_GEN.intr_d1 ;
@@ -2563,12 +2566,31 @@ module design_1_axi_intc_0_0_intc_core
         .D(\INTR_DETECT_GEN[3].ASYNC_GEN.intr_ff [1]),
         .Q(\INTR_DETECT_GEN[3].EDGE_DETECT_GEN.intr_d1 ),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff_reg[0] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(intr[4]),
+        .Q(\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff [0]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff_reg[1] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff [0]),
+        .Q(\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff [1]),
+        .R(1'b0));
   LUT5 #(
     .INIT(32'h0000AE00)) 
     \INTR_DETECT_GEN[4].EDGE_DETECT_GEN.hw_intr[4]_i_1 
        (.I0(\INTR_DETECT_GEN[4].EDGE_DETECT_GEN.hw_intr_reg ),
-        .I1(intr[4]),
+        .I1(\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff [1]),
         .I2(\INTR_DETECT_GEN[4].EDGE_DETECT_GEN.intr_d1 ),
         .I3(s_axi_aresetn),
         .I4(p_0_in3_in),
@@ -2582,15 +2604,34 @@ module design_1_axi_intc_0_0_intc_core
   FDRE \INTR_DETECT_GEN[4].EDGE_DETECT_GEN.intr_d1_reg 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(intr[4]),
+        .D(\INTR_DETECT_GEN[4].ASYNC_GEN.intr_ff [1]),
         .Q(\INTR_DETECT_GEN[4].EDGE_DETECT_GEN.intr_d1 ),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff_reg[0] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(intr[5]),
+        .Q(\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff [0]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff_reg[1] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff [0]),
+        .Q(\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff [1]),
+        .R(1'b0));
   LUT5 #(
     .INIT(32'h0000AE00)) 
     \INTR_DETECT_GEN[5].EDGE_DETECT_GEN.hw_intr[5]_i_1 
        (.I0(\INTR_DETECT_GEN[5].EDGE_DETECT_GEN.hw_intr_reg ),
-        .I1(intr[5]),
+        .I1(\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff [1]),
         .I2(\INTR_DETECT_GEN[5].EDGE_DETECT_GEN.intr_d1 ),
         .I3(s_axi_aresetn),
         .I4(p_0_in2_in),
@@ -2604,15 +2645,34 @@ module design_1_axi_intc_0_0_intc_core
   FDRE \INTR_DETECT_GEN[5].EDGE_DETECT_GEN.intr_d1_reg 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(intr[5]),
+        .D(\INTR_DETECT_GEN[5].ASYNC_GEN.intr_ff [1]),
         .Q(\INTR_DETECT_GEN[5].EDGE_DETECT_GEN.intr_d1 ),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff_reg[0] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(intr[6]),
+        .Q(\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff [0]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff_reg[1] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff [0]),
+        .Q(\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff [1]),
+        .R(1'b0));
   LUT5 #(
     .INIT(32'h0000AE00)) 
     \INTR_DETECT_GEN[6].EDGE_DETECT_GEN.hw_intr[6]_i_1 
        (.I0(\INTR_DETECT_GEN[6].EDGE_DETECT_GEN.hw_intr_reg ),
-        .I1(intr[6]),
+        .I1(\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff [1]),
         .I2(\INTR_DETECT_GEN[6].EDGE_DETECT_GEN.intr_d1 ),
         .I3(s_axi_aresetn),
         .I4(p_0_in1_in),
@@ -2626,10 +2686,10 @@ module design_1_axi_intc_0_0_intc_core
   FDRE \INTR_DETECT_GEN[6].EDGE_DETECT_GEN.intr_d1_reg 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(intr[6]),
+        .D(\INTR_DETECT_GEN[6].ASYNC_GEN.intr_ff [1]),
         .Q(\INTR_DETECT_GEN[6].EDGE_DETECT_GEN.intr_d1 ),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT4 #(
     .INIT(16'h00E0)) 
     \INTR_DETECT_GEN[7].LVL_DETECT_GEN.hw_intr[7]_i_1 
@@ -2650,7 +2710,7 @@ module design_1_axi_intc_0_0_intc_core
        (.I0(\REG_GEN[0].ier_reg_n_0_[0] ),
         .I1(\REG_GEN[0].isr_reg_n_0_[0] ),
         .O(\IPR_GEN.ipr[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \IPR_GEN.ipr[1]_i_1 
@@ -2664,7 +2724,7 @@ module design_1_axi_intc_0_0_intc_core
        (.I0(\REG_GEN[2].ier_reg_n_0_[2] ),
         .I1(p_1_in24_in),
         .O(\IPR_GEN.ipr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \IPR_GEN.ipr[3]_i_1 
@@ -2743,7 +2803,7 @@ module design_1_axi_intc_0_0_intc_core
         .D(\IPR_GEN.ipr[7]_i_1_n_0 ),
         .Q(\IPR_GEN.ipr_reg[7]_0 [7]),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT4 #(
     .INIT(16'h8880)) 
     \IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_i_1 
@@ -2788,7 +2848,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\IVR_GEN.ivr[1]_i_2_n_0 ),
         .I5(\IPR_GEN.ipr[5]_i_1_n_0 ),
         .O(\IVR_GEN.ivr[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT4 #(
     .INIT(16'hF888)) 
     \IVR_GEN.ivr[1]_i_2 
@@ -2807,7 +2867,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\REG_GEN[0].isr_reg_n_0_[0] ),
         .I5(\REG_GEN[0].ier_reg_n_0_[0] ),
         .O(\IVR_GEN.ivr[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT4 #(
     .INIT(16'h0777)) 
     \IVR_GEN.ivr[2]_i_2 
@@ -3017,7 +3077,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\INTR_DETECT_GEN[3].EDGE_DETECT_GEN.hw_intr_reg ),
         .I5(\REG_GEN[3].IAR_NORMAL_MODE_GEN.iar_reg0 ),
         .O(\REG_GEN[3].isr[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[3].isr[3]_i_2 
@@ -3062,7 +3122,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\INTR_DETECT_GEN[4].EDGE_DETECT_GEN.hw_intr_reg ),
         .I5(\REG_GEN[4].IAR_NORMAL_MODE_GEN.iar_reg0 ),
         .O(\REG_GEN[4].isr[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[4].isr[4]_i_2 
@@ -3107,7 +3167,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\INTR_DETECT_GEN[5].EDGE_DETECT_GEN.hw_intr_reg ),
         .I5(\REG_GEN[5].IAR_NORMAL_MODE_GEN.iar_reg0 ),
         .O(\REG_GEN[5].isr[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[5].isr[5]_i_2 
@@ -3152,7 +3212,6 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\INTR_DETECT_GEN[6].EDGE_DETECT_GEN.hw_intr_reg ),
         .I5(\REG_GEN[6].IAR_NORMAL_MODE_GEN.iar_reg0 ),
         .O(\REG_GEN[6].isr[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[6].isr[6]_i_2 
@@ -3197,7 +3256,7 @@ module design_1_axi_intc_0_0_intc_core
         .I4(\INTR_DETECT_GEN[7].LVL_DETECT_GEN.hw_intr_reg ),
         .I5(\REG_GEN[7].IAR_NORMAL_MODE_GEN.iar_reg0 ),
         .O(\REG_GEN[7].isr[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[7].isr[7]_i_2 

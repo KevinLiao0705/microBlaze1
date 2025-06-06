@@ -1,8 +1,8 @@
 //Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-//Date        : Sun Jun  1 00:05:57 2025
-//Host        : DESKTOP-3AU9R2V running 64-bit major release  (build 9200)
+//Date        : Fri Jun  6 17:00:20 2025
+//Host        : DESKTOP-V5UHSH2 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
 //Purpose     : IP block netlist
@@ -41,7 +41,8 @@ module design_1_wrapper
     uartIpcRx2,
     uartIpcRxH,
     uartIpcTx2,
-    uartIpcTxH);
+    uartIpcTxH,
+    wgRfOut);
   input [15:0]dfInN;
   input [15:0]dfInP;
   output [7:0]dfOutN;
@@ -74,6 +75,7 @@ module design_1_wrapper
   output uartIpcRxH;
   input uartIpcTx2;
   input uartIpcTxH;
+  output wgRfOut;
 
   wire [15:0]dfInN;
   wire [15:0]dfInP;
@@ -107,6 +109,7 @@ module design_1_wrapper
   wire uartIpcRxH;
   wire uartIpcTx2;
   wire uartIpcTxH;
+  wire wgRfOut;
 
   design_1 design_1_i
        (.dfInN(dfInN),
@@ -140,5 +143,6 @@ module design_1_wrapper
         .uartIpcRx2(uartIpcRx2),
         .uartIpcRxH(uartIpcRxH),
         .uartIpcTx2(uartIpcTx2),
-        .uartIpcTxH(uartIpcTxH));
+        .uartIpcTxH(uartIpcTxH),
+        .wgRfOut(wgRfOut));
 endmodule
