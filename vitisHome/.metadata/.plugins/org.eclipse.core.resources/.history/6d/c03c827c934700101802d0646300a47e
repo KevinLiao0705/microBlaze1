@@ -1046,7 +1046,7 @@ void udIpcRxPrg(UartData *udp)
 					}
 				}
 
-				if(fpgaId==2 || fpgaId==3  ){
+				if(fpgaId==2){
 					u16 ia[3]={0,0,0};
 					if(para2==0x2000){//sspaPowerOn
 						u8* bufA=radarData.sspaPowerExistAA;

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="mainLoop"/>
+		<item key="selection" value="2000"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="2000"/>
+			<item value="2008"/>
 			<item value="mainLoop"/>
 			<item value="loadTickTest"/>
 			<item value="udUart[0]"/>
@@ -21,8 +23,6 @@
 			<item value="trans"/>
 			<item value="tramsBra"/>
 			<item value="tramsBra,"/>
-			<item value="mySerialId"/>
-			<item value="deviceId"/>
 		</list>
 		<list key="replacehistory">
 		</list>
