@@ -486,7 +486,7 @@ output:
         wgTrigGate_f=s1WgTrigGate_f;
         fibTxB1_f=txSysData1_data_w;
         //===================================
-        hdfoR=bmem[17][7:0];
+        hdfoR=mem[17][7:0];
         if(fpgaId==0)//mast
             chDelay=0;
         if(fpgaId==1)//sub
@@ -627,7 +627,7 @@ output:
             fib3TxData=s1RxIn_f;//data through
             fib4TxData=s1RxIn_f;//data through
         end
-        if(bmem[13][7:6]==3)begin//endPoint
+        if(bmem[13][7:6]==3)begin//local
             fib1TxData=hostS1TxData_w;
             fib2TxData=hostS1TxData_w;
             fib3TxData=hostS1TxData_w;
@@ -1364,18 +1364,18 @@ output:
             laChR[3] = hdfioA[3];
             laChR[4] = hdfioA[4];
             laChR[5] = hdfioA[5]; 
-            laChR[6] = hdfioA[7];
-            laChR[7] = hdfioA[8];
+            laChR[6] = hdfioA[6];
+            laChR[7] = hdfioA[7];
             //===========================
         end  
         if(bmem[5][19:16] == 4'b0101)begin
-            laChR[0] = hdfioA[9];
-            laChR[1] = hdfioA[10];
-            laChR[2] = hdfioA[11];
-            laChR[3] = hdfioA[12];
-            laChR[4] = hdfioA[13];
-            laChR[5] = wgRfOut; 
-            laChR[6] = 0;
+            laChR[0] = hdfioA[8];
+            laChR[1] = hdfioA[9];
+            laChR[2] = hdfioA[10];
+            laChR[3] = hdfioA[11];
+            laChR[4] = hdfioA[12];
+            laChR[5] = hdfioA[13];
+            laChR[6] = wgRfOut;
             laChR[7] = 0;
             //===========================
         end
@@ -1479,16 +1479,16 @@ output:
             laChR[2] = hdfioA[10];
             laChR[3] = hdfioA[11];
             laChR[4] = hdfioA[12];
-            laChR[5] = hdfioA[3];
+            laChR[5] = hdfioA[13];
             laChR[6] = 0;
             laChR[7] = 0;
             //===========================
         end  
         if(bmem[5][19:16] == 4'b1111)begin
-            laChR[0] = 0;
-            laChR[1] = 0;
-            laChR[2] = 0;
-            laChR[3] = 0;
+            laChR[0] = mem[17][8];
+            laChR[1] = mem[17][9];
+            laChR[2] = mem[17][10];
+            laChR[3] = mem[17][11];
             laChR[4] = s1RxIn_f;
             laChR[5] = s1RxPack_w; 
             laChR[6] = testBuf[0];
@@ -1510,6 +1510,7 @@ assign ramOutData = ramOutDataR;
 assign ledV3=baseTimer[24];
 assign ledV4=base160Timer[25];
 assign laCh[15:0]=laChR[15:0];
+assign hdfoA=hdfoR;
 
 assign fibTxA[0]=fib1TxData;
 assign fibTxA[1]=fib2TxData;

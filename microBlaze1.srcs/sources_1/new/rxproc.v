@@ -214,7 +214,7 @@ module RXPROC(
         //========================
 	end			
 	
-	
+    /*	
     //rxclk generator
     //==================================================================================
     reg[5:0] rx4mTimeCnt;
@@ -251,6 +251,75 @@ module RXPROC(
             end
 		end
 	end	
+	
+    */
+
+    //rxclk generator
+    //==================================================================================
+    
+    
+    reg[5:0] rx4mTimeCnt;
+    reg[5:0] rxinHTimeCnt;
+    reg[7:0] decTime;
+    reg[7:0] incTime;
+    reg dec_f;
+    reg inc_f;
+    always @(posedge clk160m_i) begin
+        if(dec_f)begin
+            dec_f<=0;
+        end
+        else if(inc_f)begin
+            inc_f<=0;
+            if(rx4mTimeCnt==38)
+                rx4mTimeCnt<=0;
+            else if(rx4mTimeCnt==39)
+                rx4mTimeCnt<=1;
+             else   
+                rx4mTimeCnt<=rx4mTimeCnt+2;
+        end        
+        else begin
+            if(rx4mTimeCnt==39)
+                rx4mTimeCnt<=0;
+            else
+                rx4mTimeCnt<=rx4mTimeCnt+1;
+        end    
+        //================
+        if(rx4mTimeCnt<16)
+            rxClk4m_f<=0;
+		else if(rx4mTimeCnt<36)
+            rxClk4m_f<=1;
+        else
+            rxClk4m_f<=0;
+        //================
+        if(!rxData_i) 
+            rxinHTimeCnt<=0;
+        else begin
+            if(!rxinHTimeCnt[4])
+                rxinHTimeCnt<=rxinHTimeCnt+1;
+            if(rxinHTimeCnt==4)begin
+                if(rx4mTimeCnt==0)begin
+                end    
+                else if(rx4mTimeCnt<20)begin
+                    decTime<=decTime+1;
+                    incTime<=0;
+                    if(decTime>5)begin
+                        decTime<=0;
+                        dec_f<=1;
+                    end
+                end        
+                else begin
+                    incTime<=incTime+1;
+                    decTime<=0;
+                    if(incTime>5)begin
+                        incTime<=0;
+                        inc_f<=1;
+                    end
+                end    
+            end
+		end
+	end	
+	
+	
 	assign rxData0_ob = rxData0;
 	assign rxData1_ob = rxData1;
 	assign rxData2_ob = rxData2;
