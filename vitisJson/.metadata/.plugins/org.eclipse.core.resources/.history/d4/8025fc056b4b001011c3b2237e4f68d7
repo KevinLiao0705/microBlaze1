@@ -1392,8 +1392,6 @@ void transBram(){
 	ibuf+=radarData.preTrigTime<<16;
 	writeBram32(ibuf);//mem[4]
 	//===================
-	//radarData.laGroupCh=8;
-
 
 	ibuf=radarData.commTestPacks;
 	ibuf+=radarData.laGroupCh<<16;

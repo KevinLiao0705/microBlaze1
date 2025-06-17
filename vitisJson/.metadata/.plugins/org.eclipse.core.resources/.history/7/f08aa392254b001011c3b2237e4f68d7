@@ -1392,8 +1392,6 @@ void transBram(){
 	ibuf+=radarData.preTrigTime<<16;
 	writeBram32(ibuf);//mem[4]
 	//===================
-	//radarData.laGroupCh=8;
-
 
 	ibuf=radarData.commTestPacks;
 	ibuf+=radarData.laGroupCh<<16;
@@ -1666,8 +1664,6 @@ u8 uart0TxBuffer[20];
 u8 first_f=1;
 u8 warnUpTime=10;
 
-u8 iTest_f=0;
-u32 iTestTime=0;
 
 //$main
 int main()
@@ -1878,7 +1874,6 @@ int main()
 	radarData.pulseGenCh=0;
 	transBram();
 	ledStatus=1;
-	iTestTime=0;
 
 //mainLoop
 	while (1)
@@ -1891,31 +1886,6 @@ int main()
 				maxLoopTime=loopTime;
 		}
 		preLoopTime=nowTime;
-
-		//============================
-		if(iTest_f){
-			u32 deltaTime=nowTime-iTestTime;
-			if(deltaTime>(20*160)){
-				iTest_f=0;
-				iTestTime=nowTime;
-				hdfoBuf&=0xdd;
-				bramAddr = 17*4;
-				writeBram32(hdfoBuf);//mem[0]
-			}
-		}
-		else{
-			u32 deltaTime=nowTime-iTestTime;
-			if(deltaTime>(200*160)){
-				iTest_f=1;
-				iTestTime=nowTime;
-				hdfoBuf|=0x22;
-				bramAddr = 17*4;
-				writeBram32(hdfoBuf);//mem[0]
-			}
-
-		}
-		//============================
-
 		timerFlag = nowTime ^ timerBuf;
 		timerBuf = nowTime;
 		if (timerFlag & 0x00008000) // 204.8us
@@ -2327,10 +2297,9 @@ void timerPrg3()
 	hdfoCnt++;
 	if(hdfoCnt>=10){
 		hdfoCnt=0;
-		hdfoBuf^=0x5d;
+		hdfoBuf^=0x7f;
 		bramAddr = 17*4;
 		writeBram32(hdfoBuf);//mem[0]
-
 	}
 
 
