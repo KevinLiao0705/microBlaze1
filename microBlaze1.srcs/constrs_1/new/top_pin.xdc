@@ -266,11 +266,11 @@ set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[5]}]
 set_property PACKAGE_PIN J16 [get_ports {gpInA[4]}]
 set_property IOSTANDARD LVCMOS25 [get_ports {gpInA[4]}]
 
-# ioB44
+# ioB46
 set_property PACKAGE_PIN M20 [get_ports {uartIpcTx2}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcTx2}]
 
-# ioB45
+# ioB47
 set_property PACKAGE_PIN L16 [get_ports {uartIpcRx2}]
 set_property IOSTANDARD LVCMOS25 [get_ports {uartIpcRx2}]
 
