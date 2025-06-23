@@ -1,6 +1,6 @@
 Nothing to build in platform 'syncBlaze'
 
-21:45:53 **** Incremental Build of configuration Debug for project syncMain ****
+09:31:05 **** Incremental Build of configuration Debug for project syncMain ****
 make all 
 'Building file: ../src/helloworld.c'
 'Invoking: MicroBlaze gcc compiler'
@@ -71,6 +71,16 @@ E:/kevin/myCode/microBlaze1/vitisHome/syncBlaze/export/syncBlaze/sw/syncBlaze/st
 ../src/helloworld.c:2529:13: warning: unused variable 'ibuf' [-Wunused-variable]
  2529 |         int ibuf;
       |             ^~~~
+../src/helloworld.c: In function 'loadTickIpc':
+../src/helloworld.c:2798:21: warning: unused variable 'freqCh' [-Wunused-variable]
+ 2798 |                 u32 freqCh=readBram32();
+      |                     ^~~~~~
+../src/helloworld.c:2797:21: warning: unused variable 'highPeriod' [-Wunused-variable]
+ 2797 |                 u32 highPeriod=readBram32();
+      |                     ^~~~~~~~~~
+../src/helloworld.c:2796:21: warning: unused variable 'lowPeriod' [-Wunused-variable]
+ 2796 |                 u32 lowPeriod=readBram32();
+      |                     ^~~~~~~~~
 'Finished building: ../src/helloworld.c'
 ' '
 'Building target: syncMain.elf'
@@ -81,6 +91,6 @@ mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/kevin/myCode/microBlaze1/vitisHome/sync
 'Invoking: MicroBlaze Print Size'
 mb-size syncMain.elf  |tee "syncMain.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  52692	    492	  42616	  95800	  17638	syncMain.elf
+  53320	    492	  42620	  96432	  178b0	syncMain.elf
 'Finished building: syncMain.elf.size'
 ' '

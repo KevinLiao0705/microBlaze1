@@ -319,6 +319,47 @@ checkRxSys
             rxSysData1_pack_ff<=rxSysData1_pack_w;                   
     end
 
+
+/*===========================================================
+generate pulseFormInf
+=============================================================*/
+    reg wgRfoutH_f;
+    reg debugPin1_f;
+    reg[31:0] wgRfoutTime;
+    reg[31:0] wgRfoutCnt;
+    reg[31:0] wgRfoutPeriod;
+    always @(posedge clk160m) begin
+        if(wgRfoutH_f ^ wgRfout_f)begin
+            rmem[wgRfoutCnt[3:0]+48]<=(wgRfoutTime<<1)+(!wgRfout_f);
+            rmem[37]<=wgRfoutCnt;
+            debugPin1_f<=!debugPin1_f;
+            wgRfoutCnt<=wgRfoutCnt+1;
+            if(wgRfout_f)
+                rmem[38]<=wgRfoutPeriod;//low period
+            else
+                rmem[39]<=wgRfoutPeriod;//high period
+            rmem[40][5:0]<=s1SyncRfFreq;    
+            wgRfoutH_f<=wgRfout_f;
+            wgRfoutTime<=1;
+            wgRfoutPeriod<=1;     
+        end
+        else begin
+            wgRfoutTime<=wgRfoutTime+1;
+            if(!wgRfoutPeriod[31])
+                wgRfoutPeriod<=wgRfoutPeriod+1;
+            if(wgRfoutPeriod>=160*100000)begin
+                rmem[38]<=0;//low period
+                rmem[39]<=0;//high period
+            end                
+            if(wgRfoutTime>=160*10000)begin
+                rmem[wgRfoutCnt[3:0]+48]<=(wgRfoutTime<<1)+(wgRfout_f);
+                rmem[37]<=wgRfoutCnt;
+                wgRfoutCnt<=wgRfoutCnt+1;
+                wgRfoutTime<=1;
+            end
+        end
+    end
+
         
     
 /*===========================================================
@@ -1376,7 +1417,7 @@ output:
             laChR[4] = hdfioA[12];
             laChR[5] = hdfioA[13];
             laChR[6] = wgRfOut;
-            laChR[7] = 0;
+            laChR[7] = debugPin1_f;
             //===========================
         end
         

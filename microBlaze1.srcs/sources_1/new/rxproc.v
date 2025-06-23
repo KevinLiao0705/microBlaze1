@@ -214,7 +214,7 @@ module RXPROC(
         //========================
 	end			
 	
-    /*	
+    	
     //rxclk generator
     //==================================================================================
     reg[5:0] rx4mTimeCnt;
@@ -252,12 +252,12 @@ module RXPROC(
 		end
 	end	
 	
-    */
+    
 
     //rxclk generator
     //==================================================================================
     
-    
+    /*   
     reg[5:0] rx4mTimeCnt;
     reg[5:0] rxinHTimeCnt;
     reg[7:0] decTime;
@@ -318,7 +318,7 @@ module RXPROC(
             end
 		end
 	end	
-	
+	*/
 	
 	assign rxData0_ob = rxData0;
 	assign rxData1_ob = rxData1;

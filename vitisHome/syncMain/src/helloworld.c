@@ -471,7 +471,7 @@ static XUartLite uart1Obj;
 
 
 
-
+u32 prePulseCnt=0;
 u32 outFlag = 0;
 u32 inFlag = 0xffffffff;
 UartData udIpc;
@@ -2791,6 +2791,51 @@ void loadTickIpc(){
 			udp->txBuffer[inx++]=(ibuf>>16)&255;
 			udp->txBuffer[inx++]=(ibuf>>24)&255;
 		}
+		bramAddr=37*4;
+		u32 pcnt=readBram32();
+		u32 lowPeriod=readBram32();
+		u32 highPeriod=readBram32();
+		u32 freqCh=readBram32();
+
+		udp->txBuffer[inx++]=0xb0;
+		int lenInx=inx;
+		udp->txBuffer[inx++]=0;
+		int ddd=0;
+		for(;;){
+			int ichg=(prePulseCnt^pcnt)&15;
+			if(ichg==0)
+				break;
+			bramAddr=((prePulseCnt&15)+48)*4;
+			ibuf = readBram32();
+			udp->txBuffer[inx++]=ibuf&255;
+			udp->txBuffer[inx++]=(ibuf>>8)&255;
+			udp->txBuffer[inx++]=(ibuf>>16)&255;
+			udp->txBuffer[inx++]=(ibuf>>24)&255;
+			udp->txBuffer[lenInx]=udp->txBuffer[lenInx]+1;
+			prePulseCnt++;
+			ddd++;
+		}
+
+
+		/*
+		udp->txBuffer[inx++]=0xb0;
+		udp->txBuffer[inx++]=2;
+		for(int i=0;i<1;i++){
+			ibuf = 125000*2+1;
+			udp->txBuffer[inx++]=ibuf&255;
+			udp->txBuffer[inx++]=(ibuf>>8)&255;
+			udp->txBuffer[inx++]=(ibuf>>16)&255;
+			udp->txBuffer[inx++]=(ibuf>>24)&255;
+			ibuf = 900000*2+0;
+			udp->txBuffer[inx++]=ibuf&255;
+			udp->txBuffer[inx++]=(ibuf>>8)&255;
+			udp->txBuffer[inx++]=(ibuf>>16)&255;
+			udp->txBuffer[inx++]=(ibuf>>24)&255;
+		}
+		*/
+
+
+
 		udp->txPackItemCnt1++;
 		//====================================
 		udp->txBuffer[inx++]=0xcd;//check end
