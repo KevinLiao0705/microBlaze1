@@ -2813,6 +2813,7 @@ void loadTickIpc(){
 			udp->txBuffer[lenInx]=udp->txBuffer[lenInx]+1;
 			prePulseCnt++;
 		}
+
 		udp->txBuffer[inx++]=0xb1;
 		udp->txBuffer[inx++]=9;
 		bramAddr=38*4;
@@ -2828,6 +2829,8 @@ void loadTickIpc(){
 		udp->txBuffer[inx++]=(ibuf>>24)&255;
 		ibuf = readBram32();
 		udp->txBuffer[inx++]=ibuf&255;
+
+
 
 		/*
 		udp->txBuffer[inx++]=0xb0;

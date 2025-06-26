@@ -9,6 +9,9 @@
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
 			<item value="tickIpc"/>
+			<item value="rmem[37"/>
+			<item value="pulse"/>
+			<item value="pulseFo"/>
 			<item value="pulseForm"/>
 			<item value="readBram32"/>
 			<item value="transBram"/>
@@ -20,9 +23,6 @@
 			<item value="bram"/>
 			<item value="mainLoop"/>
 			<item value="viewData"/>
-			<item value="udIpcRx"/>
-			<item value="ae"/>
-			<item value="ad"/>
 		</list>
 		<list key="replacehistory">
 		</list>
